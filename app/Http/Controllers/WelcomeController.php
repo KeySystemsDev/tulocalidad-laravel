@@ -1,5 +1,4 @@
-<?php 
-use View;
+<?php namespace App\Http\Controllers;
 
 class WelcomeController extends Controller {
 
@@ -14,14 +13,14 @@ class WelcomeController extends Controller {
 	|
 	*/
 
-	
 	/**
 	 * Create a new controller instance.
 	 *
 	 * @return void
 	 */
-	public function __construct(){
-
+	public function __construct()
+	{
+		$this->middleware('guest');
 	}
 
 	/**
@@ -29,14 +28,9 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index(){
-		$a = 'Me cagp en la madre';
-		return View::make('welcome', compact('a'));
-	}
-
-	public function prueba(){
-		$a = 'Vista 2';
-		return View::make('prueba', compact('a'));
+	public function index()
+	{
+		return view('welcome');
 	}
 
 }

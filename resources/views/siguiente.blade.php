@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Laravel</title>
+		<title>Esta es una vista nueva</title>
 		
 		<link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
 
@@ -40,8 +40,10 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Laravel 5</div>
-				<a href="http://localhost/ks/laravel2/public/ejemplo/nueva/54">ir a pagina 2</a>
+				<div class="title">Vincen Santaella</div>
+				<div class="quote">{{ $edad }}</div>
+				<a href="//localhost/ks/laravel2/public/ejemplo/nueva/{{ $edad }}">incrementar</a>
+
 			</div>
 		</div>
 	</body>

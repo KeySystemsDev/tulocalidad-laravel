@@ -15,13 +15,11 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::any('hola',function(){
-	return 'Hola mundo';
-});
-
+Route::get('ejemplo', 'EjemploController@index');
+Route::get('ejemplo/nueva/{id}', 'EjemploController@nueva');
+Route::get('ejemplo/siguiente/{id}', 'EjemploController@siguiente');

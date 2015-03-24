@@ -29,8 +29,8 @@ class AuthController extends Controller {
 	 */
 	public function __construct(Guard $auth, Registrar $registrar)
 	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
+		$this->auth = 'hola';//$auth;
+		$this->registrar = '1234';//$registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}

@@ -41,7 +41,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="title">Laravel 5</div>
-				<a href="http://localhost/ks/laravel2/public/ejemplo/nueva/54">ir a pagina 2</a>
+				<a href="http://localhost/ks/tulocalidad-laravel/public/ejemplo/nueva/2">ir a pagina 2</a>
 			</div>
 		</div>
 	</body>

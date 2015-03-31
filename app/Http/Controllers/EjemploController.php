@@ -1,7 +1,7 @@
-<?php namespace App\Http\Controllers;
+<?php namespace Tulocalidad\Http\Controllers;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Tulocalidad\Http\Requests;
+use Tulocalidad\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use View;

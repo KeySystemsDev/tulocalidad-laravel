@@ -1,4 +1,4 @@
-<?php namespace App\Events;
+<?php namespace Tulocalidad\Events;
 
 abstract class Event {
 

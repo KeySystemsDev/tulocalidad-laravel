@@ -23,3 +23,5 @@ Route::controllers([
 Route::get('ejemplo', 'EjemploController@index');
 Route::get('ejemplo/nueva/{id}', 'EjemploController@nueva');
 Route::get('ejemplo/siguiente/{id}', 'EjemploController@siguiente');
+Route::get('formulario', 'formularioController@index');
+Route::post('formulario/recibir', 'formularioController@registro');

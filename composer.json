@@ -16,7 +16,7 @@
 			"database"
 		],
 		"psr-4": {
-			"Tulocalidad\\": "app/"
+			"App\\": "app/"
 		}
 	},
 	"autoload-dev": {

@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: Tulocalidad
-        psr4_prefix: Tulocalidad
+        namespace: App
+        psr4_prefix: App
         src_path: app

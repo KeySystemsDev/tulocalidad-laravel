@@ -1,4 +1,4 @@
-<?php namespace Tulocalidad\Commands;
+<?php namespace App\Commands;
 
 abstract class Command {
 

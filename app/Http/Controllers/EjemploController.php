@@ -1,7 +1,7 @@
-<?php namespace Tulocalidad\Http\Controllers;
+<?php namespace App\Http\Controllers;
 
-use Tulocalidad\Http\Requests;
-use Tulocalidad\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use View;
@@ -13,7 +13,7 @@ class EjemploController extends Controller {
 	 * @return Response
 	 */
 	public function index(){
-		echo 'Hola mundo';
+		return View::make('formulario'); ;
 	}
 
 	/**

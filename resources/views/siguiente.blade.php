@@ -42,7 +42,7 @@
 			<div class="content">
 				<div class="title">Vincen Santaella</div>
 				<div class="quote">{{ $edad }}</div>
-				<a href="//localhost/ks/tulocalidad-laravel/public/ejemplo/nueva/{{ $edad }}">incrementar</a>
+				<a href="//localhost/ks/laravel/public/ejemplo/nueva/{{ $edad }}">incrementar</a>
 
 		</div>
 	</body>

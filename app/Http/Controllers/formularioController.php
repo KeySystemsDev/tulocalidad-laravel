@@ -16,18 +16,8 @@ class formularioController extends Controller {
 
 	public function registro(){
 		$data =input::all();
-		print_r($data);
-		/*echo $data[$nombre];
-		echo $data[$rif];
-		echo $data[$direccion];
-		echo $data[$categoria];
-		echo $data[$estados];
-		echo $data[$telefono];
-		echo $data[$telefono2];
-		echo $data[$telefono3];
-		echo $data[$celular];*/
 
-	 return View::make('recibir',$data);   
+	 return View::make('recibir',compact('data'));   
 }
 }
 

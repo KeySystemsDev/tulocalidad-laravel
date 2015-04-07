@@ -11,14 +11,14 @@
 |
 */
 
-/*Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
-]);*/
+]);
 
 Route::get('ejemplo', 'EjemploController@index');
 Route::get('ejemplo/nueva/{id}', 'EjemploController@nueva');

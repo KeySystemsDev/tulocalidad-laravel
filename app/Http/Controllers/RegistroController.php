@@ -7,39 +7,39 @@ use View;
 
 class RegistroController extends Controller {
 
-	public function registro_empresa(){
+	public function empresa_registro(){
 
 	
-	return View::make('Registro/Registro_empresa/formulario_empresa');   
+	return View::make('registro/empresa_registro/empresa_formulario');   
 }
 
 
-	public function procesado_empresa(){
+	public function empresa_procesado(){
 		$data =input::all();
 
-	 return View::make('Registro/Registro_empresa/procesado', compact('data'));   
+	 return View::make('registro/empresa_procesado/procesado', compact('data'));   
 }
-	public function registro_publicidad(){
+	public function publicidad_registro(){
 
 	
-	return View::make('Registro/Registro_publicidad/formulario_publicidad');   
+	return View::make('registro/publicidad_registro/publicidad_formulario');   
 }
 
-	public function procesado_publicidad(){
+	public function publicidad_procesado(){
 		$data =input::all();
 
-	 return View::make('Registro/Registro_publicidad/procesado',compact('data'));   
+	 return View::make('registro/publicidad_registro/procesado',compact('data'));   
 }
-public function registro_usuario(){
+public function usuario_registro(){
 
 	
-	return View::make('Registro/Registro_usuario/formulario_usuario');   
+	return View::make('registro/usuario_registro/formulario_usuario');   
 }
 
-	public function procesado_usuario(){
+	public function usuario_procesado(){
 		$data =input::all();
 		
-	 return View::make('Registro/Registro_usuario/procesado',compact('data'));   
+	 return View::make('registro/usuario_procesado/procesado',compact('data'));   
 }
 }
 

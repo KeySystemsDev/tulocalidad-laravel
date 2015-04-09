@@ -25,9 +25,9 @@ Route::get('ejemplo/nueva/{id}', 'EjemploController@nueva');
 Route::get('ejemplo/siguiente/{id}', 'EjemploController@siguiente');
 Route::get('formulario', 'formularioController@index');
 Route::post('formulario/recibir', 'formularioController@registro');
-Route::get('registro/registro_empresa/formulario_empresa', 'RegistroController@registro_empresa');
-/*Route::post('registro/registro_empresa/', 'RegistroController@procesado_empresa');*/
-Route::get('registro/registro_publicidad/', 'RegistroController@registro_publicidad');
-Route::post('registro/registro_publicidad/', 'RegistroController@procesado_publicidad');
-Route::get('registro/registro_usuario/', 'RegistroController@registro_usuario');
-Route::post('registro/registro_usuario/', 'RegistroController@procesado_usuario');
+Route::get('registro/empresa-registro/', 'RegistroController@empresa_registro');
+Route::post('registro/empresa-registro/', 'RegistroController@empresa_procesado');
+Route::get('registro/publicidad-registro/', 'RegistroController@publicidad_registro');
+Route::post('registro/publicidad-registro/', 'RegistroController@publicidad_procesado');
+Route::get('registro/usuario-registro/', 'RegistroController@usuario_registro');
+Route::post('registro/usuario-registro/', 'RegistroController@usuario_procesado');

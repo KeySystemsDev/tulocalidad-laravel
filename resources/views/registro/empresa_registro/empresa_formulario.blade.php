@@ -4,7 +4,7 @@
 </head>
 <body><center>
 				<p>Registra tu empresa para el directorio</p>
-		<form action ='procesado', method ='post', name ='formulario'>
+		<form action ="{{url ('procesado')}}"'procesado', method ='post', name ='formulario'>
 		<div>Nombre:<input type ="text", maxlength="20", name ="nombre", value ="" > </div> <br>
 		<div>Rif:<input type ="text", maxlength="10", name ="rif", value ="" > </div> <br>
 		<div>Direccion:<input type ="text", maxlength="100", name ="direccion", value ="" > </div><br>

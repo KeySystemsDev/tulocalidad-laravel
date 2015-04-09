@@ -5,7 +5,7 @@ $(document).ready(function() {
 	$('.payoff h1').addClass('visibility');
 	$('.features .col-md-4').addClass('visibility');
 	$('.descarga .col-md-4').addClass('visibility');
-	$('.registrar .col-md-4').addClass('visibility');
+	$('.registrar .col-md-12').addClass('visibility');
 	$('.social .col-md-12').addClass('visibility');
 });
 
@@ -76,7 +76,7 @@ var scrollTop = $(window).scrollTop();
 				
 	});
 
-	$('.registrar .col-md-4').each(function(){
+	$('.registrar .col-md-12').each(function(){
 			
 		var imagePos = $(this).offset().top;
 		var topOfWindow = $(window).scrollTop();

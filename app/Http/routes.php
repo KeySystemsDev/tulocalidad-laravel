@@ -32,3 +32,5 @@ Route::post('registro/publicidad-registro/procesado', 'RegistroController@public
 Route::get('registro/usuario-registro/usuario-formulario', 'RegistroController@usuario_registro');
 Route::post('registro/usuario-registro/procesado', 'RegistroController@usuario_procesado');
 Route::get('conectar', 'formularioController@conectar');
+Route::get('postfilter', 'formularioController@postFilters');
+Route::get('users', 'UsersController@action_index');

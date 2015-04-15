@@ -1,48 +1,145 @@
 <?php namespace App\Http\Controllers;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Input;
+//use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Http\Request;
-use Eloquent;
-//use Input;
+use View;
+use App\Empresa;
+use App\Prueba;
+use DB;
+use Input;
+class PruebaController extends Controller {
 
-class formularioController extends Controller {
+	public function callprocedure(){
 
-	public function index(){
-
-
-	 return View::make('formulario');   
+	$call = Prueba::p_consulta_estado();
+	print_r('$call');
+	//return View::make('registro.empresa_registro.empresa_formulario');
 	}
 
 
-	public function registro(){
-		$data = input::all();
-		$direccion = Input::get('direccion');
-		echo $direccion;
-		/*$data = input::direccion
-		print_r($data);*/
+	public function prueba(){
 
-
-	 return View::make('recibir',compact('data'));   
+		
+	return View::make('registro.empresa_registro.empresa_formulario');
 	}
 
-	public function conectar(){
-		$empresa = Empresa::empresa_consulta()->get();
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function Create(){
+			if($_POST){
+				$empresa = new Empresa;
+				$empresa->empresa_nombre = e(Input::get('nombre'));
+				$empresa->empresa_rif = e(Input::get('rif'));
+				$empresa->empresa_direccion = e(Input::get('direccion'));
+				$empresa->empresa_categoria = e(Input::get('categoria'));
+				$empresa->empresa_estado = e(Input::get('estados'));					
+				$empresa->empresa_telefono = e(Input::get('telefono'));
+				$empresa->empresa_telefono2 = e(Input::get('telefono2'));
+				$empresa->empresa_telefono3 = e(Input::get('telefono3'));
+				$empresa->empresa_movil = e(Input::get('celular'));
+				$empresa->save();
+
+				return View::make('registro.empresa_registro.satisfactorio');
+				}
+
+		
 	}
-	
-	public function postFilters(){
-		$m_empresa = NEW Empresa; 
-   		$filt = Input::get('direccion');
-   		$query = Empresa::getFilters($filt);
-   		return View::make('empresa.empresa_consulta', ['Empresa'=>$query]);
- 	} 
- /*	public function action_index()
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store(){
+
+		$user = new User;
+
+		$user->name = Input::get('name');
+		$user->twitter = Input::get('twitter');
+
+		if ($user->save()) {
+			Session::flash('message','Guardado correctamente!');
+			Session::flash('class','success');
+		} else {
+			Session::flash('message','Ha ocurrido un error!');
+			Session::flash('class','danger');
+		}
+
+		return Redirect::to('users/create');
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function getShow($id = null)
 	{
-		$users = User::all();
-		return View::make('user.index')->with('users', $users);
-	}*/
-}
+		$user = User::find($id);
 
-?>
+		return View::make('users.show')->with('user',$user);
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function getEdit($id = null)
+	{
+		$user = User::find($id);
+
+		return View::make('users.edit')->with('user',$user);
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		$user = User::find($id);
+
+		$user->name = Input::get('name');
+		$user->twitter = Input::get('twitter');
+
+		if ($user->save()) {
+			Session::flash('message','Actualizado correctamente!');
+			Session::flash('class','success');
+		} else {
+			Session::flash('message','Ha ocurrido un error!');
+			Session::flash('class','danger');
+		}
+
+		return Redirect::to('users/edit/'.$id);
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		$user = User::find($id);
+
+		if ($user->delete()) {
+			Session::flash('message','Eliminado correctamente!');
+			Session::flash('class','success');
+		} else {
+			Session::flash('message','Ha ocurrido un error!');
+			Session::flash('class','danger');
+		}
+
+		return Redirect::to('users');
+	}
+
+}

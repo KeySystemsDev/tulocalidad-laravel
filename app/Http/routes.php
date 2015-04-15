@@ -10,7 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('prueba','PruebaController@prueba');
+Route::post('create','PruebaController@create');
+Route::get('call','PruebaController@callprocedure');
 
+Route::post('/empresa/store','UserController@store');
+Route::post('/empresa/update/{id}','UserController@update');
+Route::get('/empresa/destroy/{id}','UserController@destroy');
+Route::controller('empresa','PruebaController');
 Route::get('/', 'WelcomeController@index');
 Route::get('registro/empresa-registro/empresa-formulario', 'RegistroController@empresa_registro');
 Route::post('registro/empresa-registro/procesado', 'RegistroController@empresa_procesado');
@@ -20,4 +27,4 @@ Route::get('registro/usuario-registro/usuario-formulario', 'RegistroController@u
 Route::post('registro/usuario-registro/procesado', 'RegistroController@usuario_procesado');
 Route::get('conectar', 'formularioController@conectar');
 Route::get('postfilter', 'formularioController@postFilters');
-Route::get('users', 'UsersController@action_index');
+

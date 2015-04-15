@@ -4,7 +4,9 @@
 </head>
 <body><center>
 				<p>Registra tu empresa para el directorio</p>
-		<form action ='create', method ='post', name ='formulario'>
+
+				<h4>Nueva  Empresa:</h4>
+		<form action ='procesado', method ='post', name ='formulario'>
 		<div>Nombre:<input type ="text", maxlength="20", name ="nombre", value ="" > </div> <br>
 		<div>Rif:<input type ="text", maxlength="10", name ="rif", value ="" > </div> <br>
 		<div>Direccion:<input type ="text", maxlength="100", name ="direccion", value ="" > </div><br>
@@ -17,9 +19,12 @@
 		<div>Telefono 2:<input type ="text", maxlength="11", name ="telefono2", value ="" > </div> <br>
 		<div>Telefono 3:<input type ="text", maxlength="11", name ="telefono3", value ="" > </div> <br>
 		<div>Telefono movil:<input type ="text", maxlength="11", name ="celular", value ="" > </div> <br>
-		<input type="hidden" name="grabar" value= "si">
 		<input type="submit" value="Registrar">
 		</form>
+
+		@if(Session::has('message'))
+		<div class="alert alert-{{ Session::get('class') }}">{{ Session::get('message')}}</div>
+		@endif
 
 	</center>
 </body>

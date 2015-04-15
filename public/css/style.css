@@ -13,7 +13,6 @@ _/_/_/_/    _/_/_/  _/    _/    _/_/_/    _/_/_/
                                   													 
                                   													 */
 @import "iconfont.css";
-@import "animate.min.css";
 
 /*-----------------------------------------------------------------------------------*/
 /* GENERAL
@@ -120,6 +119,7 @@ nav.navbar{
 	width: 100%;
 	border-radius: 0px;
 	transition: all 0.2s;
+	z-index: 999;
 }
 
 .navbar-nav{

@@ -9,10 +9,12 @@ use DB;
 use Input;
 class PruebaController extends Controller {
 
-	public function callprocedure(){
+	public function callprocedure($consulta_estado){
 
 	$call = Prueba::p_consulta_estado();
-	print_r('$call');
+
+	print_r($call);
+
 	//return View::make('registro.empresa_registro.empresa_formulario');
 	}
 
@@ -90,11 +92,9 @@ class PruebaController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function getEdit($id = null)
-	{
-		$user = User::find($id);
-
-		return View::make('users.edit')->with('user',$user);
+	public function edit(){
+			$listar_empresas = Empresa::all(); 
+			return View::make('registro.empresa_registro.editar', array('empresa' => $listar_empresas));
 	}
 
 	/**

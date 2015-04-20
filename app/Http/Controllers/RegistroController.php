@@ -4,42 +4,80 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use View;
 use App\Empresa;
+use DB;
 
 class RegistroController extends Controller {
 
-
-	public function getIndex(){
+	public function actionIndex(){
 		return View::make('registro/empresa_registro/consulta_rif');   
 	}
 
-	public function postEmpresa(){
-		$rif= e(Input::get('i_rif'));
-		$consulta = Empresa::where('empresa_rif','=', $rif)->get()->first();
-
-		/*if(!$consulta){
-			return View::make('registro/empresa_registro/empresa_editar', compact('consulta'));
+	public function actionEmpresa($rif){
+		$rif = (Input::get('i_rif'));
+		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
+			
+		if(count($consulta) == 0){
+			$categoria = DB::table('t_categoria')->get();
+			$estados = DB::table('t_estados')->get();
+			return View::make('registro/empresa_registro/empresa_registrar', compact('categoria'), array('estados' => $estados)); 	     
 		}else{
-			return View::make('registro/empresa_registro/empresa_registrar', compact('consulta'));
+			return View::make('registro/empresa_registro/mostrar_empresa', array('consulta' => $consulta));
 		}
-		//print_r($consulta);
-		return View::make('registro/empresa_registro/mostrar_rif', compact('consulta'));	  */
+	} 
+
+/*
+	public function actionRegistrar(){
+		$categoria = DB::table('t_categoria')->get();
+		$estados = DB::table('t_estados')->get();
+		return View::make('registro/empresa_registro/empresa_registrar', compact('categoria'), array('estados' => $estados)); 	  
+	}
+*/
+	public function actionEditar($id_empresa = null){
+		
+		if ($_POST) {
+			Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
+				array(
+					'nombre_empresa' => (Input::get('i_nombre')),
+					'rif_empresa'    => (Input::get('i_rif')),
+					'direccion_empresa' => (Input::get('i_direccion')),
+					'empresa_categoria' => (Input::get('i_categoria')),
+					'empresa_estado' => (Input::get('i_estados')),			
+					'telefono_empresa' => (Input::get('i_telefono')),
+					'telefono_2_empresa' => (Input::get('i_telefono2')),
+					'telefono_3_empresa' => (Input::get('i_telefono3')),
+					'telefono_movil_empresa '=> (Input::get('i_celular')),
+				)
+			);
+			return Redirect::to('registro/empresa_registro/mostrar_empresa');
+		}
+
+		$t_empresa = Empresa::find($id_empresa);
+
+		return View::make('registro/empresa_registro/empresa_editar', array('t_empresa' =>$t_empresa));  
 	}
 
+	/*public function postMostrar(){
+		$rif = (Input::get('consulta'));
 
-	public function postEmpresa_procesado(){
+		$lista_empresa = Empresa::all();
+		return View::make('registro/empresa_registro/mostrar_empresa', array('lista_empresa' => $lista_empresa)); 
+	}*/
+
+
+	public function actionEmpresa_procesado(){
 		$empresa = new Empresa;
-		$empresa->empresa_nombre = e(Input::get('i_nombre'));
-		$empresa->empresa_rif = e(Input::get('i_rif'));
-		$empresa->empresa_direccion = e(Input::get('i_direccion'));
-		$empresa->empresa_categoria = e(Input::get('i_categoria'));
-		$empresa->empresa_estado = e(Input::get('i_estados'));					
-		$empresa->empresa_telefono = e(Input::get('i_telefono'));
-		$empresa->empresa_telefono2 = e(Input::get('i_telefono2'));
-		$empresa->empresa_telefono3 = e(Input::get('i_ztelefono3'));
-		$empresa->empresa_movil = e(Input::get('celular'));
+		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
+		$empresa->rif_empresa = e(Input::get('i_rif'));
+		$empresa->direccion_empresa = e(Input::get('i_direccion'));
+		$empresa->id_categoria = e(Input::get('i_categoria'));
+		$empresa->id_estado = e(Input::get('i_estados'));					
+		$empresa->telefono_empresa = e(Input::get('i_telefono'));
+		$empresa->telefono_2_empresa = e(Input::get('i_telefono2'));
+		$empresa->telefono_3_empresa = e(Input::get('i_telefono3'));
+		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
 		$a = 'se guardo exitosamente';
-	 	return View::make('registro/empresa_registro/procesado', compact('a'));   
+	 	return View::make('registro/empresa_registro/crear_empresa', compact('a'));   
 	}
 
 

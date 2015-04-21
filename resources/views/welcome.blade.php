@@ -2,38 +2,39 @@
 
 @section('content')
 	  
-  	<!-- NAVBAR
-      	================================================== -->
-  	<nav class="navbar navbar-default" role="navigation">
-  	  	<div class="container">
-		  	<div class="navbar-header">
-		    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-		      		<span class="sr-only">Toggle navigation</span>
-		      		<span class="icon-bar"></span>
-		      		<span class="icon-bar"></span>
-		      		<span class="icon-bar"></span>
-		    	</button>
-		    
-		    <!--Replace text with your app name or logo image-->
-		    <a class="navbar-brand" href="#">
-		    	<img class="img-tulocaldiad-bar" src="img/tulocalidad40px.png">
-		    </a>
-		    
-		  	</div>
-		  	<div class="collapse navbar-collapse navbar-ex1-collapse">
-		    	<ul class="nav navbar-nav">
-		      		<li><a onclick="$('header').animatescroll({padding:71});">Inicio</a></li>
-		      		<li><a onclick="$('.payoff').animatescroll({padding:71});">Descripción</a></li>
-		      		<li><a onclick="$('.detail').animatescroll({padding:71});">¿Cómo Usar?</a></li>
-		      		<li><a onclick="$('.features').animatescroll({padding:71});">Bondades</a></li>
-		      		<li><a onclick="$('.descarga').animatescroll({padding:71});">Descarga</a></li>
-		      		<li><a onclick="$('.registrar').animatescroll({padding:71});">Registrate</a></li>
-		      		<li><a onclick="$('.social').animatescroll({padding:71});">Contactanos</a></li>
-		    	</ul>
-		  	</div>
-	  	</div>
-  	</nav>
-	  
+<!-- NAVBAR
+	================================================== -->
+<nav class="navbar navbar-default" role="navigation">
+  	<div class="container">
+  	<div class="navbar-header">
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      		<span class="sr-only">Toggle navigation</span>
+      		<span class="icon-bar"></span>
+      		<span class="icon-bar"></span>
+      		<span class="icon-bar"></span>
+    	</button>
+    
+    <!--Replace text with your app name or logo image-->
+    <a class="navbar-brand" href="#">
+    	<img class="img-tulocaldiad-bar" src="img/tulocalidad40px.png">
+    </a>
+    
+  	</div>
+  	<div class="collapse navbar-collapse navbar-ex1-collapse">
+    	<ul class="nav navbar-nav">
+      		<li><a onclick="$('header').animatescroll({padding:71});">Inicio</a></li>
+      		<li><a onclick="$('.payoff').animatescroll({padding:71});">Descripción</a></li>
+      		<li><a onclick="$('.detail').animatescroll({padding:71});">¿Cómo Usar?</a></li>
+      		<li><a onclick="$('.features').animatescroll({padding:71});">Bondades</a></li>
+      		<li><a onclick="$('.descarga').animatescroll({padding:71});">Descarga</a></li>
+      		<li><a onclick="$('.registrar').animatescroll({padding:71});">Registrate</a></li>
+      		<li><a onclick="$('.social').animatescroll({padding:71});">Contactanos</a></li>
+    	</ul>
+  	</div>
+	</div>
+</nav>
+
+<div ng-controller="WelcomeController">
 <!-- HEADER
    ================================================== -->	  
   	<header>
@@ -71,7 +72,7 @@
 				</div>	  
 			</div>    
 		</div>
- </header>
+ 	</header>
   
   
   <!-- PURCHASE
@@ -162,17 +163,17 @@
 				    </div>
 				</div>
 				
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-				    <li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
-				    <li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
-				    <li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
-				  </ol>		
+				  		<!-- Indicators -->
+				  		<ol class="carousel-indicators">
+				    		<li data-target="#carousel-example-generic-2" data-slide-to="0" class="active"></li>
+				    		<li data-target="#carousel-example-generic-2" data-slide-to="1"></li>
+				    		<li data-target="#carousel-example-generic-2" data-slide-to="2"></li>
+				  		</ol>		
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
   
   <!-- FEATURES
@@ -324,5 +325,6 @@
   			</div>
   		</div>
   	</section>
-  	
+
+</div>
 @endsection

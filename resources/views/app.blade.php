@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tulocalidad">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,10 +40,19 @@
 			 <!-- JAVASCRIPT
 		     ================================================== -->
 	    <script src="{{ asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+	    <script src="{{ asset('/bower_components/retinajs/dist/retina.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/animatescroll/animatescroll.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/retinajs/dist/retina.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
 
+	    <!-- your app's js -->
+    	<script src="{{ asset('/js/app.js') }}"></script>
+    	<script src="{{ asset('/js/controller.js') }}"></script>
+
+	    <!-- Modules Angular -->
+	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
+	    
 	    <!-- Scripts -->
 	    <script src="{{ asset('/js/scripts.js') }}"></script>
 

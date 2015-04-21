@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use View;
 use App\Empresa;
 use DB;
+use Redirect;
 
 class RegistroController extends Controller {
 
@@ -30,24 +31,22 @@ class RegistroController extends Controller {
 		$estados = DB::table('t_estados')->get();
 		return View::make('registro/empresa_registro/empresa_editar', compact('empresa', 'categoria', 'estados'));
 		
-/*
-
-			Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
-				array(
-					'nombre_empresa' => (Input::get('i_nombre')),
-					'rif_empresa'    => (Input::get('i_rif')),
-					'direccion_empresa' => (Input::get('i_direccion')),
-					'empresa_categoria' => (Input::get('i_categoria')),
-					'empresa_estado' => (Input::get('i_estados')),			
-					'telefono_empresa' => (Input::get('i_telefono')),
-					'telefono_2_empresa' => (Input::get('i_telefono2')),
-					'telefono_3_empresa' => (Input::get('i_telefono3')),
-					'telefono_movil_empresa '=> (Input::get('i_celular')),
+	}
+	public function actionActualizar(){
+		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
+			array(
+				'nombre_empresa' => (Input::get('i_nombre')),
+				'rif_empresa'    => (Input::get('i_rif')),
+				'direccion_empresa' => (Input::get('i_direccion')),
+				'id_categoria' => (Input::get('s_categoria')),
+				'id_estado' => (Input::get('s_estados')),			
+				'telefono_empresa' => (Input::get('i_telefono')),
+				'telefono_2_empresa' => (Input::get('i_telefono2')),
+				'telefono_3_empresa' => (Input::get('i_telefono3')),
+				'telefono_movil_empresa'=> (Input::get('i_celular')),
 				)
 			);
-			return Redirect::to('registro/empresa_registro/mostrar_empresa');
-			
-		}*/
+			return View::make('registro/empresa_registro/actualizado');
 
 	}
 	public function actionEmpresa_procesado(){

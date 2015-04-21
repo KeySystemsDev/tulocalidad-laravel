@@ -16,5 +16,6 @@ Route::get('registro', 'RegistroController@actionIndex');
 Route::any('registro/empresa', 'RegistroController@actionEmpresa');
 Route::any('registro/registrar', 'RegistroController@actionRegistrar');
 Route::any('registro/editar/{id_empresa?}', 'RegistroController@actionEditar');
+Route::any('registro/actualizar', 'RegistroController@actionActualizar');
 Route::any('registro/empresa-procesado', 'RegistroController@actionEmpresa_procesado');
 Route::any('registro/mostrar', 'RegistroController@actionMostrar');

@@ -29,4 +29,4 @@
 			@endforeach
 		</tbody>
 	</table><BR>
-	<a href="nueva_sucursal">Nueva Sucursal</a></center>
+	<a href="nueva-sucursal">Nueva Sucursal</a></center>

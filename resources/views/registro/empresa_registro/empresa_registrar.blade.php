@@ -2,8 +2,15 @@
 <p>Registra tu empresa para el directorio</p>
 <form action ='empresa-procesado', method ='post', name ='formulario'>
 	Nombre:<input type ="text", maxlength="20", name ="i_nombre", value ="" ><br>
-	Rif:<input type ="text", maxlength="10", name ="i_rif", value ="" ><br>
-	Estados:<select name="i_estados">@foreach($estados as $value)<option class="option" value={{$value->id_estado}}>{{$value->nombre_estado}}</option>; @endforeach</select><br> 	
+	Rif:<input type ="text", maxlength="10", name ="i_rif", value ="" >
+	<br>	
+	Estados:
+	<select name="i_estados">
+		@foreach($estados as $value)
+			<option class="option" value={{ $value->id_estado }}> {{$value->nombre_estado}} </option>; 
+		@endforeach
+	</select>
+	<br> 	
 	Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br> 
 	Categorias:<select name="i_categoria">@foreach($categoria as $value)<option class="option" value={{$value->id_categoria}}>{{$value->nombre_categoria}}</option>; @endforeach</select><br>	
 	Telefono:<input type ="text", maxlength="11", name ="i_telefono", value ="" ><br>

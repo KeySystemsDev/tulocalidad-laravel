@@ -24,15 +24,9 @@
 		 			<td>{{$value->telefono_movil_empresa}}</td>
 		 			<td>{{$value->direccion_empresa}}</td>
 		 			<td>{{$value->correo_empresa}}</td>
-		 			<td><input type = "button"id="{{$value->id_empresa}}" value ="Editar" onclick="editarempresa(this.id)"></td>
+		 			<td><a href="editar/{{$value->id_empresa}}">Editar</a></td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table><BR>
 	<a href="nueva_sucursal">Nueva Sucursal</a></center>
-	<script>
-		function editarempresa(id_empresa)
-		{
-			window.location.href="editar/"+id_empresa;
-		}
-	</script>

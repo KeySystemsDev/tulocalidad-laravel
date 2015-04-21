@@ -4,5 +4,7 @@
 <form action ='registro/empresa', method ='post', name ='formulario'>
 	Rif:<input type ="text", maxlength="20", name ="i_rif", value ="" ><br>
 	<input type="submit" value="Buscar">
+
 </form>
+
 	

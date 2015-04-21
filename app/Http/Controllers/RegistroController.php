@@ -12,29 +12,26 @@ class RegistroController extends Controller {
 		return View::make('registro/empresa_registro/consulta_rif');   
 	}
 
-	public function actionEmpresa($rif){
+	public function actionEmpresa(){
 		$rif = (Input::get('i_rif'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
 			
 		if(count($consulta) == 0){
 			$categoria = DB::table('t_categoria')->get();
 			$estados = DB::table('t_estados')->get();
-			return View::make('registro/empresa_registro/empresa_registrar', compact('categoria'), array('estados' => $estados)); 	     
+			return View::make('registro/empresa_registro/empresa_registrar', compact('categoria','estados')); 	     
 		}else{
 			return View::make('registro/empresa_registro/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
-
-/*
-	public function actionRegistrar(){
+	public function actionEditar($id_empresa){
+		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
 		$estados = DB::table('t_estados')->get();
-		return View::make('registro/empresa_registro/empresa_registrar', compact('categoria'), array('estados' => $estados)); 	  
-	}
-*/
-	public function actionEditar($id_empresa = null){
+		return View::make('registro/empresa_registro/empresa_editar', compact('empresa', 'categoria', 'estados'));
 		
-		if ($_POST) {
+/*
+
 			Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
 				array(
 					'nombre_empresa' => (Input::get('i_nombre')),
@@ -49,21 +46,10 @@ class RegistroController extends Controller {
 				)
 			);
 			return Redirect::to('registro/empresa_registro/mostrar_empresa');
-		}
+			
+		}*/
 
-		$t_empresa = Empresa::find($id_empresa);
-
-		return View::make('registro/empresa_registro/empresa_editar', array('t_empresa' =>$t_empresa));  
 	}
-
-	/*public function postMostrar(){
-		$rif = (Input::get('consulta'));
-
-		$lista_empresa = Empresa::all();
-		return View::make('registro/empresa_registro/mostrar_empresa', array('lista_empresa' => $lista_empresa)); 
-	}*/
-
-
 	public function actionEmpresa_procesado(){
 		$empresa = new Empresa;
 		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
@@ -79,7 +65,6 @@ class RegistroController extends Controller {
 		$a = 'se guardo exitosamente';
 	 	return View::make('registro/empresa_registro/crear_empresa', compact('a'));   
 	}
-
 
 	public function getEliminar_registro(){
 		return View::make('registro/empresa_registro/eliminar_empresa');   

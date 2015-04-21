@@ -3,7 +3,7 @@
 
 // Application -----------------------------------------------------------------
 
-var app = angular.module('tulocalidad', ['tulocalidad.controller','uiGmapgoogle-maps'])
+angular.module('tulocalidad', ['tulocalidad.controller','uiGmapgoogle-maps'])
 
 
 /*.config(['$routeProvider'],function($routeProvider)

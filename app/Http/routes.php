@@ -12,10 +12,10 @@
 
 
 Route::get('/', 'WelcomeController@index');
-Route::get('registro', 'RegistroController@actionIndex');
-Route::any('registro/empresa', 'RegistroController@actionEmpresa');
-Route::any('registro/registrar', 'RegistroController@actionRegistrar');
-Route::any('registro/editar/{id_empresa?}', 'RegistroController@actionEditar');
-Route::any('registro/actualizar', 'RegistroController@actionActualizar');
-Route::any('registro/empresa-procesado', 'RegistroController@actionEmpresa_procesado');
-Route::any('registro/mostrar', 'RegistroController@actionMostrar');
+Route::get('registro', 'EmpresaController@actionIndex');
+Route::any('registro/empresa', 'EmpresaController@actionEmpresa');
+Route::any('registro/registrar', 'EmpresaController@actionRegistrar');
+Route::any('registro/editar/{id_empresa?}', 'EmpresaController@actionEditar');
+Route::any('registro/actualizar', 'EmpresaController@actionActualizar');
+Route::any('registro/empresa-procesado', 'EmpresaController@actionEmpresa_procesado');
+Route::any('registro/mostrar', 'EmpresaController@actionMostrar');

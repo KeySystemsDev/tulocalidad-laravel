@@ -7,7 +7,7 @@ use App\Empresa;
 use DB;
 use Redirect;
 
-class RegistroController extends Controller {
+class EmpresaController extends Controller {
 
 	public function actionIndex(){
 		return View::make('registro/empresa_registro/consulta_rif');   
@@ -45,8 +45,8 @@ class RegistroController extends Controller {
 				'telefono_3_empresa' => (Input::get('i_telefono3')),
 				'telefono_movil_empresa'=> (Input::get('i_celular')),
 				)
-			);
-			return View::make('registro/empresa_registro/actualizado');
+		);
+		return View::make('registro/empresa_registro/actualizado');
 
 	}
 	public function actionEmpresa_procesado(){
@@ -61,8 +61,8 @@ class RegistroController extends Controller {
 		$empresa->telefono_3_empresa = e(Input::get('i_telefono3'));
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
-		$a = 'se guardo exitosamente';
-	 	return View::make('registro/empresa_registro/crear_empresa', compact('a'));   
+		$a = 'se guardo exitosamente...';
+	 	return View::make('registro/empresa_registro/creado', compact('a'));   
 	}
 
 	public function getEliminar_registro(){

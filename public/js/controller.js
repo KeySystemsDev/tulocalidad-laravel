@@ -27,10 +27,10 @@ angular.module('tulocalidad.controller', [])
       	events: {
         	dragend: function (marker, eventName, args) {
           		$log.log('marker dragend');
-          		var lat = marker.getPosition().lat();
-          		var lon = marker.getPosition().lng();
-          		$log.log(lat);
-          		$log.log(lon);
+          		$scope.lat = marker.getPosition().lat();
+          		$scope.lon = marker.getPosition().lng();
+          		$log.log($scope.lat);
+          		$log.log($scope.lon);
 
           	$scope.marker.options = {
             	draggable: true,

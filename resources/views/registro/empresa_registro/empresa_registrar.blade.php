@@ -39,5 +39,8 @@
 	        	</ui-gmap-marker>
 	    </ui-gmap-google-map>
     </div>
+
+    <h1>[[ lat ]]</h1>
+    <h1>[[ lon ]]</h1>
 </div>
 @endsection

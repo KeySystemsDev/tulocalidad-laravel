@@ -3,20 +3,13 @@
 
 // Application -----------------------------------------------------------------
 
-angular.module('tulocalidad', ['tulocalidad.controller','uiGmapgoogle-maps'])
+angular.module('tulocalidad', ['tulocalidad.controller','uiGmapgoogle-maps'] 
+							
+		, function($interpolateProvider){
 
-
-/*.config(['$routeProvider'],function($routeProvider)
-{
- 
-	$routeProvider.when("/", 
-	{
- 
-		controller: "WelcomeController",
-		templateUrl: "../../resources/welcome.blade.php"
- 
-	})
- 
-})*/;
+			$interpolateProvider.startSymbol('[[');
+			$interpolateProvider.endSymbol(']]');
+							
+});
 
 

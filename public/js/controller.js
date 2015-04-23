@@ -15,7 +15,10 @@ angular.module('tulocalidad.controller', [])
 	$log.log('EmpresaRegistroController');
 
 	$scope.estados = estados.get();
-	$log.log($scope.estados);
+	
+	$scope.estado = function(estado) {
+        $log.log(estado);
+    };
 
 	$scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
     $scope.options = {scrollwheel: false};

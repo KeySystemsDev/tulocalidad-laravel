@@ -11,9 +11,9 @@
 		<br>	
 		Estados:
 		<select name="i_estados">
-			@foreach($estados as $value)
-				<option class="option" value="{{ $value->id_estado }}"> {{$value->nombre_estado}} </option>; 
-			@endforeach
+			<option class="option" ng-repeat="estado in estados" ng-modal="[[ estado.id_estado]]">
+				[[ estado.nombre_estado]]
+			</option> 
 		</select>
 		<br> 	
 		Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br> 

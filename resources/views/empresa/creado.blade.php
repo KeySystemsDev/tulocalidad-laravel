@@ -1,3 +1,3 @@
-<center><h1>{{ $a }}</h1>
-<a href="../empresa">Volver</a>
+<center><h1>Se ha guardado de forma Satisfactoria!!!</h1>
+<a href="../empresa/consulta?v={{ $rif }}">Volver</a>
 </center>

@@ -20,3 +20,5 @@ Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
 Route::any('empresa/actualizar', 'EmpresaController@actionActualizar');
 Route::any('empresa/empresa-procesado', 'EmpresaController@actionEmpresa_procesado');
 Route::any('empresa/mostrar', 'EmpresaController@actionMostrar');
+Route::any('empresa/sucursal/{id}', 'EmpresaController@actionSucursal');
+Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado');

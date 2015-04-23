@@ -29,4 +29,4 @@
 			@endforeach
 		</tbody>
 	</table><BR>
-	<a href="nueva-sucursal">Nueva Sucursal</a></center>
+	<a href="sucursal/{{$value->id_empresa}}">Nueva Sucursal</a></center>

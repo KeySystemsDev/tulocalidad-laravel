@@ -10,7 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |*/
 
-
 Route::get('/', 'WelcomeController@index');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::get('empresa', 'EmpresaController@actionIndex');
@@ -22,3 +21,4 @@ Route::any('empresa/empresa-procesado', 'EmpresaController@actionEmpresa_procesa
 Route::any('empresa/mostrar', 'EmpresaController@actionMostrar');
 Route::any('empresa/sucursal/{id}', 'EmpresaController@actionSucursal');
 Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado');
+Route::any('movil/empresa', 'Movil\EmpresaController@ActionEmpresa');

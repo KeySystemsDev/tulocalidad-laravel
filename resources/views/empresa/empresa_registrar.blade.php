@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div ng-controller="EmpresaController">
+<div ng-controller="EmpresaRegistroController">
 	
 	<h1>Formulario de Registro de Empresa</h1>
 	<p>Registra tu empresa para el directorio</p>

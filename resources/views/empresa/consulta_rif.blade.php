@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div ng-controller="EmpresaController">
+<div ng-controller="RifController">
 
 	<h1>Formulario de Consulta de Rif</h1>
 	<p>Ingresa el rif a consultar:</p>

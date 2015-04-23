@@ -7,12 +7,13 @@ angular.module('tulocalidad.controller', [])
 	$log.log('WelcomeController');
 })
 
-.controller('EmpresaController', function($scope, $log) {
-	$log.log('EmpresaController');
+.controller('RifController', function($scope, $log) {
+	$log.log('RifController');
+})
 
-	/* view /registro/ */
+.controller('EmpresaRegistroController', function($scope, $log) {
+	$log.log('EmpresaRegistroController');
 
-	/* view /registro/empresa */
 	$scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
     $scope.options = {scrollwheel: false};
     $scope.coordsUpdates = 0;

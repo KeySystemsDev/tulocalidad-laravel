@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 class EmpresaController extends Controller {
-	public function ActionEmpresa(){
+	public function ActionEstados(){
 		$estados = DB::table('t_estados')->get();	
 		echo json_encode($estados);		
 	} 

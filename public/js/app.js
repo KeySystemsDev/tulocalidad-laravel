@@ -3,7 +3,9 @@
 
 // Application -----------------------------------------------------------------
 
-angular.module('tulocalidad', ['tulocalidad.controller','tulocalidad.services','uiGmapgoogle-maps'] 
+angular.module('tulocalidad', 
+
+	['tulocalidad.controller','tulocalidad.services','ngResource','uiGmapgoogle-maps'] 
 							
 		, function($interpolateProvider){
 

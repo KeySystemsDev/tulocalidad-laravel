@@ -11,8 +11,11 @@ angular.module('tulocalidad.controller', [])
 	$log.log('RifController');
 })
 
-.controller('EmpresaRegistroController', function($scope, $log) {
+.controller('EmpresaRegistroController', function($scope, $log, estados) {
 	$log.log('EmpresaRegistroController');
+
+	$scope.estados = estados.get();
+	$log.log($scope.estados);
 
 	$scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
     $scope.options = {scrollwheel: false};

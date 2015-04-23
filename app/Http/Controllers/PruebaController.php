@@ -9,11 +9,13 @@ use DB;
 use Input;
 class PruebaController extends Controller {
 
-	public function callprocedure($consulta_estado){
+	public function callprocedure($parametro){
+	
+	$call = Prueba::p_consulta_estado($parametro);
+		# code...
+	}
 
-	$call = Prueba::p_consulta_estado();
-
-	print_r($call);
+print_r($call);
 
 	//return View::make('registro.empresa_registro.empresa_formulario');
 	}

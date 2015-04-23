@@ -8,12 +8,11 @@ class Prueba extends Model {
 	public $timestamps = false;
 	protected $primaryKey = 'id_estado';
 	
-	public static function p_consulta_estado($consulta_estado) {
+	public static function p_consulta_estado($parametro) {
 
-         return DB::statement('call p_consulta_estado(?)',array($consulta_estado));
+         return DB::select('call p_consulta_estado(?)', array($parametro));
     }
 
 
 }	
 ?>
-Prueba 

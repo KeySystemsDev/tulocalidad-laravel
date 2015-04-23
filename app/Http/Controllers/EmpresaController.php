@@ -10,7 +10,7 @@ use Redirect;
 class EmpresaController extends Controller {
 
 	public function actionIndex(){
-		return View::make('registro/empresa_registro/consulta_rif');   
+		return View::make('empresa/consulta_rif');   
 	}
 
 	public function actionEmpresa(){
@@ -20,16 +20,16 @@ class EmpresaController extends Controller {
 		if(count($consulta) == 0){
 			$categoria = DB::table('t_categoria')->get();
 			$estados = DB::table('t_estados')->get();
-			return View::make('registro/empresa_registro/empresa_registrar', compact('categoria','estados')); 	     
+			return View::make('empresa/empresa_registrar', compact('categoria','estados')); 	     
 		}else{
-			return View::make('registro/empresa_registro/mostrar_empresa', array('consulta' => $consulta));
+			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
 	public function actionEditar($id_empresa){
 		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
 		$estados = DB::table('t_estados')->get();
-		return View::make('registro/empresa_registro/empresa_editar', compact('empresa', 'categoria', 'estados'));
+		return View::make('empresa/empresa_editar', compact('empresa', 'categoria', 'estados'));
 		
 	}
 	public function actionActualizar(){
@@ -46,7 +46,7 @@ class EmpresaController extends Controller {
 				'telefono_movil_empresa'=> (Input::get('i_celular')),
 				)
 		);
-		return View::make('registro/empresa_registro/actualizado');
+		return View::make('empresa/actualizado');
 
 	}
 	public function actionEmpresa_procesado(){
@@ -62,11 +62,11 @@ class EmpresaController extends Controller {
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
 		$a = 'se guardo exitosamente...';
-	 	return View::make('registro/empresa_registro/creado', compact('a'));   
+	 	return View::make('empresa/creado', compact('a'));   
 	}
 
 	public function getEliminar_registro(){
-		return View::make('registro/empresa_registro/eliminar_empresa');   
+		return View::make('empresa/eliminar_empresa');   
 	}
 
 	public function postDestruir_empresa(){

@@ -14,7 +14,7 @@ class EmpresaController extends Controller {
 	}
 
 	public function actionEmpresa(){
-		$rif = (Input::get('i_rif'));
+		$rif = (Input::get('v'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
 			
 		if(count($consulta) == 0){
@@ -88,7 +88,7 @@ class EmpresaController extends Controller {
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
 
-		return redirect()->back()->withInput();
+		return redirect()->route('empresa/mostrar_empresa', [$user]);
 	/*	$a = 'se guardo exitosamente...';
 	 	return View::make('empresa/creado', compact('a'));  */
 	}

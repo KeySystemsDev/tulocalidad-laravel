@@ -52,7 +52,8 @@
 
 	    <!-- Modules Angular -->
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
-	    
+	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
+
 	    <!-- Scripts -->
 	    <script src="{{ asset('/js/scripts.js') }}"></script>
 

@@ -12,12 +12,12 @@
 		Estados:
 		<select name="i_estados">
 			@foreach($estados as $value)
-				<option class="option" value={{ $value->id_estado }}> {{$value->nombre_estado}} </option>; 
+				<option class="option" value="{{ $value->id_estado }}"> {{$value->nombre_estado}} </option>; 
 			@endforeach
 		</select>
 		<br> 	
 		Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br> 
-		Categorias:<select name="i_categoria">@foreach($categoria as $value)<option class="option" value={{$value->id_categoria}}>{{$value->nombre_categoria}}</option>; @endforeach</select><br>	
+		Categorias:<select name="i_categoria">@foreach($categoria as $value)<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; @endforeach</select><br>	
 		Telefono:<input type ="text", maxlength="11", name ="i_telefono", value ="" ><br>
 		Telefono 2:<input type ="text", maxlength="11", name ="i_telefono2", value ="" ><br>
 		Telefono 3:<input type ="text", maxlength="11", name ="i_telefono3", value ="" ><br>

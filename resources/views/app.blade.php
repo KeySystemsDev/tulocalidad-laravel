@@ -49,6 +49,7 @@
 	    <!-- your app's js -->
     	<script src="{{ asset('/js/app.js') }}"></script>
     	<script src="{{ asset('/js/controller.js') }}"></script>
+    	<script src="{{ asset('/js/services.js') }}"></script>
 
 	    <!-- Modules Angular -->
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>

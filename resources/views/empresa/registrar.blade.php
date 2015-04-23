@@ -11,10 +11,20 @@
 		<br>	
 		Estados:
 		<select name="i_estados">
-			<option class="option" ng-repeat="estado in estados" ng-modal="[[ estado.id_estado]]">
+			<option class="option" 
+					ng-repeat="estado in estados" 
+					ng-modal="[[ estado.id_estado]]"
+					ng-click="estado([[ estado.id_estado]])">
 				[[ estado.nombre_estado]]
-			</option> 
+			</option>
 		</select>
+
+		<select ng-change="estado_ruta(estado)" ng-model="estado">
+		  <option ng-repeat="estado in estados" value="{id: [[estado.id_estado]], nombre:[[estado.nombre_estado]]}">
+		    [[ estado.nombre_estado]]
+		  </option>
+		</select>
+		
 		<br> 	
 		Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br> 
 		Categorias:<select name="i_categoria">@foreach($categoria as $value)<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; @endforeach</select><br>	

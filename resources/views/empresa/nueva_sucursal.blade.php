@@ -11,16 +11,16 @@
 		@endforeach
 	</select>
 	<br> 	
-	Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br>
+	Direccion:<input type ="text", maxlength="100", name ="i_direccion"><br>
 	Categorias:
 	<select name="s_categoria">
 		@foreach($categoria as $key)
 				<option class="option" value="{{ $key->id_categoria }}">{{$key->nombre_categoria}} </option>;
 		@endforeach</select><br>
-	Telefono:<input type ="text", maxlength="11", name ="i_telefono", value ="" ><br>
-	Telefono 2:<input type ="text", maxlength="11", name ="i_telefono2", value ="" ><br>
-	Telefono 3:<input type ="text", maxlength="11", name ="i_telefono3", value ="" ><br>
-	Telefono movil:<input type ="text", maxlength="11", name ="i_celular", value ="" ><br>
+	Telefono:<input type ="text", maxlength="11", name ="i_telefono", ><br>
+	Telefono 2:<input type ="text", maxlength="11", name ="i_telefono2"><br>
+	Telefono 3:<input type ="text", maxlength="11", name ="i_telefono3"><br>
+	Telefono movil:<input type ="text", maxlength="11", name ="i_celular"><br>
 	<input type="submit" value="Agregar">
 </form>
 </center>

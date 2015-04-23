@@ -13,7 +13,7 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::get('empresa', 'EmpresaController@actionIndex');
-Route::any('empresa/empresa', 'EmpresaController@actionEmpresa');
+Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
 Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
 Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
 Route::any('empresa/actualizar', 'EmpresaController@actionActualizar');

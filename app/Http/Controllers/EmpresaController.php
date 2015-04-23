@@ -9,30 +9,30 @@ use Redirect;
 
 class EmpresaController extends Controller {
 
-	public function actionIndex(){
+	public function ActionIndex(){
 		return View::make('empresa/consulta_rif');   
 	}
 
-	public function actionEmpresa(){
+	public function ActionConsulta(){
 		$rif = (Input::get('v'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
 			
 		if(count($consulta) == 0){
 			$categoria = DB::table('t_categoria')->get();
 			$estados = DB::table('t_estados')->get();
-			return View::make('empresa/empresa_registrar', compact('categoria','estados')); 	     
+			return View::make('empresa/registrar', compact('categoria','estados')); 	     
 		}else{
 			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
-	public function actionEditar($id_empresa){
+	public function ActionEditar($id_empresa){
 		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
 		$estados = DB::table('t_estados')->get();
-		return View::make('empresa/empresa_editar', compact('empresa', 'categoria', 'estados'));
+		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
 		
 	}
-	public function actionActualizar(){
+	public function ActionActualizar(){
 		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
 			array(
 				'nombre_empresa' => (Input::get('i_nombre')),
@@ -46,10 +46,11 @@ class EmpresaController extends Controller {
 				'telefono_movil_empresa'=> (Input::get('i_celular')),
 				)
 		);
-		Redirect::to();
+		$rif = (Input::get('i_rif'));
+	 	return View::make('empresa/actualizado', compact('rif'));
 
 	}
-	public function actionEmpresa_procesado(){
+	public function ActionEmpresa_procesado(){
 		$empresa = new Empresa;
 		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
 		$empresa->rif_empresa = e(Input::get('i_rif'));
@@ -65,7 +66,7 @@ class EmpresaController extends Controller {
 	 	return View::make('empresa/creado', compact('a'));   
 	}
 
-	public function actionSucursal($id_empresa){
+	public function ActionSucursal($id_empresa){
 		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
 		$estados = DB::table('t_estados')->get();
@@ -75,7 +76,7 @@ class EmpresaController extends Controller {
 		
 	}
 
-	public function actionSucursal_procesado(){
+	public function ActionSucursal_procesado(){
 		$empresa = new Empresa;
 		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
 		$empresa->rif_empresa = e(Input::get('i_rif'));
@@ -88,13 +89,12 @@ class EmpresaController extends Controller {
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
 
-		return redirect()->route('empresa/mostrar_empresa', [$user]);
-	/*	$a = 'se guardo exitosamente...';
-	 	return View::make('empresa/creado', compact('a'));  */
+		$rif = (Input::get('i_rif'));
+	 	return View::make('empresa/creado', compact('rif'));  
 	}
 
 	/*public function getEliminar_registro(){
-		return View::make('empresa/eliminar_empresa');   
+		return View::make('empresa/eliminar');   
 	}
 
 	public function postDestruir_empresa(){

@@ -39,8 +39,6 @@ class EmpresaController extends Controller {
 				'rif_empresa'    => (Input::get('i_rif')),
 				'direccion_empresa' => (Input::get('i_direccion')),
 				'id_categoria' => (Input::get('s_categoria')),
-				'positionmap_empresa_latitude' => (Input::get('i_latitud')),
-				'positionmap_empresa_longitude' => (Input::get('i_longitud')),
 				'id_estado' => (Input::get('s_estados')),			
 				'telefono_empresa' => (Input::get('i_telefono')),
 				'telefono_2_empresa' => (Input::get('i_telefono2')),
@@ -58,14 +56,16 @@ class EmpresaController extends Controller {
 		$empresa->rif_empresa = e(Input::get('i_rif'));
 		$empresa->direccion_empresa = e(Input::get('i_direccion'));
 		$empresa->id_categoria = e(Input::get('i_categoria'));
-		$empresa->id_estado = e(Input::get('i_estados'));					
+		$empresa->id_estado = e(Input::get('i_estados'));
+		$empresa->positionmap_empresa_latitude = e(Input::get('i_latitud'));
+		$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
 		$empresa->telefono_empresa = e(Input::get('i_telefono'));
 		$empresa->telefono_2_empresa = e(Input::get('i_telefono2'));
 		$empresa->telefono_3_empresa = e(Input::get('i_telefono3'));
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
-		$a = 'se guardo exitosamente...';
-	 	return View::make('empresa/creado', compact('a'));   
+		$rif = (Input::get('i_rif'));
+	 	return View::make('empresa/creado', compact('rif'));   
 	}
 
 	public function ActionSucursal($id_empresa){
@@ -90,7 +90,6 @@ class EmpresaController extends Controller {
 		$empresa->telefono_3_empresa = e(Input::get('i_telefono3'));
 		$empresa->telefono_movil_empresa = e(Input::get('i_celular'));
 		$empresa->save();
-
 		$rif = (Input::get('i_rif'));
 	 	return View::make('empresa/creado', compact('rif'));  
 	}

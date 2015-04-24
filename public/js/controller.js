@@ -30,6 +30,8 @@ angular.module('tulocalidad.controller', [])
           		$log.log('Cordenadas');
           		$scope.lat = marker.getPosition().lat();
           		$scope.lon = marker.getPosition().lng();
+          		angular.element('#i_latitud').val($scope.lat);
+          		angular.element('#i_longitud').val($scope.lon);
           		$log.log($scope.lat);
           		$log.log($scope.lon);
 
@@ -48,7 +50,7 @@ angular.module('tulocalidad.controller', [])
 	
 	$scope.estado_ruta = function(estado) {
        	$scope.array = estado.split('+');
-
+   		
    		$scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
    		$scope.marker = {
       	id: 0,
@@ -62,6 +64,8 @@ angular.module('tulocalidad.controller', [])
           		$log.log('Cordenadas');
           		$scope.lat = marker.getPosition().lat();
           		$scope.lon = marker.getPosition().lng();
+          		angular.element('#i_latitud').val($scope.lat);
+          		angular.element('#i_longitud').val($scope.lon);
           		$log.log($scope.lat);
           		$log.log($scope.lon);
 

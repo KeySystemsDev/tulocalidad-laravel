@@ -15,16 +15,19 @@
 		  <option ng-repeat="estado in estados" 
 		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]"
 		  		  ng-if="[[estado.id_estado]] == 10" 
-		  		  selected="">
+		  		  selected>
 		    [[ estado.nombre_estado]]
 		  </option>
 		  <option ng-repeat="estado in estados" 
 		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]"
-		  		  ng-if="[[estado.id_estado]] != 10" 
-		  		 >
+		  		  ng-else="[[estado.id_estado]] != 10">
 		    [[ estado.nombre_estado]]
 		  </option>
 		</select>
+		<br>
+
+		latitude: <input type ="text" id="i_latitud" readonly="false"><br>	
+		longitude: <input type ="text" id="i_longitud" readonly="false">	
 		
 		<br> 	
 		Direccion:<input type ="text", maxlength="100", name ="i_direccion", value ="" ><br> 

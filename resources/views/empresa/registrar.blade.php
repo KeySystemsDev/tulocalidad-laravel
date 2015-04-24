@@ -28,12 +28,14 @@
 
 		latitude: <input type ="text" id="i_latitud" name="i_latitud" readonly="false"><br>	
 		longitude: <input type ="text" id="i_longitud" name="i_longitud" readonly="false">	<br> 	
-		Direccion:<input type ="text", maxlength="100", name ="i_direccion",  ><br> 
+		Direccion:<input type ="text" maxlength="100" name ="i_direccion"><br> 
 		Categorias:<select name="i_categoria">@foreach($categoria as $value)<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; @endforeach</select><br>	
-		Telefono:<input type ="text", maxlength="11", name ="i_telefono", ><br>
-		Telefono 2:<input type ="text", maxlength="11", name ="i_telefono2", ><br>
-		Telefono 3:<input type ="text", maxlength="11", name ="i_telefono3", ><br>
-		Telefono movil:<input type ="text", maxlength="11", name ="i_celular", ><br>
+		Telefono:<input type ="tel" maxlength="11" minlength="11" name ="i_telefono"><br>
+		Telefono 2:<input type ="tel" maxlength="11" minlength="11" name ="i_telefono2"><br>
+		Telefono 3:<input type ="tel" maxlength="11" minlength="11" name ="i_telefono3"><br>
+		Telefono movil:<input type ="tel" maxlength="11" minlength="11" name ="i_celular"><br>
+		Sitio Web:<input type ="url" name ="i_celular"><br>
+		Correo Electrónico:<input type ="email"  name ="i_celular"><br>
 		<input type="submit" value="Registrar">
 	</form>
 

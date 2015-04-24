@@ -39,6 +39,8 @@ class EmpresaController extends Controller {
 				'rif_empresa'    => (Input::get('i_rif')),
 				'direccion_empresa' => (Input::get('i_direccion')),
 				'id_categoria' => (Input::get('s_categoria')),
+				'positionmap_empresa_latitude' => (Input::get('i_latitud')),
+				'positionmap_empresa_longitude' => (Input::get('i_longitud')),
 				'id_estado' => (Input::get('s_estados')),			
 				'telefono_empresa' => (Input::get('i_telefono')),
 				'telefono_2_empresa' => (Input::get('i_telefono2')),

@@ -14,12 +14,6 @@ angular.module('tulocalidad.controller', [])
 .controller('EmpresaRegistroController', function($scope, $log, estados) {
 	$log.log('EmpresaRegistroController');
 
-	$scope.estados = estados.get();
-	
-	$scope.estado_ruta = function(estado) {
-        $log.log(estado);
-    };
-
 	$scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
     $scope.options = {scrollwheel: false};
     $scope.coordsUpdates = 0;
@@ -33,7 +27,7 @@ angular.module('tulocalidad.controller', [])
       	options: { draggable: true },
       	events: {
         	dragend: function (marker, eventName, args) {
-          		$log.log('marker dragend');
+          		$log.log('Cordenadas');
           		$scope.lat = marker.getPosition().lat();
           		$scope.lon = marker.getPosition().lng();
           		$log.log($scope.lat);
@@ -41,11 +35,45 @@ angular.module('tulocalidad.controller', [])
 
           	$scope.marker.options = {
             	draggable: true,
-            	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+            	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
+            				  "lon: " + $scope.marker.coords.longitude,
             	labelAnchor: "100 0",
             	labelClass: "marker-labels"
           };
         }
       }
+    };
+
+    $scope.estados = estados.get();
+	
+	$scope.estado_ruta = function(estado) {
+       	$scope.array = estado.split('+');
+
+   		$scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
+   		$scope.marker = {
+      	id: 0,
+      	coords: {
+        	latitude: $scope.array[1],
+        	longitude: $scope.array[2]
+      	},
+      	options: { draggable: true },
+      	events: {
+        	dragend: function (marker, eventName, args) {
+          		$log.log('Cordenadas');
+          		$scope.lat = marker.getPosition().lat();
+          		$scope.lon = marker.getPosition().lng();
+          		$log.log($scope.lat);
+          		$log.log($scope.lon);
+
+          	$scope.marker.options = {
+            	draggable: true,
+            	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
+            				  "lon: " + $scope.marker.coords.longitude,
+            	labelAnchor: "100 0",
+            	labelClass: "marker-labels"
+          };
+        }
+      }
+    };
     };
 });

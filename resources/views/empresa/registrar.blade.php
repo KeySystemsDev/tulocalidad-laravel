@@ -10,17 +10,10 @@
 		Rif:<input type ="text", maxlength="10", name ="i_rif", value ="" >
 		<br>	
 		Estados:
-		<select name="i_estados">
-			<option class="option" 
-					ng-repeat="estado in estados" 
-					ng-modal="[[ estado.id_estado]]"
-					ng-click="estado([[ estado.id_estado]])">
-				[[ estado.nombre_estado]]
-			</option>
-		</select>
 
-		<select ng-change="estado_ruta(estado)" ng-model="estado">
-		  <option ng-repeat="estado in estados" value="{id: [[estado.id_estado]], nombre:[[estado.nombre_estado]]}">
+		<select  ng-change="estado_ruta(estado)" ng-model="estado">
+		  <option ng-repeat="estado in estados" 
+		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]">
 		    [[ estado.nombre_estado]]
 		  </option>
 		</select>

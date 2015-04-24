@@ -20,38 +20,40 @@ angular.module('tulocalidad.controller', [])
     $scope.dynamicMoveCtr = 0;
     $scope.marker = {
       	id: 0,
-      	coords: {
-        	latitude: 10.4713637669733,
-        	longitude: -66.807892578125
-      	},
-      	options: { draggable: true },
-      	events: {
-        	dragend: function (marker, eventName, args) {
-          		$log.log('Cordenadas');
-          		$scope.lat = marker.getPosition().lat();
-          		$scope.lon = marker.getPosition().lng();
-          		angular.element('#i_latitud').val($scope.lat);
-          		angular.element('#i_longitud').val($scope.lon);
-          		$log.log($scope.lat);
-          		$log.log($scope.lon);
+          	coords: {
+            	latitude: 10.4713637669733,
+            	longitude: -66.807892578125
+          	},
+          	options: { draggable: true },
+          	events: {
+            	dragend: function (marker, eventName, args) {
+              		$log.log('Cordenadas');
+              		$scope.lat = marker.getPosition().lat();
+              		$scope.lon = marker.getPosition().lng();
+              		angular.element('#i_latitud').val($scope.lat);
+              		angular.element('#i_longitud').val($scope.lon);
+              		$log.log($scope.lat);
+              		$log.log($scope.lon);
 
-          	$scope.marker.options = {
-            	draggable: true,
-            	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
-            				  "lon: " + $scope.marker.coords.longitude,
-            	labelAnchor: "100 0",
-            	labelClass: "marker-labels"
-          };
+              	$scope.marker.options = {
+                	draggable: true,
+                	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
+                				  "lon: " + $scope.marker.coords.longitude,
+                	labelAnchor: "100 0",
+                	labelClass: "marker-labels"
+                };
+            }
         }
-      }
     };
 
     $scope.estados = estados.get();
+    $log.log($scope.estados);
 	
 	$scope.estado_ruta = function(estado) {
        	$scope.array = estado.split('+');
-   		
    		$scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
+        angular.element('#i_latitud').val('');
+        angular.element('#i_longitud').val('');
    		$scope.marker = {
       	id: 0,
       	coords: {
@@ -75,7 +77,7 @@ angular.module('tulocalidad.controller', [])
             				  "lon: " + $scope.marker.coords.longitude,
             	labelAnchor: "100 0",
             	labelClass: "marker-labels"
-          };
+            };
         }
       }
     };

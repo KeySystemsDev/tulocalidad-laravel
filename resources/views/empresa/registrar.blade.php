@@ -13,7 +13,15 @@
 
 		<select  ng-change="estado_ruta(estado)" ng-model="estado">
 		  <option ng-repeat="estado in estados" 
-		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]">
+		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]"
+		  		  ng-if="[[estado.id_estado]] == 10" 
+		  		  selected="">
+		    [[ estado.nombre_estado]]
+		  </option>
+		  <option ng-repeat="estado in estados" 
+		  		  value="[[estado.id_estado]] + [[estado.latitude_estado]] + [[estado.longitude_estado]]"
+		  		  ng-if="[[estado.id_estado]] != 10" 
+		  		 >
 		    [[ estado.nombre_estado]]
 		  </option>
 		</select>

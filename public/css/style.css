@@ -722,3 +722,6 @@ header, .social{
     right: 0;
     left: 0;
 }
+.error{
+	border: 1px red solid;
+}

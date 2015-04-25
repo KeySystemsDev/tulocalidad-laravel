@@ -47,7 +47,6 @@ angular.module('tulocalidad.controller', [])
     };
 
     $scope.estados = estados.get();
-    $log.log($scope.estados);
 	
 	$scope.estado_ruta = function(estado) {
        	$scope.array = estado.split('+');

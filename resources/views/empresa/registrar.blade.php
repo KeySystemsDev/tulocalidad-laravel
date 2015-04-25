@@ -1,11 +1,5 @@
 @extends('app')
 
-<style type="text/css">
-	.error{
-		border: 1px red solid;
-	}
-
-</style>
 @section('content')
 <div ng-controller="EmpresaRegistroController">
 	
@@ -45,28 +39,30 @@
 		Telefono movil:<input type="tel" maxlength="11" minlength="11" name="i_celular"><br>
 		
 		Correo Electrónico:<input type ="email" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}"name ="i_correo" ng-model="formData.i_correo" required><br>
-		<span ng-if="formulario.i_correo.$invalid && formulario.i_correo.$touched"> Verifique el formato del correo: Ejemplo: ejample@dominio.com</span><br>
+		
 		
 		Sitio Web:<input type="url" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" id="i_sitio_web" ng-model="formData.i_sitio_web" required><br>
 		
-		<span ng-if="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </span><br>
-		
-		<input type="submit" value="Registrar" ng-if="formulario.i_sitio_web.$valid">
+		<span ng-if="formulario.i_correo.$invalid && formulario.i_correo.$touched"> Verifique el formato del correo: Ejemplo: ejample@dominio.com</span>
+		<span ng-if="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </span>
+	
+		<div id="map_canvas">
+		    <ui-gmap-google-map 
+		    	center="map.center" 
+		    	zoom="map.zoom" 
+		    	draggable="true" 
+		    	options="options">
+		        	<ui-gmap-marker 
+		        		coords="marker.coords" 
+		        		options="marker.options"
+		        		events="marker.events" 
+		        		idkey="marker.id">
+		        	</ui-gmap-marker>
+		    </ui-gmap-google-map>
+	    </div>
+
+    	<input type="submit" value="Registrar">
 	</form>
 
-	<div id="map_canvas">
-	    <ui-gmap-google-map 
-	    	center="map.center" 
-	    	zoom="map.zoom" 
-	    	draggable="true" 
-	    	options="options">
-	        	<ui-gmap-marker 
-	        		coords="marker.coords" 
-	        		options="marker.options"
-	        		events="marker.events" 
-	        		idkey="marker.id">
-	        	</ui-gmap-marker>
-	    </ui-gmap-google-map>
-    </div>
 </div>
 @endsection

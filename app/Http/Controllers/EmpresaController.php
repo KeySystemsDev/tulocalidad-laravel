@@ -39,7 +39,9 @@ class EmpresaController extends Controller {
 				'rif_empresa'    => (Input::get('i_rif')),
 				'direccion_empresa' => (Input::get('i_direccion')),
 				'id_categoria' => (Input::get('s_categoria')),
-				'id_estado' => (Input::get('s_estados')),			
+				'correo_empresa' =>(Input::get('i_correo')),
+				'id_estado' => (Input::get('s_estados')),
+				'url_empresa' =>(Input::get('i_sitio_web')),			
 				'telefono_empresa' => (Input::get('i_telefono')),
 				'telefono_2_empresa' => (Input::get('i_telefono2')),
 				'telefono_3_empresa' => (Input::get('i_telefono3')),
@@ -56,7 +58,9 @@ class EmpresaController extends Controller {
 		$empresa->rif_empresa = e(Input::get('i_rif'));
 		$empresa->direccion_empresa = e(Input::get('i_direccion'));
 		$empresa->id_categoria = e(Input::get('i_categoria'));
+		$empresa->correo_empresa = e(Input::get('i_correo'));
 		$empresa->id_estado = e(Input::get('i_estados'));
+		$empresa->url_empresa = e(Input::get('i_sitio_web'));
 		$empresa->positionmap_empresa_latitude = e(Input::get('i_latitud'));
 		$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
 		$empresa->telefono_empresa = e(Input::get('i_telefono'));
@@ -84,7 +88,9 @@ class EmpresaController extends Controller {
 		$empresa->rif_empresa = e(Input::get('i_rif'));
 		$empresa->direccion_empresa = e(Input::get('i_direccion'));
 		$empresa->id_categoria = e(Input::get('i_categoria'));
-		$empresa->id_estado = e(Input::get('i_estados'));					
+		$empresa->correo_empresa = e(Input::get('i_correo'));
+		$empresa->id_estado = e(Input::get('i_estados'));	
+		$empresa->url_empresa = e(Input::get('i_sitio_web'));				
 		$empresa->telefono_empresa = e(Input::get('i_telefono'));
 		$empresa->telefono_2_empresa = e(Input::get('i_telefono2'));
 		$empresa->telefono_3_empresa = e(Input::get('i_telefono3'));

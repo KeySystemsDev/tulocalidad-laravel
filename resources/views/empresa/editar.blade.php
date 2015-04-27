@@ -30,6 +30,9 @@
 	Telefono 2:<input type ="text", maxlength="11", name ="i_telefono2", value ="{{$empresa->telefono_2_empresa}}" ><br>
 	Telefono 3:<input type ="text", maxlength="11", name ="i_telefono3", value ="{{$empresa->telefono_3_empresa}}" ><br>
 	Telefono movil:<input type ="text", maxlength="11", name ="i_celular", value ="{{$empresa->telefono_movil_empresa}}" ><br>
+	Correo Electrónico:<input type ="email" name ="i_correo" value ="{{$empresa->correo_empresa}}" required><br>
+	Sitio Web:<input type="url"name="i_sitio_web" value="{{$empresa->url_empresa}}"><br>
+
 	<input type="submit" value="Actualizar Registro">
 </form>
 </center>

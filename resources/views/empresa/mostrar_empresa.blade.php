@@ -4,6 +4,7 @@
 		<thead>
 		 	<th>Nombre</th>
 		 	<th>Rif</th>
+		 	<th>Sitio Web</th>
 		 	<th>Telefono</th>
 		 	<th>Telefono2</th>
 		 	<th>Telefono3</th>
@@ -18,6 +19,7 @@
 				<tr>
 		 			<td>{{$value->nombre_empresa}}</td>
 		 			<td>{{$value->rif_empresa}}</td>
+		 			<td>{{$value->url_empresa}}</td>
 		 			<td>{{$value->telefono_empresa}}</td>
 		 			<td>{{$value->telefono_2_empresa}}</td>
 		 			<td>{{$value->telefono_3_empresa}}</td>

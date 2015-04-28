@@ -1,4 +1,4 @@
-@extends('app')
+@extends('base')
 
 @section('content')
 <div ng-controller="RifController">

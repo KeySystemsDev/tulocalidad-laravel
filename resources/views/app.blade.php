@@ -40,6 +40,7 @@
 			 <!-- JAVASCRIPT
 		     ================================================== -->
 	    <script src="{{ asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
 	    <script src="{{ asset('/bower_components/retinajs/dist/retina.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/animatescroll/animatescroll.min.js') }}"></script>

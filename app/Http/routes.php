@@ -11,6 +11,7 @@
 |*/
 
 Route::get('/', 'WelcomeController@index');
+Route::get('theme', 'WelcomeController@theme');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::get('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');

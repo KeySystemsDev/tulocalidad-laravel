@@ -23,4 +23,9 @@ class WelcomeController extends Controller {
 		return view('welcome/welcome');
 	}
 
+	public function theme()
+	{	
+		return view('theme/theme');
+	}
+
 }

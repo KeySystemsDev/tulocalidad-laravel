@@ -1,4 +1,4 @@
-/*! angular-google-maps 2.0.19 2015-03-28
+/*! angular-google-maps 2.0.20 2015-04-27
  *  AngularJS directives for Google Maps
  *  git: https://github.com/angular-ui/angular-google-maps.git
  */
@@ -70,12 +70,20 @@ Nicholas McCready - https://twitter.com/nmccready
         if (options.china) {
           return 'http://maps.google.cn/maps/api/js?';
         } else {
-          return 'https://maps.googleapis.com/maps/api/js?';
+          if (options.transport === 'auto') {
+            return '//maps.googleapis.com/maps/api/js?';
+          } else {
+            return options.transport + '://maps.googleapis.com/maps/api/js?';
+          }
         }
       };
       includeScript = function(options) {
-        var query, script;
-        query = _.map(options, function(v, k) {
+        var omitOptions, query, script;
+        omitOptions = ['transport', 'isGoogleMapsForWork', 'china'];
+        if (options.isGoogleMapsForWork) {
+          omitOptions.push('key');
+        }
+        query = _.map(_.omit(options, omitOptions), function(v, k) {
           return k + '=' + v;
         });
         if (scriptId) {
@@ -119,6 +127,8 @@ Nicholas McCready - https://twitter.com/nmccready
     }
   ]).provider('uiGmapGoogleMapApi', function() {
     this.options = {
+      transport: 'https',
+      isGoogleMapsForWork: false,
       china: false,
       v: '3.17',
       libraries: '',
@@ -1124,6 +1134,10 @@ Nicholas McCready - https://twitter.com/nmccready
         reset: function() {
           ctr = 0;
           return proms.length = 0;
+        },
+        decrement: function() {
+          ctr = ctr - 1;
+          return proms.length = proms.length - 1;
         }
       };
     }
@@ -2635,11 +2649,11 @@ Nicholas McCready - https://twitter.com/nmccready
 
           BasePolyChildModel.include(GmapUtil);
 
-          function BasePolyChildModel(scope, attrs, map1, defaults, model) {
+          function BasePolyChildModel(scope, attrs, map, defaults, model) {
             var create;
             this.scope = scope;
             this.attrs = attrs;
-            this.map = map1;
+            this.map = map;
             this.defaults = defaults;
             this.model = model;
             this.clean = bind(this.clean, this);
@@ -2677,11 +2691,11 @@ Nicholas McCready - https://twitter.com/nmccready
                 }
                 if (_this.gObject) {
                   if (_this.scope.fit) {
-                    _this.extendMapBounds(map, pathPoints);
+                    _this.extendMapBounds(_this.map, pathPoints);
                   }
                   arraySync(_this.gObject.getPath(), _this.scope, 'path', function(pathPoints) {
                     if (_this.scope.fit) {
-                      return _this.extendMapBounds(map, pathPoints);
+                      return _this.extendMapBounds(_this.map, pathPoints);
                     }
                   });
                   if (angular.isDefined(_this.scope.events) && angular.isObject(_this.scope.events)) {
@@ -6019,7 +6033,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
             var ctrlObj, retCtrl;
             retCtrl = void 0;
             $scope.$on('$destroy', function() {
-              return IsReady.reset();
+              return IsReady.decrement();
             });
             ctrlObj = CtrlHandle.handle($scope);
             $scope.ctrlType = 'Map';

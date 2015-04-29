@@ -1,8 +1,13 @@
 @extends('base')
 
 @section('content')
+
 <div ng-controller="EmpresaRegistroController">
-	
+
+	@include('layouts/nav-top')
+
+	@include('layouts/nav')
+
 	<div class="container">
 
 		<h1>Formulario de Registro de Empresa</h1>

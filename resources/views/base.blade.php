@@ -45,9 +45,11 @@
 	</head>
 	
 	<body>
+		<!-- start:wrapper -->
+    	<div id="wrapper">
+			@yield('content')
+		</div>
 		
-		@yield('content')
-
 		<!-- Scripts -->
 			 <!-- JAVASCRIPT
 		     ================================================== -->

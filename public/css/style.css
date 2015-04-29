@@ -18,3 +18,12 @@
 .error{
 	border: 1px red solid;
 }
+
+.center {
+    text-align: center;
+}
+
+.img-registrar-logo{
+    width: 150px;
+    height: 150px;
+}

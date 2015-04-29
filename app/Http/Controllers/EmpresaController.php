@@ -12,7 +12,7 @@ class EmpresaController extends Controller {
 	public function ActionIndex(){
 		return View::make('empresa/consulta_rif');   
 	}
-
+//********************************************************************************************
 	public function ActionConsulta(){
 		$rif = (Input::get('v'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
@@ -25,6 +25,7 @@ class EmpresaController extends Controller {
 			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
+//********************************************************************************************	
 	public function ActionEditar($id_empresa){
 		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
@@ -32,6 +33,7 @@ class EmpresaController extends Controller {
 		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
 		
 	}
+//********************************************************************************************
 	public function ActionActualizar(){
 		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
 			array(
@@ -52,6 +54,7 @@ class EmpresaController extends Controller {
 	 	return View::make('empresa/actualizado', compact('rif'));
 
 	}
+//********************************************************************************************
 	public function ActionEmpresa_procesado(){
 		$empresa = new Empresa;
 		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
@@ -71,7 +74,7 @@ class EmpresaController extends Controller {
 		$rif = (Input::get('i_rif'));
 	 	return View::make('empresa/creado', compact('rif'));   
 	}
-
+//********************************************************************************************
 	public function ActionSucursal($id_empresa){
 		$empresa = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
@@ -81,7 +84,7 @@ class EmpresaController extends Controller {
 		return View::make('empresa/nueva_sucursal', compact('empresa', 'categoria', 'estados'));
 		
 	}
-
+//********************************************************************************************
 	public function ActionSucursal_procesado(){
 		$empresa = new Empresa;
 		$empresa->nombre_empresa = e(Input::get('i_nombre')); 	
@@ -99,17 +102,19 @@ class EmpresaController extends Controller {
 		$rif = (Input::get('i_rif'));
 	 	return View::make('empresa/creado', compact('rif'));  
 	}
-
-	/*public function getEliminar_registro(){
-		return View::make('empresa/eliminar');   
-	}
-
-	public function postDestruir_empresa(){
-		$irif= e(Input::get('rif'));
-		$rifborrado = Empresa::where('empresa_rif','=',$irif)->get()->first();
-		$rifborrado-> delete ();
- 		echo "Su registro ha sido borrado";
-	}*/
+//********************************************************************************************
+	public function ActionConsulta_estado(){
+		$rif = (Input::get('v'));
+		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
+			
+		if(count($consulta) == 0){
+			$categoria = DB::table('t_categoria')->get();
+			$estados = DB::table('t_estados')->get();
+			return View::make('empresa/registrar', compact('categoria','estados')); 	     
+		}else{
+			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
+		}
+	} 
 }
 
 ?>

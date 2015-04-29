@@ -32,6 +32,16 @@
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
 	    <link rel="shortcut icon" href="favicon.ico" />
 
+	    <!-- Theme 
+	        ================================================== -->
+	    <link href="{{ asset('/theme-admin/css/style.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/css/bootstrap-reset.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/css/owl.carousel.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/css/owl.theme.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/css/owl.transitions.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/css/table-responsive.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('/theme-admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css">
+
 	</head>
 	
 	<body>
@@ -54,6 +64,21 @@
 	    <!-- Modules Angular -->
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
+
+	    <!-- Theme 
+	        ================================================== -->
+	    <script src="{{ asset('/theme-admin/js/themes.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/jquery.scrollTo.min.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/jquery.nicescroll.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/jquery.sparkline.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/jquery.dcjqaccordion.2.7.min.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/respond.min.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/owl.carousel.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/jquery.customSelect.min.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/sparkline-chart.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/easy-pie-chart.js') }}"></script>
+	    <script src="{{ asset('/theme-admin/js/count.js') }}"></script>
 
 	</body>
 </html>

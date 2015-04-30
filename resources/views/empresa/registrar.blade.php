@@ -90,41 +90,65 @@
                                         <label class="col-sm-2 control-label col-lg-2">Telefono movil</label>
                                         <div class="col-sm-10 iconic-input right">
                                         	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                            <input type="text" placeholder="(999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_celular">
+                                            <input type="text" placeholder="(999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
                                         </div>
                                     </div>
 									
-									Correo Electrónico:<input type ="email" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}"name ="i_correo" ng-model="formData.i_correo" required><br>
-									
-									
-									Sitio Web:<input type="url" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" id="i_sitio_web" ng-model="formData.i_sitio_web" required><br>
-									
-									<span ng-if="formulario.i_correo.$invalid && formulario.i_correo.$touched"> Verifique el formato del correo: Ejemplo: ejample@dominio.com</span>
-									<span ng-if="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </span>
-									
-									<div ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
-						        		<p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
-						        		<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Email invalido</p>
-						      		</div>
+                                    <div class="form-group">
+                                      	<label for="cemail" class="control-label col-lg-2">Correo Electrónico</label>
+                                      	<div class="col-lg-10 iconic-input right">
+                                          	<i class="fa fa-envelope" data-original-title="" title=""></i>
+                                          	<input class="form-control" type="email" placeholder="ejample@dominio.com" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo" required>
+                                      		
+                                      		<div class="col-lg-10" ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
+						        				<p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
+						        				<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
+						      				</div>
+                                      	</div>                                 		
+                                  	</div>
 
-						      		Estados:
-									<select  ng-change="estado_ruta(estado)" ng-model="estado">
-									  <option ng-repeat="estado in estados" 
-									  		  value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-									  		  ng-if="[[estado.id_estado]] == 10" 
-									  		  selected>
-									    [[ estado.nombre_estado]]
-									  </option>
-									  <option ng-repeat="estado in estados" 
-									  		  value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-									  		  ng-else="[[estado.id_estado]] != 10">
-									    [[ estado.nombre_estado]]
-									  </option>
-									</select>
-									<br>
+                                  	<div class="form-group">
+                                        <label for="curl" class="control-label col-lg-2">Sitio Web</label>
+                                        <div class="col-lg-10 iconic-input right">
+                                          	<i class="fa fa-link" data-original-title="" title=""></i>
+                                            <input class="form-control" type="url" placeholder="Ejemplo: http://test.com" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" ng-model="formData.i_sitio_web" required>
 
-									latitude: <input type ="text" id="i_latitud" name="i_latitud" readonly="false"><br>	
-									longitude: <input type ="text" id="i_longitud" name="i_longitud" readonly="false">	<br>
+                                            <p class="help-block text-danger" ng-show="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Estados</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
+                                                <option ng-repeat="estado in estados" 
+												  		  value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+												  		  ng-if="[[estado.id_estado]] == 10" 
+												  		  selected>
+												    	[[ estado.nombre_estado]]
+												</option>
+												<option ng-repeat="estado in estados" 
+												  		value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+												  		ng-else="[[estado.id_estado]] != 10">
+												    [[ estado.nombre_estado]]
+												</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">latitude</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa" disabled="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 col-sm-2 control-label">longitude</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" disabled="">
+                                        </div>
+                                    </div>
 
 									<div id="map_canvas">
 									    <ui-gmap-google-map 

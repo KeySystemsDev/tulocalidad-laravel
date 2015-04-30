@@ -474,7 +474,8 @@ a:hover{
 #header .navbar-collapse ul.nav li a:hover,
 #header .navbar-collapse ul.nav li a:focus,
 #header .navbar-collapse ul.nav li a:active{
-	background-color: rgba(41, 128, 185, 0.9);
+	background-color: #721520;
+	opacity: 0.8;
 	-webkit-transition: all 1s ease;
 	   -moz-transition: all 1s ease;
 	    -ms-transition: all 1s ease;
@@ -498,7 +499,8 @@ a:hover{
 }
 
 #header .navbar-collapse ul.nav li.active{
-	background-color: rgba(41, 128, 185, 0.9);
+	background-color: #721520;
+	opacity: 0.8;
 	-webkit-border-radius: 4px;
 	   -moz-border-radius: 4px;
 	    -ms-border-radius: 4px;

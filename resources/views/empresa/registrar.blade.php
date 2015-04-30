@@ -154,12 +154,12 @@
                                     </div>
                                 </div>
 
-							</form>
+							
 						</div>
                  	</section>
-              </div>
+              	</div>
           
-              <div class="col-lg-12">
+              	<div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
                             <div id="map_canvas">
@@ -187,7 +187,8 @@
       					</header>
       				</section>
       			</div>
-              		
+              	
+              	</form>	
 
             </div>
 

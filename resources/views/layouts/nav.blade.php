@@ -20,7 +20,7 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="{{ url ('empresa/consulta') }}">
                                 <div class="text-center">
                                     <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>

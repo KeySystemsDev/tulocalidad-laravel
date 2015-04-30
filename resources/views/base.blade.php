@@ -41,7 +41,7 @@
 	    <link href="{{ asset('/theme-admin/css/owl.transitions.css') }}" rel="stylesheet" media="screen">
 	    <link href="{{ asset('/theme-admin/css/table-responsive.css') }}" rel="stylesheet" media="screen">
 	    <link href="{{ asset('/theme-admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css">
-
+	    <link href="{{ asset('/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 	</head>
 	
 	<body>
@@ -81,6 +81,7 @@
 	    <script src="{{ asset('/theme-admin/js/sparkline-chart.js') }}"></script>
 	    <script src="{{ asset('/theme-admin/js/easy-pie-chart.js') }}"></script>
 	    <script src="{{ asset('/theme-admin/js/count.js') }}"></script>
+	    <script src="{{ asset('/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }}"></script>
 
 	</body>
 </html>

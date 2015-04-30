@@ -23,10 +23,7 @@
 
 			<div class="row">
                     <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Form Elements
-                            </header>
+                        <section class="panel">                            
                             <div class="panel-body">
 								<form class="form-horizontal tasi-form" method="get" role="form" name="formulario" id="formulario" action="empresa-procesado" method ="post">
 
@@ -46,7 +43,71 @@
 						    			</div>
 						    		</div>
 									
-									Estados:
+						    		<div class="form-group">
+						      			<label class="col-sm-2 control-label col-lg-2">Dirección</label>
+						      			<div class="col-sm-10 iconic-input right">
+						      				<i class="fa fa-map-marker" data-original-title="" title=""></i>
+						      				<input type="text" maxlength="100" class="form-control" placeholder="Direccipon de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required>
+						    			</div>
+						    		</div>
+
+						    		<div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Categorias</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control m-bot15" name="i_categoria">
+                                                @foreach($categoria as $value)
+													<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; 
+												@endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2">Telefono local</label>
+                                        <div class="col-sm-10 iconic-input right">
+                                        	<i class="fa fa-phone" data-original-title="" title=""></i>
+                                            <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono1">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2">Telefono local</label>
+                                        <div class="col-sm-10 iconic-input right">
+                                        	<i class="fa fa-phone" data-original-title="" title=""></i>
+                                            <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono2">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2">Telefono local</label>
+                                        <div class="col-sm-10 iconic-input right">
+                                        	<i class="fa fa-phone" data-original-title="" title=""></i>
+                                            <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono3">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label col-lg-2">Telefono movil</label>
+                                        <div class="col-sm-10 iconic-input right">
+                                        	<i class="fa fa-phone" data-original-title="" title=""></i>
+                                            <input type="text" placeholder="(999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_celular">
+                                        </div>
+                                    </div>
+									
+									Correo Electrónico:<input type ="email" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}"name ="i_correo" ng-model="formData.i_correo" required><br>
+									
+									
+									Sitio Web:<input type="url" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" id="i_sitio_web" ng-model="formData.i_sitio_web" required><br>
+									
+									<span ng-if="formulario.i_correo.$invalid && formulario.i_correo.$touched"> Verifique el formato del correo: Ejemplo: ejample@dominio.com</span>
+									<span ng-if="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </span>
+									
+									<div ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
+						        		<p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
+						        		<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Email invalido</p>
+						      		</div>
+
+						      		Estados:
 									<select  ng-change="estado_ruta(estado)" ng-model="estado">
 									  <option ng-repeat="estado in estados" 
 									  		  value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
@@ -63,29 +124,7 @@
 									<br>
 
 									latitude: <input type ="text" id="i_latitud" name="i_latitud" readonly="false"><br>	
-									longitude: <input type ="text" id="i_longitud" name="i_longitud" readonly="false">	<br> 	
-									Direccion:<input type ="text" maxlength="100" name ="i_direccion"><br> 
-									Categorias:<select name="i_categoria">
-									@foreach($categoria as $value)
-										<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; 
-									@endforeach</select><br>	
-									Telefono:<input type="tel" maxlength="11" minlength="11" name="i_telefono"><br>
-									Telefono 2:<input type="tel" maxlength="11" minlength="11" name="i_telefono2"><br>
-									Telefono 3:<input type="tel" maxlength="11" minlength="11" name="i_telefono3"><br>
-									Telefono movil:<input type="tel" maxlength="11" minlength="11" name="i_celular"><br>
-									
-									Correo Electrónico:<input type ="email" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}"name ="i_correo" ng-model="formData.i_correo" required><br>
-									
-									
-									Sitio Web:<input type="url" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" id="i_sitio_web" ng-model="formData.i_sitio_web" required><br>
-									
-									<span ng-if="formulario.i_correo.$invalid && formulario.i_correo.$touched"> Verifique el formato del correo: Ejemplo: ejample@dominio.com</span>
-									<span ng-if="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </span>
-									
-									<div ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
-						        		<p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
-						        		<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Email invalido</p>
-						      		</div>
+									longitude: <input type ="text" id="i_longitud" name="i_longitud" readonly="false">	<br>
 
 									<div id="map_canvas">
 									    <ui-gmap-google-map 

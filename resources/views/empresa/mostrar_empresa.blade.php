@@ -42,18 +42,18 @@
                             </thead>
                             <tbody>
                             	@foreach($consulta as $value)
-                                <tr>
-                                    <td><a href="#">{{$value->nombre_empresa}}</a></td>
-                                    <td class="hidden-phone">{{$value->direccion_empresa}}</td>
-                                    <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
-                                    <td>{{$value->url_empresa}}</td>
-                                    <td>{{$value->correo_empresa}}</td>
-                                    <td>{{$value->telefono_empresa}}</td>
-                                    <td>{{$value->telefono_2_empresa}}</td>
-                                    <td>{{$value->telefono_3_empresa}}</td>
-                                    <td>{{$value->telefono_movil_empresa}}</td>
-                                    <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
-                                </tr>
+                                    <tr>
+                                        <td><a href="#">{{$value->nombre_empresa}}</a></td>
+                                        <td class="hidden-phone">{{$value->direccion_empresa}}</td>
+                                        <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
+                                        <td>{{$value->url_empresa}}</td>
+                                        <td>{{$value->correo_empresa}}</td>
+                                        <td>{{$value->telefono_empresa}}</td>
+                                        <td>{{$value->telefono_2_empresa}}</td>
+                                        <td>{{$value->telefono_3_empresa}}</td>
+                                        <td>{{$value->telefono_movil_empresa}}</td>
+                                        <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>

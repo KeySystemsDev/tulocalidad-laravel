@@ -36,7 +36,7 @@
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" value="{{$empresa->nombre_empresa}}" disabled="" required>
+					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" value="{{$empresa->nombre_empresa}}" readonly>
 					    			</div>
 					    		</div>
 
@@ -44,7 +44,7 @@
 					      			<label class="control-label col-lg-3">RIF</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" disabled="" required>
+					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" readonly>
 					    			</div>
 					    		</div>
 

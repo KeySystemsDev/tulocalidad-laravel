@@ -2,6 +2,8 @@
 
 @section('content')
 
+<div ng-controller="EditarEmpresaController">
+	
 	@include('layouts/nav')
 
 	<div class="container">
@@ -26,7 +28,7 @@
                     <section class="panel">                         
                         <div class="panel-body">
 
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action='../actualizar' method='post' name='formulario'>
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action="../actualizar" method="post" name="formulario" id="formulario">
 		
 								<input type="hidden" id="id_empresa" name="id_empresa" value="{{$empresa->id_empresa}}">
 								
@@ -34,7 +36,7 @@
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" value="{{$empresa->nombre_empresa}}" required>
+					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" value="{{$empresa->nombre_empresa}}" disabled="" required>
 					    			</div>
 					    		</div>
 
@@ -42,7 +44,7 @@
 					      			<label class="control-label col-lg-3">RIF</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" required>
+					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" disabled="" required>
 					    			</div>
 					    		</div>
 
@@ -102,31 +104,55 @@
                                     </div>
                                 </div>
 
-		Correo Electrónico:<input type="email" name="i_correo" value="{{$empresa->correo_empresa}}" required><br>
-		Sitio Web:<input type="url"name="i_sitio_web" value="{{$empresa->url_empresa}}"><br>
+                                <div class="form-group">
+                                  	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
+                                  	<div class="col-lg-9 iconic-input right">
+                                      	<i class="fa fa-envelope" data-original-title="" title=""></i>
+                                      	<input type="email" class="form-control" name="i_correo" value="{{$empresa->correo_empresa}}" required>
+                                    </div>                                 		
+                              	</div>
 
-		Estados:
-		<select name="s_estados">
-			@foreach($estados as $value)
-				@if ($value->id_estado == $empresa->id_estado)
-					<option class="option" value="{{ $value->id_estado }}" selected> {{$value->nombre_estado}} </option>; 
-				@else
-					<option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
-				@endif
-			@endforeach
-		</select>
-		<br> 	
+                              	<div class="form-group">
+                                    <label for="curl" class="control-label col-lg-3">Sitio Web</label>
+                                    <div class="col-lg-9 iconic-input right">
+                                      	<i class="fa fa-link" data-original-title="" title=""></i>
+                                        <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estados</label>
+                                    <div class="col-lg-9">
+                                        <select name="s_estados" class="form-control m-bot15">
+											@foreach($estados as $value)
+												@if ($value->id_estado == $empresa->id_estado)
+													<option class="option" value="{{ $value->id_estado }}" selected> {{$value->nombre_estado}} </option>; 
+												@else
+													<option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
+												@endif
+											@endforeach
+										</select>
+                                    </div>
+                                </div>	
 		
-		<input type="submit" value="Actualizar Registro">
-							
-							</form>
-
 						</div>
                  	</section>
               	</div>
 
 
+              	<div class="col-lg-12">
+                	<section class="panel">
+                		<header class="panel-heading center">
+            				<button class="btn btn-success btn-lg fa fa-refresh" type="submit" value="Actualizar Registro"> Actualizar Registro</button>
+      					</header>
+      				</section>
+      			</div>
+
+      						</form>
+			
 			</div>
 		</div>
 	</div>
+
+</div>
 @endsection

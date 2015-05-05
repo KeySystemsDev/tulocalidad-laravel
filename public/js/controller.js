@@ -81,4 +81,8 @@ angular.module('tulocalidad.controller', [])
       }
     };
     };
+})
+
+.controller('EditarEmpresaController', function($scope, $log) {
+    $log.log('EditarEmpresaController');
 });

@@ -142,7 +142,7 @@
                                     <label class="control-label col-lg-3">latitude</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa" disabled="">
+                                        <input class="form-control" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
                                     </div>
                                 </div>
 
@@ -150,7 +150,7 @@
                                     <label class="control-label col-lg-3">longitude</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" disabled="">
+                                        <input class="form-control" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
                                     </div>
                                 </div>
 

@@ -54,7 +54,7 @@
 					    		</div>
 
 					    		<div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Categoria</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="s_categoria">
                                             @foreach($categoria as $key)
@@ -97,13 +97,45 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estados</label>
+                                    <label class="control-label col-lg-3">Correo Electronico</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
+                                        <input type="text" class="form-control" maxlength="100" name ="i_correo">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">Sitio Web</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
+                                        <input type="text" class="form-control" maxlength="100" name ="i_sitio_web">
+                                    </div>
+                                    
+                                </div>
+                                 <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="s_estados">
                                            @foreach($estados as $value)
-												<option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
-											@endforeach
+                                                <option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
+                                            @endforeach
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">Latitud</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
+                                        <input type="text" class="form-control" maxlength="100" name ="i_latitud">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">Longitud</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
+                                        <input type="text" class="form-control" maxlength="100" name ="i_longitud">
                                     </div>
                                 </div>
 				

@@ -44,17 +44,17 @@
 					      				<input type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="formData.i_rif" required>
 					    			</div>
 					    		</div>
-								
+
 					    		<div class="form-group">
 					      			<label class="control-label col-lg-3">Dirección</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-map-marker" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="100" class="form-control" placeholder="Direccipon de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required>
+					      				<input type="text" maxlength="100" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required>
 					    			</div>
 					    		</div>
 
 					    		<div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Categoria</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="i_categoria">
                                             @foreach($categoria as $value)
@@ -119,21 +119,21 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estados</label>
+                                          <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
                                             <option ng-repeat="estado in estados" 
-											  		  value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-											  		  ng-if="[[estado.id_estado]] == 10" 
-											  		  selected>
-											    	[[ estado.nombre_estado]]
-											</option>
-											<option ng-repeat="estado in estados" 
-											  		value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-											  		ng-else="[[estado.id_estado]] != 10">
-											    [[ estado.nombre_estado]]
-											</option>
+                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+                                                      ng-if="[[estado.id_estado]] == 10" 
+                                                      selected>
+                                                    [[ estado.nombre_estado]]
+                                            </option>
+                                            <option ng-repeat="estado in estados" 
+                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+                                                    ng-else="[[estado.id_estado]] != 10">
+                                                [[ estado.nombre_estado]]
+                                            </option>
                                         </select>
                                     </div>
                                 </div>

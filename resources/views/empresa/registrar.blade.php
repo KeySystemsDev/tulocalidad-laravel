@@ -92,7 +92,7 @@
                                     <label class="control-label col-lg-3">Telefono movil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                        <input type="text" placeholder="(999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
+                                        <input type="text" placeholder="(9999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
                                     </div>
                                 </div>
 								
@@ -132,7 +132,7 @@
                                             </option>
                                             <option ng-repeat="estado in estados" 
                                                     value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-else="[[estado.id_estado]] != 10">
+                                                    ng-if="[[estado.id_estado]] != 10">
                                                     [[ estado.nombre_estado]]
                                             </option>
                                         </select>

@@ -97,45 +97,25 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Correo Electronico</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
-                                        <input type="text" class="form-control" maxlength="100" name ="i_correo">
-                                    </div>
+                                    <label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
+                                    <div class="col-lg-9 iconic-input right">
+                                        <i class="fa fa-envelope" data-original-title="" title=""></i>
+                                        <input class="form-control" type="email" placeholder="ejample@dominio.com" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo" required>
+                                        
+                                        <div class="col-lg-10" ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
+                                            <p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
+                                            <p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
+                                        </div>
+                                    </div>                                      
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Sitio Web</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
-                                        <input type="text" class="form-control" maxlength="100" name ="i_sitio_web">
-                                    </div>
-                                    
-                                </div>
-                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
-                                    <div class="col-lg-9">
-                                        <select class="form-control m-bot15" name="s_estados">
-                                           @foreach($estados as $value)
-                                                <option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                                    <label for="curl" class="control-label col-lg-3">Sitio Web</label>
+                                    <div class="col-lg-9 iconic-input right">
+                                        <i class="fa fa-link" data-original-title="" title=""></i>
+                                        <input class="form-control" type="url" placeholder="Ejemplo: http://test.com" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" ng-model="formData.i_sitio_web" required>
 
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">Latitud</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
-                                        <input type="text" class="form-control" maxlength="100" name ="i_latitud">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">Longitud</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
-                                        <input type="text" class="form-control" maxlength="100" name ="i_longitud">
+                                        <p class="help-block text-danger" ng-show="formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched"> Verifique la direccion: Ejemplo: http://test.com </p>
                                     </div>
                                 </div>
 				

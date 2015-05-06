@@ -5,6 +5,9 @@
 <div ng-controller="EditarEmpresaController">
 	
     <div ng-init="nombre_empresa = '{{$empresa->nombre_empresa}}' "></div>
+    <div ng-init="i_latitud = '{{$empresa->positionmap_empresa_latitude}}' "></div>
+    <div ng-init="i_longitud = '{{$empresa->positionmap_empresa_longitude}}' "></div>
+    <div ng-init="init(i_latitud , i_longitud)"></div>
 
 	@include('layouts/nav')
 
@@ -135,12 +138,47 @@
 											@endforeach
 										</select>
                                     </div>
-                                </div>	
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">latitude</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
+                                        <input class="form-control" ng-value="[[i_latitud]]" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">longitude</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
+                                        <input class="form-control" ng-value="[[i_longitud]]" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
+                                    </div>
+                                </div>
 		
 						</div>
                  	</section>
               	</div>
 
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div id="map_canvas">
+                                <ui-gmap-google-map 
+                                    center="map.center" 
+                                    zoom="map.zoom" 
+                                    draggable="true" 
+                                    options="options">
+                                        <ui-gmap-marker 
+                                            coords="marker.coords" 
+                                            options="marker.options"
+                                            events="marker.events" 
+                                            idkey="marker.id">
+                                        </ui-gmap-marker>
+                                </ui-gmap-google-map>
+                            </div>
+                    </section>
+                </div>
 
               	<div class="col-lg-12">
                 	<section class="panel">

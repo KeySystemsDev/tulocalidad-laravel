@@ -119,7 +119,8 @@
                                     </div>
                                 </div>
 
-                                          <div class="form-group">
+                                <div class="form-group">
+                                    <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
@@ -132,7 +133,7 @@
                                             <option ng-repeat="estado in estados" 
                                                     value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
                                                     ng-else="[[estado.id_estado]] != 10">
-                                                [[ estado.nombre_estado]]
+                                                    [[ estado.nombre_estado]]
                                             </option>
                                         </select>
                                     </div>

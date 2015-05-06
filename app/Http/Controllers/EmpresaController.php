@@ -66,7 +66,7 @@ class EmpresaController extends Controller {
 		$empresa->direccion_empresa             = e(Input::get('i_direccion'));
 		$empresa->id_categoria                  = e(Input::get('i_categoria'));
 		$empresa->correo_empresa                = e(Input::get('i_correo'));
-		$empresa->id_estado                     = e(Input::get('i_estados'));
+		$empresa->id_estado                     = e(Input::get('id_estado'));
 		$empresa->url_empresa                   = e(Input::get('i_sitio_web'));
 		$empresa->positionmap_empresa_latitude  = e(Input::get('i_latitud'));
 		$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					

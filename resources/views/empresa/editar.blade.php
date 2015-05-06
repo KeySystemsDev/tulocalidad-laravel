@@ -4,6 +4,8 @@
 
 <div ng-controller="EditarEmpresaController">
 	
+    <div ng-init="nombre_empresa = '{{$empresa->nombre_empresa}}' "></div>
+
 	@include('layouts/nav')
 
 	<div class="container">
@@ -36,7 +38,7 @@
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" value="{{$empresa->nombre_empresa}}" readonly>
+					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" ng-value="nombre_empresa" readonly>
 					    			</div>
 					    		</div>
 

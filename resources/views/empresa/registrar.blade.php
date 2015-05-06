@@ -41,7 +41,7 @@
 					      			<label class="control-label col-lg-3">RIF</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="10" minlength="10" class="form-control" placeholder="RIF de la Empresa" name="i_rif" ng-model="formData.i_rif" required>
+					      				<input type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="formData.i_rif" required>
 					    			</div>
 					    		</div>
 								

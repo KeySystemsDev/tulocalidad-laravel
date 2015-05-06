@@ -28,30 +28,20 @@
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                                 <tr>
-                                    <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre</th>
-                                    <th><i class="fa fa-map-marker" data-original-title="" title=""></i> Dirección</th>
+                                    <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre</th>                                
                                     <th><i class="fa fa-flag" data-original-title="" title=""></i> Rif</th>
-                                    <th><i class="fa fa-link" data-original-title="" title=""></i> Sitio Web</th>
                                     <th><i class="fa fa-envelope" data-original-title="" title=""></i> Correo</th>
-                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th>
-                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono 2</th>
-                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono 3</th>
-                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono Movil</th> 
+                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th> 
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                             	@foreach($consulta as $value)
                                     <tr>
-                                        <td><a href="#">{{$value->nombre_empresa}}</a></td>
-                                        <td class="hidden-phone">{{$value->direccion_empresa}}</td>
+                                        <td><a href="#">{{$value->nombre_empresa}}</a></td>  
                                         <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
-                                        <td>{{$value->url_empresa}}</td>
                                         <td>{{$value->correo_empresa}}</td>
-                                        <td>{{$value->telefono_empresa}}</td>
-                                        <td>{{$value->telefono_2_empresa}}</td>
-                                        <td>{{$value->telefono_3_empresa}}</td>
-                                        <td>{{$value->telefono_movil_empresa}}</td>
+                                        <td>{{$value->telefono_empresa}}</td>                                       
                                         <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
                                     </tr>
                                 @endforeach

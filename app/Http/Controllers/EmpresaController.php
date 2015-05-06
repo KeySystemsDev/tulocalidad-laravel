@@ -6,6 +6,7 @@ use View;
 use App\Empresa;
 use DB;
 use Redirect;
+use Session;
 
 class EmpresaController extends Controller {
 
@@ -27,6 +28,7 @@ class EmpresaController extends Controller {
 	public function ActionRegistrar(){
 			$categoria = DB::table('t_categoria')->get();
 			$estados   = DB::table('t_estados')->get();
+			Session::put('registrar','1');
 			return View::make('empresa/registrar', compact('categoria','estados'));
 	} 
 //********************************************************************************************	
@@ -60,22 +62,25 @@ class EmpresaController extends Controller {
 	}
 //********************************************************************************************
 	public function ActionEmpresa_procesado(){
-		$empresa = new Empresa;
-		$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
-		$empresa->rif_empresa                   = e(Input::get('i_rif'));
-		$empresa->direccion_empresa             = e(Input::get('i_direccion'));
-		$empresa->id_categoria                  = e(Input::get('i_categoria'));
-		$empresa->correo_empresa                = e(Input::get('i_correo'));
-		$empresa->id_estado                     = e(Input::get('i_estados'));
-		$empresa->url_empresa                   = e(Input::get('i_sitio_web'));
-		$empresa->positionmap_empresa_latitude  = e(Input::get('i_latitud'));
-		$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
-		$empresa->telefono_empresa              = e(Input::get('i_telefono'));
-		$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
-		$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
-		$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
-		$empresa->save();
-		$rif = (Input::get('i_rif'));
+		if (Session::get('registrar') == 1) {
+			Session::put('registrar','2');
+			$empresa = new Empresa;
+			$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
+			$empresa->rif_empresa                   = e(Input::get('i_rif'));
+			$empresa->direccion_empresa             = e(Input::get('i_direccion'));
+			$empresa->id_categoria                  = e(Input::get('i_categoria'));
+			$empresa->correo_empresa                = e(Input::get('i_correo'));
+			$empresa->id_estado                     = e(Input::get('i_estados'));
+			$empresa->url_empresa                   = e(Input::get('i_sitio_web'));
+			$empresa->positionmap_empresa_latitude  = e(Input::get('i_latitud'));
+			$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
+			$empresa->telefono_empresa              = e(Input::get('i_telefono'));
+			$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
+			$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
+			$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
+			$empresa->save();
+			$rif = (Input::get('i_rif'));
+		}
 	 	return View::make('empresa/creado', compact('rif'));   
 	}
 //********************************************************************************************

@@ -27,7 +27,7 @@
                 <div class="col-lg-12">
                     <section class="panel">                         
                         <div class="panel-body">
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" method="get" role="form" name="formulario" id="formulario" action="empresa-procesado" method ="post">
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" name="formulario" id="formulario" action="empresa-procesado" method ="post">
 
 								<div class="form-group">
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
@@ -57,8 +57,8 @@
                                     <label class="control-label col-lg-3" for="inputSuccess">Categoria</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="i_categoria">
-                                            @foreach($categoria as $value)
-												<option class="option" value="{{$value->id_categoria}}">{{$value->nombre_categoria}}</option>; 
+                                            @foreach($categoria as $key)
+												<option class="option" value="{{$key->id_categoria}}">{{$key->nombre_categoria}}</option>; 
 											@endforeach
                                         </select>
                                     </div>

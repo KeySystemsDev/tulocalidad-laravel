@@ -5,7 +5,7 @@
 <div ng-controller="EmpresaRegistroController">
 
 	@include('layouts/nav')
-        
+    
 	<div class="container">
 		<div id="main">
 			<div class="row">

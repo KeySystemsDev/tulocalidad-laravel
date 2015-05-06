@@ -85,7 +85,8 @@ class EmpresaController extends Controller {
 				$empresa->save();
 				$rif = (Input::get('i_rif'));
 
-	 	return View::make('empresa/creado', compact('rif'));   
+		}
+		return View::make('empresa/creado', compact('rif')); 
 	}
 //********************************************************************************************
 	public function ActionSucursal($id_empresa){

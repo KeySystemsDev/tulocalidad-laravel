@@ -5,6 +5,11 @@
 <div ng-controller="EditarEmpresaController">
 	
     <div ng-init="nombre_empresa = '{{$empresa->nombre_empresa}}' "></div>
+    <div ng-init="i_latitud = '{{$empresa->positionmap_empresa_latitude}}' "></div>
+    <div ng-init="i_longitud = '{{$empresa->positionmap_empresa_longitude}}' "></div>
+    <div ng-init="init(i_latitud , i_longitud)"></div>
+
+    <div ng-init="id_estado_empresa = '{{$empresa->id_estado}}'"></div>
 
 	@include('layouts/nav')
 
@@ -21,6 +26,7 @@
 		                    </h2>
 		                    <p>
 		                    	Manten tus datos al día
+                                [[id_estado_empresa]]
 		                    </p>
                     	</header>
                     </section>
@@ -102,7 +108,7 @@
                                     <label class="control-label col-lg-3">Telefono movil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                        <input type="text" data-mask="(999) 999-99-99" class="form-control" name="i_celular" value="{{$empresa->telefono_movil_empresa}}">
+                                        <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_celular" value="{{$empresa->telefono_movil_empresa}}">
                                     </div>
                                 </div>
 
@@ -123,24 +129,64 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estados</label>
+                                    <input type="hidden" id="id_estado" name="id_estado">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
-                                        <select name="s_estados" class="form-control m-bot15">
-											@foreach($estados as $value)
-												@if ($value->id_estado == $empresa->id_estado)
-													<option class="option" value="{{ $value->id_estado }}" selected> {{$value->nombre_estado}} </option>; 
-												@else
-													<option class="option" value="{{ $value->id_estado }}">{{$value->nombre_estado}} </option>;
-												@endif
-											@endforeach
-										</select>
+                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
+                                            <option ng-repeat="estado in estados" 
+                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+                                                      ng-if="[[estado.id_estado]] == id_estado_empresa" 
+                                                      selected>
+                                                    [[ estado.nombre_estado]]
+                                            </option>
+                                            <option ng-repeat="estado in estados" 
+                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+                                                    ng-if="[[estado.id_estado]] != id_estado_empresa">
+                                                    [[ estado.nombre_estado]]
+                                            </option>
+                                        </select>
                                     </div>
-                                </div>	
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">latitude</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
+                                        <input class="form-control" ng-value="[[i_latitud]]" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">longitude</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
+                                        <input class="form-control" ng-value="[[i_longitud]]" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
+                                    </div>
+                                </div>
 		
 						</div>
                  	</section>
               	</div>
 
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            <div id="map_canvas">
+                                <ui-gmap-google-map 
+                                    center="map.center" 
+                                    zoom="map.zoom" 
+                                    draggable="true" 
+                                    options="options">
+                                        <ui-gmap-marker 
+                                            coords="marker.coords" 
+                                            options="marker.options"
+                                            events="marker.events" 
+                                            idkey="marker.id">
+                                        </ui-gmap-marker>
+                                </ui-gmap-google-map>
+                            </div>
+                    </section>
+                </div>
 
               	<div class="col-lg-12">
                 	<section class="panel">

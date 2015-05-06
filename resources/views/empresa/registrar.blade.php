@@ -92,7 +92,7 @@
                                     <label class="control-label col-lg-3">Telefono movil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                        <input type="text" placeholder="(999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
+                                        <input type="text" placeholder="(9999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
                                     </div>
                                 </div>
 								
@@ -119,7 +119,8 @@
                                     </div>
                                 </div>
 
-                                          <div class="form-group">
+                                <div class="form-group">
+                                    <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
@@ -131,8 +132,8 @@
                                             </option>
                                             <option ng-repeat="estado in estados" 
                                                     value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-else="[[estado.id_estado]] != 10">
-                                                [[ estado.nombre_estado]]
+                                                    ng-if="[[estado.id_estado]] != 10">
+                                                    [[ estado.nombre_estado]]
                                             </option>
                                         </select>
                                     </div>

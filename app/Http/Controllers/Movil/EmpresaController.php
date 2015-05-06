@@ -8,4 +8,8 @@ class EmpresaController extends Controller {
 		$estados = DB::table('t_estados')->get();	
 		echo json_encode($estados);		
 	} 
+	public function ActionCategorias(){
+		$categoria = DB::table('t_categoria')->get();	
+		echo json_encode($categoria);		
+	} 
 }

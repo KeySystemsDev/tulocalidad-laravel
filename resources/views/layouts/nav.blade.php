@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url ('empresa/consulta') }}">
+                            <a href="{{ url ('empresa/registrar') }}">
                                 <div class="text-center">
                                     <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>
                                     Registrar Empresa

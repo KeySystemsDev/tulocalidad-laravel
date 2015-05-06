@@ -78,7 +78,7 @@
                                     <label class="control-label col-lg-3">Telefono local 1</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                        <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono1" value="{{$empresa->telefono_empresa}}">
+                                        <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono" value="{{$empresa->telefono_empresa}}">
                                     </div>
                                 </div>
 

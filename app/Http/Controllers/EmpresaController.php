@@ -10,10 +10,22 @@ use Session;
 
 class EmpresaController extends Controller {
 
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionIndex(){
 		return View::make('empresa/consulta_rif');   
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionConsulta(){
 		$rif      = (Input::get('v'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
@@ -24,14 +36,26 @@ class EmpresaController extends Controller {
 			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+	
 	public function ActionRegistrar(){
 			$categoria = DB::table('t_categoria')->get();
 			$estados   = DB::table('t_estados')->get();
 			Session::put('registrar','1');
 			return View::make('empresa/registrar', compact('categoria','estados'));
 	} 
-//********************************************************************************************	
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionEditar($id_empresa){
 		$empresa   = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
@@ -39,7 +63,13 @@ class EmpresaController extends Controller {
 		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
 		
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionActualizar(){
 		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
 			array(
@@ -62,7 +92,13 @@ class EmpresaController extends Controller {
 	 	return View::make('empresa/actualizado', compact('rif'));
 
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionEmpresa_procesado(){
 
 		if (Session::get('registrar') == 1) {
@@ -88,7 +124,13 @@ class EmpresaController extends Controller {
 		}
 		return View::make('empresa/creado', compact('rif')); 
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionSucursal($id_empresa){
 		$empresa   = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
 		$categoria = DB::table('t_categoria')->get();
@@ -98,7 +140,13 @@ class EmpresaController extends Controller {
 		return View::make('empresa/nueva_sucursal', compact('empresa', 'categoria', 'estados'));
 		
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionSucursal_procesado(){
 		$empresa                                = new Empresa;
 		$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
@@ -119,7 +167,13 @@ class EmpresaController extends Controller {
 
 	 	return View::make('empresa/creado', compact('rif'));  
 	}
-//********************************************************************************************
+
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
 	public function ActionConsulta_estado(){
 		$rif = (Input::get('v'));
 		$consulta = Empresa::where('rif_empresa','=', $rif)-> get();
@@ -134,4 +188,3 @@ class EmpresaController extends Controller {
 	} 
 }
 
-?>

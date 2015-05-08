@@ -14,17 +14,22 @@ class WelcomeController extends Controller {
 	*/
 
 	/**
-	 * Show the application welcome screen to the user.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{	
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
+	public function index(){	
 		return view('welcome/welcome');
 	}
 
-	public function theme()
-	{	
+	/**
+	*
+	* Coloca que hace este metodo
+	*
+	**/
+
+	public function theme(){	
 		return view('theme/theme');
 	}
 

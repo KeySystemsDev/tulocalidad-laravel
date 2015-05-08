@@ -298,7 +298,7 @@
 		  	<div class="container">
 			  	<div class="row">
 			  		<div class="col-md-12">
-			  			<a target="_blank" href="{{ url ('empresa') }}">
+			  			<a href="{{ url ('empresa') }}">
 			  				<img src="img/9-registrate.jpg">
 			  			</a>
 			  		</div>

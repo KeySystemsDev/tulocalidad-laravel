@@ -25,3 +25,6 @@ Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
 Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCategoriaEstado');
+Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
+Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
+Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');

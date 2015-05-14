@@ -19,4 +19,4 @@ class EmpresaController extends Controller {
 	echo json_encode($categorias);		
 	} 
 }
-?>
+

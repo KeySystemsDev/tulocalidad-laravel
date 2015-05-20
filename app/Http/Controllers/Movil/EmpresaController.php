@@ -14,9 +14,19 @@ class EmpresaController extends Controller {
 		echo json_encode($categoria);		
 	} 
 	public function ActionCategoriaEstado(){
-	$estado=e(Input::get('i_estado'));
+	$estado=e(Input::get('id_estado'));
 	$categorias= DB::select('CALL p_t_empresas(?,?,?)',array('categoria_estado','',$estado));
 	echo json_encode($categorias);		
 	} 
+	public function ActionEmpresaCategoria(){
+	$categoria=e(Input::get('id_categoria'));
+	$estado=e(Input::get('id_estado'));
+	$empresas= DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria','',$estado,$categoria));
+	echo json_encode($empresas);		
+	} 
+	public function ActionPublicidad(){
+	$publicidad= DB::select('CALL p_t_empresas(?,?,?,?,?)',array('publicidad','','','',''));
+	echo json_encode($publicidad);
+	}
 }
 

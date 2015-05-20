@@ -7,6 +7,8 @@ use App\Empresa;
 use DB;
 use Redirect;
 use Session;
+use App\Publicidad;
+use Request;
 
 class EmpresaController extends Controller {
 
@@ -186,5 +188,26 @@ class EmpresaController extends Controller {
 			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 		}
 	} 
+
+	public function ActionAgregar_Publicidad($id_empresa){
+		$nombre  = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
+		return View::make('empresa/agregar_publicidad',compact('nombre'));
+	}
+
+	public function ActionGuardar_Publicidad(){
+		$path                               ='uploads/publicidad';
+		$archivo                            =Input::file('i_publicidad');
+		$nombre                             =Input::file('i_publicidad')->getClientOriginalName();
+		$alojar                             =$archivo->move($path, $nombre);
+		$url                                = Request::path();
+		$publicidad                         = new Publicidad;
+		$publicidad->titulo_publicidad      = Input::get('i_titulo');
+		$publicidad->descripcion_publicidad = Input::get('i_descripcion');
+		$publicidad->id_empresa = Input::get('id_empresa');
+		$publicidad->url_imagen_publicidad  = $path;
+		$publicidad->save();
+		echo "se ha guardado exitosamente";
+		//return View::make('empresa/agregar_publicidad',compact('nombre'));
+	}
 }
 

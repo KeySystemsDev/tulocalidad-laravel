@@ -28,3 +28,5 @@ Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCate
 Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
+Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregar_Publicidad');
+Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');

@@ -43,6 +43,7 @@
                                         <td>{{$value->correo_empresa}}</td>
                                         <td>{{$value->telefono_empresa}}</td>                                       
                                         <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
+                                         <td><a href="crear-publicidad/{{$value->id_empresa}}">Agregar Publicidad</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

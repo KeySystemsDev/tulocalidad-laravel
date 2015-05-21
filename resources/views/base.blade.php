@@ -42,6 +42,10 @@
 	    <link href="{{ asset('/theme-admin/css/table-responsive.css') }}" rel="stylesheet" media="screen">
 	    <link href="{{ asset('/theme-admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css">
 	    <link href="{{ asset('/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+		
+		<!-- theme view advanced-component.html-->
+		<link href="{{ asset('theme-admin/assets/bootstrap-fileupload/bootstrap-fileupload.css') }}"  rel="stylesheet" type="text/css" h>
+	
 	</head>
 	
 	<body>
@@ -82,6 +86,8 @@
 	    <script src="{{ asset('/theme-admin/js/easy-pie-chart.js') }}"></script>
 	    <script src="{{ asset('/theme-admin/js/count.js') }}"></script>
 	    <script src="{{ asset('/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }}"></script>
-
+		
+		<!-- theme view advanced-component.html-->
+		<script src="{{ asset('theme-admin/assets/bootstrap-fileupload/bootstrap-fileupload.js') }}"></script>
 	</body>
 </html>

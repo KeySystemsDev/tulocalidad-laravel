@@ -11,6 +11,11 @@ angular.module('tulocalidad.controller', [])
 	$log.log('RifController');
 })
 
+.controller('PublicidadController', function($scope, $log) {
+    $log.log('PublicidadController');
+    $scope.formData = {};
+})
+
 .controller('EmpresaRegistroController', function($scope, $log, estados) {
 	$log.log('EmpresaRegistroController');
     $scope.formData = {};

@@ -31,7 +31,8 @@
                                     <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre</th>                                
                                     <th><i class="fa fa-flag" data-original-title="" title=""></i> Rif</th>
                                     <th><i class="fa fa-envelope" data-original-title="" title=""></i> Correo</th>
-                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th> 
+                                    <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th>
+                                    <th><i class="fa fa-bullhorn" data-original-title="" title=""></i> Publicidad</th> 
                                     <th></th>
                                 </tr>
                             </thead>
@@ -41,9 +42,9 @@
                                         <td><a href="#">{{$value->nombre_empresa}}</a></td>  
                                         <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
                                         <td>{{$value->correo_empresa}}</td>
-                                        <td>{{$value->telefono_empresa}}</td>                                       
-                                        <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
-                                         <td><a href="crear-publicidad/{{$value->id_empresa}}">Agregar Publicidad</a></td>
+                                        <td>{{$value->telefono_empresa}}</td>
+                                        <td><a href="crear-publicidad/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>                                       
+                                        <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>  
                                     </tr>
                                 @endforeach
                             </tbody>

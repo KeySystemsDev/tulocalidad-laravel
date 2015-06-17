@@ -68,6 +68,9 @@
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
 
+		<script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
+		<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
+
 	    <!-- Theme 
 	        ================================================== -->
 	    <script src="{{ asset('/theme-admin/js/themes.js') }}"></script>
@@ -83,6 +86,7 @@
 	    <script src="{{ asset('/theme-admin/js/easy-pie-chart.js') }}"></script>
 	    <script src="{{ asset('/theme-admin/js/count.js') }}"></script>
 	    <script src="{{ asset('/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }}"></script>
-		
+
+		@yield('js')
 	</body>
 </html>

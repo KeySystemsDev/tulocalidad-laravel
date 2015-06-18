@@ -67,7 +67,7 @@ return [
 		'permiso' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST1', 'localhost'),
-			'database'  => env('DB_DATABASE1', 'wan14705_wanai_permisologia'),
+			'database'  => env('DB_DATABASE1', 'keypan5_permisologia'),
 			'username'  => env('DB_USERNAME1', 'root'),
 			'password'  => env('DB_PASSWORD1', ''),
 			'charset'   => 'utf8',

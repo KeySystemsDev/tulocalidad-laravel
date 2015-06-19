@@ -14,7 +14,7 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* Renderiza la vista para consultar si el rif existe o no
 	*
 	**/
 
@@ -24,7 +24,8 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* En este metodo se recibe el rif y se consulta si existe en la tabla empresas, si el rif existe, renderiza la vista
+	*donde se listan todas las sucursales asociadas a dicho rif, de lo contrario redirecciona a la vista de registro de empresa
 	*
 	**/
 
@@ -41,7 +42,8 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* Este metodo renderiza la vista para registrar las empresas, ademas de esto, se hacen consultas en la tabla de categorias y
+	*estados para poblar los selects.
 	*
 	**/
 	
@@ -54,7 +56,8 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* aca se recibe via get el id de la empresa y con el se hace una consulta a la Bd para traer todo el registro asociado a ese 
+	*id para presentarlo en la vista editar y poder actualizarlo.
 	*
 	**/
 
@@ -68,7 +71,8 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* En el metodo actualizar se reciben todos los inputs de la vista editar y se realiza el update en la base de datos, y se renderiza a
+	*la vista actualizado.
 	*
 	**/
 
@@ -97,7 +101,7 @@ class EmpresaController extends Controller {
 
 	/**
 	*
-	* Coloca que hace este metodo
+	* En el metodo Empresa_procesado se reciben los inputs de la vista registrar empresas, y se insertan en la bd, 
 	*
 	**/
 
@@ -218,5 +222,6 @@ class EmpresaController extends Controller {
 		echo "se ha guardado exitosamente";
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
 	}
+
 }
 

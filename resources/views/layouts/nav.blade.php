@@ -28,6 +28,14 @@
                                 </div>
                             </a>
                         </li>
+                         <li>
+                            <a href="{{ url ('auth/cerrar') }}">
+                                <div class="text-center">
+                                    <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>
+                                    Cerrar Sesion
+                                </div>
+                            </a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>

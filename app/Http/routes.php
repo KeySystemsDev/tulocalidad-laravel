@@ -10,8 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |*/
 
+Route::get('home', 'HomeController@index');
+Route::get('auth/cerrar', 'LoginController@CerrarSesion');
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+$router->group(['middleware' => 'auth'], function() {
+
 Route::get('/', 'WelcomeController@index');
-Route::get('theme', 'WelcomeController@theme');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::any('upload/img', 'ImgController@create' );
 
@@ -28,12 +36,13 @@ Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado
 Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregar_Publicidad');
 Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');
 
+});
+
+Route::get('theme', 'WelcomeController@theme');
+
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
 Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCategoriaEstado');
 Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
-
-
-

@@ -1,11 +1,22 @@
-@extends('app')
+@extends('base')
+
+<ul class="cb-slideshow ul-login">
+    <li class="li-login"><span></span></li>
+    <li class="li-login"><span></span></li>
+    <li class="li-login"><span></span></li>
+    <li class="li-login"><span></span></li>
+    <li class="li-login"><span></span></li>
+    <li class="li-login"><span></span></li>
+</ul>
 
 @section('content')
+
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
+		
+	<div class="row login-tulocalidad">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="panel panel-default border-tulocalidad">
+				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center></div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -22,14 +33,14 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">Correo Electronico</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
+							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password">
 							</div>
@@ -47,9 +58,9 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
+								<button type="submit" class="btn btn-danger">Entrar</button>
 
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+								<a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
 							</div>
 						</div>
 					</form>

@@ -12,6 +12,7 @@
 
 Route::get('home', 'HomeController@index');
 Route::get('auth/cerrar', 'LoginController@CerrarSesion');
+Route::get('/', 'WelcomeController@index');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -19,7 +20,6 @@ Route::controllers([
 
 $router->group(['middleware' => 'auth'], function() {
 
-Route::get('/', 'WelcomeController@index');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::get('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');

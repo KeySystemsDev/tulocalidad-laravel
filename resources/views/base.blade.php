@@ -27,8 +27,7 @@
 	    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 	    <!-- Font-Awesome -->
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/font-awesome/css/font-awesome.min.css') }}">
-	    <!-- Template Styles -->
-	    <link href="{{ asset('/css/style.css') }}" rel="stylesheet" media="screen">
+	    
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
 	    <link rel="shortcut icon" href="favicon.ico" />
 
@@ -43,6 +42,9 @@
 	    <link href="{{ asset('/theme-admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css">
 	    <link href="{{ asset('/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css') }}" rel="stylesheet" type="text/css">
 		
+		<!-- Template Styles -->
+	    <link href="{{ asset('/css/style.css') }}" rel="stylesheet" media="screen">
+	    
 	</head>
 	
 	<body>

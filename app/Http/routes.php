@@ -13,6 +13,9 @@
 Route::get('/', 'WelcomeController@index');
 Route::get('theme', 'WelcomeController@theme');
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
+Route::any('upload/img', 'ImgController@create' );
+
+
 Route::get('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
 Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
@@ -22,11 +25,15 @@ Route::any('empresa/empresa-procesado', 'EmpresaController@actionEmpresa_procesa
 Route::any('empresa/mostrar', 'EmpresaController@actionMostrar');
 Route::any('empresa/sucursal/{id}', 'EmpresaController@actionSucursal');
 Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado');
+Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregar_Publicidad');
+Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');
+
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
 Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCategoriaEstado');
 Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
-Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregar_Publicidad');
-Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');
+
+
+

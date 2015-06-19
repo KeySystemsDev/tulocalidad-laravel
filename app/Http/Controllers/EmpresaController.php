@@ -102,9 +102,15 @@ class EmpresaController extends Controller {
 	**/
 
 	public function ActionEmpresa_procesado(){
-
 		if (Session::get('registrar') == 1) {
 			Session::put('registrar','2');
+				$nombreArchivo = e(Input::get('namefile'));
+				$nombreArchivo = e(Input::get('namefile'));
+				$rutaOrigen    = "uploads/temp/".$nombreArchivo;
+				$rutaDestino   = "uploads/empresas/".$nombreArchivo;
+
+				print_r($nombreArchivo);
+				print_r($rutaOrigen);
 
 				$empresa = new Empresa;
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
@@ -120,11 +126,14 @@ class EmpresaController extends Controller {
 				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
+				//$empresa->ruta_imagen					= $rutaDestino;
 				$empresa->save();
+				rename($rutaOrigen,$rutaDestino);
+
 				$rif = (Input::get('i_rif'));
 
 		}
-		return View::make('empresa/creado', compact('rif')); 
+		return View::make('empresa/creado', compact('rif'));
 	}
 
 	/**

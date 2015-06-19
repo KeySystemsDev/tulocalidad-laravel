@@ -10,7 +10,7 @@ app.factory("estados", function ($resource) {
     })
 });
 app.factory("registro_service", function($resource){
-    return $resource('/upload-image-hotel', {}, {
+    return $resource('/upload/img', {}, {
         Post:{
             method: "POST",
             headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },

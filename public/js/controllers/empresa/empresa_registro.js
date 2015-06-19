@@ -95,14 +95,13 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
 
     $scope.return_img = function(id){
         $scope.img = $scope.srcimg;
+        registro_service.Post({img : $scope.img}).$promise.then(
+            function(data) {
+                if (data.status === "success"){
+                    $scope.formData.namefile = data.name;
+                };
+            }
+        );
         angular.element("#myModal").modal("hide");
-    };
-
-    $scope.send = function(){
-        $scope.formData["img"] = $scope.img;
-        registro_service.Post($scope.formData);
-        console.log("prueba");
-        console.log($scope.formData);
-
     };
 });

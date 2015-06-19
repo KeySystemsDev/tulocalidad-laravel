@@ -206,7 +206,8 @@
             	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-check" type="button" ng-click="send()" value="Registrar" ng-disabled="formulario.$invalid"> Registrar</button>
+							<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden>
+            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="formulario.$invalid"> Registrar</button>
       					</header>
       				</section>
       			</div>

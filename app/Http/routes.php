@@ -21,6 +21,9 @@ Route::controllers([
 $router->group(['middleware' => 'auth'], function() {
 
 Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
+Route::any('upload/img', 'ImgController@create' );
+
+
 Route::get('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
 Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
@@ -36,10 +39,10 @@ Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicid
 });
 
 Route::get('theme', 'WelcomeController@theme');
+
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
 Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCategoriaEstado');
 Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
-

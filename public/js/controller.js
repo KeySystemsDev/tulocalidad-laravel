@@ -1,22 +1,21 @@
 // Declare use of strict javascript
 'use strict';
 
-angular.module('tulocalidad.controller', [])
 
-.controller('WelcomeController', function($scope, $log) {
+app.controller('WelcomeController', function($scope, $log) {
 	$log.log('WelcomeController');
 })
 
-.controller('RifController', function($scope, $log) {
+app.controller('RifController', function($scope, $log) {
 	$log.log('RifController');
 })
 
-.controller('PublicidadController', function($scope, $log) {
+app.controller('PublicidadController', function($scope, $log) {
     $log.log('PublicidadController');
     $scope.formData = {};
 })
 
-.controller('EmpresaRegistroController', function($scope, $log, estados) {
+app.controller('EmpresaRegistroController', function($scope, $log, estados) {
 	$log.log('EmpresaRegistroController');
     $scope.formData = {};
 	$scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
@@ -42,7 +41,7 @@ angular.module('tulocalidad.controller', [])
 
               	$scope.marker.options = {
                 	draggable: true,
-                	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
+                	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' +
                 				  "lon: " + $scope.marker.coords.longitude,
                 	labelAnchor: "100 0",
                 	labelClass: "marker-labels"
@@ -52,7 +51,7 @@ angular.module('tulocalidad.controller', [])
     };
 
     $scope.estados = estados.get();
-	
+
 	$scope.estado_ruta = function(estado) {
        	$scope.array = estado.split('+');
    		$scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
@@ -78,7 +77,7 @@ angular.module('tulocalidad.controller', [])
 
               	$scope.marker.options = {
                 	draggable: true,
-                	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 
+                	labelContent: "lat: " + $scope.marker.coords.latitude + ' ' +
                 				  "lon: " + $scope.marker.coords.longitude,
                 	labelAnchor: "100 0",
                 	labelClass: "marker-labels"
@@ -89,7 +88,7 @@ angular.module('tulocalidad.controller', [])
     };
 })
 
-.controller('EditarEmpresaController', function($scope, $log, estados) {
+app.controller('EditarEmpresaController', function($scope, $log, estados) {
     $log.log('EditarEmpresaController');
 
     $scope.estados = estados.get();

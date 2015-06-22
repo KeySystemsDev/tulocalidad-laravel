@@ -38,14 +38,14 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Correo Electroónico</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="">
+								<input type="email" class="form-control" name="email" value="" required>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password" ng-model="pw" name="pw" id="pw">
+								<input type="password" class="form-control" name="password" ng-model="pw" name="pw" id="pw" required>
 								<ul id="strength" check-strength="pw"></ul>
 							</div>
 						</div>

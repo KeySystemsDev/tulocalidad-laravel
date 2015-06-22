@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('js')
+	<script src="{{ asset('/js/controllers/auth/register.js') }}"></script>
+@endsection
+
 <ul class="cb-slideshow ul-login">
     <li class="li-login"><span></span></li>
     <li class="li-login"><span></span></li>
@@ -10,7 +14,7 @@
 </ul>
 
 @section('content')
-<div class="container-fluid" ng-controller="RegistrarUsuarioController">
+<div class="container-fluid" ng-controller="RegisterUsuarioController">
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
@@ -26,7 +30,7 @@
 								@endforeach
 							</ul>
 						</div>
-					@endif
+					@endif				   
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -41,7 +45,8 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+								<input type="password" class="form-control" name="password" ng-model="pw" name="pw" id="pw">
+								<ul id="strength" check-strength="pw"></ul>
 							</div>
 						</div>
 

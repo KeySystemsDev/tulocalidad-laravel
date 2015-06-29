@@ -13,18 +13,26 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ url ('empresa') }}">
+                            <a href="{{ url ('misempresas/listar') }}">
                                 <div class="text-center">
                                     <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
-                                    Consultar RIF
+                                    Empresas
                                 </div>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url ('empresa/registrar') }}">
+                            <a href="{{ url ('misempresas/agregar') }}">
                                 <div class="text-center">
                                     <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>
-                                    Registrar Empresa
+                                    Agregar Empresa
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url ('mispublicidades/listar-publicidad/2') }}">
+                                <div class="text-center">
+                                    <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
+                                    Publicidad
                                 </div>
                             </a>
                         </li>

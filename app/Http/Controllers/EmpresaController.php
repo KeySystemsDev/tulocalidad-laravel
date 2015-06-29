@@ -223,5 +223,9 @@ class EmpresaController extends Controller {
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
 	}
 
+	public function ActionListar_Publicidad(){
+		return View::make('empresa/listar_publicidad');
+	}	
+
 }
 

@@ -46,3 +46,13 @@ Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCate
 Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
+
+//___________________________________Nuevas rutas_______________________________________________
+
+Route::get('entidad/listar-empresa', 'EntidadController@Listar');
+Route::get('entidad/listar-publicidad', 'EntidadController@ListarPublicidad');
+Route::get('entidad/agregar-publicidad', 'EntidadController@AgregarPublicidad');
+Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
+Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
+Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
+Route::any('empresa/actualizar', 'EmpresaController@actionActualizar');

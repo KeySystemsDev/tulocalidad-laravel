@@ -2,6 +2,8 @@
 
 @section('content')
 <div ng-controller="RifController">
+	
+	@include('layouts/nav-top')
 
 	@include('layouts/nav')
 

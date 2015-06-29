@@ -3,12 +3,14 @@
 
 // Application -----------------------------------------------------------------
 
-var app = angular.module('tulocalidad', ['ngResource','uiGmapgoogle-maps', 'ngImgCrop']
+var app = angular.module('tulocalidad', ['ngResource','uiGmapgoogle-maps', 'ngImgCrop', 'chieffancypants.loadingBar', 'ngAnimate']
 	, function($interpolateProvider){
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
-
-	});
+	})
+	.config(function(cfpLoadingBarProvider) {
+    	cfpLoadingBarProvider.includeSpinner = true;
+  	});
 
 app.config(['$httpProvider', function ($httpProvider) {
 		// Use x-www-form-urlencoded Content-Type

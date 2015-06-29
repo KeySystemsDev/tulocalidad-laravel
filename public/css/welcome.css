@@ -750,3 +750,16 @@ header, .social{
 .text-descarga{
 	margin-top: 200px;
 }
+#loading-bar .bar {
+  background: #721520;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  #721520;
+  border-left-color: #721520;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #721520 1px 0 6px 1px;
+  -ms-box-shadow: #721520 1px 0 6px 1px;
+  -webkit-box-shadow: #721520 1px 0 6px 1px;
+  box-shadow: #721520 1px 0 6px 1px;
+}

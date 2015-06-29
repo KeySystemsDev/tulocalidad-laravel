@@ -105,8 +105,8 @@ a:hover{
 ========================================*/
 
 .header-top .navbar{
-	background-color: #3498db;
-	border-bottom: 4px solid #2980b9;
+	background-color: #721520;
+	border-bottom: 4px solid #855157;
 }
 
 .header-top .navbar .navbar-brand{
@@ -122,8 +122,8 @@ a:hover{
 }
 
 .header-top .navbar-right.top-menu input.form-control{
-	background-color: #2980b9;
-	border: 1px solid #2980b9;
+	background-color: #855157;
+	border: 1px solid #721520;
 	margin-top: 2px;
 	color: #fff;
 }

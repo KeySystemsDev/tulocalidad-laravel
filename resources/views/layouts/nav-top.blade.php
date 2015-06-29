@@ -4,7 +4,7 @@
         <div class="container">
             <!-- start:navbar-header -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html"><i class="fa fa-cubes" data-original-title="" title=""></i> <strong>Srikan</strong>di<strong>.</strong></a>
+                <a class="navbar-brand" href="index.html"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong>.</strong></a>
             </div>
             <!-- end:navbar-header -->
             <ul class="nav navbar-nav navbar-left top-menu">
@@ -224,7 +224,7 @@
                         <li><a href="#"><i class=" fa fa-suitcase" data-original-title="" title=""></i>Profile</a></li>
                         <li><a href="#"><i class="fa fa-cog" data-original-title="" title=""></i> Settings</a></li>
                         <li><a href="#"><i class="fa fa-bell-o" data-original-title="" title=""></i> Notification</a></li>
-                        <li><a href="login.html"><i class="fa fa-key" data-original-title="" title=""></i> Log Out</a></li>
+                        <li><a href="{{ url ('auth/cerrar') }}"><i class="fa fa-key" data-original-title="" title=""></i> Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>

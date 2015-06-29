@@ -36,7 +36,7 @@
                     <section class="panel">                         
                         <div class="panel-body">
 
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action="../actualizar" method="post" name="formulario" id="formulario">
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action="../editar-exitoso" method="post" name="formulario" id="formulario">
 		
 								<input type="hidden" id="id_empresa" name="id_empresa" value="{{$empresa->id_empresa}}">
 								

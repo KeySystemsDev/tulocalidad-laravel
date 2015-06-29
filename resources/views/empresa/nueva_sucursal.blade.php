@@ -28,7 +28,7 @@
                     <section class="panel">                         
                         <div class="panel-body">
 
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2"action ='../nueva-sucursal', method ='post', name ='formulario'>
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2"action ='../agregar-sucursal-exitoso', method ='post', name ='formulario'>
 								<input type="hidden" id="id_empresa" name="id_empresa" value = "{{$empresa->id_empresa}}">
 								
 								<div class="form-group">

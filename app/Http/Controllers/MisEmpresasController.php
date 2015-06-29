@@ -17,9 +17,9 @@ class MisEmpresasController extends Controller {
 	*donde se listan todas las sucursales asociadas a dicho rif, de lo contrario redirecciona a la vista de registro de empresa
 	*
 	**/
-	public function Listar(){
+	public function Index(){
 		$consulta = Empresa::where('rif_empresa','=','j401629245')-> get();
-			return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
+		return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 	} 
 	/**
 	*
@@ -28,10 +28,10 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Agregar(){
-			$categoria = DB::table('t_categoria')->get();
-			$estados   = DB::table('t_estados')->get();
-			Session::put('registrar','1');
-			return View::make('empresa/registrar', compact('categoria','estados'));
+		$categoria = DB::table('t_categoria')->get();
+		$estados   = DB::table('t_estados')->get();
+		Session::put('registrar','1');
+		return View::make('empresa/registrar', compact('categoria','estados'));
 	} 
 
 	/**

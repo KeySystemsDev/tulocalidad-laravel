@@ -13,7 +13,7 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="{{ url ('misempresas/listar') }}">
+                            <a href="{{ url ('mis-empresas') }}">
                                 <div class="text-center">
                                     <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
                                     Empresas
@@ -21,7 +21,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url ('misempresas/agregar') }}">
+                            <a href="{{ url ('mis-empresas/agregar') }}">
                                 <div class="text-center">
                                     <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>
                                     Agregar Empresa
@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url ('mispublicidades/listar-publicidad/2') }}">
+                            <a href="{{ url ('mis-publicidades') }}">
                                 <div class="text-center">
                                     <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
                                     Publicidad

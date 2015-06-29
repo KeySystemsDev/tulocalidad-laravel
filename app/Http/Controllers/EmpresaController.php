@@ -113,8 +113,6 @@ class EmpresaController extends Controller {
 				$rutaOrigen    = "uploads/temp/".$nombreArchivo;
 				$rutaDestino   = "uploads/empresas/".$nombreArchivo;
 
-				print_r($nombreArchivo);
-				print_r($rutaOrigen);
 
 				$empresa = new Empresa;
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
@@ -130,8 +128,10 @@ class EmpresaController extends Controller {
 				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
-				//$empresa->ruta_imagen					= $rutaDestino;
+				$empresa->icon_empresa					= "/".$rutaDestino;
+														// se coloca la ruta con la / para el uso de la redireccion
 				$empresa->save();
+
 				rename($rutaOrigen,$rutaDestino);
 
 				$rif = (Input::get('i_rif'));
@@ -208,18 +208,29 @@ class EmpresaController extends Controller {
 	}
 
 	public function ActionGuardar_Publicidad(){
-		$path                               ='uploads/publicidad';
-		$archivo                            =Input::file('i_publicidad');
-		$nombre                             =Input::file('i_publicidad')->getClientOriginalName();
-		$alojar                             =$archivo->move($path, $nombre);
-		$url                                = Request::path();
+		// $path                               ='uploads/publicidad';
+		// $archivo                            =Input::file('i_publicidad');
+		// $nombre                             =Input::file('i_publicidad')->getClientOriginalName();
+		// $alojar                             =$archivo->move($path, $nombre);
+		// $url                                = Request::path();
+
+		$nombreArchivo = e(Input::get('namefile'));
+		$nombreArchivo = e(Input::get('namefile'));
+		$rutaOrigen    = "uploads/temp/".$nombreArchivo;
+		//agregar en la ruta destino la direccion de la carpeta del usuario
+		$rutaDestino   = "uploads/publicidades/".$nombreArchivo;
+
+
 		$publicidad                         = new Publicidad;
 		$publicidad->titulo_publicidad      = Input::get('i_titulo');
 		$publicidad->descripcion_publicidad = Input::get('i_descripcion');
-		$publicidad->id_empresa = Input::get('id_empresa');
-		$publicidad->url_imagen_publicidad  = $path;
+		$publicidad->id_empresa 			= Input::get('id_empresa');
+		$publicidad->url_imagen_publicidad  = "/".$rutaDestino;
+											// se coloca la ruta con la / para el uso de la redireccion
 		$publicidad->save();
-		echo "se ha guardado exitosamente";
+
+		rename($rutaOrigen,$rutaDestino);
+		echo "se ha guardado exitosamente ".$publicidad->url_imagen_publicidad;
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
 	}
 

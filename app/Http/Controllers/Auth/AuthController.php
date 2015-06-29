@@ -42,7 +42,7 @@ class AuthController extends Controller {
         }
         else
         {
-            \Session::put('usuario', '$auth');
+            \Session::put('usuario', $auth);
             return \Redirect::to('empresa');
         }
 	}

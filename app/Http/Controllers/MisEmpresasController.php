@@ -21,10 +21,18 @@ class MisEmpresasController extends Controller {
 		$consulta = Empresa::where('rif_empresa','=','j401629245')-> get();
 		return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 	} 
+	/* 
+		publicaciones de las empresas
+	*/
+	
+	public function PublicacionEmpresa($id_empresa){
+		return View::make('empresa/publicacion', compact('id_empresa'));
+	} 
+
 	/**
 	*
 	* Este metodo renderiza la vista para registrar las empresas, ademas de esto, se hacen consultas en la tabla de categorias y
-	*estados para poblar los selects.
+	* estados para poblar los selects.
 	*
 	**/
 	public function Agregar(){
@@ -37,7 +45,7 @@ class MisEmpresasController extends Controller {
 	/**
 	*
 	* aca se recibe via get el id de la empresa y con el se hace una consulta a la Bd para traer todo el registro asociado a ese 
-	*id para presentarlo en la vista editar y poder actualizarlo.
+	* id para presentarlo en la vista editar y poder actualizarlo.
 	*
 	**/
 
@@ -52,7 +60,7 @@ class MisEmpresasController extends Controller {
 	/**
 	*
 	* En el metodo actualizar se reciben todos los inputs de la vista editar y se realiza el update en la base de datos, y se renderiza a
-	*la vista actualizado.
+	* la vista actualizado.
 	*
 	**/
 

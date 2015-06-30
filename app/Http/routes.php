@@ -11,8 +11,6 @@
 |*/
 
 
-
-
 Route::get('home', 'HomeController@index');
 
 Route::any('upload/img', 'ImgController@create' );
@@ -42,11 +40,24 @@ Route::controllers([
 
 $router->group(['middleware' => 'auth'], function() {
 
-});
+	/* MisEmpresas Controller*/
 
-/*========================================
-=            Movil Controller            =
-========================================*/
+	Route::any('mis-empresas/','MisEmpresasController@Index');
+	Route::any('mis-empresas/publicaciones/{id_empresa}','MisEmpresasController@PublicacionEmpresa');
+	Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
+	Route::any('mis-empresas/editar/{id_empresa?}', 'MisEmpresasController@Editar');
+	Route::any('mis-empresas/editar-exitoso', 'MisEmpresasController@EditarExitoso');
+	Route::any('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
+	Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
+	Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
+
+	/* MisPublicidades Contoller */	
+
+	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
+	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
+	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
+
+});
 
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
@@ -55,38 +66,15 @@ Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmp
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
 
-/*==========================================
-=            Welcome Controller            =
-==========================================*/
+
 
 Route::any('/', 'WelcomeController@index');
 
-
-/*===========================================
-=            Servicio Controller            =
-===========================================*/
+/*  Servicio Controller   */
 
 Route::any('/servicios', 'ServicioController@Index');
 Route::any('/servicios/todos', 'ServicioController@Todos');
 Route::any('/servicios/categoria/{id_categoria}', 'ServicioController@Categoria');
 Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
 
-/*==============================================
-=            MisEmpresas Controller            =
-==============================================*/
 
-Route::get('mis-empresas/','MisEmpresasController@Index');
-Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
-Route::any('mis-empresas/editar/{id_empresa?}', 'MisEmpresasController@Editar');
-Route::any('mis-empresas/editar-exitoso', 'MisEmpresasController@Editar_Exitoso');
-Route::any('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
-Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
-Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
-
-/*=============================================
-=            Publicidad Controller            =
-=============================================*/
-
-Route::get('mis-publicidades/', 'MisPublicidadesController@Index');
-Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
-Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');

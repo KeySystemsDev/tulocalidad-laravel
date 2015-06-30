@@ -1,7 +1,7 @@
 <h1>Recomendados o Publicidad</h1>
 
 <ul>
-	<li><a href="{{ url ('servicios/todos')}}">Categorias</a></li>
+	<li><a href="{{ url ('servicios/todo')}}">Estados</a></li>
 </ul>
 <table border="1">
 	<tr>

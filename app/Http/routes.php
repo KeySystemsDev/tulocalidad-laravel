@@ -10,22 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |*/
 
+
+
+
 Route::get('home', 'HomeController@index');
-Route::get('auth/cerrar', 'LoginController@CerrarSesion');
-Route::get('/', 'WelcomeController@index');
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
 
-$router->group(['middleware' => 'auth'], function() {
-});
-
-Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::any('upload/img', 'ImgController@create' );
 
-
-Route::get('empresa', 'EmpresaController@actionIndex');
+Route::any('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
 Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
 Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
@@ -36,11 +28,25 @@ Route::any('empresa/sucursal/{id}', 'EmpresaController@actionSucursal');
 Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado');
 Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregarPublicidad');
 Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');
+Route::any('theme', 'WelcomeController@theme');
 
+/*=======================================
+=            Auth Controller            =
+=======================================*/
 
+Route::any('auth/cerrar', 'LoginController@CerrarSesion');
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
 
-Route::get('theme', 'WelcomeController@theme');
-//___________________________________Movil__________________________________________________________
+$router->group(['middleware' => 'auth'], function() {
+
+});
+
+/*========================================
+=            Movil Controller            =
+========================================*/
 
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
@@ -49,9 +55,25 @@ Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmp
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
 
-/*================================
-=            Empresas            =
-================================*/
+/*==========================================
+=            Welcome Controller            =
+==========================================*/
+
+Route::any('/', 'WelcomeController@index');
+
+
+/*===========================================
+=            Servicio Controller            =
+===========================================*/
+
+Route::any('/servicios', 'ServicioController@Index');
+Route::any('/servicios/todos', 'ServicioController@Todos');
+Route::any('/servicios/categoria/{id_categoria}', 'ServicioController@Categoria');
+Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
+
+/*==============================================
+=            MisEmpresas Controller            =
+==============================================*/
 
 Route::get('mis-empresas/','MisEmpresasController@Index');
 Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
@@ -61,17 +83,10 @@ Route::any('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitos
 Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
 Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
 
-/*-----  End of Empresas  ------*/
-
-
-/*==================================
-=            Publicidad            =
-==================================*/
+/*=============================================
+=            Publicidad Controller            =
+=============================================*/
 
 Route::get('mis-publicidades/', 'MisPublicidadesController@Index');
 Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
 Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
-
-
-/*-----  End of Publicidad  ------*/
-

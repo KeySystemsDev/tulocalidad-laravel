@@ -16,7 +16,7 @@
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center></div>
+				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -29,7 +29,7 @@
 						</div>
 					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+					<form class="form-horizontal" role="form" method="post" action="{{ url('/auth/login') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">

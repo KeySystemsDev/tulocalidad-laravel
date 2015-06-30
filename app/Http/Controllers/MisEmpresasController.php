@@ -102,7 +102,7 @@ class MisEmpresasController extends Controller {
 				$nombreArchivo = e(Input::get('namefile'));
 				$rutaOrigen    = "uploads/temp/".$nombreArchivo;
 				$rutaDestino   = "uploads/empresas/".$nombreArchivo;
-
+				$id = session('id');
 				$empresa = new Empresa;
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
 				$empresa->rif_empresa                   = e(Input::get('i_rif'));
@@ -117,12 +117,13 @@ class MisEmpresasController extends Controller {
 				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
+				$empresa->id_usuario        			= $id;
 				//$empresa->ruta_imagen					= $rutaDestino;
 				$empresa->save();
 				rename($rutaOrigen,$rutaDestino);
 
 				$rif = (Input::get('i_rif'));
-
+				return View::make('empresa/creado', compact('rif'));
 		}
 		return View::make('empresa/creado', compact('rif'));
 	}

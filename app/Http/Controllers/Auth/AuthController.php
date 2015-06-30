@@ -31,7 +31,7 @@ class AuthController extends Controller {
 	}
 
 	public function getLogin(){
-		return view('auth/login');
+		return \View::make('auth/login');
 	}
 
 	public function postLogin(){
@@ -41,9 +41,8 @@ class AuthController extends Controller {
         }
         else
         {
-            \Session::put('usuario', '$auth');
+            \Session::put('usuario', $auth);
             return \Redirect::to('mis-empresas');
         }
 	}
-
 }

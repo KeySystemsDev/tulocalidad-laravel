@@ -15,7 +15,7 @@
                         <li>
                             <a href="{{ url ('mis-empresas') }}">
                                 <div class="text-center">
-                                    <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
+                                    <i class="fa fa-coffee fa-3x" data-original-title="" title=""></i><br>
                                     Empresas
                                 </div>
                             </a>
@@ -31,7 +31,7 @@
                         <li>
                             <a href="{{ url ('mis-publicidades') }}">
                                 <div class="text-center">
-                                    <i class="fa fa-search fa-3x" data-original-title="" title=""></i><br>
+                                    <i class="fa fa-bullhorn fa-3x" data-original-title="" title=""></i><br>
                                     Publicidad
                                 </div>
                             </a>

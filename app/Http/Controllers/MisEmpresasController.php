@@ -18,7 +18,9 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Index(){
-		$consulta = Empresa::where('rif_empresa','=','j401629245')-> get();
+		$id = session('id');
+		$consulta = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
+
 		return View::make('empresa/mostrar_empresa', array('consulta' => $consulta));
 	} 
 	/* 

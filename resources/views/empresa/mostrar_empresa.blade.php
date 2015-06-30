@@ -1,6 +1,8 @@
 @extends('base')
 
 @section('content')
+    
+    @include('layouts/nav-top')
 
 	@include('layouts/nav')
 
@@ -43,7 +45,7 @@
                                         <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
                                         <td>{{$value->correo_empresa}}</td>
                                         <td>{{$value->telefono_empresa}}</td>
-                                        <td><a href="crear-publicidad/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>                                       
+                                        <td><a href="{{ url ('mis-empresas/publicaciones/'. $value->id_empresa) }}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>                                       
                                         <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>  
                                     </tr>
                                 @endforeach
@@ -55,7 +57,7 @@
                 <div class="col-lg-12">
 	            	<section class="panel">
 	            		<header class="panel-heading center">
-	        				<a href="sucursal/{{$value->id_empresa}}"><button type="button" class="btn btn-info btn-drop fa fa-plus-square-o" data-original-title="" title=""> Nueva Sucursal</button></a>
+	        				<a href="agregar-sucursal/{{$value->id_empresa}}"><button type="button" class="btn btn-info btn-drop fa fa-plus-square-o" data-original-title="" title=""> Nueva Sucursal</button></a>
 	  					</header>
 	  				</section>
   				</div>

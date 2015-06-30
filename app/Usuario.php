@@ -16,8 +16,8 @@ class Usuario extends Model implements AuthenticatableContract, CanResetPassword
 	 * @var string
 	 */
 	protected $connection = 'permiso';
-	protected $table = 't_usuario';
-	public $timestamps = false;
+	protected $table      = 't_usuario';
+	public $timestamps    = false;
 
 }
 

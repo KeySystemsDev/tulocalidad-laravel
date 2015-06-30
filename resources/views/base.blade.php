@@ -27,7 +27,9 @@
 	    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 	    <!-- Font-Awesome -->
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/font-awesome/css/font-awesome.min.css') }}">
-	    
+	    <!-- Module Angular-->    
+		<link href="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
+
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
 	    <link rel="shortcut icon" href="favicon.ico" />
 
@@ -67,6 +69,8 @@
     	<script src="{{ asset('/js/services.js') }}"></script>
 
 	    <!-- Modules Angular -->
+	    <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
 

@@ -1,0 +1,1 @@
+<h1>Detalle de Empresa --> {{ $id_empresa }} </h1>

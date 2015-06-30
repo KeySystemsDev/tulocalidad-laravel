@@ -293,3 +293,19 @@ ul#strength {
     position:fixed;
     bottom:5px;
 }
+
+#loading-bar .bar {
+  background: white;
+  margin-top: 51px;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  white;
+  border-left-color: white;
+  margin-top: 50px;
+}
+#loading-bar .peg {
+  -moz-box-shadow: white 1px 0 6px 1px;
+  -ms-box-shadow: white 1px 0 6px 1px;
+  -webkit-box-shadow: white 1px 0 6px 1px;
+  box-shadow: white 1px 0 6px 1px;
+}

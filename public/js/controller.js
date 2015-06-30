@@ -2,8 +2,17 @@
 'use strict';
 
 
-app.controller('WelcomeController', function($scope, $log) {
+app.controller('WelcomeController', function($scope, $log, cfpLoadingBar, $timeout) {
 	$log.log('WelcomeController');
+
+    // fake the initial load so first time users can see it right away:
+    cfpLoadingBar.start();
+    $scope.fakeIntro = true;
+    $timeout(function() {
+      cfpLoadingBar.complete();
+      $scope.fakeIntro = false;
+    }, 1500);
+
 })
 
 app.controller('RifController', function($scope, $log) {

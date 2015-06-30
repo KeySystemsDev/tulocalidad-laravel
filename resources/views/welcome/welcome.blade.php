@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tulocalidad">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,6 +23,10 @@
 	    <!-- Google Fonts -->
 	    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 	    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+		
+		<!-- Module Angular-->    
+		<link href="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
+
 	    <!-- Template Styles -->
 	    <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" media="screen">
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
@@ -64,7 +68,7 @@
 		</div>
 	</nav>
 
-	<div ng-controller="WelcomeController">
+	<div ng-controller="WelcomeController" ng-hide="fakeIntro">
 	<!-- HEADER
 	   ================================================== -->	  
 	  	<header>
@@ -298,7 +302,7 @@
 		  	<div class="container">
 			  	<div class="row">
 			  		<div class="col-md-12">
-			  			<a href="{{ url ('empresa') }}">
+			  			<a href="{{ url ('/servicios') }}">
 			  				<img src="img/9-registrate.jpg">
 			  			</a>
 			  		</div>
@@ -361,10 +365,24 @@
 			 <!-- JAVASCRIPT
 		     ================================================== -->
 	    <script src="{{ asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
 	    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/retinajs/dist/retina.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/animatescroll/animatescroll.min.js') }}"></script>
 	    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
+			
+		<!-- Module Angular -->
+	    <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
+	    <script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
+		<script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
+	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
+
+		<script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
+		<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
+
+		 <!-- your app's js -->
+    	<script src="{{ asset('/js/app.js') }}"></script>
+    	<script src="{{ asset('/js/controller.js') }}"></script>
 
 	    <!-- Scripts -->
 	    <script src="{{ asset('/js/scripts.js') }}"></script>

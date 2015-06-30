@@ -7,6 +7,8 @@
 @section('content')
 
 <div ng-controller="EmpresaRegistroController">
+	
+	@include('layouts/nav-top')
 
 	@include('layouts/nav')
     

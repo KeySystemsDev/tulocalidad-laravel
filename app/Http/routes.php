@@ -10,21 +10,12 @@
 | and give it the controller to call when that URI is requested.
 |*/
 
+
 Route::get('home', 'HomeController@index');
-Route::get('auth/cerrar', 'LoginController@CerrarSesion');
-Route::get('/', 'WelcomeController@index');
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
 
-$router->group(['middleware' => 'auth'], function() {
-
-Route::get('prueba/{parametro}', 'PruebaController@callprocedure');
 Route::any('upload/img', 'ImgController@create' );
 
-
-Route::get('empresa', 'EmpresaController@actionIndex');
+Route::any('empresa', 'EmpresaController@actionIndex');
 Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
 Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
 Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
@@ -33,12 +24,41 @@ Route::any('empresa/empresa-procesado', 'EmpresaController@actionEmpresa_procesa
 Route::any('empresa/mostrar', 'EmpresaController@actionMostrar');
 Route::any('empresa/sucursal/{id}', 'EmpresaController@actionSucursal');
 Route::any('empresa/nueva-sucursal', 'EmpresaController@actionSucursal_procesado');
-Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregar_Publicidad');
+Route::any('empresa/crear-publicidad/{id}','EmpresaController@ActionAgregarPublicidad');
 Route::any('empresa/publicidad-creado','EmpresaController@ActionGuardar_Publicidad');
+Route::any('theme', 'WelcomeController@theme');
+
+/*=======================================
+=            Auth Controller            =
+=======================================*/
+
+Route::any('auth/cerrar', 'LoginController@CerrarSesion');
+Route::controllers([
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
+]);
+
+$router->group(['middleware' => 'auth'], function() {
+
+	/* MisEmpresas Controller*/
+
+	Route::any('mis-empresas/','MisEmpresasController@Index');
+	Route::any('mis-empresas/publicaciones/{id_empresa}','MisEmpresasController@PublicacionEmpresa');
+	Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
+	Route::any('mis-empresas/editar/{id_empresa?}', 'MisEmpresasController@Editar');
+	Route::any('mis-empresas/editar-exitoso', 'MisEmpresasController@EditarExitoso');
+	Route::any('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
+	Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
+	Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
+
+	/* MisPublicidades Contoller */	
+
+	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
+	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
+	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
 
 });
 
-Route::get('theme', 'WelcomeController@theme');
 
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
@@ -47,12 +67,15 @@ Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmp
 Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad');
 
-//___________________________________Nuevas rutas_______________________________________________
 
-Route::get('entidad/listar-empresa', 'EntidadController@Listar');
-Route::get('entidad/listar-publicidad', 'EntidadController@ListarPublicidad');
-Route::get('entidad/agregar-publicidad', 'EntidadController@AgregarPublicidad');
-Route::any('empresa/consulta', 'EmpresaController@actionConsulta');
-Route::any('empresa/registrar', 'EmpresaController@actionRegistrar');
-Route::any('empresa/editar/{id_empresa?}', 'EmpresaController@actionEditar');
-Route::any('empresa/actualizar', 'EmpresaController@actionActualizar');
+
+Route::any('/', 'WelcomeController@index');
+
+/*  Servicio Controller   */
+
+Route::any('/servicios', 'ServicioController@Index');
+Route::any('/servicios/todos', 'ServicioController@Todos');
+Route::any('/servicios/categoria/{id_categoria}', 'ServicioController@Categoria');
+Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
+
+

@@ -55,9 +55,11 @@ $router->group(['middleware' => 'auth'], function() {
 
 	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
 	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
+	Route::any('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
 	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
 
 });
+
 
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
 Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');

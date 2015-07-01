@@ -39,9 +39,14 @@
 									<div class="form-group">
 										<label class="control-label col-lg-3" for="inputSuccess">Empresa</label>
 										<div class="col-lg-9">
-											<select class="form-control m-bot15" name="i_empresa" ng-model="formDatata.i_empresa">
+											<select class="form-control m-bot15" name="i_empresa">
 												@foreach($empresas as $empresa)
-													<option class="option" value="{{$empresa->id_empresa}}">{{$empresa->nombre_empresa}}</option>
+													<option class="option" value="" selected >seleccione una empresa</option>
+													@if($empresa->id_empresa===$id_seleccion)
+														<option class="option" value="{{$empresa->id_empresa}}" selected >{{$empresa->nombre_empresa}}</option>
+													@else
+														<option class="option" value="{{$empresa->id_empresa}}">{{$empresa->nombre_empresa}}</option>
+													@endif
 												@endforeach
 											</select>
 										</div>

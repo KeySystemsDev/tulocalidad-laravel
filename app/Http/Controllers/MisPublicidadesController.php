@@ -16,15 +16,25 @@ class MisPublicidadesController extends Controller {
 		return View::make('publicidad/mis_publicidades');   
 	}
 
-	public function AgregarPublicidad(){
+	public function AgregarPublicidad($id_seleccion=0){
 		$id = session('id');
 		$empresas = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
 		//print_r($empresas);
-		return View::make('publicidad/agregar_publicidad', compact('empresas'));
+		//echo $id_seleccion;
+		return View::make('publicidad/agregar_publicidad', compact('empresas','id_seleccion'));
 	}
 
 	public function AgregarPublicidadExitoso(){
-
+		$publicidad 						= new Publicidad();
+		$nombreArchivo 						= e(Input::get('namefile'));
+		$rutaOrigen    						= "uploads/temp/".$nombreArchivo;
+		$rutaDestino 					    = "uploads/publicidades/".$nombreArchivo;
+		$publicidad->id_empresa 			= Input::get("i_empresa");
+		$publicidad->titulo_publicidad	 	= Input::get("i_titulo");
+		$publicidad->descripcion_publicidad = Input::get("i_descripcion");
+		$publicidad->url_imagen_publicidad  = "/".$rutaDestino;
+		$publicidad->save();
+		rename($rutaOrigen,$rutaDestino);
 		return View::make('publicidad/agregar_publicidad_exitoso');
 	}
 

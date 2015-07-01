@@ -35,13 +35,14 @@ class AuthController extends Controller {
 	}
 
 	public function postLogin(){
-		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->pluck('correo_usuario');
+		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
         	return \Redirect::to('auth/login');
         }
         else
         {
-            \Session::put('usuario', $auth);
+            \Session::put('usuario', $auth->correo_usuario);
+            \Session::put('id', $auth->id_usuario);
             return \Redirect::to('mis-empresas');
         }
 	}

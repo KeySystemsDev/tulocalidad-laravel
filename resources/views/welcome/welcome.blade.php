@@ -71,14 +71,14 @@
 	<div ng-controller="WelcomeController" ng-hide="fakeIntro">
 	<!-- HEADER
 	   ================================================== -->	  
+	  	
 	  	<header>
 		 	<div class="container">
 			 	<div class="row">
 				 	<div class="col-md-12">
 				 		<img class="img-app-icon" src="img/icono.png">
 					  	<h1>tU LOCALIDAD</h1>
-					  	<p class="lead">Un directorio pensado para ti...</p>
-					  
+					  	<p class="lead">Un directorio pensado para ti...</p>				  
 					  	<div class="carousel-iphone">
 					  		<div id="carousel-example-generic" class="carousel slide">
 					    
@@ -115,13 +115,25 @@
 		  	<div class="container">
 			  	<div class="row">
 				  	<div class="col-md-offset-2 col-md-8">
+				  		<br><br>
+				  		<a href="{{ url ('/servicios') }}">
+					  		<div class="button-intro">
+							    <div class="compass"></div>
+							    <div class="msg">ENTRAR</div>
+							</div>
+						</a>
+						<div class="mapa-play button">
+    						<a href="{{ url ('/servicios') }}">
+      							<img class="mapa-img" src="img/mapa.jpg" alt="ggIO">
+    						</a>
+						</div>	
 					 	<h1>Descargala completamente gratis.</h1>
 					 	    <p class="lead">Busca las empresas que tienes cerca.</p>
 					 	    <div class="andrid-play button">
 	    						<a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.tulocalidad511234">
 	      							<img class="android-img" src="img/Download-Android-App.png" alt="ggIO">
 	    						</a>
-								</div>	
+							</div>	
 				  	</div>
 			  	</div>
 		  	</div>
@@ -302,7 +314,7 @@
 		  	<div class="container">
 			  	<div class="row">
 			  		<div class="col-md-12">
-			  			<a href="{{ url ('/servicios') }}">
+			  			<a href="{{ url ('/empresa') }}">
 			  				<img src="img/9-registrate.jpg">
 			  			</a>
 			  		</div>

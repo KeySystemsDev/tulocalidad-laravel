@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('js')
+	<script src="{{ asset('/js/controllers/empresa/publicidad_registro.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div ng-controller="PublicidadController">
@@ -49,27 +53,24 @@
 						    			</div>
 					    			</div>
 
-                                    <div class="form-group last">
-                                        <label class="control-label col-md-3">Imagen de Publicidad</label>
-                                        <div class="col-md-9">
-                                            
-                                            <div class="fileinput fileinput-new" data-provides="fileinput">
-											  	<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-											    	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="...">
-											  	</div>
-											  	<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-										  		<div>
-										    		<span class="btn btn-default btn-file">
-										    			<span class="fileinput-new">Select image</span>
-										    			<span class="fileinput-exists"><i class="fa fa-undo"></i> Change</span>
-										    			<input type="file" name="i_publicidad">
-										    		</span>
-										    		<a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><i class="fa fa-trash"></i>Remove</a>
-										  		</div>
+									<div class="form-group last">
+										<label class="control-label col-lg-3">Imagen de Publicidad</label>
+										<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden>
+										<div class="col-sm-9 iconic-input right">
+
+											<div class="fileinput fileinput-new" data-provides="fileinput">
+												<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+													<img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="">
+												</div>
+												<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+												<div>
+													<button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">Cargar imagen</button>
+												</div>
 											</div>
-                                    	
-                                    	</div>
-                                	</div>		
+
+										</div>
+
+									</div>
 									
 							</div>
 	                 	</section>
@@ -87,6 +88,48 @@
 			</div>
 		</div>
 	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade .bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel"><i class="fa fa-picture-o"></i> Elige una Imágen</h4>
+				</div>
+				<div class="modal-body">
+					<div>
+						<form action="registro" method="post">
+							<div class = "row">
+								<div class="col-xs-3">Seleccione una imagen:</div>
+								<div class="col-xs-2">
+									<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
+									<input type="file" name="i_image" file-model="myFile" id="fileInput"/>
+									</span>
+								</div>
+							</div>
+							<br><br>
+							<div class="row">
+								<div class="cropArea col-xs-5 col-xs-offset-1" >
+									<img-crop area-type="circle" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
+								</div>
+								<div class="col-xs-5 col-xs-offset-1">
+									<div><img class="view-modal-img" ng-src="[[srcimg ]]"/></div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" ng-click="return_img(img_select)">Salvar Imágen</button>
+				</div>
+			</div>
+		</div>
+	</div>	
 
 </div>
 @endsection

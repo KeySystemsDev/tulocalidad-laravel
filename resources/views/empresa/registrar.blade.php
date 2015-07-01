@@ -33,7 +33,7 @@
                 <div class="col-lg-12">
                     <section class="panel">                         
                         <div class="panel-body">
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" ng-submit="send()" name="formulario" id="formulario" action="empresa-procesado" method ="post">
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" name="formulario" id="formulario" action="agregar-exitoso" method ="post">
 
 								<div class="form-group">
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
@@ -45,6 +45,7 @@
 
 								<div class="form-group">
 									<label class="control-label col-lg-3">Imagen de perfil</label>
+									<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden>
 									<div class="col-sm-9 iconic-input right">
 
 										<div class="fileinput fileinput-new" data-provides="fileinput">
@@ -208,7 +209,6 @@
             	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-							<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden>
             				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="formulario.$invalid"> Registrar</button>
       					</header>
       				</section>

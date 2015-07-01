@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class ServicioController extends Controller {
 
 	public function Index(){
-		return view('servicio/recomendados');
+		$consulta = \DB::select('CALL p_t_publicidad(?,?,?)',array('listado_publicidades','',''));
+		return view('servicio/recomendados',compact('consulta'));
 	}
 
 	public function Todo(){

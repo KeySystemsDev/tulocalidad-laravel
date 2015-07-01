@@ -17,7 +17,15 @@ class MisPublicidadesController extends Controller {
 	}
 
 	public function AgregarPublicidad(){
-		return View::make('publicidad/agregar_publicidad');   
+		$id = session('id');
+		$empresas = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
+		//print_r($empresas);
+		return View::make('publicidad/agregar_publicidad', compact('empresas'));
+	}
+
+	public function AgregarPublicidadExitoso(){
+
+		return View::make('publicidad/agregar_publicidad_exitoso');
 	}
 
 	public function EditarPublicidad($id_publicidad){

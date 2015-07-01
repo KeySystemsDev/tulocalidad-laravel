@@ -9,7 +9,6 @@ $(document).ready(function() {
 	$('.social .col-md-12').addClass('visibility');
 });
 
-
 //iphone carousel animation
 $(window).load(function () {
 	$('header').addClass("animated fadeIn");

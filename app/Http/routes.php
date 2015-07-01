@@ -76,8 +76,10 @@ Route::any('/', 'WelcomeController@index');
 /*  Servicio Controller   */
 
 Route::any('/servicios', 'ServicioController@Index');
-Route::any('/servicios/todos', 'ServicioController@Todos');
-Route::any('/servicios/categoria/{id_categoria}', 'ServicioController@Categoria');
-Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
+Route::any('/servicios/todo', 'ServicioController@Todo');
+Route::any('/servicios/estado/{id_estado}', 'ServicioController@Estado');
+Route::any('/servicios/categoria/{id_estado}/{id_categoria}', 'ServicioController@Categoria');
+Route::any('/servicios/empresa/{id_estado}/{id_categoria}/{id_empresa}', 'ServicioController@Empresa');
+
 
 

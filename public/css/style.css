@@ -309,3 +309,7 @@ ul#strength {
   -webkit-box-shadow: white 1px 0 6px 1px;
   box-shadow: white 1px 0 6px 1px;
 }
+
+.view-modal-img{
+    width: 300px;
+}

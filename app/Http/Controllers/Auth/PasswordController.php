@@ -67,13 +67,13 @@ class PasswordController extends Controller {
 					<p align="center">
 						<b>Nueva Contrase&ntilde;a:'.$password.'</b>
 						<br><br>
-						<a href="http://keydoc.com.ve/sesion" type="button" class="btn btn-info">Iniciar.</p>
+						<a href="http://tulocalidad.com.ve/auth/login" type="button" class="btn btn-info">Iniciar.</p>
 		</body>
 		</html>';
 
 		$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
-		$cabeceras .= "From: vsantaella@keysystems.com.ve";
+		$cabeceras .= "From: contacto@keysystems.com.ve";
 		
 		mail($email,"Nueva clave de Acceso",$mensaje,$cabeceras);
 		return view('auth/pass_enviada');

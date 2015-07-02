@@ -314,7 +314,7 @@
 		  	<div class="container">
 			  	<div class="row">
 			  		<div class="col-md-12">
-			  			<a href="{{ url ('/empresa') }}">
+			  			<a href="{{ url ('/auth/login') }}">
 			  				<img src="img/9-registrate.jpg">
 			  			</a>
 			  		</div>

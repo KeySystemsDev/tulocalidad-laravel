@@ -313,3 +313,9 @@ ul#strength {
 .view-modal-img{
     width: 300px;
 }
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:300px;
+  height:300px;
+}

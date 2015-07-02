@@ -29,6 +29,7 @@
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/font-awesome/css/font-awesome.min.css') }}">
 	    <!-- Module Angular-->    
 		<link href="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
+		<link href="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.css') }}" rel="stylesheet" type="text/css">
 
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
 	    <link rel="shortcut icon" href="favicon.ico" />

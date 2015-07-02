@@ -264,8 +264,8 @@
     border-color: #f2f2f2;
     background: rgba(255,255,255,255);
 }
-.btn-oldivar{
-    color: #333;
+.btn-oldivar, .btn-register{
+    color: #07A7FB;
 }
 
 input.ng-pristine + ul#strength {

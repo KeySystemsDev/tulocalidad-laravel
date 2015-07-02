@@ -47,20 +47,23 @@
 						</div>
 
 						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
+							<div class="col-md-3 col-md-offset-4">
 								<div class="checkbox">
 									<label>
 										<input type="checkbox" name="remember"> Remember Me
 									</label>
 								</div>
 							</div>
+							<div class="col-md-3">
+								<a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
+							</div>
 						</div>
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-danger">Entrar</button>
+								<button type="submit" class="btn btn-danger">Iniciar Sesión</button>
 
-								<a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
+								<a class="btn btn-link btn-register" href="{{ url('/auth/register') }}">Registrarte</a>
 							</div>
 						</div>
 					</form>

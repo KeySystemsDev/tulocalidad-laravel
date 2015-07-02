@@ -46,14 +46,21 @@
                                             <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
                                             <td>{{$value->correo_empresa}}</td>
                                             <td>{{$value->telefono_empresa}}</td>
-                                            <td><a href="{{ url ('mis-empresas/publicaciones/'. $value->id_empresa) }}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>
+                                            <td><a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>
                                             <td><a href="editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         @else
-                            <div> No tiene empresa registrada. </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 msn-no-empresa">
+                                    <div class="well well-danger well-borde">
+                                        <h3>Empresas</h3>
+                                        No tiene empresa registrada. 
+                                    </div>
+                                </div>
+                            </div>                 
                         @endif
                     </section>
                 </div>

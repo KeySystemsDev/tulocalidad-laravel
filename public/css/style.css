@@ -309,3 +309,24 @@ ul#strength {
   -webkit-box-shadow: white 1px 0 6px 1px;
   box-shadow: white 1px 0 6px 1px;
 }
+
+.view-modal-img{
+    width: 300px;
+}
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:300px;
+  height:300px;
+}
+.msn-no-empresa{
+    text-align: center;
+    margin-right: 25%;
+    margin-left: 25%;
+}
+.well-borde{
+    background: #832c2c;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #b77f7f;
+}

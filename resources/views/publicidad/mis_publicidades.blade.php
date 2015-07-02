@@ -13,7 +13,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                              @if(count($publicidad)>0)
+                              
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <header class="panel-heading center">
@@ -28,7 +28,7 @@
                                 </section>
                             </div>
                         </header>
-    
+                        @if(count($publicidad)>0)
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                                 <tr>
@@ -51,8 +51,15 @@
                                 @endforeach
                             </tbody>
                         </table>
-                         @else 
-                            <div> No tiene empresa registrada. </div>
+                        @else
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 msn-no-empresa">
+                                    <div class="well well-danger well-borde">
+                                        <h3>Publicidad</h3>
+                                        No tiene empresa registrada. 
+                                    </div>
+                                </div>
+                            </div>
                         @endif
 
                     </section>

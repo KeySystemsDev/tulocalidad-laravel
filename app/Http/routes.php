@@ -54,6 +54,7 @@ $router->group(['middleware' => 'auth'], function() {
 	/* MisPublicidades Contoller */	
 
 	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
+	Route::any('mis-publicidades/agregar-publicidad/{id}','MisPublicidadesController@AgregarPublicidad');
 	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
 	Route::any('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
 	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
@@ -75,8 +76,10 @@ Route::any('/', 'WelcomeController@index');
 /*  Servicio Controller   */
 
 Route::any('/servicios', 'ServicioController@Index');
-Route::any('/servicios/todos', 'ServicioController@Todos');
-Route::any('/servicios/categoria/{id_categoria}', 'ServicioController@Categoria');
-Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
+Route::any('/servicios/todo', 'ServicioController@Todo');
+Route::any('/servicios/estado/{id_estado}', 'ServicioController@Estado');
+Route::any('/servicios/categoria/{id_estado}/{id_categoria}', 'ServicioController@Categoria');
+Route::any('/servicios/empresa/{id_estado}/{id_categoria}/{id_empresa}', 'ServicioController@Empresa');
+
 
 

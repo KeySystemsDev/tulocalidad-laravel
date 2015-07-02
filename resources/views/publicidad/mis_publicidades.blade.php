@@ -13,6 +13,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
+                              @if(count($publicidad)>0)
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <header class="panel-heading center">
@@ -39,15 +40,20 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($publicidad as $key)
                                 <tr>
-                                    <td>Nombre Empresa</td>
-                                    <td><span class="label label-info label-mini">V-19310365-7</span></td>
-                                    <td>Campaña</td>
+                                    <td>{{$key->nombre_empresa}}</td>
+                                    <td><span class="label label-info label-mini">{{$key->rif_empresa}}</span></td>
+                                    <td>{{$key->titulo_publicidad}}</td>
                                     <td><a href="../mis-publicidades/editar-publicidad/1"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>                                       
                                     <td><a href=""><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a></td> 
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
+                         @else 
+                            <div> No tiene empresa registrada. </div>
+                        @endif
 
                     </section>
                 </div>

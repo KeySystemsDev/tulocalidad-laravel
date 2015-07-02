@@ -32,16 +32,21 @@
 						<section class="panel">
 							<div class="panel-body">
 
-								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="publicidad" action="agregar-exitoso" method="post" name="publicidad" enctype="multipart/form-data">
+								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="publicidad" action="/mis-publicidades/agregar-exitoso" method="post" name="publicidad" enctype="multipart/form-data">
 
 									<input type="hidden" name="id_empresa"><br>
 
 									<div class="form-group">
 										<label class="control-label col-lg-3" for="inputSuccess">Empresa</label>
 										<div class="col-lg-9">
-											<select class="form-control m-bot15" name="i_empresa" ng-model="formDatata.i_empresa">
+											<select class="form-control m-bot15" name="i_empresa">
+												<option class="option" value="" selected >seleccione una empresa</option>
 												@foreach($empresas as $empresa)
-													<option class="option" value="{{$empresa->id_empresa}}">{{$empresa->nombre_empresa}}</option>
+													@if($empresa->id_empresa==$id_seleccion)
+														<option class="option" value="{{$empresa->id_empresa}}" selected >{{$empresa->nombre_empresa}}</option>
+													@else
+														<option class="option" value="{{$empresa->id_empresa}}">{{$empresa->nombre_empresa}}</option>
+													@endif
 												@endforeach
 											</select>
 										</div>

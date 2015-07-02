@@ -16,15 +16,7 @@
                             <a href="{{ url ('mis-empresas') }}">
                                 <div class="text-center">
                                     <i class="fa fa-coffee fa-3x" data-original-title="" title=""></i><br>
-                                    Empresas
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url ('mis-empresas/agregar') }}">
-                                <div class="text-center">
-                                    <i class="fa fa-pencil-square-o fa-3x" data-original-title="" title=""></i><br>
-                                    Agregar Empresa
+                                    Mis Empresas
                                 </div>
                             </a>
                         </li>
@@ -32,7 +24,7 @@
                             <a href="{{ url ('mis-publicidades') }}">
                                 <div class="text-center">
                                     <i class="fa fa-bullhorn fa-3x" data-original-title="" title=""></i><br>
-                                    Publicidad
+                                    Mis Publicidad
                                 </div>
                             </a>
                         </li>

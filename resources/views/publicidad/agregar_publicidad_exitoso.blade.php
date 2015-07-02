@@ -24,7 +24,7 @@
                             <div class="col-lg-12">
                                 <section class="panel">
                                     <header class="panel-heading center">
-                                        <a href="{{ url ('mis-publicidades/agregar-publicidad') }}">
+                                        <a href="{{ url ('mis-publicidades') }}">
                                             <button class="btn btn-danger btn-lg fa fa-arrow-left"> Volver</button>
                                         </a>
                                     </header>

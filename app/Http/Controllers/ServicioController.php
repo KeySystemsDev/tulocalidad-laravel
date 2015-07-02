@@ -8,19 +8,24 @@ use Illuminate\Http\Request;
 class ServicioController extends Controller {
 
 	public function Index(){
-		return view('servicio/recomendados');
+		$consulta = \DB::select('CALL p_t_publicidad(?,?,?)',array('listado_publicidades','',''));
+		return view('servicio/recomendados',compact('consulta'));
 	}
 
-	public function Todos(){
-		return view('servicio/servicios');
+	public function Todo(){
+		return view('servicio/estados');
 	}
 
-	public function Categoria($id_categoria){
-		return view('servicio/categorias', compact('id_categoria'));
+	public function Estado($id_estado){
+		return view('servicio/categorias', compact('id_estado'));
 	}
 
-	public function Empresa($id_empresa){
-		return view('servicio/empresas', compact('id_empresa'));
+	public function Categoria($id_estado, $id_categoria){
+		return view('servicio/empresas', compact('id_estado', 'id_categoria'));
+	}
+
+	public function Empresa($id_estado, $id_categoria, $id_empresa){
+		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa'));
 	}
 
 	public function show($id){

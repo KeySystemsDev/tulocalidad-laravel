@@ -16,7 +16,7 @@
 	                        	<div class="row">
 				                    <div class="col-lg-12">
 				                        <h2 class="page-header">
-				                            Recomendados o Publicidad
+				                            <i class="fa fa-bullhorn"></i> Recomendados
 				                        </h2>
 				                    </div>
 				                </div>

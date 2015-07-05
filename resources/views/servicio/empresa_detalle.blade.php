@@ -48,12 +48,12 @@
                 <div class="panel">
                     <div class="panel-body">
                         <ul id="myTab" class="nav nav-pills">
-                            <!--<li class="active"><a href="#photos" data-toggle="tab">Photos</a></li>-->
+                            <!--<li class=""><a href="#photos" data-toggle="tab">Photos</a></li>-->
                             <li class="active"><a href="#detail" data-toggle="tab">Detail</a></li>
                             <li class=""><a href="#contact" data-toggle="tab">Contact</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade active in" id="photos">  
+                            <div class="tab-pane fade" id="photos">  
                                 <p></p>
                                 <div class="flexslider">
                                     
@@ -76,7 +76,7 @@
                                             <img src="img/content/thumbnail1.jpg" draggable="false">
                                         </li></ul></div><ol class="flex-control-nav flex-control-thumbs"><li><img src="img/content/thumbnail1.jpg" class="" draggable="false"></li><li><img src="img/content/thumbnail2.jpg" draggable="false" class=""></li><li><img src="img/content/thumbnail5.jpg" draggable="false" class=""></li><li><img src="img/content/thumbnail10.jpg" draggable="false" class="flex-active"></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></div>
                             </div>
-                            <div class="tab-pane fade" id="detail">
+                            <div class="tab-pane fade active in" id="detail">
                                 <p></p>
                                 <h4>Short Detail</h4>
                                 <p>Iki mung detail singkat wae soale seko jenenge wae wis short detail dadi yo ojo dowo-dowo.</p>

@@ -187,10 +187,19 @@ class MisEmpresasController extends Controller {
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
 	}
 
-	public function BorrarEmpresa($id){
+	/*public function BorrarEmpresa($id){
 		Empresa::destroy($id);
+		$empresa= Empresa::where('id_empresa','=', $id)->first();
+		$empresa->habilitado=false;
+		$empresa->save();
+		$publicidad= Publicidad::where('id_empresa','=', $id)->get();
+		foreach ($publicidad as $key) {
+			$key->habilitado=false;
+			$key->save();
+		}
+
 		return \Redirect::to('mis-empresas/');
-	}
+	}*/
 
 }
 

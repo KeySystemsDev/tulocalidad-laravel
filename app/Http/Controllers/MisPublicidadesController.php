@@ -44,4 +44,9 @@ class MisPublicidadesController extends Controller {
 	public function EditarPublicidad($id_publicidad){
 		return View::make('publicidad/editar_publicidad', compact('id_publicidad'));   
 	}	
+
+	public function BorrarPublicidad($id){
+		Empresa::destroy($id);
+		return \Redirect::to('mis-empresas/');
+	}
 }

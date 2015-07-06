@@ -18,7 +18,7 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Index(){
-		$id = session('id');
+		$id       = session('id');
 		$consulta = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
 		return View::make('empresa/mostrar_empresa', compact('consulta'));
 	} 
@@ -97,11 +97,11 @@ class MisEmpresasController extends Controller {
 	public function Agregar_Exitoso(){
 		if (Session::get('registrar') == 1) {
 			Session::put('registrar','2');
-				$nombreArchivo = e(Input::get('namefile'));
-				$rutaOrigen    = "uploads/temp/".$nombreArchivo;
-				$rutaDestino   = "uploads/empresas/".$nombreArchivo;
-				$id = session('id');
-				$empresa = new Empresa;
+				$nombreArchivo                          = e(Input::get('namefile'));
+				$rutaOrigen                             = "uploads/temp/".$nombreArchivo;
+				$rutaDestino                            = "uploads/empresas/".$nombreArchivo;
+				$id                                     = session('id');
+				$empresa                                = new Empresa;
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
 				$empresa->rif_empresa                   = e(Input::get('i_rif'));
 				$empresa->direccion_empresa             = e(Input::get('i_direccion'));
@@ -115,8 +115,8 @@ class MisEmpresasController extends Controller {
 				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
-				$empresa->id_usuario        			= $id;
-				$empresa->icon_empresa					= "/".$rutaDestino;
+				$empresa->id_usuario                    = $id;
+				$empresa->icon_empresa                  = "/".$rutaDestino;
 				$empresa->save();
 				rename($rutaOrigen,$rutaDestino);
 		}

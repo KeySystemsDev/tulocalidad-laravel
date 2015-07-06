@@ -24,7 +24,7 @@
 				                <div class="col-lg-12">
 				                	<section class="panel">
 				                		<header class="panel-heading center">
-				            				<a href="../misempresas/listar?v={{$rif}}">
+				            				<a href="../mis-empresas?v={{$rif}}">
 				            					<button class="btn btn-danger btn-lg fa fa-arrow-left"> Volver</button>
 											</a>			      					
 				      					</header>

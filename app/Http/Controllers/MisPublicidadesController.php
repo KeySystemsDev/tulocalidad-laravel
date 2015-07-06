@@ -13,14 +13,14 @@ use Request;
 class MisPublicidadesController extends Controller {
 
 	public function Index(){
-		$id = session('id');
+		$id         = session('id');
 		$publicidad = \DB::select('CALL p_t_publicidad(?,?,?)',array('publicidad_por_usuario',$id,''));
 		//print_r($publicidad);
 		return View::make('publicidad/mis_publicidades',compact('publicidad'));   
 	}
 
 	public function AgregarPublicidad($id_seleccion=0){
-		$id = session('id');
+		$id       = session('id');
 		$empresas = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
 		//print_r($empresas);
 		//echo $id_seleccion;
@@ -28,7 +28,7 @@ class MisPublicidadesController extends Controller {
 	}
 
 	public function AgregarPublicidadExitoso(){
-		$publicidad 						= new Publicidad();
+		$publicidad                         = new Publicidad();
 		$nombreArchivo 						= e(Input::get('namefile'));
 		$rutaOrigen    						= "uploads/temp/".$nombreArchivo;
 		$rutaDestino 					    = "uploads/publicidades/".$nombreArchivo;

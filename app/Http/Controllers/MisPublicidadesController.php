@@ -37,7 +37,7 @@ class MisPublicidadesController extends Controller {
 		$publicidad->descripcion_publicidad = Input::get("i_descripcion");
 		$publicidad->url_imagen_publicidad  = "/".$rutaDestino;
 		$publicidad->save();
-		rename($rutaOrigen,$rutaDestino);
+		//rename($rutaOrigen,$rutaDestino);
 		return View::make('publicidad/agregar_publicidad_exitoso');
 	}
 

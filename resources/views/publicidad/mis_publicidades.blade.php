@@ -35,7 +35,6 @@
                                     <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre Empresa</th>
                                     <th><i class="fa fa fa-flag" data-original-title="" title=""></i> Rif</th>                                
                                     <th><i class="fa fa-bullhorn" data-original-title="" title=""></i> Campaña</th>
-                                    <th><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</th>
                                     <th><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</th>
                                 </tr>
                             </thead>
@@ -44,8 +43,7 @@
                                 <tr>
                                     <td>{{$key->nombre_empresa}}</td>
                                     <td><span class="label label-info label-mini">{{$key->rif_empresa}}</span></td>
-                                    <td>{{$key->titulo_publicidad}}</td>
-                                    <td><a href="../mis-publicidades/editar-publicidad/1"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>                                       
+                                    <td>{{$key->titulo_publicidad}}</td>                                     
                                     <td><a href=""><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a></td> 
                                 </tr>
                                 @endforeach

@@ -118,7 +118,7 @@ class MisEmpresasController extends Controller {
 				$empresa->id_usuario                    = $id;
 				$empresa->icon_empresa                  = "/".$rutaDestino;
 				$empresa->save();
-				rename($rutaOrigen,$rutaDestino);
+				//rename($rutaOrigen,$rutaDestino);
 		}
 		return View::make('empresa/creado');
 	}
@@ -185,6 +185,11 @@ class MisEmpresasController extends Controller {
 		$publicidad->save();
 		echo "se ha guardado exitosamente";
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
+	}
+
+	public function BorrarEmpresa($id){
+		Empresa::destroy($id);
+		return \Redirect::to('mis-empresas/');
 	}
 
 }

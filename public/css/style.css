@@ -330,3 +330,6 @@ ul#strength {
     border-style: solid;
     border-color: #b77f7f;
 }
+.header-top .navbar-right.top-menu {
+  margin-top: 7px;
+}

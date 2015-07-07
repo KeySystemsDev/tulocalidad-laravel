@@ -6,13 +6,13 @@
 
 	@include('layouts/nav-cliente')
 
-<div class="container">
+<div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
 
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">
-                    Detalle de la empresa {{ $id_empresa }}
+                    Empresa {{ $id_empresa }}
                 </h2>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <img src="img/user/avatar-3.jpg">
+                            <img src="{{ asset('/img/user/avatar-3.jpg') }}">
                             <h3>John Doe</h3>
                             <small class="label label-warning">From USA</small>
                             <p>Aku kie sing sok ngedolke omah-omah kae, yo iso di omongke makelar ngono sih. Tapi makelar nek payu ne akeh yo dadi sugih bro. Tenanan ra ngapusi.</p>
@@ -47,34 +47,32 @@
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="panel">
                     <div class="panel-body">
-                        <ul id="myTab" class="nav nav-pills">
-                            <!--<li class=""><a href="#photos" data-toggle="tab">Photos</a></li>-->
-                            <li class="active"><a href="#detail" data-toggle="tab">Detail</a></li>
-                            <li class=""><a href="#contact" data-toggle="tab">Contact</a></li>
+                        <ul id="myTab" class="nav nav-pills">                          
+                            <li class="active"><a href="#detail" data-toggle="tab">Detalle</a></li>
+                            <li class=""><a href="#contact" data-toggle="tab">Contacto</a></li>
+                            <li class=""><a href="#photos" data-toggle="tab">Ubicación</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade" id="photos">  
-                                <p></p>
-                                <div class="flexslider">
-                                    
-                                <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1200%; -webkit-transition-duration: 0.6s; transition-duration: 0.6s; -webkit-transform: translate3d(-2732px, 0px, 0px); transform: translate3d(-2732px, 0px, 0px);"><li data-thumb="img/content/thumbnail10.jpg" class="clone" aria-hidden="true" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail10.jpg" draggable="false">
-                                        </li>
-                                        <li data-thumb="img/content/thumbnail1.jpg" class="" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail1.jpg" draggable="false">
-                                        </li>
-                                        <li data-thumb="img/content/thumbnail2.jpg" class="" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail2.jpg" draggable="false">
-                                        </li>
-                                        <li data-thumb="img/content/thumbnail5.jpg" class="" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail5.jpg" draggable="false">
-                                        </li>
-                                        <li data-thumb="img/content/thumbnail10.jpg" class="flex-active-slide" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail10.jpg" draggable="false">
-                                        </li>
-                                    <li data-thumb="img/content/thumbnail1.jpg" class="clone" aria-hidden="true" style="width: 683px; float: left; display: block;">
-                                            <img src="img/content/thumbnail1.jpg" draggable="false">
-                                        </li></ul></div><ol class="flex-control-nav flex-control-thumbs"><li><img src="img/content/thumbnail1.jpg" class="" draggable="false"></li><li><img src="img/content/thumbnail2.jpg" draggable="false" class=""></li><li><img src="img/content/thumbnail5.jpg" draggable="false" class=""></li><li><img src="img/content/thumbnail10.jpg" draggable="false" class="flex-active"></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></div>
+                                <div class="col-lg-12">
+                                    <section class="panel">
+                                        <header class="panel-heading">
+                                            <div id="map_canvas">
+                                                <ui-gmap-google-map 
+                                                    center="map.center" 
+                                                    zoom="map.zoom" 
+                                                    draggable="true" 
+                                                    options="options">
+                                                        <ui-gmap-marker 
+                                                            coords="marker.coords" 
+                                                            options="marker.options"
+                                                            events="marker.events" 
+                                                            idkey="marker.id">
+                                                        </ui-gmap-marker>
+                                                </ui-gmap-google-map>
+                                            </div>
+                                    </section>
+                                </div>
                             </div>
                             <div class="tab-pane fade active in" id="detail">
                                 <p></p>

@@ -48,15 +48,15 @@
 
 						<div class="form-group">
 							<div class="col-md-3 col-md-offset-4">
+								<a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
+							</div>
+							<!--<div class="col-md-3">
 								<div class="checkbox">
 									<label>
 										<input type="checkbox" name="remember"> Remember Me
 									</label>
 								</div>
-							</div>
-							<div class="col-md-3">
-								<a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
-							</div>
+							</div>-->
 						</div>
 
 						<div class="form-group">

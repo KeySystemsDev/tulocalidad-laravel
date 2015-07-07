@@ -37,7 +37,7 @@
                                         <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th>
                                         <th><i class="fa fa-bullhorn" data-original-title="" title=""></i> Publicidad</th>
                                         <th><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</th>
-                                        <th><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</th>
+                                        <th><i class="fa fa-trash" data-original-title="" title=""></i> Deshabilitar</th>
                                         <th></th>
                                     </tr>
                                 </thead>

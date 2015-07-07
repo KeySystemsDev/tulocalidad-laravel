@@ -35,7 +35,7 @@
                                     <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre Empresa</th>
                                     <th><i class="fa fa fa-flag" data-original-title="" title=""></i> Rif</th>                                
                                     <th><i class="fa fa-bullhorn" data-original-title="" title=""></i> Campaña</th>
-                                    <th><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</th>
+                                    <th><i class="fa fa-trash" data-original-title="" title=""></i> Deshabilitar</th>
                                 </tr>
                             </thead>
                             <tbody>

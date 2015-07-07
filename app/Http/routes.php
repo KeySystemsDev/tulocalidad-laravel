@@ -67,7 +67,7 @@ Route::any('movil/empresa/publicidad', 'Movil\EmpresaController@ActionPublicidad
 
 
 Route::any('/', 'WelcomeController@index');
-
+Route::any('pago', 'PagoPruebaController@pago');
 
 
 

@@ -187,22 +187,21 @@ class MisEmpresasController extends Controller {
 		//return View::make('empresa/agregar_publicidad',compact('nombre'));
 	}
 
-	/*public function DeshabilitarEmpresa($id){
-		Empresa::destroy($id);
+	public function DeshabilitarEmpresa($id){
 		Empresa::where('id_empresa','=', $id)->update(
 			array(
-				'habilitado' => 'FALSE',
+				'habilitado_empresa' => 0,
 			)
 		);
 
 		Publicidad::where('id_empresa','=', $id)->update(
 			array(
-				'habilitado' => 'FALSE',
+				'habilitado_publicidad' => 0,
 			)
 		);
 
 		return \Redirect::to('mis-empresas/');
-	}*/
+	}
 
 }
 

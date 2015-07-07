@@ -50,14 +50,14 @@ class MisPublicidadesController extends Controller {
 		return \Redirect::to('mis-empresas/');
 	}
 
-	/*public function DeshabilitarPublicidad($id){
+	public function DeshabilitarPublicidad($id){
 		Publicidad::where('id_publicidad','=', $id)->update(
 			array(
-				'habilitado' => 'FALSE',
+				'habilitado_publicidad' => 0,
 			)
 		);
 
 		return \Redirect::to('mis-publicidades/');
-	}*/
+	}
 
 }

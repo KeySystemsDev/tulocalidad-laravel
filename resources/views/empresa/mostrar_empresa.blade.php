@@ -49,8 +49,8 @@
                                             <td>{{$value->correo_empresa}}</td>
                                             <td>{{$value->telefono_empresa}}</td>
                                             <td><a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>
-                                            <td><a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
-                                            <td><a href="mis-empresas/borrar/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a><td/>
+                                            <td><a href="{{ url ('mis-empresas/editar/'.$value->id_empresa)}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
+                                            <td><a href="{{ url ('mis-empresas/deshabilitar/'.$value->id_empresa)}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a><td/>
                                         </tr>
                                     @endforeach
                                 </tbody>

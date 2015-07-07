@@ -44,7 +44,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
 	Route::any('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
 	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
-
+	Route::any('mis-publicidades/deshabilitar/{id_publicidad?}', 'MisPublicidadesController@DeshabilitarPublicidad');
 	
 });
 

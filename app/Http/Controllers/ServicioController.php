@@ -40,10 +40,25 @@ class ServicioController extends Controller {
 		if ($empresas == null){
 			return view('servicio/sinresultado');
 		}
-		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));#->with('empresas',$empresas);
+		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));
 	}
 
 	public function Empresa($id_estado, $id_categoria, $id_empresa){
-		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa'));
+		$categoria 	= Categoria::where('nombre_categoria','=',$id_categoria)->first();
+		if ($categoria == null){
+			return view('servicio/sinresultado');
+		}
+		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
+		if ($estado == null){
+			return view('servicio/sinresultado');
+		}
+		$empresa 	= Empresa::where('id_estado','=',$estado->id_estado)
+								->where('id_categoria','=',$categoria->id_categoria)
+								->where('nombre_empresa','=',$id_empresa)
+								->first();
+		if ($empresa == null){
+			return view('servicio/sinresultado');
+		}
+		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa','empresa'));
 	}
 }

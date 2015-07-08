@@ -21,21 +21,23 @@
 				                    </div>
 				                </div>
 
-				                <div class="row" id="real-estates-columns">
-				                    @foreach ($consulta as $key)
-				                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">			                        
-				                        <div class="panel">
-				                            <div class="panel-body">
-				                                <a href="#"><img src="{{ url($key->url_imagen_publicidad)}}" class="img-responsive"></a>
-				                                <div class="title-realestates-columns">
-				                                    <h4><a href="#"><strong>Omah Gedong Apik BGT</strong></a></h4>
-				                                    <hr>
-				                                    <p>Nah nek iki lagi larang soale apik-apik barange tur aku ra iso tuku wong karang jeh ngumpulke gawe nikah kie.</p>
-				                                </div>
-				                            </div>
-				                        </div>                    	
-				                    </div>
-				                    @endforeach
+				                
+				                    
+				                <div class="content">
+				                	
+				                    <div class="grid">
+										@foreach ($consulta as $key)
+										<figure class="effect-duke">
+											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
+											<figcaption>
+												<h2>Messy <span>Duke</span></h2>
+												<p>Duke is very bored. When he looks at the sky, he feels to run.</p>
+												<a href="#">View more</a>
+											</figcaption>			
+										</figure>
+										@endforeach
+									</div>
+		                    
 				                    <!-- start:pagination -->
 				                    <!--<div class="col-lg-12">
 				                        <ul class="pagination pagination-primary pagination-separated">
@@ -48,6 +50,7 @@
 				                    </div>-->
 				                    <!-- end:pagination -->
 				                </div>
+							
 							</div>
 						</section>
 					</div>

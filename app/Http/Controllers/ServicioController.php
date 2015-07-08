@@ -4,16 +4,21 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Empresa;
+use App\Categoria;
+use App\Estado;
 
 class ServicioController extends Controller {
 
 	public function Index(){
-		$consulta = \DB::select('CALL p_t_publicidad(?,?,?)',array('listado_publicidades','',''));
+		$consulta = \DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('listado_publicidades','','','','',''));
 		return view('servicio/recomendados',compact('consulta'));
 	}
 
 	public function Todo(){
-		return view('servicio/estados');
+		$estados   = DB::table('t_estados')->get();
+		return view('servicio/estados', compact('estados'));
 	}
 
 	public function Estado($id_estado){
@@ -21,45 +26,26 @@ class ServicioController extends Controller {
 	}
 
 	public function Categoria($id_estado, $id_categoria){
-		return view('servicio/empresas', compact('id_estado', 'id_categoria'));
+		$categoria 	= Categoria::where('nombre_categoria','=',$id_categoria)->first();
+		if ($categoria == null){
+			return view('servicio/sinresultado');
+		}
+		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
+		if ($estado == null){
+			return view('servicio/sinresultado');
+		}
+		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
+								->where('id_categoria','=',$categoria->id_categoria)
+								->get();
+		if ($empresas == null){
+			return view('servicio/sinresultado');
+		}	
+		print($empresas->first());
+
+		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));#->with('empresas',$empresas);
 	}
 
 	public function Empresa($id_estado, $id_categoria, $id_empresa){
 		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa'));
 	}
-
-	public function show($id){
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id){
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id){
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id){
-		//
-	}
-
 }

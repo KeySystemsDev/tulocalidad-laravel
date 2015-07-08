@@ -12,11 +12,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h2 class="page-header">
+
                     <i class="fa fa-rocket"></i> Empresas {{ $id_estado }} {{ $id_categoria }} 
                 </h2>
             </div>
         </div>
-
+        @foreach($empresas as $empresa)
+            <div>{{$empresa->nombre_empresa}} , {{$empresa->id_empresa}}</div>
+        @endforeach
         <!-- start:store list -->
         <div class="row" id="store-list">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

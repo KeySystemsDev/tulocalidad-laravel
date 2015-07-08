@@ -16,7 +16,7 @@
                         	<div class="row">
 			                    <div class="col-lg-12">
 			                        <h2 class="page-header">
-			                           <i class="fa fa-globe"></i> Estado {{ $id_estado }}
+			                           <i class="fa fa-globe"></i> {{ $id_estado }}
 			                        </h2>
 			                    </div>
 			                </div>

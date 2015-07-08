@@ -26,7 +26,7 @@
 				                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">			                        
 				                        <div class="panel">
 				                            <div class="panel-body">
-				                                <a href="#"><img src="{{$key->url_imagen_publicidad}}" class="img-responsive"></a>
+				                                <a href="#"><img src="{{ url($key->url_imagen_publicidad)}}" class="img-responsive"></a>
 				                                <div class="title-realestates-columns">
 				                                    <h4><a href="#"><strong>Omah Gedong Apik BGT</strong></a></h4>
 				                                    <hr>

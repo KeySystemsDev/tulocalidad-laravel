@@ -16,7 +16,10 @@
                 </h2>
             </div>
         </div>
-
+        example:
+        <div>{{$empresa->nombre_empresa}}</div>
+        <div>{{$empresa->id_empresa}}</div>
+        <div>{{$empresa->direccion_empresa}}</div>
         <!-- start:real estates detail -->
         <div class="row" id="real-estates-detail">
             <div class="col-lg-4 col-md-4 col-xs-12">

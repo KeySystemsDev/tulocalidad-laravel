@@ -18,8 +18,8 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Index(){
-		$id       = session('id');
-		$consulta = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
+		$id_usuario	= session('id');
+		$consulta 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id_usuario));
 		return View::make('empresa/mostrar_empresa', compact('consulta'));
 	} 
 	/* 
@@ -118,7 +118,7 @@ class MisEmpresasController extends Controller {
 				$empresa->id_usuario                    = $id;
 				$empresa->icon_empresa                  = "/".$rutaDestino;
 				$empresa->save();
-				//rename($rutaOrigen,$rutaDestino);
+				rename($rutaOrigen,$rutaDestino);
 		}
 		return View::make('empresa/creado');
 	}
@@ -166,43 +166,23 @@ class MisEmpresasController extends Controller {
 	 	return View::make('empresa/creado', compact('rif'));  
 	}
 
-	public function ActionAgregar_Publicidad($id_empresa){
-		$nombre  = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
-		return View::make('empresa/agregar_publicidad',compact('nombre'));
-	}
 
-	public function ActionGuardar_Publicidad(){
-		$path                               ='uploads/publicidad';
-		$archivo                            =Input::file('i_publicidad');
-		$nombre                             =Input::file('i_publicidad')->getClientOriginalName();
-		$alojar                             =$archivo->move($path, $nombre);
-		$url                                = Request::path();
-		$publicidad                         = new Publicidad;
-		$publicidad->titulo_publicidad      = Input::get('i_titulo');
-		$publicidad->descripcion_publicidad = Input::get('i_descripcion');
-		$publicidad->id_empresa = Input::get('id_empresa');
-		$publicidad->url_imagen_publicidad  = $path;
-		$publicidad->save();
-		echo "se ha guardado exitosamente";
-		//return View::make('empresa/agregar_publicidad',compact('nombre'));
-	}
 
-	/*public function DeshabilitarEmpresa($id){
-		Empresa::destroy($id);
+	public function DeshabilitarEmpresa($id){
 		Empresa::where('id_empresa','=', $id)->update(
 			array(
-				'habilitado' => 'FALSE',
+				'habilitado_empresa' => 0,
 			)
 		);
 
 		Publicidad::where('id_empresa','=', $id)->update(
 			array(
-				'habilitado' => 'FALSE',
+				'habilitado_publicidad' => 0,
 			)
 		);
 
 		return \Redirect::to('mis-empresas/');
-	}*/
+	}
 
 }
 

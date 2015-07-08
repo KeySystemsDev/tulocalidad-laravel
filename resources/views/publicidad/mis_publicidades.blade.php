@@ -44,7 +44,8 @@
                                     <td>{{$key->nombre_empresa}}</td>
                                     <td><span class="label label-info label-mini">{{$key->rif_empresa}}</span></td>
                                     <td>{{$key->titulo_publicidad}}</td>                                     
-                                    <td><a href=""><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a></td> 
+                                    <td><a href="{{ url ('mis-publicidades/deshabilitar/'.$key->id_publicidad)}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a>
+                                    </td> 
                                 </tr>
                                 @endforeach
                             </tbody>

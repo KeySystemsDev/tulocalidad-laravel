@@ -29,7 +29,7 @@
                             </div>
                         </header>
                         @if(count($publicidad)>0)
-                        <table class="table table-striped table-advance table-hover">
+                        <!--<table class="table table-striped table-advance table-hover">
                             <thead>
                                 <tr>
                                     <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre Empresa</th>
@@ -48,7 +48,53 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                        </table>
+                        </table>-->
+                        <section class="panel">
+                                <div class="panel-body">
+                                    <div class="timeline">
+                                        @foreach($publicidad as $key)
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="panel-body">
+                                                        <span class="arrow"></span>
+                                                        <span class="timeline-icon red"></span>
+                                                        <span class="timeline-date">12 July | Sunday</span>
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <h4 class="title-real-estates">
+                                                                    <strong><a href="#"><i class="fa fa-coffee"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$key->rif_empresa}}</span></span>
+                                                                </h4>
+                                                                <br>
+                                                                <p>{{$key->titulo_publicidad}}.</p>
+                                                                <br>
+                                                                <p>
+                                                                    <a href=""><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        @endforeach
+                                        <!--<article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="panel-body">
+                                                        <span class="arrow-alt"></span>
+                                                        <span class="timeline-icon green"></span>
+                                                        <span class="timeline-date">10:00 am</span>
+                                                        <h1 class="green">10 July | Wednesday</h1>
+                                                        <p><a href="#">Jonathan Smith</a> added new milestone <span><a href="#" class="green">ERP</a></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>-->
+                                    </div>
+                                <div class="clearfix">&nbsp;</div>
+                            </div>
+                        </section>
                         @else
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 msn-no-empresa">

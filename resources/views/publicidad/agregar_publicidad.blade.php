@@ -40,7 +40,7 @@
 										<label class="control-label col-lg-3" for="inputSuccess">Empresa</label>
 										<div class="col-lg-9">
 											<select class="form-control m-bot15" name="i_empresa">
-												<option class="option" value="" selected >seleccione una empresa</option>
+												<!--<option class="option" value="" selected >seleccione una empresa</option>-->
 												@foreach($empresas as $empresa)
 													@if($empresa->id_empresa==$id_seleccion)
 														<option class="option" value="{{$empresa->id_empresa}}" selected >{{$empresa->nombre_empresa}}</option>

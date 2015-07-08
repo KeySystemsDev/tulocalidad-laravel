@@ -53,7 +53,6 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 msn-no-empresa">
                                     <div class="well well-danger well-borde">
-                                        <h3>Publicidad</h3>
                                         No tiene empresa registrada. 
                                     </div>
                                 </div>

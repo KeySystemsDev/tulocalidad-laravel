@@ -39,9 +39,7 @@ class ServicioController extends Controller {
 								->get();
 		if ($empresas == null){
 			return view('servicio/sinresultado');
-		}	
-		print($empresas->first());
-
+		}
 		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));#->with('empresas',$empresas);
 	}
 

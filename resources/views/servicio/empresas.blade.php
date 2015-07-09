@@ -10,20 +10,11 @@
     <div id="main">
         
         <ol class="breadcrumb">
-            <li><a href="#">Servicos</a></li>
-            <li><a href="#">Estados</a></li>
-            <li><a href="#">Categorias</a></li>
-            <li class="active">Empresas</li>
+            <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
+            <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
+            <li class="active"><i class="fa fa-rocket"></i> {{ $id_categoria }} </li>
         </ol>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">
-
-                    <i class="fa fa-rocket"></i> Empresas {{ $id_estado }} {{ $id_categoria }} 
-                </h2>
-            </div>
-        </div>
         @foreach($empresas as $empresa)
             <div>{{$empresa->nombre_empresa}} , {{$empresa->id_empresa}}</div>
         @endforeach

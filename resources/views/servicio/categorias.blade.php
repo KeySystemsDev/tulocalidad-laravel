@@ -12,20 +12,12 @@
 			 <div class="col-lg-12">
                    	<section class="panel">                         
                         <div class="panel-body">
-
-                        	<ol class="breadcrumb">
-				                <li><a href="#">Servicos</a></li>
-				                <li><a href="#">Estados</a></li>
-				                <li class="active">Categorias</li>
+							
+							<ol class="breadcrumb">
+				                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
+				                <li><a href="#"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
+				                <li class="active"><i class="fa fa-cubes"></i> Categorias </li>
 				            </ol>
-
-                        	<div class="row">
-			                    <div class="col-lg-12">
-			                        <h2 class="page-header">
-			                           <i class="fa fa-globe"></i> {{ $id_estado }}
-			                        </h2>
-			                    </div>
-			                </div>
 
 			                <div class="row">
 			                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">

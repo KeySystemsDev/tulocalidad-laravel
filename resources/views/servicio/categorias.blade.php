@@ -13,6 +13,12 @@
                    	<section class="panel">                         
                         <div class="panel-body">
 
+                        	<ol class="breadcrumb">
+				                <li><a href="#">Servicos</a></li>
+				                <li><a href="#">Estados</a></li>
+				                <li class="active">Categorias</li>
+				            </ol>
+
                         	<div class="row">
 			                    <div class="col-lg-12">
 			                        <h2 class="page-header">

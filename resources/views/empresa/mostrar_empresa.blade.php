@@ -28,63 +28,44 @@
 			                </div>
                         </header>
                         @if(count($consulta)>0)
-                            <!--<table class="table table-striped table-advance table-hover">
-                                <thead>
-                                    <tr>
-                                        <th><i class="fa fa-coffee" data-original-title="" title=""></i> Nombre</th>
-                                        <th><i class="fa fa-flag" data-original-title="" title=""></i> Rif</th>
-                                        <th><i class="fa fa-envelope" data-original-title="" title=""></i> Correo</th>
-                                        <th><i class="fa fa-phone" data-original-title="" title=""></i> Telefono</th>
-                                        <th><i class="fa fa-bullhorn" data-original-title="" title=""></i> Publicidad</th>
-                                        <th><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</th>
-                                        <th><i class="fa fa-trash" data-original-title="" title=""></i> Deshabilitar</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($consulta as $value)
-                                        <tr>
-                                            <td><a href="#">{{$value->nombre_empresa}}</a></td>
-                                            <td><span class="label label-info label-mini">{{$value->rif_empresa}}</span></td>
-                                            <td>{{$value->correo_empresa}}</td>
-                                            <td>{{$value->telefono_empresa}}</td>
-                                            <td><a href="{{ url ('/mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-danger btn-xs">Agregar Publicidad</button></a></td>
-                                            <td><a href="{{ url ('/mis-empresas/editar/'.$value->id_empresa)}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i></button></a></td>
-                                            <td><a href="{{ url ('/mis-empresas/deshabilitar/'.$value->id_empresa)}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i></button></a><td/>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>-->
                             <section class="panel">
                                 <div class="panel-body">
                                     <div class="timeline">
-                                        @foreach($consulta as $value)
-                                        <article class="timeline-item">
-                                            <div class="timeline-desk">
-                                                <div class="panel">
-                                                    <div class="panel-body">
-                                                        <span class="arrow"></span>
-                                                        <span class="timeline-icon red"></span>
-                                                        <span class="timeline-date">12 July | Sunday</span>
-                                                        <div class="row">
-                                                            <div class="col-sm-12">
-                                                                <h4 class="title-real-estates">
-                                                                    <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$value->rif_empresa}}</span></span>
-                                                                </h4>
-                                                                <br>
-                                                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                                                <br>
-                                                                <p>
-                                                                    <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-xs"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a> |
-                                                                    <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a> | 
-                                                                    <a href="mis-empresas/borrar/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
-                                                                </p>
+                                        @foreach($consulta as $index=>$value)
+                                            @if($index%2)
+                                                <article class="timeline-item">
+                                            @else
+                                                <article class="timeline-item alt">
+                                            @endif
+                                                <div class="timeline-desk">
+                                                    <div class="panel">
+                                                        <div class="panel-body">
+                                                            @if($index%2)
+                                                                <span class="arrow"></span>
+                                                            @else
+                                                                 <span class="arrow-alt"></span>
+                                                            @endif
+                                                            <span class="timeline-icon red"></span>
+                                                            <span class="timeline-date">12 July | Sunday</span>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <h4 class="title-real-estates">
+                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$value->rif_empresa}}</span></span>
+                                                                    </h4>
+                                                                    <br>
+                                                                    <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
+                                                                    <br>
+                                                                    <p>
+                                                                        <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-xs"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a> |
+                                                                        <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a> |
+                                                                        <a href="mis-empresas/borrar/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </article>
+                                            </article>
                                         @endforeach
                                         <!--<article class="timeline-item alt">
                                             <div class="timeline-desk">

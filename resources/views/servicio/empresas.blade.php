@@ -14,183 +14,34 @@
             <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
             <li class="active"><i class="fa fa-rocket"></i> {{ $id_categoria }} </li>
         </ol>
+        <!--<h3>{{$empresas->first()}}</h3>-->
 
-        @foreach($empresas as $empresa)
-            <div>{{$empresa->nombre_empresa}} , {{$empresa->id_empresa}}</div>
-        @endforeach
         <!-- start:store list -->
         <div class="row" id="store-list">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            
+            @foreach($empresas as $empresa)
+            <div class="col-lg-6">  
                 <div class="panel">
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/key systems')}}"><img src="img/content/thumbnail1.jpg" class="img-responsive"></a>
+                                <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/'.$empresa->nombre_empresa)}}"><img src="{{ url($empresa->icon_empresa) }}" class="img-responsive"></a>
                             </div>
                             <div class="col-sm-7">
                                 <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/key systems')}}">Key Systems</a></strong>
+                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/'.$empresa->nombre_empresa)}}">{{$empresa->nombre_empresa}}</a></strong>
                                 </h4>
                                 <hr>
                                 <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
                                 <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/banesco')}}"><img src="img/content/thumbnail10.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/banesco')}}">Banesco</a></strong> 
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/adidas')}}"><img src="img/content/thumbnail2.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/adidas')}}">Adidas</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/puma')}}"><img src="img/content/thumbnail5.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/puma')}}">Puma</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
+                                    <a href="#" class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="#"><img src="img/content/thumbnail9.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="#">Omah Lodong</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="#"><img src="img/content/thumbnail1.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="#">Omah Lodong</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="#"><img src="img/content/thumbnail10.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="#">Omah Lodong</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="#"><img src="img/content/thumbnail2.jpg" class="img-responsive"></a>
-                            </div>
-                            <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="#">Omah Lodong</a></strong>
-                                </h4>
-                                <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-default" disabled="" data-original-title="" title="">$12,990</a>
-                                    <a href="#" class="btn btn-warning pull-right" data-original-title="" title="">Buy Now</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
 
             <!-- start:pagination -->
             <!--<div class="col-lg-12">

@@ -61,7 +61,7 @@
                                                                     <p>{{$key->titulo_publicidad}}.</p>
                                                                     <br>
                                                                     <p>
-                                                                        <a href=""><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
+                                                                        <a href="{{url('/mis-publicidades/deshabilitar/'.$key->id_publicidad)}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
                                                                     </p>
                                                                 </div>
                                                             </div>

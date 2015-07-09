@@ -18,35 +18,22 @@
 				                <li><a href="#"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
 				                <li class="active"><i class="fa fa-cubes"></i> Categorias </li>
 				            </ol>
-
-			                <div class="row">
-			                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-			                        <div class="panel">
-			                            <div class="panel-body">
-			                                <ul class="list-group">
-			                                    
-			                                    <a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/herreria')}}">
-			                                        <span class="badge badge-danger">14</span>
-			                                        Herreria                  
-			                                    </a>
-			                                   
-			                                    <a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/gruas')}}">
-			                                        <span class="badge badge-primary">1</span>
-			                                        Gruas
-			                                    </a>
-			                                    <a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/gruas')}}">
-			                                        <span class="badge badge-info">24</span>
-			                                        Bancos
-			                                    </a>
-			                                    <a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/farmacias')}}">
-			                                        <span class="badge badge-warning">44</span>
-			                                        Farmacias
-			                                    </a>
-			                                </ul>
-			                            </div>
-			                        </div>
-			                    </div>  
-			                </div>
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+									<div class="panel">
+										<div class="panel-body">
+											<ul class="list-group">
+												@foreach($data as $categoria)
+													<a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/'.$categoria->nombre_categoria)}}">
+														<span class="badge badge-success">{{$categoria->cantidad}}</span>
+														{{$categoria->nombre_categoria}}
+													</a>
+												@endforeach
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
 				</div>

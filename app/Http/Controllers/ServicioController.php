@@ -22,7 +22,10 @@ class ServicioController extends Controller {
 	}
 
 	public function Estado($id_estado){
-		return view('servicio/categorias', compact('id_estado'));
+		$data 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','','0',''));
+
+		print_r($data);
+		return view('servicio/categorias', compact('id_estado','data'));
 	}
 
 	public function Categoria($id_estado, $id_categoria){

@@ -14,8 +14,7 @@ class MisPublicidadesController extends Controller {
 
 	public function Index(){
 		$id         = session('id');
-		$publicidad = \DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
-		//print_r($publicidad);
+		$publicidad = (array)\DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
 		return View::make('publicidad/mis_publicidades',compact('publicidad'));   
 	}
 

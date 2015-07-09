@@ -8,14 +8,14 @@
 
 <div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
+        
+        <ol class="breadcrumb">
+            <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
+            <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
+            <li><a href="{{ url ('/servicios/categoria/'.$id_estado.'/'.$id_categoria) }}"><i class="fa fa-cubes"></i> {{ $id_categoria }}</a></li>
+            <li class="active"><i class="fa fa-rocket"></i> {{ $id_empresa }} </li>
+        </ol>
 
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">
-                    Empresa {{ $id_empresa }}
-                </h2>
-            </div>
-        </div>
         example:
         <div>{{$empresa->nombre_empresa}}</div>
         <div>{{$empresa->id_empresa}}</div>

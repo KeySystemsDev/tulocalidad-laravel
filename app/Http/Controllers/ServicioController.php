@@ -37,9 +37,10 @@ class ServicioController extends Controller {
 		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
 								->where('id_categoria','=',$categoria->id_categoria)
 								->get();
-		if ($empresas == null){
+		if( !$empresas or count($empresas)==0 ){
 			return view('servicio/sinresultado');
 		}
+
 		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));
 	}
 
@@ -56,7 +57,7 @@ class ServicioController extends Controller {
 								->where('id_categoria','=',$categoria->id_categoria)
 								->where('nombre_empresa','=',$id_empresa)
 								->first();
-		if ($empresa == null){
+		if( !$empresa or count($empresa)==0 ){
 			return view('servicio/sinresultado');
 		}
 		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa','empresa'));

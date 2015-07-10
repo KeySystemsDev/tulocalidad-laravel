@@ -1,1 +1,0 @@
-<h1>Publicaciones de la empres {{ $id_empresa }}</h1>

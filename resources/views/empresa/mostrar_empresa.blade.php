@@ -1,12 +1,16 @@
 @extends('base')
 
+@section('js')
+<script src="{{ asset('/js/controllers/empresa/empresa.js') }}"></script>
+@endsection
+
 @section('content')
     
     @include('layouts/nav-top')
 
 	@include('layouts/nav')
 
-	<div class="container">
+	<div class="container" ng-controller="MisEmpresasController">
 		<div id="main">
 
 			<div class="row">
@@ -58,7 +62,7 @@
                                                                     <p>
                                                                         <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-xs"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a> |
                                                                         <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a> |
-                                                                        <a href="mis-empresas/borrar/{{$value->id_empresa}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
+                                                                        <button class="btn btn-danger btn-xs" data-original-title="" title="" ng-click="deshabilitar({{$value->id_empresa}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -67,19 +71,6 @@
                                                 </div>
                                             </article>
                                         @endforeach
-                                        <!--<article class="timeline-item alt">
-                                            <div class="timeline-desk">
-                                                <div class="panel">
-                                                    <div class="panel-body">
-                                                        <span class="arrow-alt"></span>
-                                                        <span class="timeline-icon green"></span>
-                                                        <span class="timeline-date">10:00 am</span>
-                                                        <h1 class="green">10 July | Wednesday</h1>
-                                                        <p><a href="#">Jonathan Smith</a> added new milestone <span><a href="#" class="green">ERP</a></span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>-->
                                     </div>
                                 <div class="clearfix">&nbsp;</div>
                             </div>
@@ -103,9 +94,11 @@
                         </header>
                     </section>
                 </div>
-                
             </div>
-
 		</div>
+
+        @include('modals/confirmacion')
 	</div>
+
+
 @endsection

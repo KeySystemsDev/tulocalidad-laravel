@@ -1,12 +1,17 @@
 @extends('base')
 
+
+@section('js')
+<script src="{{ asset('/js/controllers/publicidad/publicidad.js') }}"></script>
+@endsection
+
 @section('content')
     
     @include('layouts/nav-top')
 
     @include('layouts/nav')
 
-    <div class="container">
+    <div class="container" ng-controller="MisPublicidadesController">
         <div id="main">
 
             <div class="row">
@@ -61,7 +66,7 @@
                                                                     <p>{{$key->titulo_publicidad}}.</p>
                                                                     <br>
                                                                     <p>
-                                                                        <a href="{{url('/mis-publicidades/deshabilitar/'.$key->id_publicidad)}}"><button class="btn btn-danger btn-xs" data-original-title="" title=""><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button></a>
+                                                                        <button class="btn btn-danger btn-xs" ng-click="deshabilitar({{$key->id_publicidad}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -96,5 +101,6 @@
                 </div>
             </div>
         </div>
+        @include('modals/confirmacion')
     </div>
 @endsection

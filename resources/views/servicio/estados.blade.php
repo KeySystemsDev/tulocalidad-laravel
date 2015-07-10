@@ -19,14 +19,16 @@
 					            </ol>
 
 				                <div class="row">
-				                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+				                    <div class="col-xs-12">
 				                        <div class="panel">
 				                            <div class="panel-body">
 				                                <ul class="list-group">
 				                                    @foreach($estados as $estado)
+													<div class="col-lg-4 col-md-4 col-sm-4">
 					                                    <a class="list-group-item" href="/servicios/estado/{{ $estado->nombre_estado }}">
 					                                        {{$estado->nombre_estado}}
 					                                    </a>
+													</div>
 				                                    @endforeach
 				                                </ul>
 				                            </div>

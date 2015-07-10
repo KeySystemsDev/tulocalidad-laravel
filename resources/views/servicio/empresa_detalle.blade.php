@@ -15,11 +15,9 @@
             <li><a href="{{ url ('/servicios/categoria/'.$id_estado.'/'.$id_categoria) }}"><i class="fa fa-cubes"></i> {{ $id_categoria }}</a></li>
             <li class="active"><i class="fa fa-rocket"></i> {{ $id_empresa }} </li>
         </ol>
+        
+        <!--<h3>{{$empresa->first()}}</h3>-->
 
-        example:
-        <div>{{$empresa->nombre_empresa}}</div>
-        <div>{{$empresa->id_empresa}}</div>
-        <div>{{$empresa->direccion_empresa}}</div>
         <!-- start:real estates detail -->
         <div class="row" id="real-estates-detail">
             <div class="col-lg-4 col-md-4 col-xs-12">
@@ -27,21 +25,20 @@
                     <div class="panel-heading">
                         <header class="panel-title">
                             <div class="text-center">
-                                <strong>Agent</strong> Author<strong>.</strong>
+                                <strong>{{$empresa->nombre_empresa}}</strong>
                             </div>
                         </header>
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <img src="{{ asset('/img/user/avatar-3.jpg') }}">
-                            <h3>John Doe</h3>
-                            <small class="label label-warning">From USA</small>
+                            <img src="{{ url($empresa->icon_empresa) }}">
+                            <h3></h3>
+                            <small class="label label-info">{{$empresa->rif_empresa}}</small>
                             <p>Aku kie sing sok ngedolke omah-omah kae, yo iso di omongke makelar ngono sih. Tapi makelar nek payu ne akeh yo dadi sugih bro. Tenanan ra ngapusi.</p>
                             <p class="sosmed-author">
                                 <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></i></a>
                                 <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" data-toggle="tooltip" data-placement="top" title="" data-original-title="Linkedin"></i></a>
                             </p>
                         </div>
                     </div>
@@ -52,46 +49,70 @@
                     <div class="panel-body">
                         <ul id="myTab" class="nav nav-pills">                          
                             <li class="active"><a href="#detail" data-toggle="tab">Detalle</a></li>
-                            <li class=""><a href="#contact" data-toggle="tab">Contacto</a></li>
-                            <li class=""><a href="#photos" data-toggle="tab">Ubicación</a></li>
+                            <!--<li class=""><a href="#contact" data-toggle="tab">Contacto</a></li>-->
+                            <!--<li class=""><a href="#photos" data-toggle="tab">Ubicación</a></li>-->
                         </ul>
                         <div id="myTabContent" class="tab-content">
+                            
                             <div class="tab-pane fade" id="photos">  
-                                <div class="col-lg-12">
-                                    <section class="panel">
-                                        <header class="panel-heading">
-                                            <div id="map_canvas">
-                                                <ui-gmap-google-map 
-                                                    center="map.center" 
-                                                    zoom="map.zoom" 
-                                                    draggable="true" 
-                                                    options="options">
-                                                        <ui-gmap-marker 
-                                                            coords="marker.coords" 
-                                                            options="marker.options"
-                                                            events="marker.events" 
-                                                            idkey="marker.id">
-                                                        </ui-gmap-marker>
-                                                </ui-gmap-google-map>
-                                            </div>
-                                    </section>
-                                </div>
+                                
                             </div>
+                            
                             <div class="tab-pane fade active in" id="detail">
                                 <p></p>
-                                <h4>Short Detail</h4>
-                                <p>Iki mung detail singkat wae soale seko jenenge wae wis short detail dadi yo ojo dowo-dowo.</p>
-                                <table class="table table-th-block">
-                                    <tbody>
-                                        <tr><td class="active">Bedrooms:</td><td>5 beds</td></tr>
-                                        <tr><td class="active">Bathrooms:</td><td>2 baths</td></tr>
-                                        <tr><td class="active">Single Family:</td><td>2,957 sq ft</td></tr>
-                                        <tr><td class="active">Lot:</td><td>0.26 acres</td></tr>
-                                        <tr><td class="active">Year Built:</td><td>1998</td></tr>
-                                        <tr><td class="active">Last Sold:</td><td>Apr 1998 for $225,000</td></tr>
-                                        <tr><td class="active">Heating Type:</td><td><a href="#">Contact for details</a></td></tr>
-                                    </tbody>
-                                </table>
+                                <table class="table table-hover personal-task">
+                                <tbody>
+                                    <tr>
+                                        <td width="7%">
+                                            <i class=" fa fa fa-map-marker" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->direccion_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-cubes" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$id_categoria}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-phone" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->telefono_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-phone" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->telefono_2_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-phone" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->telefono_movil_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-envelope" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->correo_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <i class="fa fa-link" data-original-title="" title=""></i>
+                                        </td>
+                                        <td>{{$empresa->url_empresa}}</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             </div>
                             <div class="tab-pane fade" id="contact">
                                 <p></p>
@@ -129,6 +150,27 @@
                     </div>
                 </div>
             </div>
+
+            <div ng-init="coords = { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'}"></div>
+            
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        <div id="map_canvas">
+                            <ui-gmap-google-map 
+                                center="coords" 
+                                zoom="map.zoom" 
+                                draggable="true" 
+                                options="options">
+                                    <ui-gmap-marker 
+                                        coords="coords" 
+                                        idkey="marker.id">
+                                    </ui-gmap-marker>
+                            </ui-gmap-google-map>
+                        </div>
+                </section>
+            </div>
+
         </div>
         <!-- end:real estates detail -->
 

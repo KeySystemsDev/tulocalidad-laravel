@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('js')
+    <script src="{{ asset('/js/controllers/empresa/empresa_editar.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div ng-controller="EditarEmpresaController">
@@ -26,7 +30,6 @@
 		                    </h2>
 		                    <p>
 		                    	Manten tus datos al día
-                                [[id_estado_empresa]]
 		                    </p>
                     	</header>
                     </section>
@@ -135,13 +138,13 @@
                                         <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
                                             <option ng-repeat="estado in estados" 
                                                       value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                      ng-if="[[estado.id_estado]] == id_estado_empresa" 
+                                                      ng-if="[[estado.id_estado]] == [[id_estado_empresa]]" 
                                                       selected>
                                                     [[ estado.nombre_estado]]
                                             </option>
                                             <option ng-repeat="estado in estados" 
                                                     value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-if="[[estado.id_estado]] != id_estado_empresa">
+                                                    ng-if="[[estado.id_estado]] != [[id_estado_empresa]]">
                                                     [[ estado.nombre_estado]]
                                             </option>
                                         </select>

@@ -15,7 +15,9 @@
 
     <div ng-init="id_estado_empresa = '{{$empresa->id_estado}}'"></div>
 
-	@include('layouts/nav')
+	@include('layouts/nav-top')
+    
+    @include('layouts/nav')
 
 	<div class="container">
 		<div id="main">

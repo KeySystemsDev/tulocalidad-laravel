@@ -78,7 +78,7 @@ app.controller('PublicidadController', function($scope, $log, estados, registro_
     $scope.myImage         = '';
     $scope.myCroppedImage  = '';
     $scope.srcimg          = null;
-    $scope.img             = 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image';
+    $scope.img             = '/img/no-imagen.jpg';
 
     var handleFileSelect = function (evt) {
         var file        = evt.currentTarget.files[0];

@@ -57,6 +57,7 @@
 									<div class="form-group">
 										<label class="control-label col-lg-3">Titulo</label>
 										<div class="col-sm-9 iconic-input right">
+											<i class="fa fa-bullhorn" data-original-title="" title=""></i>
 											<input type="text" maxlength="20" class="form-control" placeholder="Titulo" name="i_titulo" ng-model="formData.i_titulo" required>
 										</div>
 									</div>

@@ -14,7 +14,7 @@
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center></div>
+				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
 				<div class="panel-body">
 					@if (session('status'))
 						<div class="alert alert-success">

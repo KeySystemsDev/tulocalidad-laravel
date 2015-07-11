@@ -18,7 +18,7 @@
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center></div>
+				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
 				<div><center><h5>Registra tu cuenta</h5></center></div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
@@ -61,9 +61,9 @@
 						<div class="form-group">
 							<div class="col-md-10 col-md-offset-1">
 								<h6>Al registrarte, aceptas las 
-									<a href="#" class="legal-link" target="_blank">Condiciones de Servicio</a> 
-									y la <a href="#" class="legal-link" target="_blank">Política de Privacidad</a>, 
-									incluyendo el <a href="#" class="legal-link" target="_blank">Uso de Cookies</a>
+									<a class="btn-register" href="#" class="legal-link" target="_blank">Condiciones de Servicio</a> 
+									y la <a class="btn-register" href="#" class="legal-link" target="_blank">Política de Privacidad</a>, 
+									incluyendo el <a class="btn-register" href="#" class="legal-link" target="_blank">Uso de Cookies</a>
 								.</h6>
 							</div>
 						</div>

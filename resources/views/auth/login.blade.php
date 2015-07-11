@@ -12,11 +12,11 @@
 @section('content')
 
 <div class="container-fluid">
-		
+
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}"></center>
+				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
@@ -61,7 +61,7 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-danger">Iniciar Sesión</button>
+								<button type="submit" class="btn btn-danger">Iniciar Sesión  <i class="fa fa-sign-in"></i></button>
 
 								<a class="btn btn-link btn-register" href="{{ url('/auth/register') }}">Registrarte</a>
 							</div>

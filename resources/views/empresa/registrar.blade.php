@@ -125,10 +125,9 @@
                                   	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
                                   	<div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-envelope" data-original-title="" title=""></i>
-                                      	<input class="form-control" type="email" placeholder="ejample@dominio.com" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo" required>
+                                      	<input class="form-control" type="email" placeholder="ejample@dominio.com" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo">
                                   		
                                   		<div class="col-lg-10" ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
-					        				<p class="help-block text-danger" ng-show="forma.i_correo.$error.required">Campo obligatorio</p>
 					        				<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
 					      				</div>
                                   	</div>                                 		

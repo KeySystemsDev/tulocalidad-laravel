@@ -14,9 +14,16 @@
 		                	<section class="panel">
 		                		<header class="panel-heading center">
 				                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
-				                    <h2>
-				                        Se ha guardado de forma Satisfactoria!!!
-				                    </h2>
+				                    <br><br><br>
+				                    <div class="row">
+			                            <div class="col-lg-6 col-md-6 msn-no-empresa">
+			                                <div class="well well-danger well-borde">
+			                                    <h4>
+							                        Se ha guardado de forma Satisfactoria!!!
+							                    </h4>
+			                                </div>
+			                            </div>
+			                        </div>
 		                    	</header>
 		                    </section>
 		                </div>

@@ -15,8 +15,8 @@
 							
 							<ol class="breadcrumb">
 				                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
-				                <li><a href="#"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
-				                <li class="active"><i class="fa fa-cubes"></i> Categorias </li>
+				                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-globe"></i> Estados</a></li>
+				                <li class="active"><i class="fa fa-location-arrow"></i> {{ $id_estado }} </li>
 				            </ol>
 							<div class="row">
 								<div class="col-xs-12">

@@ -31,7 +31,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <img src="{{ url($empresa->icon_empresa) }}">
+                            <img width="157" height="157 src="{{ url($empresa->icon_empresa) }}">
                             <h3></h3>
                             <small class="label label-info">{{$empresa->rif_empresa}}</small>
                             <p>Aku kie sing sok ngedolke omah-omah kae, yo iso di omongke makelar ngono sih. Tapi makelar nek payu ne akeh yo dadi sugih bro. Tenanan ra ngapusi.</p>

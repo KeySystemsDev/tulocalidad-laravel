@@ -327,6 +327,7 @@ ul#strength {
 }
 .well-borde{
     background: #832c2c;
+    border: none;
 }
 .header-top .navbar-right.top-menu {
   margin-top: 7px;

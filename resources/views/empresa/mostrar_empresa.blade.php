@@ -22,11 +22,8 @@
 			                		<header class="panel-heading center">
 					                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
 					                    <h2>
-					                        Sucursales
+					                        Empresas registradas
 					                    </h2>
-					                    <p>
-					                    	Empresas registradas
-					                    </p>
 			                    	</header>
 			                    </section>
 			                </div>

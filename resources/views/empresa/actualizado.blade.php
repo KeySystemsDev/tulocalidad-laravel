@@ -20,9 +20,7 @@
 						                    <div class="row">
 					                            <div class="col-lg-6 col-md-6 msn-no-empresa">
 					                                <div class="well well-danger well-borde">
-					                                    <h4>
-									                       Actualizado con exito!!!
-									                    </h4>
+									                    Actualizado con exito!!!
 					                                </div>
 					                            </div>
 					                        </div>

@@ -18,9 +18,7 @@
 				                    <div class="row">
 			                            <div class="col-lg-6 col-md-6 msn-no-empresa">
 			                                <div class="well well-danger well-borde">
-			                                    <h4>
-							                        Se ha guardado de forma Satisfactoria!!!
-							                    </h4>
+							                    Se ha guardado de forma Satisfactoria!!!
 			                                </div>
 			                            </div>
 			                        </div>

@@ -10,6 +10,8 @@
 </ul>
 
 @section('content')
+	
+@include('layouts/nav-top-auth')
 
 <div class="container-fluid">
 

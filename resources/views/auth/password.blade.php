@@ -10,6 +10,9 @@
 </ul>
 
 @section('content')
+
+@include('layouts/nav-top-auth')
+
 <div class="container-fluid">
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
@@ -46,7 +49,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-danger">
-									Enviar Contraseña <i class="fa fa-key"></i>
+									Enviar Contraseña <i class="fa fa-lock"></i>
 								</button>
 							</div>
 						</div>

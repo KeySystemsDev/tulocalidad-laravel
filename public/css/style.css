@@ -256,7 +256,7 @@
     .cb-slideshow li div h3 { font-size: 80px }
 }
 .login-tulocalidad{
-    margin-top: 120px;
+    margin-top: 7%;
 }
 
 .border-tulocalidad{  
@@ -330,4 +330,16 @@ ul#strength {
 }
 .header-top .navbar-right.top-menu {
   margin-top: 7px;
+}
+.header-top .nav-top-auth{
+    background-color: rgba(0,0,0,.4);
+    border-bottom: 0px;
+}
+.auth-intro-button{
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.nav-top-auth-button-intro{
+    margin-top: 15px;   
 }

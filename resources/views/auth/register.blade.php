@@ -14,6 +14,9 @@
 </ul>
 
 @section('content')
+
+@include('layouts/nav-top-auth')
+
 <div class="container-fluid" ng-controller="RegisterUsuarioController">
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">

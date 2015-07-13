@@ -57,6 +57,7 @@
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<ul class="nav navbar-nav">
 	      		<li><a onclick="$('header').animatescroll({padding:71});">Inicio</a></li>
+	      		<li><a onclick="$('.entrar').animatescroll({padding:71});">Entrar</a></li>
 	      		<li><a onclick="$('.payoff').animatescroll({padding:71});">Descripción</a></li>
 	      		<li><a onclick="$('.detail').animatescroll({padding:71});">¿Cómo Usar?</a></li>
 	      		<li><a onclick="$('.features').animatescroll({padding:71});">Bondades</a></li>
@@ -114,12 +115,13 @@
 	  	<section class="purchase">
 		  	<div class="container">
 			  	<div class="row">
-				  	<div class="col-md-offset-2 col-md-8">
+				  	<div class="col-md-offset-2 col-md-8 entrar">
 				  		<br><br>
 				  		<a href="{{ url ('/servicios') }}">
 					  		<div class="button-intro">
 							    <div class="compass"></div>
-							    <div class="msg">ENTRAR</div>
+							    <div class="circule-logo-intro"></div>
+							    <div class="msg">Entrar</div>
 							</div>
 						</a>
 						<div class="mapa-play button">

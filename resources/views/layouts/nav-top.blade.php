@@ -15,7 +15,7 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <img alt="" src="{{ asset('/img/avatar1_small.jpg') }}">
-                        <span class="username">Correo Electrónico</span>
+                        <span class="username">{{\Session::get('usuario')}}</span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">

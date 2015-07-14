@@ -129,7 +129,7 @@
                                   	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
                                   	<div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-envelope" data-original-title="" title=""></i>
-                                      	<input type="email" class="form-control" name="i_correo" value="{{$empresa->correo_empresa}}" required>
+                                      	<input type="email" class="form-control" name="i_correo" value="{{$empresa->correo_empresa}}">
                                     </div>                                 		
                               	</div>
 
@@ -160,22 +160,10 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">latitude</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" ng-value="[[i_latitud]]" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">longitude</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" ng-value="[[i_longitud]]" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
-                                    </div>
-                                </div>
+                                        
+                                <input class="form-control" ng-value="[[i_latitud]]" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa" required>
+                                
+                                <input class="form-control" ng-value="[[i_longitud]]" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" required>
 		
 						</div>
                  	</section>

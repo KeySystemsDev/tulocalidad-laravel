@@ -134,7 +134,7 @@
 										<i class="fa fa-file-image-o"></i>Imagen Original
 									</div>
 									<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
-										<i class="fa fa-scissors"></i> Imagen Recortada
+										<i class="fa fa-scissors"></i> Pre visualizar Recorte
 									</div>
 									<div class="cropArea col-xs-5 col-xs-offset-1" >
 										<img-crop area-type="circle" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>

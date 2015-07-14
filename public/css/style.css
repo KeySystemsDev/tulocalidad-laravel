@@ -351,3 +351,7 @@ ul#strength {
 .center{
     text-align: center;
 }
+.text-tulocalidad{
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: -1px;
+}

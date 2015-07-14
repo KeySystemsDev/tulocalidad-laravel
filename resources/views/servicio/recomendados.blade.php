@@ -15,8 +15,8 @@
 
 	                        	<div class="row">
 				                    <div class="col-lg-12">
-				                        <h2 class="page-header">
-				                            <i class="fa fa-bullhorn"></i> Recomendados
+				                        <h2 class="page-header text-tulocalidad">
+				                            <i class="fa fa-bullhorn"></i><strong> Recomendados</strong>
 				                        </h2>
 				                    </div>
 				                </div>

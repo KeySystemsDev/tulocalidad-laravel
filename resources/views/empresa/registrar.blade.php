@@ -156,15 +156,11 @@
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
+											<option value="" selected>
+												Selecione un estado
+											</option>
                                             <option ng-repeat="estado in estados" 
-                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                      ng-if="[[estado.id_estado]] == 10" 
-                                                      selected>
-                                                    [[ estado.nombre_estado]]
-                                            </option>
-                                            <option ng-repeat="estado in estados" 
-                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-if="[[estado.id_estado]] != 10">
+                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]">
                                                     [[ estado.nombre_estado]]
                                             </option>
                                         </select>

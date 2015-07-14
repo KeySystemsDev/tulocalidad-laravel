@@ -140,22 +140,21 @@
                                         <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}" required>
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
-                                            <option ng-repeat="estado in estados" 
-                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                      ng-if="[[estado.id_estado]] == [[id_estado_empresa]]" 
-                                                      selected>
-                                                    [[ estado.nombre_estado]]
-                                            </option>
-                                            <option ng-repeat="estado in estados" 
+                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado" ng-cloak="">
+                                            <option ng-repeat="estado in estados"
                                                     value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-if="[[estado.id_estado]] != [[id_estado_empresa]]">
-                                                    [[ estado.nombre_estado]]
+                                                    ng-if="[[estado.id_estado]] != {{$empresa->id_estado}}">
+                                                [[ estado.nombre_estado]]
+                                            </option>
+                                            <option ng-repeat="estado in estados"
+                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
+                                                    ng-if="[[estado.id_estado]] == {{$empresa->id_estado}}"
+                                                    selected>
+                                                [[ estado.nombre_estado]]
                                             </option>
                                         </select>
                                     </div>

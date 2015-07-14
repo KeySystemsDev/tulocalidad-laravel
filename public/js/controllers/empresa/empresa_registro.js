@@ -40,6 +40,13 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
 
     $scope.estado_ruta = function(estado) {
         $scope.array = estado.split('+');
+
+        if ($scope.array.length == 1){
+            $scope.array[0] = "0";
+            $scope.array[1] = "10.333083818097196";
+            $scope.array[2] = "-67.03379895019532";
+        };
+        console.log($scope.array);
         $scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
         angular.element('#id_estado').val($scope.array[0]);
         angular.element('#i_latitud').val('');

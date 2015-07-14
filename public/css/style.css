@@ -344,3 +344,10 @@ ul#strength {
 .nav-top-auth-button-intro{
     margin-top: 15px;   
 }
+.text-img-cortar i{
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.center{
+    text-align: center;
+}

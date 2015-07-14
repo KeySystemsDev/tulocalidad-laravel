@@ -22,16 +22,14 @@
 								<div class="col-xs-12">
 									<div class="panel">
 										<div class="panel-body">
-											<ul class="list-group">
-												@foreach($data as $categoria)
-												<div class="col-lg-4 col-md-4 col-sm-4">
-													<a class="list-group-item" href="{{ url ('servicios/categoria/'.$id_estado.'/'.$categoria->nombre_categoria)}}">
-														<span class="badge badge-success">{{$categoria->cantidad}}</span>
-														{{$categoria->nombre_categoria}}
-													</a>
-												</div>
-												@endforeach
-											</ul>
+											<ul class="list-group col-lg-4">
+			                                    @foreach(array_slice($data, 0, 8) as $key)
+													<a class="list-group-item" href="/servicios/estado/{{ $estado->nombre_estado }}">
+				                                        <span class="badge badge-success">{{$key->cantidad}}</span>
+				                                        {{$key->nombre_categoria}}
+				                                    </a>
+			                                    @endforeach
+			                                </ul>
 										</div>
 									</div>
 								</div>

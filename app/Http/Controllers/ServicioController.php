@@ -24,7 +24,7 @@ class ServicioController extends Controller {
 	public function Estado($id_estado){
 		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
 		if ($estado == null){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 
 		$data 		= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado->id_estado,''));
@@ -34,17 +34,17 @@ class ServicioController extends Controller {
 	public function Categoria($id_estado, $id_categoria){
 		$categoria 	= Categoria::where('nombre_categoria','=',$id_categoria)->first();
 		if ($categoria == null){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
 		if ($estado == null){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
 								->where('id_categoria','=',$categoria->id_categoria)
 								->get();
 		if( !$empresas or count($empresas)==0 ){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 
 		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));
@@ -53,18 +53,18 @@ class ServicioController extends Controller {
 	public function Empresa($id_estado, $id_categoria, $id_empresa){
 		$categoria 	= Categoria::where('nombre_categoria','=',$id_categoria)->first();
 		if ($categoria == null){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
 		if ($estado == null){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 		$empresa 	= Empresa::where('id_estado','=',$estado->id_estado)
 								->where('id_categoria','=',$categoria->id_categoria)
 								->where('nombre_empresa','=',$id_empresa)
 								->first();
 		if( !$empresa or count($empresa)==0 ){
-			return view('servicio/sinresultado');
+			return view('servicio/sin_resultado');
 		}
 		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa','empresa'));
 	}

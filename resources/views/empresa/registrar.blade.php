@@ -39,7 +39,7 @@
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="20" class="form-control" placeholder="Nombre de la Empresa" name="i_nombre" ng-model="formData.i_nombre" required>
+					      				<input type="text" maxlength="100" class="form-control" placeholder="Nombre de la Empresa" name="i_nombre" ng-model="formData.i_nombre" required>
 					    			</div>
 					    		</div>
 

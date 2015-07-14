@@ -12,7 +12,7 @@
 				 <div class="col-lg-12">
 	                   	<section class="panel">                         
 	                        <div class="panel-body">
-								
+
 								<ol class="breadcrumb">
 					                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
 					                <li class="active"><i class="fa fa-globe"></i> Estados</li>
@@ -22,15 +22,29 @@
 				                    <div class="col-xs-12">
 				                        <div class="panel">
 				                            <div class="panel-body">
-				                                <ul class="list-group">
-				                                    @foreach($estados as $estado)
-													<div class="col-lg-4 col-md-4 col-sm-4">
-					                                    <a class="list-group-item" href="/servicios/estado/{{ $estado->nombre_estado }}">
-					                                        {{$estado->nombre_estado}}
+
+				                                <ul class="list-group col-lg-4">
+				                                    @foreach(array_slice($estados, 0, 8) as $key)
+														<a class="list-group-item" href="/servicios/estado/{{ $key->nombre_estado }}">
+					                                    	{{$key->nombre_estado}}
 					                                    </a>
-													</div>
 				                                    @endforeach
 				                                </ul>
+				                                <ul class="list-group col-lg-4">
+				                                    @foreach(array_slice($estados, 9, 8) as $key)
+														<a class="list-group-item" href="/servicios/estado/{{ $key->nombre_estado }}">
+					                                    	{{$key->nombre_estado}}
+					                                    </a>
+				                                    @endforeach
+				                                </ul>
+				                                <ul class="list-group col-lg-4">
+				                                    @foreach(array_slice($estados, 17, 8) as $key)
+														<a class="list-group-item" href="/servicios/estado/{{ $key->nombre_estado }}">
+					                                    	{{$key->nombre_estado}}
+					                                    </a>
+				                                    @endforeach
+				                                </ul>
+
 				                            </div>
 				                        </div>
 				                    </div>  

@@ -80,7 +80,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" name="s_categoria">
+                                        <select class="form-control m-bot15 selectpicker" data-live-search="true" name="s_categoria">
                                             @foreach($categoria as $key)
 												@if ($key->id_categoria == $empresa->id_categoria)
 													<option class="option" value="{{ $key->id_categoria }}" selected >{{$key->nombre_categoria}} </option>;

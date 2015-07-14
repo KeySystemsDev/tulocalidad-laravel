@@ -120,15 +120,22 @@
 						<div>
 							<form action="registro" method="post">
 								<div class = "row">
-									<div class="col-xs-3">Seleccione una imagen:</div>
-									<div class="col-xs-2">
-									<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
-									<input type="file" name="i_image" file-model="myFile" id="fileInput"/>
-									</span>
+									<div class="col-12">
+										<div class="center">
+											<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
+												<input type="file" name="i_image" file-model="myFile" id="fileInput"/>
+											</span>
+										</div>
 									</div>
 								</div>
 								<br><br>
 								<div class="row">
+									<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+										<i class="fa fa-file-image-o"></i>Imagen Original
+									</div>
+									<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+										<i class="fa fa-scissors"></i> Pre visualizar Recorte
+									</div>
 									<div class="cropArea col-xs-5 col-xs-offset-1" >
 										<img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
 									</div>

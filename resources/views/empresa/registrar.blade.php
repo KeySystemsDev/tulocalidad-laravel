@@ -29,7 +29,7 @@
                     	</header>
                     </section>
                 </div>
-	              
+
                 <div class="col-lg-12">
                     <section class="panel">                         
                         <div class="panel-body">
@@ -89,7 +89,7 @@
 					    		<div class="form-group">
                                     <label class="control-label col-lg-3" for="inputSuccess">Categoria</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" name="i_categoria">
+                                        <select class="form-control m-bot15 selectpicker" data-live-search="true" name="i_categoria">
                                             @foreach($categoria as $key)
 												<option class="option" value="{{$key->id_categoria}}">{{$key->nombre_categoria}}</option>; 
 											@endforeach
@@ -172,21 +172,19 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">latitude</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                    	<i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" type="text" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+                                    <label for="curl" class="control-label col-lg-3"></label>
+                                    <div class="col-lg-9 iconic-input right">
+                                      	<div class="panel panel-danger panel-drop ">
+				                            <div class="panel-body">
+				                                Selecione la posicion de su empresa arrastrando el marcador del mapa sobre la ubicación.
+				                            </div>
+				                        </div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">longitude</label>
-                                    <div class="col-sm-9 iconic-input right">
-                                    	<i class="fa fa-thumb-tack" data-original-title="" title=""></i>
-                                        <input class="form-control" type="text" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
-                                    </div>
-                                </div>
-
+      
+                                <input class="form-control" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+                                
+                                <input class="form-control" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
 							
 						</div>
                  	</section>
@@ -244,17 +242,26 @@
 					<div>
 						<form action="registro" method="post">
 							<div class = "row">
-								<div class="col-xs-3">Seleccione una imagen:</div>
-								<div class="col-xs-2">
-									<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
-									<input type="file" name="i_image" file-model="myFile" id="fileInput"/>
-									</span>
+								<div class="col-12">
+									<div class="center">
+										<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
+										<input type="file" name="i_image" file-model="myFile" id="fileInput"/>
+										</span>
+									</div>
 								</div>
 							</div>
-							<br><br>
+							<br>
 							<div class="row">
-								<div class="cropArea col-xs-5 col-xs-offset-1" >
+
+								<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+									<i class="fa fa-file-image-o"></i>Imagen Original
+								</div>
+								<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+									<i class="fa fa-scissors"></i> Pre visualizar Recorte
+								</div>
+								<div class="cropArea col-xs-5 col-xs-offset-1">
 									<img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
+
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<div><img class="view-modal-img" ng-src="[[srcimg ]]"/></div>

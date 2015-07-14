@@ -355,3 +355,12 @@ ul#strength {
     font-family: "Open Sans", sans-serif;
     margin-bottom: -1px;
 }
+.btn.btn-default {
+  border-color: #ccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #555;
+}
+.btn.btn-default:hover {
+  background-color: #ccc;
+}

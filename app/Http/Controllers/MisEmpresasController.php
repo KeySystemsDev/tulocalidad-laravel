@@ -81,6 +81,7 @@ class MisEmpresasController extends Controller {
 				'telefono_2_empresa'            => (Input::get('i_telefono2')),
 				'telefono_3_empresa'            => (Input::get('i_telefono3')),
 				'telefono_movil_empresa'        => (Input::get('i_celular')),
+				'descripcion_empresa'           => (Input::get('i_descripcion')),
 			)
 		);
 		$rif = (Input::get('i_rif'));
@@ -105,6 +106,7 @@ class MisEmpresasController extends Controller {
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
 				$empresa->rif_empresa                   = e(Input::get('i_rif'));
 				$empresa->direccion_empresa             = e(Input::get('i_direccion'));
+				$empresa->descripcion_empresa           = e(Input::get('i_descripcion'));
 				$empresa->id_categoria                  = e(Input::get('i_categoria'));
 				$empresa->correo_empresa                = e(Input::get('i_correo'));
 				$empresa->id_estado                     = e(Input::get('id_estado'));

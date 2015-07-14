@@ -31,13 +31,15 @@ class AuthController extends Controller {
 	}
 
 	public function getLogin(){
-		return \View::make('auth/login');
+		$error = "";
+		return view('auth/login', compact('error'));
 	}
 
 	public function postLogin(){
 		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
-        	return \Redirect::to('auth/login');
+			$error = "Usuario o clave incorrecto";
+        	return view('auth/login', compact('error'));
         }
         else
         {

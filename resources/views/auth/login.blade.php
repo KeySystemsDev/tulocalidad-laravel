@@ -20,14 +20,13 @@
 			<div class="panel panel-default border-tulocalidad">
 				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center>
 				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
+					@if ($error)
+						<div class="row">
+							<div class="alert alert-danger col-md-7 col-md-offset-2">
+								<ul">
 									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
+								</ul>
+							</div>
 						</div>
 					@endif
 

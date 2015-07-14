@@ -69,7 +69,15 @@
 					    			</div>
 					    		</div>
 
-					    		<div class="form-group">
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">Descripción</label>
+                                    <div class="col-sm-9 iconic-input right">
+                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
+                                        <input type="text" maxlength="100" class="form-control" name="i_descripcion" value="{{$empresa->descripcion_empresa}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="s_categoria">

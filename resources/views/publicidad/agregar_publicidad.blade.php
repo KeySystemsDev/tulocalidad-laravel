@@ -130,7 +130,7 @@
 								<br><br>
 								<div class="row">
 									<div class="cropArea col-xs-5 col-xs-offset-1" >
-										<img-crop area-type="circle" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
+										<img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
 									</div>
 									<div class="col-xs-5 col-xs-offset-1">
 										<div><img class="view-modal-img" ng-src="[[srcimg ]]"/></div>

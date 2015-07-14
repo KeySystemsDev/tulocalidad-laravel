@@ -70,6 +70,14 @@
 					    			</div>
 					    		</div>
 
+								<div class="form-group">
+									<label class="control-label col-lg-3">Descripción</label>
+									<div class="col-sm-9 iconic-input right">
+										<i class="fa fa-map-marker" data-original-title="" title=""></i>
+										<input type="text" maxlength="100" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required>
+									</div>
+								</div>
+
 					    		<div class="form-group">
 					      			<label class="control-label col-lg-3">Dirección</label>
 					      			<div class="col-sm-9 iconic-input right">
@@ -246,7 +254,7 @@
 							<br><br>
 							<div class="row">
 								<div class="cropArea col-xs-5 col-xs-offset-1" >
-									<img-crop area-type="circle" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
+									<img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<div><img class="view-modal-img" ng-src="[[srcimg ]]"/></div>

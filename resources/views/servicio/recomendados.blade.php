@@ -20,9 +20,6 @@
 				                        </h2>
 				                    </div>
 				                </div>
-
-				                
-				                    
 				                <div class="content">
 				                	
 				                    <div class="grid">
@@ -30,8 +27,8 @@
 										<figure class="effect-duke">
 											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
 											<figcaption>
-												<h2>Messy <span>Duke</span></h2>
-												<p>Duke is very bored. When he looks at the sky, he feels to run.</p>
+												<h2><span>{{$key->titulo_publicidad}}</span></h2>
+												<p>{{$key->descripcion_publicidad}}</p>
 												<a href="#">View more</a>
 											</figcaption>			
 										</figure>

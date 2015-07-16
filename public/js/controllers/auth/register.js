@@ -7,4 +7,7 @@ app.controller('RegisterUsuarioController', function($scope, $log) {
 
     $scope.pw = '';
 	
+	$scope.send = function() {
+			
+	};
 });

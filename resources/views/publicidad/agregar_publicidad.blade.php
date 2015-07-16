@@ -71,7 +71,7 @@
 
 									<div class="form-group last">
 										<label class="control-label col-lg-3">Imagen de Publicidad</label>
-										<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden>
+										<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
 										<div class="col-sm-9 iconic-input right">
 
 											<div class="fileinput fileinput-new" data-provides="fileinput">

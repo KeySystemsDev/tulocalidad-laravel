@@ -19,20 +19,15 @@
 			<div class="panel panel-default border-tulocalidad">
 				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
 				<div class="panel-body">
-					@if (session('status'))
+					@if ($success)
 						<div class="alert alert-success">
-							{{ session('status') }}
+							Correo enviado exitosamente, revise su bandeja de entrada para obtener su nueva contraseña.
 						</div>
 					@endif
 
-					@if (count($errors) > 0)
+					@if ($error)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
+							El correo introducido no existe.
 						</div>
 					@endif
 

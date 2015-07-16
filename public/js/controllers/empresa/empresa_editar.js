@@ -1,7 +1,7 @@
 // Declare use of strict javascript
 'use strict';
 
-app.controller('EditarEmpresaController', function($scope, $log, estados) {
+app.controller('EditarEmpresaController', function($scope, $log, estados, registro_service) {
     $log.log('EditarEmpresaController');
 
     $scope.estados = estados.get();
@@ -74,5 +74,40 @@ app.controller('EditarEmpresaController', function($scope, $log, estados) {
                 }
             }
         };
+    };
+
+    $scope.formData        = {};
+    $scope.file            = null;
+    $scope.myImage         = '';
+    $scope.myCroppedImage  = '';
+    $scope.srcimg          = null;
+    $scope.img             = '';
+
+    var handleFileSelect = function (evt) {
+        var file        = evt.currentTarget.files[0];
+        var reader      = new FileReader();
+        reader.onload   = function (evt) {
+            $scope.$apply(function ($scope) {
+                $scope.myImage = evt.target.result;
+            });
+        };
+        reader.readAsDataURL(file);
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
+
+    $scope.return_img = function(id){
+        $scope.img = $scope.srcimg;
+        // var byteArray = Base64Binary.decodeArrayBuffer($scope.srcimg);  
+        // var formData = new FormData(angular.element("#formulario"))
+        // formData.append("file", byteArray, "test.png") 
+        registro_service.Post({img : $scope.img}).$promise.then(
+            function(data) {
+                if (data.status === "success"){
+                    angular.element("#myModal").modal("hide");
+                    $scope.formData.namefile = data.name;
+                };
+            }
+        );
     };
 });

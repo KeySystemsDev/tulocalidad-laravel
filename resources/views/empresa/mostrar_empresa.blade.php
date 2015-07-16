@@ -54,7 +54,7 @@
                                                                         <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$value->rif_empresa}}</span></span>
                                                                     </h4>
                                                                     <br>
-                                                                    <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
+                                                                    <p>descripcion</p>
                                                                     <br>
                                                                     <p>
                                                                         <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-xs"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a> |

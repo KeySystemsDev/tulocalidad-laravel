@@ -39,7 +39,7 @@
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Correo Electroónico</label>
+							<label class="col-md-4 control-label">Correo Electrónico</label>
 							<div class="col-md-6">
 								<input type="email" class="form-control" name="email" value="" required>
 							</div>
@@ -49,6 +49,13 @@
 							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password" ng-model="pw" name="pw" id="pw" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Repetir Contraseña</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password" ng-model="pw2" name="pw2" id="pw2" required>
 								<ul id="strength" check-strength="pw"></ul>
 							</div>
 						</div>

@@ -15,8 +15,8 @@
 	overflow: hidden;
 	margin: 10px 1%;
 	min-width: 320px;
-	max-width: 480px;
-	max-height: 360px;
+	max-width: 100%;
+	max-height: 100%;
 	width: 48%;
 	height: auto;
 	background: #3085a3;
@@ -1233,10 +1233,11 @@ figure.effect-duke h2 {
 }
 
 figure.effect-duke p {
-	position: absolute;
+	position: relative;
 	bottom: 0;
 	left: 0;
 	margin: 20px;
+	margin-top: 40%;
 	padding: 30px;
 	border: 2px solid #fff;
 	text-transform: none;

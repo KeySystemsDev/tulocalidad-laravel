@@ -168,6 +168,20 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Dirección del Mapa</label>
+                                    <div class="col-lg-9">
+										<div class="radio-inline">
+                                            <input type="radio" name="id_privacidad" id="id_prublica" value="1" checked="">
+                                            Pública
+                                        </div>
+										<div class="radio-inline">
+                                            <input type="radio" name="id_privacidad" id="id_privada" value="0" checked="">
+                                            Privada                                         
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="curl" class="control-label col-lg-3"></label>
                                     <div class="col-lg-9 iconic-input right">
                                       	<div class="panel panel-danger panel-drop ">

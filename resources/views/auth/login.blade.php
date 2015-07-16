@@ -23,7 +23,7 @@
 					@if ($error)
 						<div class="row">
 							<div class="alert alert-danger col-md-7 col-md-offset-2">
-								<ul">
+								<ul>
 									<li>{{ $error }}</li>
 								</ul>
 							</div>

@@ -38,7 +38,9 @@ class PasswordController extends Controller {
 
 	public function getEmail()
 	{
-		return view('auth.password');
+		$success 	= 	"";
+		$error		= 	"";
+		return view('auth.password',compact('error','success'));
 	}
 
 	/**
@@ -58,28 +60,32 @@ class PasswordController extends Controller {
 				)
 			);
 			$mensaje ='<html>
-		<head>
- 			<title>Nueva clase de Ingreso</title>
-		</head>
-		<body>
- 			<p>Hola Sr(a) <b>'.$email.'</b>, le hemos enviado su nueva contrase&ntilde;a temporal para que pueda ingresar al sistema, de igual forma le informamos que podra cambiarla en el momento que Ud. lo desee.
-					</p>
-					<p align="center">
-						<b>Nueva Contrase&ntilde;a:'.$password.'</b>
-						<br><br>
-						<a href="http://tulocalidad.com.ve/auth/login" type="button" class="btn btn-info">Iniciar.</p>
-		</body>
-		</html>';
+			<head>
+	 			<title>Nueva clase de Ingreso</title>
+			</head>
+			<body>
+	 			<p>Hola Sr(a) <b>'.$email.'</b>, le hemos enviado su nueva contrase&ntilde;a temporal para que pueda ingresar al sistema, de igual forma le informamos que podra cambiarla en el momento que Ud. lo desee.
+						</p>
+						<p align="center">
+							<b>Nueva Contrase&ntilde;a:'.$password.'</b>
+							<br><br>
+							<a href="http://tulocalidad.com.ve/auth/login" type="button" class="btn btn-info">Iniciar.</p>
+			</body>
+			</html>';
 
-		$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
-		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
-		$cabeceras .= "From: contacto@keysystems.com.ve";
-		
-		mail($email,"Nueva clave de Acceso",$mensaje,$cabeceras);
-		return view('auth/pass_enviada');
+			$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
+			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
+			$cabeceras .= "From: contacto@keysystems.com.ve";
+			
+			mail($email,"Nueva clave de Acceso",$mensaje,$cabeceras);
+			$success 	= 1;
+			$error 		= "";
+			return view('auth.password',compact('error','success'));
 		}
 		else{
-			return print "El correo ingresado no existe en la base de datos";
+			$success 	= "";
+			$error 		= 1;
+			return view('auth.password',compact('success','error'));
 		}
 		
 	}

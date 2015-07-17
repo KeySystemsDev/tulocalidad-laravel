@@ -49,8 +49,8 @@
 									<div class="col-sm-9 iconic-input right">
 
 										<div class="fileinput fileinput-new" data-provides="fileinput">
-											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-												<img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="">
+											<div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
+												<img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="" style="width: 200px; height: 200px;">
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
 											<div>

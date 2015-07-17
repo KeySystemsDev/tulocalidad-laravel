@@ -13,9 +13,25 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
                         <li>
+                            <a href="{{ url ('servicios') }}">
+                                <div class="text-center">
+                                    <i class="fa fa-star fa-3x" data-original-title="" title=""></i><br>
+                                    Recomendados
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url ('servicios/todo') }}">
+                                <div class="text-center">
+                                    <i class="fa fa-thumb-tack fa-3x" data-original-title="" title=""></i><br>
+                                    Servicios
+                                </div>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ url ('mis-empresas') }}">
                                 <div class="text-center">
-                                    <i class="fa fa-coffee fa-3x" data-original-title="" title=""></i><br>
+                                    <i class="fa fa-building fa-3x" data-original-title="" title=""></i><br>
                                     Mis Empresas
                                 </div>
                             </a>

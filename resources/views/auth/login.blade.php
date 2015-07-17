@@ -23,9 +23,15 @@
 					@if ($error)
 						<div class="row">
 							<div class="alert alert-danger col-md-7 col-md-offset-2">
-								<ul>
-									<li>{{ $error }}</li>
-								</ul>
+								<strong>Error!</strong> {{ $error }}
+							</div>
+						</div>
+					@endif
+
+					@if ($success)
+						<div class="row">
+							<div class="alert alert-success col-md-7 col-md-offset-2">
+								<strong>{{$success}}</strong>
 							</div>
 						</div>
 					@endif

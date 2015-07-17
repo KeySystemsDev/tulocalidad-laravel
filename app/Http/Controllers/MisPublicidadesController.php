@@ -19,9 +19,9 @@ class MisPublicidadesController extends Controller {
 		$empresas 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
 
 		if (count($empresas)==0){
-			$mensaje 	= "No tiene empresas registradas";
+			$mensaje 	= "No puede registrar publicidad hasta no tener al menos una empresa registrada.";
 		}else{
-			$mensaje 	= "No tiene publicidades registradas";
+			$mensaje 	= "No tiene publicidades registradas.";
 		}
 		return View::make('publicidad/mis_publicidades',compact('publicidad','mensaje'));   
 	}

@@ -19,27 +19,40 @@ class AuthController extends Controller {
 	}
 
 	public function getRegister(){
-		return view('auth/register');
+		$error =	'';
+		return view('auth/register', compact('error'));
 	}
 
 	public function postRegister(){
-		$usuario = new Usuario;
-		$usuario->correo_usuario   = \Input::get('email'); 	
-		$usuario->clave_usuario    = \Input::get('password');
-		$usuario->save();
-		return \Redirect::to('auth/login');
+		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->first();
+		if (count($auth)==0){
+
+			$usuario = new Usuario;
+			$usuario->correo_usuario   = \Input::get('email'); 	
+			$usuario->clave_usuario    = \Input::get('password');
+			$usuario->save();
+			$error 	 = '';
+			$success = "Usuario creado exitosamente.";
+			return view('auth/login', compact('error','success'));
+		}else{
+			$success 	= '';
+			$error 		= 'El correo ya se encuentra registrado.';
+			return view('auth/register', compact('error'));
+		}
 	}
 
 	public function getLogin(){
-		$error = "";
-		return view('auth/login', compact('error'));
+		$error 		= "";
+		$success 	= "";
+		return view('auth/login', compact('error','success'));
 	}
 
 	public function postLogin(){
 		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
-			$error = "Usuario o clave incorrecto";
-        	return view('auth/login', compact('error'));
+			$error 		= "Usuario o clave incorrecto";
+			$success 	= '';
+        	return view('auth/login', compact('error','success'));
         }
         else
         {

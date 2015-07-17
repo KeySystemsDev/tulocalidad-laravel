@@ -52,7 +52,7 @@
                                                             @else
                                                                 <span class="arrow-alt"></span>
                                                             @endif
-                                                            <span class="timeline-icon red"></span>
+                                                            <span class="timeline-icon vinotinto"></span>
                                                             <span class="timeline-date">12 July | Sunday</span>
                                                             <div class="row">
                                                                 <div class="col-sm-5">
@@ -60,7 +60,7 @@
                                                                 </div>
                                                                 <div class="col-sm-7">
                                                                     <h4 class="title-real-estates">
-                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$key->rif_empresa}}</span></span>
+                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-vinotinto-claro label-mini">{{$key->rif_empresa}}</span></span>
                                                                     </h4>
                                                                     <br>
                                                                     <p>{{$key->titulo_publicidad}}.</p>
@@ -95,7 +95,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading center">
-                            <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-info btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar Publicidad</button></a>
+                            <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar Publicidad</button></a>
                         </header>
                     </section>
                 </div>

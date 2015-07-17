@@ -74,8 +74,7 @@
 								<div class="form-group">
 									<label class="control-label col-lg-3">Descripción</label>
 									<div class="col-sm-9 iconic-input right">
-										<i class="fa fa-map-marker" data-original-title="" title=""></i>
-										<input type="text" maxlength="100" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required>
+										<textarea cols=20 rows=3 maxlength="150" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
 									</div>
 								</div>
 

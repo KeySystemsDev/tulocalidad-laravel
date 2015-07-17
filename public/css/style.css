@@ -378,6 +378,7 @@ ul#strength {
 @keyframes spin {
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
+}
 
 .timeline .timeline-icon.vinotinto {
   background: #721520;

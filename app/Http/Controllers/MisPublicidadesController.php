@@ -15,14 +15,23 @@ class MisPublicidadesController extends Controller {
 	public function Index(){
 		$id         = session('id');
 		$publicidad = (array)\DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
-		return View::make('publicidad/mis_publicidades',compact('publicidad'));   
+		$mensaje 	= "";
+		$empresas 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
+
+		if (count($empresas)==0){
+			$mensaje 	= "No tiene empresas registradas";
+		}else{
+			$mensaje 	= "No tiene publicidades registradas";
+		}
+		return View::make('publicidad/mis_publicidades',compact('publicidad','mensaje'));   
 	}
 
 	public function AgregarPublicidad($id_seleccion=0){
 		$id       = session('id');
 		$empresas = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
-		//print_r($empresas);
-		//echo $id_seleccion;
+		if (count($empresas)==0){
+			return \Redirect::to('mis-publicidades/');
+		}
 		return View::make('publicidad/agregar_publicidad', compact('empresas','id_seleccion'));
 	}
 

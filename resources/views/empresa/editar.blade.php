@@ -102,12 +102,7 @@
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15 selectpicker" data-live-search="true" name="s_categoria">
                                             @foreach($categoria as $key)
-												@if ($key->id_categoria == $empresa->id_categoria)
-													<option class="option" value="{{ $key->id_categoria }}" selected >{{$key->nombre_categoria}} </option>;
-												@else
-													<option class="option" value="{{ $key->id_categoria }}">{{$key->nombre_categoria}} </option>;
-												@endif
-
+												<option class="option" value="{{ $key->id_categoria }}" @if ($key->id_categoria == $empresa->id_categoria) selected @endif>{{$key->nombre_categoria}} </option>;
 											@endforeach
                                         </select>
                                     </div>
@@ -160,22 +155,19 @@
                                         <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}" required>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
                                     <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado" ng-cloak="">
-                                            <option ng-repeat="estado in estados"
-                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-if="[[estado.id_estado]] != {{$empresa->id_estado}}">
-                                                [[ estado.nombre_estado]]
-                                            </option>
-                                            <option ng-repeat="estado in estados"
-                                                    value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]"
-                                                    ng-if="[[estado.id_estado]] == {{$empresa->id_estado}}"
-                                                    selected>
-                                                [[ estado.nombre_estado]]
-                                            </option>
+                                        <select class="form-control m-bot15" name="estado" ng-change="estado_ruta(estado)" ng-model="estado" ng-cloak="">
+                                            @foreach($estados as $key)
+                                                <option @if($key->id_estado === $empresa->id_estado) 
+                                                            ng-init="estado='{{$key->id_estado}} + {{$key->latitud_estado}} + {{$key->longitud_estado}}'" @endif
+                                                    value="{{$key->id_estado}} + {{$key->latitud_estado}} + {{$key->longitud_estado}}">
+                                                    {{$key->nombre_estado}}
+                                                </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

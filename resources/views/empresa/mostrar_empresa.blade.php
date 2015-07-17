@@ -46,20 +46,23 @@
                                                             @else
                                                                  <span class="arrow-alt"></span>
                                                             @endif
-                                                            <span class="timeline-icon red"></span>
+                                                            <span class="timeline-icon vinotinto"></span>
                                                             <span class="timeline-date">12 July | Sunday</span>
                                                             <div class="row">
-                                                                <div class="col-sm-12">
-                                                                    <h4 class="title-real-estates">
-                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-info label-mini">{{$value->rif_empresa}}</span></span>
+                                                                <div class="col-sm-5">
+                                                                    <a href="#"><img src="{{url($value->icon_empresa)}}" class="img-responsive"></a>
+                                                                </div>
+                                                                <div class="col-sm-7">
+                                                                    <h4 class="title-real-estates vinotinto">
+                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-vinotinto-claro label-mini">{{$value->rif_empresa}}</span></span>
                                                                     </h4>
                                                                     <br>
-                                                                    <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
+                                                                    <p>{{$value->descripcion_empresa}}</p>
                                                                     <br>
                                                                     <p>
-                                                                        <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-xs"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a> |
-                                                                        <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-xs" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a> |
-                                                                        <button class="btn btn-danger btn-xs" data-original-title="" title="" ng-click="deshabilitar({{$value->id_empresa}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
+                                                                        <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-sm"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a>|
+                                                                        <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-sm" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a>|
+                                                                        <button type="button" class="btn btn-danger btn-circle btn-sm" data-original-title="" title="" ng-click="deshabilitar({{$value->id_empresa}})"><i class="fa fa-trash" data-original-title="" title=""></i></button>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -87,7 +90,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading center">
-                            <a href="mis-empresas/agregar"><button type="button" class="btn btn-info btn-drop fa fa-plus-square-o" data-original-title="" title=""> Nueva Empresa</button></a>
+                            <a href="mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Nueva Empresa</button></a>
                         </header>
                     </section>
                 </div>

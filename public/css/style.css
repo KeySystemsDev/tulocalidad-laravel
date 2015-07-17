@@ -364,3 +364,21 @@ ul#strength {
 .btn.btn-default:hover {
   background-color: #ccc;
 }
+.timeline .timeline-icon.vinotinto {
+  background: #721520;
+  box-shadow: 0 0 0 3px #721520;
+}
+.timeline-desk a {
+    color: #721520;
+}
+.label-vinotinto-claro{
+    background-color: #855157;
+}
+.btn-agregar-nuevo.btn-drop {
+  border-bottom: 4px solid #95a5a6;
+}
+.btn.btn-agregar-nuevo {
+  border-color: #bdc3c7;
+  background-color: #721520;
+  border: 1px solid #bdc3c7;
+}

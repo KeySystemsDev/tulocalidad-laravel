@@ -51,7 +51,7 @@ class MisEmpresasController extends Controller {
 	**/
 
 	public function Editar($id_empresa){
-		$empresa   = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
+		$empresa   = Empresa::where('id_empresa','=', $id_empresa)->get()->first();
 		$categoria = DB::table('t_categoria')->get();
 		$estados   = DB::table('t_estados')->get();
 		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
@@ -81,6 +81,7 @@ class MisEmpresasController extends Controller {
 			    unlink($old_image);
 			};
 		}
+		$estado = explode(" + ",Input::get('estado'));
 		$empresa->update(
 			array(
 				'nombre_empresa'                => (Input::get('i_nombre')),
@@ -88,7 +89,7 @@ class MisEmpresasController extends Controller {
 				'direccion_empresa'             => (Input::get('i_direccion')),
 				'id_categoria'                  => (Input::get('s_categoria')),
 				'correo_empresa'                => (Input::get('i_correo')),
-				'id_estado'                     => (Input::get('id_estado')),
+				'id_estado'                     => (int) $estado[0],
 				'url_empresa'                   => (Input::get('i_sitio_web')),
 				'positionmap_empresa_latitude'  => (Input::get('i_latitud')),
 				'positionmap_empresa_longitude' => (Input::get('i_longitud')),
@@ -100,8 +101,7 @@ class MisEmpresasController extends Controller {
 				'privacidad_empresa'		 	=> (Input::get('id_privacidad')),
 			)
 		);
-		$rif = (Input::get('i_rif'));
-	 	return View::make('empresa/actualizado', compact('rif'));
+	 	return View::make('empresa/actualizado');
 
 	}
 

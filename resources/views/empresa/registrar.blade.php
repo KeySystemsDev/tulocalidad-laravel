@@ -155,14 +155,15 @@
                                     <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado" required>
+                                        <select class="form-control m-bot15" name="estado" ng-change="estado_ruta(estado)" ng-model="estado" required>
 											<option value="" selected>
-												Selecione un estado
+												Seleccione un estado
 											</option>
-                                            <option ng-repeat="estado in estados" 
-                                                      value="[[estado.id_estado]] + [[estado.latitud_estado]] + [[estado.longitud_estado]]">
-                                                    [[ estado.nombre_estado]]
-                                            </option>
+											@foreach($estados as $key)
+	                                            <option value="{{$key->id_estado}} + {{$key->latitud_estado}} + {{$key->longitud_estado}}">
+	                                                {{$key->nombre_estado}}
+	                                            </option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

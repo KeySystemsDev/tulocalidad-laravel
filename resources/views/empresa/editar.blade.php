@@ -184,6 +184,20 @@
                                 
                                 <input class="form-control" ng-value="[[i_longitud]]" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" required>
 		
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3" for="inputSuccess">Dirección del Mapa</label>
+                                    <div class="col-lg-9">
+                                        <div class="radio-inline">
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="1" @if($empresa->privacidad_empresa) checked @endif>
+                                            Pública
+                                        </div>
+                                        <div class="radio-inline">
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="0" @if(!$empresa->privacidad_empresa) checked @endif>
+                                            Privada                                         
+                                        </div>
+                                    </div>
+                                </div>
+
 						</div>
                  	</section>
               	</div>

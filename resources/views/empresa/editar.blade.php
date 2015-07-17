@@ -12,6 +12,7 @@
     <div ng-init="i_latitud = '{{$empresa->positionmap_empresa_latitude}}' "></div>
     <div ng-init="i_longitud = '{{$empresa->positionmap_empresa_longitude}}' "></div>
     <div ng-init="init(i_latitud , i_longitud)"></div>
+    <div ng-init="img='{{$empresa->icon_empresa}}'"></div>
 
     <div ng-init="id_estado_empresa = '{{$empresa->id_estado}}'"></div>
 
@@ -52,6 +53,23 @@
 					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" ng-value="nombre_empresa" readonly>
 					    			</div>
 					    		</div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-lg-3">Imagen de perfil</label>
+                                    <input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
+                                    <div class="col-sm-9 iconic-input right">
+
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                            <div>
+                                                <button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">Cargar imagen</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 					    		<div class="form-group">
 					      			<label class="control-label col-lg-3">RIF</label>
@@ -201,6 +219,57 @@
 			</div>
 		</div>
 	</div>
+
+
+    <!-- Modal -->
+    <div class="modal fade .bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="fa fa-picture-o"></i> Elige una Imágen</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <form action="registro" method="post">
+                            <div class = "row">
+                                <div class="col-12">
+                                    <div class="center">
+                                        <span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
+                                        <input type="file" name="i_image" file-model="myFile" id="fileInput"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+
+                                <div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+                                    <i class="fa fa-file-image-o"></i>Imagen Original
+                                </div>
+                                <div class="col-xs-5 col-xs-offset-1 text-img-cortar">
+                                    <i class="fa fa-scissors"></i> Pre visualizar Recorte
+                                </div>
+                                <div class="cropArea col-xs-5 col-xs-offset-1">
+                                    <img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>
+
+                                </div>
+                                <div class="col-xs-5 col-xs-offset-1">
+                                    <div><img class="view-modal-img" ng-src="[[srcimg ]]"/></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" ng-click="return_img(img_select)">Salvar Imágen</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 @endsection

@@ -66,7 +66,25 @@ class MisEmpresasController extends Controller {
 	**/
 
 	public function Editar_Exitoso(){
-		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
+
+		$empresa = Empresa::where('id_empresa','=', Input::get('id_empresa'));
+		$imagen = Input::get('namefile');
+		if ($imagen){
+			$consulta 				= $empresa->first();
+			$old_image 				= substr($consulta->icon_empresa,1);
+			$rutaOrigen 			= "uploads/temp/".$imagen;
+			$rutaDestino 			= "uploads/empresas/".$imagen;
+			rename($rutaOrigen,$rutaDestino);
+			$consulta->icon_empresa  = "/".$rutaDestino;
+			$consulta->save();
+			if (file_exists($old_image)) {
+			    unlink($old_image);
+			};
+			if (file_exists($rutaOrigen)) {
+				unlink($rutaOrigen);
+			}
+		}
+		$empresa->update(
 			array(
 				'nombre_empresa'                => (Input::get('i_nombre')),
 				'rif_empresa'                   => (Input::get('i_rif')),
@@ -121,6 +139,10 @@ class MisEmpresasController extends Controller {
 				$empresa->icon_empresa                  = "/".$rutaDestino;
 				$empresa->save();
 				rename($rutaOrigen,$rutaDestino);
+				
+				if (file_exists($rutaOrigen)) {
+					unlink($rutaOrigen);
+				}
 		}
 		return View::make('empresa/creado');
 	}

@@ -97,6 +97,7 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
     };
 
     $scope.estados = estados.get();
+    console.log($scope.estados);
 
     $scope.estado_ruta = function(estado) {
         $scope.array = estado.split('+');
@@ -107,10 +108,11 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
             $scope.array[2] = "-67.03379895019532";
         };
         console.log($scope.array);
+
         $scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
         angular.element('#id_estado').val($scope.array[0]);
-        angular.element('#i_latitud').val('');
-        angular.element('#i_longitud').val('');
+        angular.element('#i_latitud').val($scope.array[1]);
+        angular.element('#i_longitud').val($scope.array[2]);
         $scope.marker = {
             id: 0,
             coords: {

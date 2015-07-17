@@ -2,9 +2,9 @@
 
 @section('content')
 	
-	@include('layouts/nav-top-cliente')
+	@include('layouts/nav-top')
 
-	@include('layouts/nav-cliente')
+	@include('layouts/nav')
 	
 <div class="container">
     <div id="main">

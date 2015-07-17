@@ -93,15 +93,44 @@ app.controller('PublicidadController', function($scope, $log, estados, registro_
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
 
+    $scope.snipper         = false;
+    $scope.disable         = false;
     $scope.return_img = function(id){
-        $scope.img = $scope.srcimg;
-        registro_service.Post({img : $scope.img}).$promise.then(
-            function(data) {
-                if (data.status === "success"){
-                    $scope.formData.namefile = data.name;
-                };
-            }
-        );
+        $scope.safeApply(function(){
+            console.log("ejecutando");
+            $scope.snipper = true;
+            $scope.disable = true; 
+           
+            
+            console.log("sniper "+$scope.snipper);
+            console.log("disable "+$scope.disable);
+            // var byteArray = Base64Binary.decodeArrayBuffer($scope.srcimg);  
+            // var formData = new FormData(angular.element("#formulario"))
+            // formData.append("file", byteArray, "test.png") 
+            registro_service.Post({img : $scope.img}).$promise.then(
+                function(data) {
+                    if (data.status === "success"){
+                        $scope.img = $scope.srcimg;
+                        $scope.snipper = false;
+                        $scope.disable = false;
+                        $scope.formData.namefile = data.name;
+                        console.log("sniper "+$scope.snipper);
+                        console.log("disable "+$scope.disable);
+                    };
+                }
+            );
+        });
         angular.element("#myModal").modal("hide");
+    };
+
+    $scope.safeApply = function(fn) {
+        var phase = this.$root.$$phase;
+        if(phase == '$apply' || phase == '$digest') {
+            if(fn && (typeof(fn) === 'function')) {
+                fn();
+            }
+        } else {
+            this.$apply(fn);
+        }
     };
 });

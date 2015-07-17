@@ -58,14 +58,16 @@
                                     <label class="control-label col-lg-3">Imagen de perfil</label>
                                     <input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
                                     <div class="col-sm-9 iconic-input right">
-
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
                                             <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
                                                 <img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="">
                                             </div>
                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                             <div>
-                                                <button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">Cargar imagen</button>
+                                                <button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">
+                                                    <span ng-show="snipper===true" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+                                                    Seleccionar imagen
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +267,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" ng-click="return_img(img_select)">Salvar Imágen</button>
+                    <button type="button" ng-disabled="disable===true" class="btn btn-primary" ng-click="return_img(img_select)">
+                        Guardar
+                    </button>
                 </div>
             </div>
         </div>

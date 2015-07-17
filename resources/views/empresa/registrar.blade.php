@@ -54,12 +54,13 @@
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
 											<div>
-												<button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">Cargar imagen</button>
+												<button type="button" class="btn btn-success" style="width: 200px;" data-toggle="modal" data-target="#myModal">
+													<span ng-show="snipper===true" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+													Seleccionar imagen
+												</button>
 											</div>
 										</div>
-
 									</div>
-
 								</div>
 
 					    		<div class="form-group">
@@ -155,7 +156,7 @@
                                     <input type="hidden" id="id_estado" name="id_estado">
                                     <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
                                     <div class="col-lg-9">
-                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado">
+                                        <select class="form-control m-bot15" ng-change="estado_ruta(estado)" ng-model="estado" required>
 											<option value="" selected>
 												Selecione un estado
 											</option>
@@ -171,11 +172,11 @@
                                     <label class="control-label col-lg-3" for="inputSuccess">Dirección del Mapa</label>
                                     <div class="col-lg-9">
 										<div class="radio-inline">
-                                            <input type="radio" name="id_privacidad" id="id_prublica" value="1" checked="">
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="1" required>
                                             Pública
                                         </div>
 										<div class="radio-inline">
-                                            <input type="radio" name="id_privacidad" id="id_privada" value="0" checked="">
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="0" required>
                                             Privada                                         
                                         </div>
                                     </div>
@@ -282,7 +283,9 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary" ng-click="return_img(img_select)">Salvar Imágen</button>
+					<button type="button" ng-disabled="disable===true" class="btn btn-primary" ng-click="return_img(img_select)">
+						Guardar
+					</button>					
 				</div>
 			</div>
 		</div>

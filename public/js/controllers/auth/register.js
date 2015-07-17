@@ -14,4 +14,8 @@ app.controller('RegisterUsuarioController', function($scope, $log) {
 	  	}else
 	    	$scope.error = 1;
 	}
+	
+	$scope.ocultar_error = function(){
+		$scope.error = 0;
+	}
 });

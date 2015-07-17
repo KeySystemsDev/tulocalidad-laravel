@@ -37,6 +37,15 @@
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" name="formulario">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+						
+						<div class="row" ng-if="error == 1" ng-cloak>
+							<div class="col-md-7 col-md-offset-3 center">
+								<div class="alert alert-danger alert-dismissable">
+                            		<button type="button" class="close" ng-click="ocultar_error()"><i class="fa fa-times" data-original-title="" title=""></i></button>
+                            		<strong>Error!</strong> Las contraseñas no coinciden.
+                        		</div>
+							</div>
+						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Correo Electrónico</label>
@@ -60,12 +69,6 @@
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password" ng-model="pw2" name="pw2" id="pw2" required>
 								<ul id="strength" check-strength="pw"></ul>
-							</div>
-						</div>
-
-						<div class="row" ng-if="error == 1" ng-cloak>
-							<div class="alert alert-danger col-md-6 col-md-offset-4 center">
-								<p>las contraseñas no coinciden</p>
 							</div>
 						</div>
 

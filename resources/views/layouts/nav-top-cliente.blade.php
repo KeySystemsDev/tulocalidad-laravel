@@ -6,22 +6,12 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ url ('/') }}"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong>.</strong></a>
             </div>
-            <ul class="nav navbar-nav navbar-right top-menu">
+            <ul class="nav navbar-nav navbar-right nav-top-auth-button-intro">
                 <!-- user login dropdown start-->
-                <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" src="{{ asset('/img/avatar-mini.jpg') }}">
-                        <span class="username">Correo Electrónico</span>
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <div class="log-arrow-up"></div>
-                        <!--<li><a href="#"><i class=" fa fa-suitcase" data-original-title="" title=""></i>Profile</a></li>
-                        <li><a href="#"><i class="fa fa-cog" data-original-title="" title=""></i> Settings</a></li>
-                        <li><a href="#"><i class="fa fa-bell-o" data-original-title="" title=""></i> Notification</a></li>-->
-                        <li><a href="{{ url ('auth/cerrar') }}"><i class="fa fa-key" data-original-title="" title=""></i> Cerrar sesión</a></li>
-                    </ul>
-                </li>
+                <a class="auth-intro-button" href="{{ url ('/auth/login') }}">
+                    <i class="fa fa-home"></i>
+                    <span class="username">Entrar</span>
+                </a>
             </ul>
         </div>
     </nav>

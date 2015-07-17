@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 msn-no-empresa">
                                     <div class="well well-danger well-borde">
-                                        No tiene empresa registrada. 
+                                        {{$mensaje}} 
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading center">
-                            <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar Publicidad</button></a>
+                            <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar publicidad</button></a>
                         </header>
                     </section>
                 </div>

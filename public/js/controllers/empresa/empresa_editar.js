@@ -95,8 +95,11 @@ app.controller('EditarEmpresaController', function($scope, $log, estados, regist
     };
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
-
+    $scope.snipper         = false;
+    $scope.disable         = false;
     $scope.return_img = function(id){
+        $scope.snipper = true;
+        $scope.disable = true;
         $scope.img = $scope.srcimg;
         // var byteArray = Base64Binary.decodeArrayBuffer($scope.srcimg);  
         // var formData = new FormData(angular.element("#formulario"))
@@ -104,10 +107,12 @@ app.controller('EditarEmpresaController', function($scope, $log, estados, regist
         registro_service.Post({img : $scope.img}).$promise.then(
             function(data) {
                 if (data.status === "success"){
-                    angular.element("#myModal").modal("hide");
+                    $scope.snipper = false;
+                    $scope.disable = false;
                     $scope.formData.namefile = data.name;
                 };
             }
         );
+        angular.element("#myModal").modal("hide");
     };
 });

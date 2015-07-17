@@ -1,7 +1,7 @@
 // Declare use of strict javascript
 'use strict';
 
-app.controller('EmpresaRegistroController', function($scope, $log, estados, registro_service) {
+app.controller('EmpresaRegistroController', function($scope, $log, estados, registro_service, $timeout) {
     $log.log('EmpresaRegistroController');
     var Base64Binary = {
         _keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
@@ -149,6 +149,7 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
     $scope.srcimg          = null;
     $scope.img             = '/img/no-imagen.jpg';
 
+
     var handleFileSelect = function (evt) {
         var file        = evt.currentTarget.files[0];
         var reader      = new FileReader();
@@ -161,8 +162,11 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
     };
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
-
+    $scope.snipper         = false;
+    $scope.disable         = false;
     $scope.return_img = function(id){
+        $scope.snipper = true;
+        $scope.disable = true;
         $scope.img = $scope.srcimg;
         // var byteArray = Base64Binary.decodeArrayBuffer($scope.srcimg);  
         // var formData = new FormData(angular.element("#formulario"))
@@ -170,11 +174,12 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
         registro_service.Post({img : $scope.img}).$promise.then(
             function(data) {
                 if (data.status === "success"){
-                    angular.element("#myModal").modal("hide");
+                    $scope.snipper = false;
+                    $scope.disable = false;
                     $scope.formData.namefile = data.name;
                 };
             }
         );
+        angular.element("#myModal").modal("hide");
     };
-
 });

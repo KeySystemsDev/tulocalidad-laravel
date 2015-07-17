@@ -92,12 +92,20 @@ app.controller('PublicidadController', function($scope, $log, estados, registro_
     };
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
-
+    $scope.snipper         = false;
+    $scope.disable         = false;
     $scope.return_img = function(id){
+        $scope.snipper = true;
+        $scope.disable = true;
         $scope.img = $scope.srcimg;
+        // var byteArray = Base64Binary.decodeArrayBuffer($scope.srcimg);  
+        // var formData = new FormData(angular.element("#formulario"))
+        // formData.append("file", byteArray, "test.png") 
         registro_service.Post({img : $scope.img}).$promise.then(
             function(data) {
                 if (data.status === "success"){
+                    $scope.snipper = false;
+                    $scope.disable = false;
                     $scope.formData.namefile = data.name;
                 };
             }

@@ -14,7 +14,7 @@
 	                        <div class="panel-body">
 
 								<ol class="breadcrumb">
-					                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
+					                <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicios</a></li>
 					                <li class="active"><i class="fa fa-globe"></i> Estados</li>
 					            </ol>
 

@@ -80,9 +80,6 @@ class MisEmpresasController extends Controller {
 			if (file_exists($old_image)) {
 			    unlink($old_image);
 			};
-			if (file_exists($rutaOrigen)) {
-				unlink($rutaOrigen);
-			}
 		}
 		$empresa->update(
 			array(
@@ -100,6 +97,7 @@ class MisEmpresasController extends Controller {
 				'telefono_3_empresa'            => (Input::get('i_telefono3')),
 				'telefono_movil_empresa'        => (Input::get('i_celular')),
 				'descripcion_empresa'           => (Input::get('i_descripcion')),
+				'privacidad_empresa'		 	=> (Input::get('id_privacidad')),
 			)
 		);
 		$rif = (Input::get('i_rif'));
@@ -135,14 +133,11 @@ class MisEmpresasController extends Controller {
 				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
+				$empresa->privacidad_empresa 	        = e(Input::get('id_privacidad'));
 				$empresa->id_usuario                    = $id;
 				$empresa->icon_empresa                  = "/".$rutaDestino;
 				$empresa->save();
 				rename($rutaOrigen,$rutaDestino);
-				
-				if (file_exists($rutaOrigen)) {
-					unlink($rutaOrigen);
-				}
 		}
 		return View::make('empresa/creado');
 	}
@@ -170,6 +165,7 @@ class MisEmpresasController extends Controller {
 	**/
 
 	public function Agregar_Sucursal_Exitoso(){
+		$rif                                    = (Input::get('i_rif'));
 		$empresa                                = new Empresa;
 		$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
 		$empresa->rif_empresa                   = e(Input::get('i_rif'));
@@ -184,9 +180,8 @@ class MisEmpresasController extends Controller {
 		$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
 		$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
 		$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
-		$empresa->save();
-		$rif                                    = (Input::get('i_rif'));
 
+		$empresa->save();
 	 	return View::make('empresa/creado', compact('rif'));  
 	}
 

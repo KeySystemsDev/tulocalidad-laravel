@@ -34,7 +34,7 @@
                             <img width="157" height="157" src="{{ url($empresa->icon_empresa) }}">
                             <h3></h3>
                             <small class="label label-info">{{$empresa->rif_empresa}}</small>
-                            <p>Aku kie sing sok ngedolke omah-omah kae, yo iso di omongke makelar ngono sih. Tapi makelar nek payu ne akeh yo dadi sugih bro. Tenanan ra ngapusi.</p>
+                            <p>{{$empresa->descripcion_empresa}}</p>
                             <p class="sosmed-author">
                                 <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></i></a>
@@ -108,7 +108,7 @@
                                         <td>
                                             <i class="fa fa-link" data-original-title="" title=""></i>
                                         </td>
-                                        <td>{{$empresa->url_empresa}}</td>
+                                        <td><a href="{{$empresa->url_empresa}}">{{$empresa->url_empresa}}</a></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -153,6 +153,7 @@
 
             <div ng-init="coords = { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'}"></div>
             
+            @if($empresa->privacidad_empresa==1)
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <section class="panel">
                     <header class="panel-heading">
@@ -170,6 +171,7 @@
                         </div>
                 </section>
             </div>
+            @endif
 
         </div>
         <!-- end:real estates detail -->

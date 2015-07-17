@@ -28,22 +28,24 @@
                                 </div>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url ('mis-empresas') }}">
-                                <div class="text-center">
-                                    <i class="fa fa-building fa-3x" data-original-title="" title=""></i><br>
-                                    Mis Empresas
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url ('mis-publicidades') }}">
-                                <div class="text-center">
-                                    <i class="fa fa-bullhorn fa-3x" data-original-title="" title=""></i><br>
-                                    Mis Publicidad
-                                </div>
-                            </a>
-                        </li>
+                        @if(\Session::get('usuario'))
+                            <li>
+                                <a href="{{ url ('mis-empresas') }}">
+                                    <div class="text-center">
+                                        <i class="fa fa-building fa-3x" data-original-title="" title=""></i><br>
+                                        Mis Empresas
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url ('mis-publicidades') }}">
+                                    <div class="text-center">
+                                        <i class="fa fa-bullhorn fa-3x" data-original-title="" title=""></i><br>
+                                        Mis Publicidad
+                                    </div>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>

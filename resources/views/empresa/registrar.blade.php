@@ -169,14 +169,14 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Dirección del Mapa</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Privacidad de ubicación</label>
                                     <div class="col-lg-9">
 										<div class="radio-inline">
-                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="1" required>
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="1" checked>
                                             Pública
                                         </div>
 										<div class="radio-inline">
-                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="0" required>
+                                            <input type="radio" name="id_privacidad" id="id_privacidad" value="0">
                                             Privada                                         
                                         </div>
                                     </div>

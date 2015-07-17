@@ -330,14 +330,14 @@
 	  		<div class="container">
 	  		  	<div class="row">
 	  			  	<div class="col-md-12">
-	  			  		<h2 style="color: #000;">Conéctate a nuestras Redes...</h2>
+	  			  		<br>
+						<h2 style="color: #000;">Conéctate a nuestras Redes...</h2>
 	  			  		<br>
 	  			   		<a target="_blank" href="https://www.facebook.com/KeySystems.ca" class="icon-facebook"></a>
 	  			   		<a target="_blank" href="https://twitter.com/keysystemsca" class="icon-twitter"></a>
-	  			   		<a target="_blank" href="https://plus.google.com/u/1/" class="icon-google"></a>
 	  			   		<a target="_blank" href="https://instagram.com/keysystemsca/" class="icon-instagram"></a>
 	  			   		<a target="_blank" href="https://www.youtube.com/user/KeySystemsCa" class="icon-youtube"></a>
-	  			   	
+	  			   		<br><br>	
 	  			   	</div>
 	  		  	</div>
 	  	  	</div>	  

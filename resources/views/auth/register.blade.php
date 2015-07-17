@@ -18,7 +18,7 @@
 @include('layouts/nav-top-auth')
 
 <div class="container-fluid" ng-controller="RegisterUsuarioController">
-	<div class="row login-tulocalidad">
+	<div class="row login-tulocalidad-register">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
 				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
@@ -35,13 +35,16 @@
 						</div>
 					@endif				   
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" name="formulario">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Correo Electrónico</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="" required>
+								<input type="email" class="form-control" name="email" value="" ng-class="{'error':formulario.email.$invalid && formulario.email.$touched}" ng-model="email" required>
+								<div class="col-lg-10" ng-show="formulario.email.$dirty && formulario.email.$invalid" ng-cloak>
+			        				<p class="help-block text-blanco" ng-show="formulario.email.$error.email" ng-cloak>Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
+			      				</div>
 							</div>
 						</div>
 
@@ -60,9 +63,15 @@
 							</div>
 						</div>
 
+						<div class="row" ng-if="error == 1" ng-cloak>
+							<div class="alert alert-danger col-md-6 col-md-offset-4 center">
+								<p>las contraseñas no coinciden</p>
+							</div>
+						</div>
+
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-danger">
+								<button type="button" class="btn btn-danger" ng-click="checkMe()" ng-disabled="formulario.$invalid">
 									Registrar <i class="fa fa-pencil-square-o"></i>
 								</button>
 							</div>

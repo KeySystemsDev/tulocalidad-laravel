@@ -258,7 +258,9 @@
 .login-tulocalidad{
     margin-top: 7%;
 }
-
+.login-tulocalidad-register{
+    margin-top: 5%;
+}
 .border-tulocalidad{  
     border-width: 2px;
     border-color: rgba(0,0,0,.1);
@@ -381,4 +383,7 @@ ul#strength {
   border-color: #bdc3c7;
   background-color: #721520;
   border: 1px solid #bdc3c7;
+}
+.text-blanco{
+    color: #fff;
 }

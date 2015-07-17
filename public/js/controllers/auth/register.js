@@ -6,8 +6,12 @@ app.controller('RegisterUsuarioController', function($scope, $log) {
 	$log.log('RegisterUsuarioController');
 
     $scope.pw = '';
-	
-	$scope.send = function() {
-			
-	};
+
+	$scope.checkMe = function(){
+	  	if (document.formulario.pw.value == document.formulario.pw2.value){
+	    	document.formulario._token.value=document.formulario.pw.value;
+	    	document.formulario.submit();
+	  	}else
+	    	$scope.error = 1;
+	}
 });

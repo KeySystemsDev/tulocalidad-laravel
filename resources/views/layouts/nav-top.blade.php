@@ -7,6 +7,8 @@
                 <a class="navbar-brand" href="{{ url ('/') }}"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong>.</strong></a>
             </div>
             <!-- end:navbar-header -->
+
+            @if(!\Session::get('usuario'))
             <ul class="nav navbar-nav navbar-right top-menu">
                 <!--<li>
                     <input type="text" class="form-control input-sm search" placeholder="Search">
@@ -15,7 +17,7 @@
                 <li class="dropdown">
                     <a class="auth-intro-button" href="{{ url ('/auth/register') }}">
                         <i class="fa fa-pencil-square-o"></i>
-                        <span class="username">Registrarte</span>
+                        <span class="username">Registrate</span>
                     </a>
                 </li>
             </ul>
@@ -31,6 +33,7 @@
                     </a>
                 </li>
             </ul>
+            @else
             <ul class="nav navbar-nav navbar-right top-menu">
                 <!--<li>
                     <input type="text" class="form-control input-sm search" placeholder="Search">
@@ -51,6 +54,7 @@
                     </ul>
                 </li>
             </ul>
+            @endif
         </div>
     </nav>
     <!-- end:navbar -->

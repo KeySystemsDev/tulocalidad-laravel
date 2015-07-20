@@ -368,13 +368,19 @@
 		                	<li><a target="_blank" href="http://keysystems.com.ve">Desarrolladores</a></li>
 		                	<li><a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.keysystems549574">Aplicación</a></li>
 	                	</ul>
-		  				
 		  			</div>
 	  			</div>
 	  		</div>
 	  	</section>
+		
+		<footer class="footer">
+	      	<div class="container">
+	        	<p class="text-muted">Desarrollado por <a href="http://keysystemsca.com.ve/">Key Systems C.A</a> – Todos los derechos reservados  2015</p>
+	      	</div>
+    	</footer>
 
 	</div>
+	
 <!-- Scripts -->
 			 <!-- JAVASCRIPT
 		     ================================================== -->

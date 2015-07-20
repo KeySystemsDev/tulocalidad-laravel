@@ -4,7 +4,7 @@
         <div class="container">
             <!-- start:navbar-header -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ url ('/') }}"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong>.</strong></a>
+                <a class="navbar-brand" href="{{ url ('/servicios') }}"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong>.</strong></a>
             </div>
             <!-- end:navbar-header -->
 

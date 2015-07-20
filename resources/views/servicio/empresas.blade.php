@@ -18,7 +18,7 @@
 
         <!-- start:store list -->
         <div class="row" id="store-list">
-            
+            {{print($empresas)}}
             @foreach($empresas as $empresa)
             <div class="col-lg-6">  
                 <div class="panel">
@@ -26,16 +26,14 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/'.$empresa->nombre_empresa)}}"><img src="{{ url($empresa->icon_empresa) }}" class="img-responsive"></a>
+                                <a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>
                             </div>
                             <div class="col-sm-7">
                                 <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/'.$empresa->nombre_empresa)}}">{{$empresa->nombre_empresa}}</a></strong>
+                                    <strong><a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}">{{$empresa->nombre_empresa}}</a></strong>
                                 </h4>
                                 <hr>
-                                <p>Iki kie mung omah lodong dadiine rodo murah tur yo ra awet wong karang mung murah, nek pingin awet yo tuku omah-omahan wae sing ra iso rusak.</p>
-                                <p>
-                                    <a href="#" class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>
-                                </p>
+                                <p>{{$empresa->descripcion_empresa}}</p>
                             </div>
                         </div>
                     </div>

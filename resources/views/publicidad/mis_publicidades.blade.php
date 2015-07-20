@@ -26,9 +26,6 @@
                                         <h2>
                                             Publicidad
                                         </h2>
-                                        <p>
-                                            Empresas con Publicidad
-                                        </p>
                                     </header>
                                 </section>
                             </div>
@@ -53,20 +50,20 @@
                                                                 <span class="arrow-alt"></span>
                                                             @endif
                                                             <span class="timeline-icon vinotinto"></span>
-                                                            <span class="timeline-date">12 July | Sunday</span>
+                                                            <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$key->rif_empresa}}</span></span>
                                                             <div class="row">
                                                                 <div class="col-sm-5">
                                                                     <a href="#"><img src="{{url($key->url_imagen_publicidad)}}" class="img-responsive"></a>
                                                                 </div>
                                                                 <div class="col-sm-7">
                                                                     <h4 class="title-real-estates">
-                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"><span class="label label-vinotinto-claro label-mini">{{$key->rif_empresa}}</span></span>
+                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"></span>
                                                                     </h4>
                                                                     <br>
                                                                     <p>{{$key->titulo_publicidad}}.</p>
                                                                     <br>
                                                                     <p>
-                                                                        <button class="btn btn-danger btn-xs" ng-click="deshabilitar({{$key->id_publicidad}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
+                                                                        <button class="btn btn-danger btn-sm button-eliminar-publicidad" ng-click="deshabilitar({{$key->id_publicidad}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
                                                                     </p>
                                                                 </div>
                                                             </div>

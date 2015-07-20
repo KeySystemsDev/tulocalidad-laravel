@@ -321,6 +321,7 @@ ul#strength {
   overflow: hidden;
   width:300px;
   height:300px;
+  border-radius: 3%;
 }
 .msn-no-empresa{
     text-align: center;
@@ -403,4 +404,12 @@ ul#strength {
 }
 .text-blanco{
     color: #fff;
+}
+.button-eliminar-publicidad{
+    float: right;
+}
+.button-vinotinto{
+    border-color: #832c2c;
+    background-color: #832c2c;
+    border: 1px solid #832c2c; 
 }

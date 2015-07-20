@@ -54,7 +54,7 @@
                                                                 </div>
                                                                 <div class="col-sm-7">
                                                                     <h4 class="title-real-estates vinotinto">
-                                                                        <strong><a href="#"><i class="fa fa-coffee"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"></span>
+                                                                        <strong><a href="#"><i class="fa fa-building"></i> {{$value->nombre_empresa}}</a></strong> <span class="pull-right"></span>
                                                                     </h4>
                                                                     <br>
                                                                     <p>{{$value->descripcion_empresa}}</p>

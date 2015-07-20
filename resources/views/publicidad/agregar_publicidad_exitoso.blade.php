@@ -20,9 +20,7 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 msn-no-empresa">
                                                 <div class="well well-danger well-borde">
-                                                    <h4>
-                                                        Se ha guardado de forma Satisfactoria!!!
-                                                    </h4>
+                                                    Se ha guardado de forma Satisfactoria!!!
                                                 </div>
                                             </div>
                                         </div>
@@ -34,7 +32,7 @@
                                 <section class="panel">
                                     <header class="panel-heading center">
                                         <a href="{{ url ('mis-publicidades') }}">
-                                            <button class="btn btn-danger btn-lg fa fa-arrow-left"> Volver</button>
+                                            <button class="btn button-vinotinto btn-lg fa fa-arrow-left"> Volver</button>
                                         </a>
                                     </header>
                                 </section>

@@ -37,8 +37,8 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Agregar(){
-		$categoria = DB::table('t_categoria')->get();
-		$estados   = DB::table('t_estados')->get();
+		$categoria = DB::table('t_categoria')->orderBy('nombre_categoria')->get();
+		$estados   = DB::table('t_estados')->orderBy('nombre_estado')->get();
 		Session::put('registrar','1');
 		return View::make('empresa/registrar', compact('categoria','estados'));
 	} 
@@ -52,8 +52,8 @@ class MisEmpresasController extends Controller {
 
 	public function Editar($id_empresa){
 		$empresa   = Empresa::where('id_empresa','=', $id_empresa)->get()->first();
-		$categoria = DB::table('t_categoria')->get();
-		$estados   = DB::table('t_estados')->get();
+		$categoria = DB::table('t_categoria')->orderBy('nombre_categoria')->get();
+		$estados   = DB::table('t_estados')->orderBy('nombre_estado')->get();
 		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
 		
 	}
@@ -150,8 +150,8 @@ class MisEmpresasController extends Controller {
 
 	public function Agregar_Sucursal($id_empresa){
 		$empresa   = Empresa::where('id_empresa','=', $id_empresa)-> get() ->first();
-		$categoria = DB::table('t_categoria')->get();
-		$estados   = DB::table('t_estados')->get();
+		$categoria = DB::table('t_categoria')->orderBy('nombre_categoria')->get();
+		$estados   = DB::table('t_estados')->orderBy('nombre_estado')->get();
 
 
 		return View::make('empresa/nueva_sucursal', compact('empresa', 'categoria', 'estados'));

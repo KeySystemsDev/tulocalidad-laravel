@@ -100,5 +100,6 @@
         @include('modals/confirmacion')
 	</div>
 
-
+    @include('layouts/footer')
+    
 @endsection

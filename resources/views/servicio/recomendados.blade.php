@@ -32,7 +32,7 @@
 										<figure class="effect-duke">
 											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
 											<figcaption>
-												<h2><span>{{$key->titulo_publicidad}}</span></h2>
+												<!--<h2><span>{{$key->titulo_publicidad}}</span></h2>-->
 												<p>{{$key->descripcion_publicidad}}</p>
 												<a href="#">View more</a>
 											</figcaption>			
@@ -60,4 +60,7 @@
 			</div>
 		</div>
 	</div>
+
+	@include('layouts/footer')
+
 @endsection

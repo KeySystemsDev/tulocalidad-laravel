@@ -35,11 +35,11 @@
                             <h3></h3>
                             <small class="label label-info">{{$empresa->rif_empresa}}</small>
                             <p>{{$empresa->descripcion_empresa}}</p>
-                            <p class="sosmed-author">
+                            <!--<p class="sosmed-author">
                                 <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Twitter"></i></a>
                                 <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="top" title="" data-original-title="Google Plus"></i></a>
-                            </p>
+                            </p>-->
                         </div>
                     </div>
                 </div>
@@ -76,39 +76,39 @@
                                         <td>{{$id_categoria}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr ng-if="'{{$empresa->telefono_empresa}}' != '' ">
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr ng-if="'{{$empresa->telefono_2_empresa}}' != '' ">
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_2_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr ng-if="'{{$empresa->telefono_movil_empresa}}' != '' ">
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_movil_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr ng-if="'{{$empresa->correo_empresa}}' != '' ">
                                         <td>
                                             <i class="fa fa-envelope" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->correo_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr>
+                                    <tr ng-if="'{{$empresa->url_empresa}}' != '' ">
                                         <td>
                                             <i class="fa fa-link" data-original-title="" title=""></i>
                                         </td>
-                                        <td><a href="{{$empresa->url_empresa}}">{{$empresa->url_empresa}}</a></td>
+                                        <td><a target="_black" href="{{$empresa->url_empresa}}">{{$empresa->url_empresa}}</a></td>
                                         <td></td>
                                     </tr>
                                 </tbody>
@@ -151,21 +151,22 @@
                 </div>
             </div>
 
-            <div ng-init="coords = { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'}"></div>
-            
+            <div ng-init="mapa = {id : 0, coords : { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'} }"></div>
+            <div ng-init="mapa_posicion = { zoom: 9, center : { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'} }"></div>
+
             @if($empresa->privacidad_empresa==1)
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <section class="panel">
                     <header class="panel-heading">
                         <div id="map_canvas">
                             <ui-gmap-google-map 
-                                center="coords" 
-                                zoom="map.zoom" 
+                                center="mapa_posicion.center" 
+                                zoom="mapa_posicion.zoom" 
                                 draggable="true" 
                                 options="options">
                                     <ui-gmap-marker 
-                                        coords="coords" 
-                                        idkey="marker.id">
+                                        coords="mapa.coords" 
+                                        idkey="mapa.id">
                                     </ui-gmap-marker>
                             </ui-gmap-google-map>
                         </div>

@@ -8,6 +8,13 @@
 
 <div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
+
+        <ol class="breadcrumb">
+            <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
+            <li><a href="{{ url ('/servicios/estado/'.$estado) }}"><i class="fa fa-location-arrow"></i> {{ $estado }}</a></li>
+            <li><a href="{{ url ('/servicios/categoria/'.$estado.'/'.$categoria) }}"><i class="fa fa-cubes"></i> {{ $categoria }}</a></li>
+            <li class="active"><i class="fa fa-rocket"></i> {{ $empresa->nombre_empresa }} </li>
+        </ol>
     
         <!-- start:real estates detail -->
         <div class="row" id="real-estates-detail">
@@ -64,7 +71,7 @@
                                         <td>
                                             <i class="fa fa-cubes" data-original-title="" title=""></i>
                                         </td>
-                                        <td>{{$empresa->id_categoria}}</td>
+                                        <td>{{$categoria}}</td>
                                         <td></td>
                                     </tr>
                                     @if($empresa->telefono_empresa)

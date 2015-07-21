@@ -18,7 +18,6 @@
 
         <!-- start:store list -->
         <div class="row" id="store-list">
-            {{print($empresas)}}
             @foreach($empresas as $empresa)
             <div class="col-lg-6">  
                 <div class="panel">

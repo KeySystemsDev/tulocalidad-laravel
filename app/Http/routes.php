@@ -17,7 +17,7 @@
 Route::get('home', 'HomeController@index');
 Route::any('upload/img', 'ImgController@create' );
 Route::any('theme', 'WelcomeController@theme');
-Route::any('auth/cerrar', 'LoginController@CerrarSesion');
+Route::any('auth/cerrar', 'Auth\AuthController@CerrarSesion');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -54,7 +54,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::any('/servicios/todo', 'ServicioController@Todo');
 	Route::any('/servicios/estado/{id_estado}', 'ServicioController@Estado');
 	Route::any('/servicios/categoria/{id_estado}/{id_categoria}', 'ServicioController@Categoria');
-	Route::any('/servicios/empresa/{id_estado}/{id_categoria}/{id_empresa}', 'ServicioController@Empresa');
+	Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
 
 
 Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');

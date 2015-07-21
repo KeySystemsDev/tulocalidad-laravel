@@ -8,16 +8,14 @@
 
 <div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
-        
+
         <ol class="breadcrumb">
             <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
-            <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
-            <li><a href="{{ url ('/servicios/categoria/'.$id_estado.'/'.$id_categoria) }}"><i class="fa fa-cubes"></i> {{ $id_categoria }}</a></li>
-            <li class="active"><i class="fa fa-rocket"></i> {{ $id_empresa }} </li>
+            <li><a href="{{ url ('/servicios/estado/'.$estado) }}"><i class="fa fa-location-arrow"></i> {{ $estado }}</a></li>
+            <li><a href="{{ url ('/servicios/categoria/'.$estado.'/'.$categoria) }}"><i class="fa fa-cubes"></i> {{ $categoria }}</a></li>
+            <li class="active"><i class="fa fa-rocket"></i> {{ $empresa->nombre_empresa }} </li>
         </ol>
-        
-        <!--<h3>{{$empresa->first()}}</h3>-->
-
+    
         <!-- start:real estates detail -->
         <div class="row" id="real-estates-detail">
             <div class="col-lg-4 col-md-4 col-xs-12">
@@ -73,38 +71,38 @@
                                         <td>
                                             <i class="fa fa-cubes" data-original-title="" title=""></i>
                                         </td>
-                                        <td>{{$id_categoria}}</td>
+                                        <td>{{$categoria}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr ng-if="'{{$empresa->telefono_empresa}}' != '' ">
+                                    <tr ng-if="'{{$empresa->telefono_empresa}}' != '' " ng-cloak>
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr ng-if="'{{$empresa->telefono_2_empresa}}' != '' ">
+                                    <tr ng-if="'{{$empresa->telefono_2_empresa}}' != '' " ng-cloak>
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_2_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr ng-if="'{{$empresa->telefono_movil_empresa}}' != '' ">
+                                    <tr ng-if="'{{$empresa->telefono_movil_empresa}}' != '' " ng-cloak>
                                         <td>
                                             <i class="fa fa-phone" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->telefono_movil_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr ng-if="'{{$empresa->correo_empresa}}' != '' ">
+                                    <tr ng-if="'{{$empresa->correo_empresa}}' != '' " ng-cloack>
                                         <td>
                                             <i class="fa fa-envelope" data-original-title="" title=""></i>
                                         </td>
                                         <td>{{$empresa->correo_empresa}}</td>
                                         <td></td>
                                     </tr>
-                                    <tr ng-if="'{{$empresa->url_empresa}}' != '' ">
+                                    <tr ng-if="'{{$empresa->url_empresa}}' != '' " ng-cloack>
                                         <td>
                                             <i class="fa fa-link" data-original-title="" title=""></i>
                                         </td>

@@ -5,6 +5,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Usuario;
+use Redirect;
 
 class AuthController extends Controller {
 
@@ -16,6 +17,11 @@ class AuthController extends Controller {
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
+	}
+
+	public function CerrarSesion(){
+		\Session::flush();
+		return Redirect::to('/servicios');
 	}
 
 	public function getRegister(){

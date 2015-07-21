@@ -47,25 +47,18 @@ class ServicioController extends Controller {
 			return view('servicio/sin_resultado');
 		}
 
-		return view('servicio/empresas', compact('id_estado', 'id_categoria','empresas'));
+		return view('servicio/empresas', compact('empresas', 'id_estado', 'id_categoria'));
 	}
 
-	public function Empresa($id_estado, $id_categoria, $id_empresa){
-		$categoria 	= Categoria::where('nombre_categoria','=',$id_categoria)->first();
-		if ($categoria == null){
-			return view('servicio/sin_resultado');
-		}
-		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
-		if ($estado == null){
-			return view('servicio/sin_resultado');
-		}
-		$empresa 	= Empresa::where('id_estado','=',$estado->id_estado)
-								->where('id_categoria','=',$categoria->id_categoria)
-								->where('nombre_empresa','=',$id_empresa)
-								->first();
+	public function Empresa($id_empresa){
+		$empresa 	= Empresa::where('id_empresa','=',$id_empresa)->first();
 		if( !$empresa or count($empresa)==0 ){
 			return view('servicio/sin_resultado');
-		}
-		return view('servicio/empresa_detalle', compact('id_estado', 'id_categoria', 'id_empresa','empresa'));
+		};
+
+		$estado 	= Estado::where('id_estado','=',$empresa->id_estado)->first()->nombre_estado;
+		$categoria 	= Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;
+
+		return view('servicio/empresa_detalle', compact('empresa','estado','categoria'));
 	}
 }

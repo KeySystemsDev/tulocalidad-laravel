@@ -33,7 +33,10 @@
 											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
 											<figcaption>
 												<!--<h2><span>{{$key->titulo_publicidad}}</span></h2>-->
-												<p>{{$key->descripcion_publicidad}}</p>
+												<p>
+													{{$key->titulo_publicidad}}
+													{{$key->descripcion_publicidad}}
+												</p>
 												<a href="#">View more</a>
 											</figcaption>			
 										</figure>

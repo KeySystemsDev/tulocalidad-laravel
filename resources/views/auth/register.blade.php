@@ -23,27 +23,18 @@
 			<div class="panel panel-default border-tulocalidad">
 				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
 				<div><center><h5>Registra tu cuenta</h5></center></div>
-				<div class="panel-body">
-					@if ($error)
-						<div class="row">
-							<div class="alert alert-danger col-md-7 col-md-offset-2">
-									<strong>Error!</strong> {{ $error }}
-							</div>
-						</div>
-					@endif			   
+				<div class="panel-body">	   
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" name="formulario">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						
 						<div class="row" ng-if="error == 1" ng-cloak>
-							<div class="col-md-7 col-md-offset-3 center">
-								<div class="alert alert-danger alert-dismissable">
-                            		<button type="button" class="close" ng-click="ocultar_error()" ng-cloak>
-                            			<i class="fa fa-times" data-original-title="" title=""></i>
-                            			<strong>Error!</strong> Las contraseñas no coinciden.
-                            		</button>
-                        		</div>
-							</div>
+							<div class="alert alert-danger alert-dismissable col-md-7 col-md-offset-2">
+	                    		<button type="button" class="close" ng-click="ocultar_error()" ng-cloak>
+	                    			<i class="fa fa-times" data-original-title="" title=""></i>
+	                    		</button>
+	                    		<strong>Error!</strong> Las contraseñas no coinciden. 		
+	                		</div>
 						</div>
 
 						<div class="form-group">

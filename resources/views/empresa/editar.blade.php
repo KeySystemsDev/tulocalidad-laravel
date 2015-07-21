@@ -59,7 +59,7 @@
                                     <input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
                                     <div class="col-sm-9 iconic-input right">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
-                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
                                                 <img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="">
                                             </div>
                                             <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
@@ -152,7 +152,7 @@
                                     <label for="curl" class="control-label col-lg-3">Sitio Web</label>
                                     <div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-link" data-original-title="" title=""></i>
-                                        <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}" required>
+                                        <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}">
                                     </div>
                                 </div>
 

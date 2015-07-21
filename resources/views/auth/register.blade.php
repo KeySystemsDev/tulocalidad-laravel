@@ -79,7 +79,7 @@
 							</div>
 						</div>
 
-						<div class="form-group">
+						<!--<div class="form-group">
 							<div class="col-md-10 col-md-offset-1">
 								<h6>Al registrarte, aceptas las 
 									<a class="btn-register" href="#" class="legal-link" target="_blank">Condiciones de Servicio</a> 
@@ -87,7 +87,7 @@
 									incluyendo el <a class="btn-register" href="#" class="legal-link" target="_blank">Uso de Cookies</a>
 								.</h6>
 							</div>
-						</div>
+						</div>-->
 					</form>
 					
 				</div>

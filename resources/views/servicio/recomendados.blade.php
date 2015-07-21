@@ -14,11 +14,16 @@
 	                        <div class="panel-body">
 
 	                        	<div class="row">
-				                    <div class="col-lg-12">
-				                        <h2 class="page-header text-tulocalidad">
-				                            <i class="fa fa-bullhorn"></i><strong> Recomendados</strong>
-				                        </h2>
-				                    </div>
+				                    <div class="col-lg-12 center">
+					                	<section class="panel">
+					                		<header class="panel-heading center">
+							                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
+							                    <h2>
+							                        Recomendados
+							                    </h2>
+					                    	</header>
+					                    </section>
+					                </div>
 				                </div>
 				                <div class="content">
 				                	

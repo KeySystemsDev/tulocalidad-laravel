@@ -469,6 +469,9 @@ a:hover{
 			border-radius: 4px;
 	font-size: 10pt;
 	color: #ecf0f1;
+	background-color: rgb(114, 21, 31);
+	opacity: 0.6;
+	width: 140px;
 }
 
 #header .navbar-collapse ul.nav li a:hover,

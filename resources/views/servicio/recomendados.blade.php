@@ -26,7 +26,7 @@
 					                </div>
 				                </div>
 				                <div class="content">
-				                	{{print_r($consulta)}}
+
 				                    <div class="grid">
 										@foreach ($consulta as $key)
 

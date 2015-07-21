@@ -21,11 +21,12 @@
 				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center>
 				<div class="panel-body">
 					@if ($error)
-						<div class="row">
-							<div class="alert alert-danger col-md-7 col-md-offset-2">
-								<strong>Error!</strong> {{ $error }}
-							</div>
-						</div>
+					<div class="row">
+						<div class="alert alert-danger alert-dismissable col-md-7 col-md-offset-2">
+	                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times" data-original-title="" title=""></i></button>
+	                        <strong>Error!</strong> {{ $error }}.
+	                    </div>
+					</div>
 					@endif
 
 					@if ($success)

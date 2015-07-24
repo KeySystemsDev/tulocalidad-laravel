@@ -26,9 +26,10 @@
 					                </div>
 				                </div>
 				                <div class="content">
-				                	
+
 				                    <div class="grid">
 										@foreach ($consulta as $key)
+
 										<figure class="effect-duke">
 											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
 											<figcaption>
@@ -37,7 +38,7 @@
 													{{$key->titulo_publicidad}}
 													{{$key->descripcion_publicidad}}
 												</p>
-												<a href="#">View more</a>
+												<a href="/servicios/empresa/{{$key->id_empresa}}">View more</a>
 											</figcaption>			
 										</figure>
 										@endforeach

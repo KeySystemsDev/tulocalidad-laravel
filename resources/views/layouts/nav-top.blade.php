@@ -41,7 +41,7 @@
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img class="img_usuario" alt="" src="{{ asset('/img/usuario.png') }}">
+                        <i class="glyphicon glyphicon-user"></i>
                         <span class="username">{{\Session::get('usuario')}}</span>
                         <b class="caret"></b>
                     </a>

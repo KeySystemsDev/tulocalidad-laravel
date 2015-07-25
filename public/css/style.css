@@ -417,3 +417,6 @@ ul#strength {
     width: 30px;
     height: 30px;
 }
+.icon-links-custon a{
+    padding-right: 5px;
+}

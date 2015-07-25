@@ -29,21 +29,24 @@
 
 				                    <div class="grid">
 										@foreach ($consulta as $key)
-
-										<figure class="effect-duke">
-											<img src="{{ url($key->url_imagen_publicidad)}}" alt="img27"/>
-											<figcaption>
-												<!--<h2><span>{{$key->titulo_publicidad}}</span></h2>-->
-												<p>
-													{{$key->titulo_publicidad}}
-													{{$key->descripcion_publicidad}}
-												</p>
-												<a href="/servicios/empresa/{{$key->id_empresa}}">View more</a>
-											</figcaption>			
-										</figure>
+											<figure class="effect-zoe">
+												<img src="{{ url($key->url_imagen_publicidad)}}">		
+												<figcaption>
+													<h3 style="color:#721520"><span>{{$key->titulo_publicidad}}</span></h3>
+													<p class="icon-links icon-links-custon">
+														<!--<a href="#"><i class="fa fa-link"></i></a>
+														<a href="#"><i class="fa fa-comment-o"></i></a>
+														<a href="#"><i class="fa fa-heart-o"></i></a>-->
+														<a href="/servicios/empresa/{{$key->id_empresa}}">
+															<i class="fa fa-share"></i>
+														</a>
+													</p>
+													<p class="description">{{$key->descripcion_publicidad}}</p>
+												</figcaption>	
+											</figure>
 										@endforeach
 									</div>
-		                    
+		                    		
 				                    <!-- start:pagination -->
 				                    <!--<div class="col-lg-12">
 				                        <ul class="pagination pagination-primary pagination-separated">

@@ -25,7 +25,7 @@
                         <div class="row">
                             <div class="col-sm-5">
                                 <a href="{{ url ('servicios/empresa/'.$id_estado.'/'.$id_categoria.'/'.$empresa->nombre_empresa)}}"><img src="{{ url($empresa->icon_empresa) }}" class="img-responsive"></a>
-                                <a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>
+                                <!--<a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>-->
                             </div>
                             <div class="col-sm-7">
                                 <h4 class="title-store">

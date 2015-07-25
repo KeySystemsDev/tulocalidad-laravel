@@ -24,9 +24,9 @@
 	float: left;
 	overflow: hidden;
 	margin: 10px 1%;
-	min-width: 320px;
-	max-width: 480px;
-	max-height: 360px;
+	min-width: 300px;
+	max-width: 100%;
+	max-height: 100%;
 	width: 48%;
 	background: #3085a3;
 	text-align: center;
@@ -979,13 +979,15 @@ figure.effect-sarah:hover p {
 /*---------------*/
 /***** Zoe *****/
 /*---------------*/
-
+figure.effect-zoe {
+	width: 100px;
+}
 figure.effect-zoe figcaption {
 	top: auto;
 	bottom: 0;
 	padding: 1em;
 	height: 3.75em;
-	background: #fff;
+	background: #FCFCFC;
 	color: #3c4a50;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
@@ -993,7 +995,7 @@ figure.effect-zoe figcaption {
 	transform: translate3d(0,100%,0);
 }
 
-figure.effect-zoe h2 {
+figure.effect-zoe h3 {
 	float: left;
 }
 
@@ -1021,7 +1023,7 @@ figure.effect-zoe p.description {
 	-webkit-backface-visibility: hidden; /* Fix for Chrome 37.0.2062.120 (Mac) */
 }
 
-figure.effect-zoe h2,
+figure.effect-zoe h3,
 figure.effect-zoe p.icon-links a {
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;
@@ -1050,7 +1052,7 @@ figure.effect-zoe p.icon-links a span::before {
 	content: '\e024';
 }
 
-figure.effect-zoe h2 {
+figure.effect-zoe h3 {
 	display: inline-block;
 }
 
@@ -1059,13 +1061,13 @@ figure.effect-zoe:hover p.description {
 }
 
 figure.effect-zoe:hover figcaption,
-figure.effect-zoe:hover h2,
+figure.effect-zoe:hover h3,
 figure.effect-zoe:hover p.icon-links a {
 	-webkit-transform: translate3d(0,0,0);
 	transform: translate3d(0,0,0);
 }
 
-figure.effect-zoe:hover h2 {
+figure.effect-zoe:hover h3 {
 	-webkit-transition-delay: 0.05s;
 	transition-delay: 0.05s;
 }

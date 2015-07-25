@@ -9,8 +9,8 @@
 		<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 		
 		<!-- css HoverEffectIdeas -->
-		<link href="{{ asset('/css/HoverEffectIdeas/demo.css') }}" rel="stylesheet">
-		<link href="{{ asset('/css/HoverEffectIdeas/set2.css') }}" rel="stylesheet">
+		<link href="{{ asset('/css/HoverEffectIdeas/set1.css') }}" rel="stylesheet">
+
 
 		<!-- Fonts -->
 	    <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>

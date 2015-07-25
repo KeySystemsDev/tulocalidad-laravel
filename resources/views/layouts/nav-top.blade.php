@@ -39,7 +39,7 @@
                     <input type="text" class="form-control input-sm search" placeholder="Search">
                 </li>-->
                 <!-- user login dropdown start-->
-                <li class="dropdown">
+                <li class="dropdown" style="margin-top: 7px;">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="glyphicon glyphicon-user"></i>
                         <span class="username">{{\Session::get('usuario')}}</span>

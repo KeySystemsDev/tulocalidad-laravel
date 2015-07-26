@@ -74,7 +74,7 @@
                                 </div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">RIF</label>
+					      			<label class="control-label col-lg-3">Rif</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
 					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" readonly>
@@ -82,20 +82,22 @@
 					    		</div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">Dirección</label>
-					      			<div class="col-sm-9 iconic-input right">
-					      				<i class="fa fa-map-marker" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="100" class="form-control" name="i_direccion" value="{{$empresa->direccion_empresa}}" required>
-					    			</div>
-					    		</div>
-
-                                <div class="form-group">
                                     <label class="control-label col-lg-3">Descripción</label>
                                     <div class="col-sm-9 iconic-input right">
-                                        <i class="fa fa-map-marker" data-original-title="" title=""></i>
-                                        <input type="text" maxlength="100" class="form-control" name="i_descripcion" value="{{$empresa->descripcion_empresa}}" required>
+                                        <textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" required>{{$empresa->descripcion_empresa}}</textarea>                                        
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+					      			<label class="control-label col-lg-3">Dirección</label>
+					      			<div class="col-sm-9 iconic-input right">
+                                        <textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" required>{{$empresa->direccion_empresa}}</textarea> 
+                                    </div>                                    
+					    		</div>
+
+                                
+
+                                    
 
                                 <div class="form-group">
                                     <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>

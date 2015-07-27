@@ -30,19 +30,18 @@
 				                    <div class="grid">
 										@foreach ($consulta as $key)
 											<figure class="effect-zoe">
-												<img src="{{ url($key->url_imagen_publicidad)}}">		
-												<figcaption>
-													<h3 style="color:#721520"><span>{{$key->titulo_publicidad}}</span></h3>
-													<p class="icon-links icon-links-custon">
-														<!--<a href="#"><i class="fa fa-link"></i></a>
-														<a href="#"><i class="fa fa-comment-o"></i></a>
-														<a href="#"><i class="fa fa-heart-o"></i></a>-->
-														<a href="/servicios/empresa/{{$key->id_empresa}}">
-															<i class="fa fa-share"></i>
-														</a>
-													</p>
-													<p class="description">{{$key->descripcion_publicidad}}</p>
-												</figcaption>	
+												<a href="/servicios/empresa/{{$key->id_empresa}}">
+													<img src="{{ url($key->url_imagen_publicidad)}}">		
+													<figcaption>														
+														<p class="icon-links icon-links-custon">															
+															<!--<a href="#"><i class="fa fa-link"></i></a>
+															<a href="#"><i class="fa fa-comment-o"></i></a>
+															<a href="#"><i class="fa fa-heart-o"></i></a>-->
+															<span style="font-size: 12px;">{{$key->titulo_publicidad}}</span>
+														</p>
+														<!--<p class="description">{{$key->descripcion_publicidad}}</p>-->
+													</figcaption>
+												</a>	
 											</figure>
 										@endforeach
 									</div>

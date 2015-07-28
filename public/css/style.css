@@ -420,3 +420,9 @@ ul#strength {
 .icon-links-custon a{
     padding-right: 5px;
 }
+figure.effect-zoe p.icon-links a {
+    float: right;
+    color: #FFF; 
+    font-size: 1.4em;
+    padding-right: 15px;
+}

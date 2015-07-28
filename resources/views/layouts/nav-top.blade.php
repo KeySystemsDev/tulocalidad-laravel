@@ -7,6 +7,23 @@
                 <a class="navbar-brand" href="{{ url ('/servicios') }}"><i class="fa fa-map-marker" data-original-title="" title=""></i> <strong>Tu</strong>Localidad<strong></strong></a>
             </div>
             <!-- end:navbar-header -->
+            @if(\Session::get('usuario'))
+                <ul class="nav navbar-nav navbar-left top-menu">
+                    <!-- start dropdown 1 -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="{{ url ('mis-empresas') }}">
+                            <i class="fa fa-building" data-original-title="" title=""></i>
+                            <span>Mis Empresas</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="{{ url ('mis-publicidades') }}">
+                            <i class="fa fa-bullhorn" data-original-title="" title=""></i>
+                            <span>Mis Publicidades</span>
+                        </a>
+                    </li>
+                </ul>
+            @endif
 
             @if(!\Session::get('usuario'))
             <ul class="nav navbar-nav navbar-right top-menu">

@@ -24,7 +24,7 @@
                             <a href="{{ url ('servicios/todo') }}">
                                 <div class="text-center">
                                     <i class="fa fa-thumb-tack fa-3x" data-original-title="" title=""></i><br>
-                                    Servicios
+                                    Directorio
                                 </div>
                             </a>
                         </li>

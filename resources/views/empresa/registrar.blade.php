@@ -68,9 +68,6 @@
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
 					      				<input id="i_rif" type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" required>
-					      				<div class="col-lg-10" ng-show="validate_rif_error && validate_rif_submit">
-					        				<p class="help-block text-danger" ng-show="validate_rif_error">[[validate_rif_msj]]</p>
-					      				</div>
 					    			</div>
 					    		</div>
 
@@ -295,6 +292,7 @@
 		</div>
 	</div>
 </div>
+@include('modals/rif_error')
 
 @include('layouts/footer')
 

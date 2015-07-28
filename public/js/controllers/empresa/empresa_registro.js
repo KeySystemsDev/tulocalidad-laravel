@@ -121,34 +121,23 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
         angular.element("#myModal").modal("hide");
     };
 
-
     $scope.rif ="";
-    $scope.ValidateRif =function(){
-        var inicial_rif = ["J","E"];
-        $scope.validate_rif_submit  = true;
-        $scope.validate_rif_msj     = "";
+    
+    $scope.ValidateRif =function(rif){
 
-        $scope.rif.toUpperCase();
-        if ($scope.rif && inicial_rif.indexOf($scope.rif.substr(0,1))){
+        var inicial_rif = ["J","E","j","e"];
+        if ($scope.rif){
             console.log($scope.rif);
             ajax.Post("/verificacion/rif", {"rif":$scope.rif } ).$promise.then(
                 function(data) {
                     console.log(data);
-                    if (data.success == true){
-                        console.log("correcto");
-                        $scope.validate_rif_msj     = "";
-                        $scope.validate_rif_error   = false;
-                    }
-                    else{
+                    if (data.success == false){
                         console.log("incorrecto");
-                        $scope.validate_rif_msj     = "Rif en uso";
-                        $scope.validate_rif_error   = true;
+                        angular.element("#validacion_rif").modal("show");
+                        $scope.rif = "";
                     };
                 }
             );
-        }else{
-            $scope.validate_rif_error   = true;
-            $scope.validate_rif_msj     = "Verifique el formato del Rif (sin guiones): Ejemplo: J-123242-3";
         }
     };
 });

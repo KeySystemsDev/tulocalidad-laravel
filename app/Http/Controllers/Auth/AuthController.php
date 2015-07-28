@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use App\Usuario;
 use Redirect;
+use App\Empresa;
 
 class AuthController extends Controller {
 
@@ -45,6 +46,23 @@ class AuthController extends Controller {
 			$error 		= 'El correo ya se encuentra registrado.';
 			return view('auth/register', compact('error'));
 		}
+	}
+
+	public function VerificarRif(){
+		$data 		= array();
+		$success 	= true;
+		$mensaje 	= "";
+		$repetidos 	= Empresa::where('rif_empresa', '=', \Input::get('rif'))->first(); 
+		if ($repetidos){
+			$success = false; 
+			$mensaje = "Rif ya registrado, introduzca otro.";
+		}
+
+		$json = array('success' => $success,
+					  'mensaje' => $mensaje,
+					  'data' 	=> $data,
+					  );
+		return json_encode($json);
 	}
 
 	public function getLogin(){

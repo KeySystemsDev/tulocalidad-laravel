@@ -18,6 +18,7 @@ Route::get('home', 'HomeController@index');
 Route::any('upload/img', 'ImgController@create' );
 Route::any('theme', 'WelcomeController@theme');
 Route::any('auth/cerrar', 'Auth\AuthController@CerrarSesion');
+Route::any('verificacion/rif', 'Auth\AuthController@VerificarRif');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

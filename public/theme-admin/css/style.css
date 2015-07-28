@@ -2795,11 +2795,11 @@ a:hover{
 	}
 
 	#real-estates-detail #author img{
-		-webkit-border-radius: 100%;
+		/*-webkit-border-radius: 100%;
 		   -moz-border-radius: 100%;
 		    -ms-border-radius: 100%;
 		     -o-border-radius: 100%;
-				border-radius: 100%;
+				border-radius: 100%;*/
 		border: 5px solid #ecf0f1;
 		margin-bottom: 10px;
 	}

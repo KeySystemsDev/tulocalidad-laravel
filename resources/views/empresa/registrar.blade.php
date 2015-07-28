@@ -64,7 +64,7 @@
 								</div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">RIF</label>
+					      			<label class="control-label col-lg-3">Rif</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
 					      				<input id="i_rif" type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" required>
@@ -74,15 +74,14 @@
 								<div class="form-group">
 									<label class="control-label col-lg-3">Descripción</label>
 									<div class="col-sm-9 iconic-input right">
-										<textarea cols=20 rows=3 maxlength="150" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
+										<textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
 									</div>
 								</div>
 
 					    		<div class="form-group">
 					      			<label class="control-label col-lg-3">Dirección</label>
 					      			<div class="col-sm-9 iconic-input right">
-					      				<i class="fa fa-map-marker" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="100" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required>
+					      				<textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required></textarea>				      				
 					    			</div>
 					    		</div>
 
@@ -122,10 +121,10 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono movil</label>
+                                    <label class="control-label col-lg-3">Telefono móvil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
-                                        <input type="text" placeholder="(9999) 999-99-99" data-mask="(999) 999-99-99" class="form-control" name="i_celular">
+                                        <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_celular">
                                     </div>
                                 </div>
 								

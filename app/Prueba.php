@@ -4,7 +4,7 @@ use DB;
 
 class Prueba extends Model {
 
-	protected $table      ='t_empresas';
+	protected $table      = 't_empresas';
 	public $timestamps    = false;
 	protected $primaryKey = 'id_estado';
 	

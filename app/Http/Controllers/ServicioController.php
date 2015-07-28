@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Publicidad;
 use App\Empresa;
 use App\Categoria;
 use App\Estado;
@@ -60,5 +61,10 @@ class ServicioController extends Controller {
 		$categoria 	= Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;
 
 		return view('servicio/empresa_detalle', compact('empresa','estado','categoria'));
+	}
+
+	public function Publicidad($id_publicidad){
+		$publicidad = Publicidad::where('id_publicidad','=',$id_publicidad)->first();
+		return view('servicio/recomendados_detalle', compact('publicidad'));
 	}
 }

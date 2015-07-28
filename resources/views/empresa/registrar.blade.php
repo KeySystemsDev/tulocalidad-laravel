@@ -67,7 +67,10 @@
 					      			<label class="control-label col-lg-3">RIF</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
-					      				<input type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="formData.i_rif" required>
+					      				<input id="i_rif" type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" required>
+					      				<div class="col-lg-10" ng-show="validate_rif_error && validate_rif_submit">
+					        				<p class="help-block text-danger" ng-show="validate_rif_error">[[validate_rif_msj]]</p>
+					      				</div>
 					    			</div>
 					    		</div>
 
@@ -133,7 +136,8 @@
                                   	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
                                   	<div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-envelope" data-original-title="" title=""></i>
-                                      	<input class="form-control" type="email" placeholder="ejample@dominio.com" ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo">
+                                      	<input class="form-control" type="email" placeholder="ejample@dominio.com"
+                                      			ng-class="{'error':formulario.i_correo.$invalid && formulario.i_correo.$touched}" name="i_correo" ng-model="formData.i_correo">
                                   		
                                   		<div class="col-lg-10" ng-show="formulario.i_correo.$dirty && formulario.i_correo.$invalid">
 					        				<p class="help-block text-danger" ng-show="formulario.i_correo.$error.email">Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
@@ -225,10 +229,10 @@
             	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="formulario.$invalid"> Registrar</button>
+            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="validate_rif_error && formulario.$invalid">form [[formulario.$invalid]]  rif [[validate_rif_error]] Registrar</button>
       					</header>
       				</section>
-      			</div>
+      			</div>    
               	
               	</form>	
 

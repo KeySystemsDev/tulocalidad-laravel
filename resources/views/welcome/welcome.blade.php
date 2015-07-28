@@ -57,7 +57,7 @@
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<ul class="nav navbar-nav">
 	      		<li><a onclick="$('header').animatescroll({padding:71});">Inicio</a></li>
-	      		<li><a onclick="$('.entrar').animatescroll({padding:71});">Entrar</a></li>
+	      		<li><a href="/servicios">Entrar</a></li>
 	      		<li><a onclick="$('.payoff').animatescroll({padding:71});">Descripción</a></li>
 	      		<li><a onclick="$('.detail').animatescroll({padding:71});">¿Cómo Usar?</a></li>
 	      		<li><a onclick="$('.features').animatescroll({padding:71});">Bondades</a></li>

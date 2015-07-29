@@ -104,7 +104,6 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
 
     $scope.snipper                  = false;
     $scope.disable                  = false;
-    $scope.validate_rif_error       = true;
     $scope.return_img = function(id){
         $scope.snipper = true;
         $scope.disable = true;
@@ -120,24 +119,36 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
         );
         angular.element("#myModal").modal("hide");
     };
+    $scope.titulo   = "";
+    $scope.mensaje  = "";
 
     $scope.rif ="";
-    
-    $scope.ValidateRif =function(rif){
-
-        var inicial_rif = ["J","E","j","e"];
-        if ($scope.rif){
+    $scope.invalidrif = true;
+    $scope.rifsubmit  = false;
+    $scope.ValidateRif =function(){
+        var validador = /^([JGVEPjgvep][-][0-9]{8}[-][0-9]{1})$/;
+        console.log("validacion: ",$scope.rif, validador.test($scope.rif));
+        $scope.rifsubmit  = true;
+        if (validador.test($scope.rif)){
             console.log($scope.rif);
             ajax.Post("/verificacion/rif", {"rif":$scope.rif } ).$promise.then(
                 function(data) {
-                    console.log(data);
                     if (data.success == false){
+
+                        $scope.invalidrif = true;
                         console.log("incorrecto");
-                        angular.element("#validacion_rif").modal("show");
+                        $scope.titulo = "Rif en uso";
+                        $scope.mensaje = "El rif que coloco actualmente esta siendo usado. contacte a soporte tecnico aqui.";
+                        angular.element("#validacion_modal").modal("show");
                         $scope.rif = "";
-                    };
+                    }else{
+                        $scope.invalidrif = false;
+                    }
                 }
             );
-        }
+        }else{
+            console.log("mostrar_mensaje");
+            $scope.invalidrif = true;
+        };
     };
 });

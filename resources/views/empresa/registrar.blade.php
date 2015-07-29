@@ -67,7 +67,11 @@
 					      			<label class="control-label col-lg-3">Rif</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
-					      				<input id="i_rif" type="text" data-mask="a-99999999-9" placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" required>
+					      				<input id="i_rif" type="text"  placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" 
+					      						ng-class="{'error':invalidrif && rifsubmit}" required>
+										<div class="col-lg-10" ng-show="invalidrif && rifsubmit">
+					        				<p class="help-block text-danger">Verifique el formato del rif (incluyendo los guiones). Ejemplo: J-12345678-9</p>
+					      				</div>					      				
 					    			</div>
 					    		</div>
 
@@ -225,7 +229,7 @@
             	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="validate_rif_error && formulario.$invalid">form [[formulario.$invalid]]  rif [[validate_rif_error]] Registrar</button>
+            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="formulario.$invalid || invalidrif">Registrar</button>
       					</header>
       				</section>
       			</div>    
@@ -290,8 +294,12 @@
 			</div>
 		</div>
 	</div>
+
+	@include('modals/validacion_modal')
+
 </div>
-@include('modals/rif_error')
+
+
 
 @include('layouts/footer')
 

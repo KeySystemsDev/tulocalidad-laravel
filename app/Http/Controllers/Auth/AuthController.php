@@ -20,6 +20,16 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
+	public function CambiarPassword(){
+		return view('auth/reset');
+	}
+
+	public function PostCambiarPassword(){
+		
+		return Redirect::to('/servicios');
+	}
+
+
 	public function CerrarSesion(){
 		\Session::flush();
 		return Redirect::to('/servicios');

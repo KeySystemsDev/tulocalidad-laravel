@@ -49,7 +49,7 @@
                                                         <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$value->rif_empresa}}</span></span>
                                                         <div class="row">
                                                             <div class="col-sm-5">
-                                                                <a href="#"><img src="{{url($value->icon_empresa)}}" class="img-responsive"></a>
+                                                                <a href="#"><img src="{{url('/uploads/empresas_mid/'.$value->icon_empresa)}}" class="img-responsive"></a>
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <h4 class="title-real-estates vinotinto">

@@ -36,16 +36,49 @@ class MisPublicidadesController extends Controller {
 	}
 
 	public function AgregarPublicidadExitoso(){
-		$publicidad                         = new Publicidad();
+		
 		$nombreArchivo 						= e(Input::get('namefile'));
 		$rutaOrigen    						= "uploads/temp/".$nombreArchivo;
-		$rutaDestino 					    = "uploads/publicidades/".$nombreArchivo;
+
+		if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
+			$imagen 		= imagecreatefromjpeg($rutaOrigen );			
+		}else{
+			$imagen 		= imagecreatefrompng( $rutaOrigen );
+			$nombreArchivo  = substr($nombreArchivo, 0, -3)."jpg";
+		};
+
+		$lienzo_full 		= imagecreatetruecolor(700, 700);
+		$lienzo_high 		= imagecreatetruecolor(362, 362);
+		$lienzo_mid  		= imagecreatetruecolor(181, 181);
+		$lienzo_low  		= imagecreatetruecolor(157, 157);
+
+		imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 700, 700, 700, 700);
+		imagecopyresampled($lienzo_high, $imagen, 0, 0, 0, 0, 362, 362, 700, 700);
+		imagecopyresampled($lienzo_mid,  $imagen, 0, 0, 0, 0, 181, 181, 700, 700);
+		imagecopyresampled($lienzo_low,  $imagen, 0, 0, 0, 0, 157, 157, 700, 700);
+
+		$rutabase 			= "uploads/"; 
+		$ruta_imagen_full 	= $rutabase."publicidades_full/".$nombreArchivo;
+		$ruta_imagen_high 	= $rutabase."publicidades_high/".$nombreArchivo;
+		$ruta_imagen_mid  	= $rutabase."publicidades_mid/".$nombreArchivo;
+		$ruta_imagen_low  	= $rutabase."publicidades_low/".$nombreArchivo;
+
+		imagejpeg( $lienzo_full, $ruta_imagen_full , 90 );
+		imagejpeg( $lienzo_high, $ruta_imagen_high , 90 );
+		imagejpeg( $lienzo_mid,  $ruta_imagen_mid  , 90 );
+		imagejpeg( $lienzo_low,  $ruta_imagen_low  , 90 );
+
+		$publicidad                         = new Publicidad();
 		$publicidad->id_empresa 			= Input::get("i_empresa");
 		$publicidad->titulo_publicidad	 	= Input::get("i_titulo");
 		$publicidad->descripcion_publicidad = Input::get("i_descripcion");
-		$publicidad->url_imagen_publicidad  = "/".$rutaDestino;
+		$publicidad->url_imagen_publicidad  = $nombreArchivo;
 		$publicidad->save();
-		rename($rutaOrigen,$rutaDestino);
+
+		if (file_exists($rutaOrigen)){
+			unlink($rutaOrigen);
+		}		
+
 		return View::make('publicidad/agregar_publicidad_exitoso');
 	}
 

@@ -29,7 +29,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <img width="157" height="157" src="{{ url($empresa->icon_empresa) }}">
+                            <img width="157" height="157" src="{{ url('/uploads/empresas_low/'.$empresa->icon_empresa) }}">
                             <h3></h3>
                             <small class="label label-info">{{$empresa->rif_empresa}}</small>
                             <p>{{$empresa->descripcion_empresa}}</p>

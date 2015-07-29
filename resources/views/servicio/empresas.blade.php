@@ -24,7 +24,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url($empresa->icon_empresa) }}" class="img-responsive"></a>
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_mid/'.$empresa->icon_empresa) }}" class="img-responsive"></a>
                                 <!--<a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>-->
                             </div>
                             <div class="col-sm-7">

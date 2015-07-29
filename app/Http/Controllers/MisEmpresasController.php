@@ -68,19 +68,62 @@ class MisEmpresasController extends Controller {
 	public function Editar_Exitoso(){
 
 		$empresa = Empresa::where('id_empresa','=', Input::get('id_empresa'));
-		$imagen = Input::get('namefile');
-		if ($imagen){
+		$nombreArchivo = Input::get('namefile');
+
+		if ($nombreArchivo){
 			$consulta 				= $empresa->first();
-			$old_image 				= substr($consulta->icon_empresa,1);
-			$rutaOrigen 			= "uploads/temp/".$imagen;
-			$rutaDestino 			= "uploads/empresas/".$imagen;
-			rename($rutaOrigen,$rutaDestino);
-			$consulta->icon_empresa  = "/".$rutaDestino;
+			$old_image 				= $consulta->icon_empresa;
+
+			$rutaOrigen 			= "uploads/temp/".$nombreArchivo;
+
+			if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
+				$imagen 		= imagecreatefromjpeg($rutaOrigen );			
+			}else{
+				$imagen 		= imagecreatefrompng( $rutaOrigen );
+				$nombreArchivo  = substr($nombreArchivo, 0, -3)."jpg";
+			};
+
+			$lienzo_full 		= imagecreatetruecolor(700, 700);
+			$lienzo_high 		= imagecreatetruecolor(362, 362);
+			$lienzo_mid  		= imagecreatetruecolor(181, 181);
+			$lienzo_low  		= imagecreatetruecolor(157, 157);
+
+			imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 700, 700, 700, 700);
+			imagecopyresampled($lienzo_high, $imagen, 0, 0, 0, 0, 362, 362, 700, 700);
+			imagecopyresampled($lienzo_mid,  $imagen, 0, 0, 0, 0, 181, 181, 700, 700);
+			imagecopyresampled($lienzo_low,  $imagen, 0, 0, 0, 0, 157, 157, 700, 700);
+
+			$ruta_imagen_full 	= "uploads/empresas_full/";
+			$ruta_imagen_high 	= "uploads/empresas_high/";
+			$ruta_imagen_mid  	= "uploads/empresas_mid/";
+			$ruta_imagen_low  	= "uploads/empresas_low/";
+
+			imagejpeg( $lienzo_full, $ruta_imagen_full.$nombreArchivo , 90 );
+			imagejpeg( $lienzo_high, $ruta_imagen_high.$nombreArchivo , 90 );
+			imagejpeg( $lienzo_mid,  $ruta_imagen_mid.$nombreArchivo  , 90 );
+			imagejpeg( $lienzo_low,  $ruta_imagen_low.$nombreArchivo  , 90 );
+
+			$consulta->icon_empresa  = $nombreArchivo;
 			$consulta->save();
-			if (file_exists($old_image)) {
-			    unlink($old_image);
+
+			if (file_exists($rutaOrigen)){
+				unlink($rutaOrigen);
+			}
+
+			if (file_exists($ruta_imagen_full.$old_image)) {
+			    unlink($ruta_imagen_full.$old_image);
+			};
+			if (file_exists($ruta_imagen_high.$old_image)) {
+			    unlink($ruta_imagen_high.$old_image);
+			};
+			if (file_exists($ruta_imagen_mid.$old_image)) {
+			    unlink($ruta_imagen_mid.$old_image);
+			};
+			if (file_exists($ruta_imagen_low.$old_image)) {
+			    unlink($ruta_imagen_low.$old_image);
 			};
 		}
+		
 		$estado = explode(" + ",Input::get('estado'));
 		$empresa->update(
 			array(
@@ -110,33 +153,62 @@ class MisEmpresasController extends Controller {
 	**/
 
 	public function Agregar_Exitoso(){
-		if (Session::get('registrar') == 1) {
-			Session::put('registrar','2');
-				$nombreArchivo                          = e(Input::get('namefile'));
-				$rutaOrigen                             = "uploads/temp/".$nombreArchivo;
-				$rutaDestino                            = "uploads/empresas/".$nombreArchivo;
-				$id                                     = session('id');
-				$empresa                                = new Empresa;
-				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
-				$empresa->rif_empresa                   = strtoupper(e(Input::get('i_rif')));
-				$empresa->direccion_empresa             = e(Input::get('i_direccion'));
-				$empresa->descripcion_empresa           = e(Input::get('i_descripcion'));
-				$empresa->id_categoria                  = e(Input::get('i_categoria'));
-				$empresa->correo_empresa                = e(Input::get('i_correo'));
-				$empresa->id_estado                     = e(Input::get('id_estado'));
-				$empresa->url_empresa                   = e(Input::get('i_sitio_web'));
-				$empresa->positionmap_empresa_latitude  = e(Input::get('i_latitud'));
-				$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
-				$empresa->telefono_empresa              = e(Input::get('i_telefono'));
-				$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
-				$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
-				$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
-				$empresa->privacidad_empresa 	        = e(Input::get('id_privacidad'));
-				$empresa->id_usuario                    = $id;
-				$empresa->icon_empresa                  = "/".$rutaDestino;
-				$empresa->save();
-				rename($rutaOrigen,$rutaDestino);
+		$nombreArchivo 		= e(Input::get('namefile'));
+		$rutaOrigen    		= "uploads/temp/".$nombreArchivo;
+
+		if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
+			$imagen 		= imagecreatefromjpeg($rutaOrigen );			
+		}else{
+			$imagen 		= imagecreatefrompng( $rutaOrigen );
+			$nombreArchivo  = substr($nombreArchivo, 0, -3)."jpg";
+		};
+
+		$lienzo_full 		= imagecreatetruecolor(700, 700);
+		$lienzo_high 		= imagecreatetruecolor(362, 362);
+		$lienzo_mid  		= imagecreatetruecolor(181, 181);
+		$lienzo_low  		= imagecreatetruecolor(157, 157);
+
+		imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 700, 700, 700, 700);
+		imagecopyresampled($lienzo_high, $imagen, 0, 0, 0, 0, 362, 362, 700, 700);
+		imagecopyresampled($lienzo_mid,  $imagen, 0, 0, 0, 0, 181, 181, 700, 700);
+		imagecopyresampled($lienzo_low,  $imagen, 0, 0, 0, 0, 157, 157, 700, 700);
+
+		$rutabase 			= "uploads/"; 
+		$ruta_imagen_full 	= $rutabase."empresas_full/".$nombreArchivo;
+		$ruta_imagen_high 	= $rutabase."empresas_high/".$nombreArchivo;
+		$ruta_imagen_mid  	= $rutabase."empresas_mid/".$nombreArchivo;
+		$ruta_imagen_low  	= $rutabase."empresas_low/".$nombreArchivo;
+
+		imagejpeg( $lienzo_full, $ruta_imagen_full , 90 );
+		imagejpeg( $lienzo_high, $ruta_imagen_high , 90 );
+		imagejpeg( $lienzo_mid,  $ruta_imagen_mid  , 90 );
+		imagejpeg( $lienzo_low,  $ruta_imagen_low  , 90 );
+
+		if (file_exists($rutaOrigen)){
+			unlink($rutaOrigen);
 		}
+
+		$id                                     = session('id');
+		$empresa                                = new Empresa;
+		$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
+		$empresa->rif_empresa                   = strtoupper(e(Input::get('i_rif')));
+		$empresa->direccion_empresa             = e(Input::get('i_direccion'));
+		$empresa->descripcion_empresa           = e(Input::get('i_descripcion'));
+		$empresa->id_categoria                  = e(Input::get('i_categoria'));
+		$empresa->correo_empresa                = e(Input::get('i_correo'));
+		$empresa->id_estado                     = e(Input::get('id_estado'));
+		$empresa->url_empresa                   = e(Input::get('i_sitio_web'));
+		$empresa->positionmap_empresa_latitude  = e(Input::get('i_latitud'));
+		$empresa->positionmap_empresa_longitude = e(Input::get('i_longitud'));					
+		$empresa->telefono_empresa              = e(Input::get('i_telefono'));
+		$empresa->telefono_2_empresa            = e(Input::get('i_telefono2'));
+		$empresa->telefono_3_empresa            = e(Input::get('i_telefono3'));
+		$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
+		$empresa->privacidad_empresa 	        = e(Input::get('id_privacidad'));
+		$empresa->id_usuario                    = $id;
+		$empresa->icon_empresa                  = $nombreArchivo;
+		$empresa->save();
+
 		return View::make('empresa/creado');
 	}
 

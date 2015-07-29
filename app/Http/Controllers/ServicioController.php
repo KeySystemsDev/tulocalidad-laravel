@@ -23,13 +23,13 @@ class ServicioController extends Controller {
 	}
 
 	public function Estado($id_estado){
-		$estado 	= Estado::where('nombre_estado','=',$id_estado)->first();
+		$estado     = Estado::where('nombre_estado','=',$id_estado)->first();
 		if ($estado == null){
 			return view('servicio/sin_resultado');
-		}
-
-		$data 		= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado->id_estado,''));
-		return view('servicio/categorias', compact('id_estado','data'));
+		}		
+		$categorias = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado->id_estado,''));
+		$i = round(count($categorias) / 3);
+		return view('servicio/categorias', compact('id_estado','categorias', 'i'));
 	}
 
 	public function Categoria($id_estado, $id_categoria){

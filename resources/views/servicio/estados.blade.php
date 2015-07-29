@@ -22,8 +22,7 @@
 				                    <div class="col-xs-12">
 				                        <div class="panel">
 				                            <div class="panel-body">
-
-				                                <ul class="list-group col-lg-4">
+				                                <ul class="list-group col-lg-4">				                                    
 				                                    @foreach(array_slice($estados, 0, 8) as $key)
 														<a class="list-group-item" href="/servicios/estado/{{ $key->nombre_estado }}">
 					                                    	{{$key->nombre_estado}}
@@ -44,7 +43,6 @@
 					                                    </a>
 				                                    @endforeach
 				                                </ul>
-
 				                            </div>
 				                        </div>
 				                    </div>  

@@ -20,6 +20,7 @@ Route::any('theme', 'WelcomeController@theme');
 Route::any('auth/cerrar', 'Auth\AuthController@CerrarSesion');
 Route::any('auth/cambiar-password', 'Auth\AuthController@CambiarPassword');
 Route::post('auth/post-cambiar-password', 'Auth\AuthController@PostCambiarPassword');
+Route::any('auth/activacion/{id_usuario}', 'Auth\AuthController@HabilitarUsuario');
 
 
 Route::any('verificacion/rif', 'Auth\AuthController@VerificarRif');

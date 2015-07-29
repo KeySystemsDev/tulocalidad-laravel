@@ -186,17 +186,19 @@ class MisEmpresasController extends Controller {
 
 
 	public function DeshabilitarEmpresa($id){
-		Empresa::where('id_empresa','=', $id)->update(
-			array(
-				'habilitado_empresa' => 0,
-			)
-		);
+		Empresa::where('id_empresa','=', $id)->delete();
+		// Empresa::where('id_empresa','=', $id)->update(
+		// 	array(
+		// 		'habilitado_empresa' => 0,
+		// 	)
+		// );
 
-		Publicidad::where('id_empresa','=', $id)->update(
-			array(
-				'habilitado_publicidad' => 0,
-			)
-		);
+		Publicidad::where('id_empresa','=', $id)->delete();
+		// Publicidad::where('id_empresa','=', $id)->update(
+		// 	array(
+		// 		'habilitado_publicidad' => 0,
+		// 	)
+		// );
 
 		return \Redirect::to('mis-empresas/');
 	}

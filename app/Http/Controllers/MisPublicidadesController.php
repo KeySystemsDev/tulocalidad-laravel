@@ -59,6 +59,8 @@ class MisPublicidadesController extends Controller {
 	}
 
 	public function DeshabilitarPublicidad($id){
+
+		// Publicidad::where('id_publicidad','=', $id)->delete();
 		Publicidad::where('id_publicidad','=', $id)->update(
 			array(
 				'habilitado_publicidad' => 0,

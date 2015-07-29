@@ -84,8 +84,6 @@ class MisEmpresasController extends Controller {
 		$estado = explode(" + ",Input::get('estado'));
 		$empresa->update(
 			array(
-				'nombre_empresa'                => (Input::get('i_nombre')),
-				'rif_empresa'                   => (Input::get('i_rif')),
 				'direccion_empresa'             => (Input::get('i_direccion')),
 				'id_categoria'                  => (Input::get('i_categoria')),
 				'correo_empresa'                => (Input::get('i_correo')),
@@ -120,7 +118,7 @@ class MisEmpresasController extends Controller {
 				$id                                     = session('id');
 				$empresa                                = new Empresa;
 				$empresa->nombre_empresa                = e(Input::get('i_nombre')); 	
-				$empresa->rif_empresa                   = e(Input::get('i_rif'));
+				$empresa->rif_empresa                   = strtoupper(e(Input::get('i_rif')));
 				$empresa->direccion_empresa             = e(Input::get('i_direccion'));
 				$empresa->descripcion_empresa           = e(Input::get('i_descripcion'));
 				$empresa->id_categoria                  = e(Input::get('i_categoria'));

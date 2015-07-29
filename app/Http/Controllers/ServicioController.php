@@ -52,19 +52,24 @@ class ServicioController extends Controller {
 	}
 
 	public function Empresa($id_empresa){
-		$empresa 	= Empresa::where('id_empresa','=',$id_empresa)->first();
+		$empresa                     = Empresa::where('id_empresa','=',$id_empresa)->first();
+		$empresa->visitas_empresas = $empresa->visitas_empresas + 1;
+		$empresa->save();
+
 		if( !$empresa or count($empresa)==0 ){
 			return view('servicio/sin_resultado');
 		};
 
-		$estado 	= Estado::where('id_estado','=',$empresa->id_estado)->first()->nombre_estado;
-		$categoria 	= Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;
+		$estado    = Estado::where('id_estado','=',$empresa->id_estado)->first()->nombre_estado;
+		$categoria = Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;
 
 		return view('servicio/empresa_detalle', compact('empresa','estado','categoria'));
 	}
 
 	public function Publicidad($id_publicidad){
 		$publicidad = Publicidad::where('id_publicidad','=',$id_publicidad)->first();
+		$publicidad->visitas_publicidad = $publicidad->visitas_publicidad + 1;
+		$publicidad->save();
 		return view('servicio/recomendados_detalle', compact('publicidad'));
 	}
 }

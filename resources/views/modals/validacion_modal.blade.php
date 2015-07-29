@@ -8,7 +8,7 @@
                 <h4 class="modal-title">[[titulo]]</h4>
             </div>
             <div class="modal-body">
-                <div class="col-xs-12"> [[mensaje]] </div>
+                <div class="col-xs-12">[[mensaje]]</div>
             </div>
             <br>
             <div class="modal-footer">

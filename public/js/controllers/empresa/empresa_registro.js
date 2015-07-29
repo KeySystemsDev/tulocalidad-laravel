@@ -137,8 +137,8 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
 
                         $scope.invalidrif = true;
                         console.log("incorrecto");
-                        $scope.titulo = "Rif en uso";
-                        $scope.mensaje = "El rif que coloco actualmente esta siendo usado. contacte a soporte tecnico aqui.";
+                        $scope.titulo = "Disculpe!";
+                        $scope.mensaje = "El Rif que coloco actualmente esta siendo usado por otra empresa. Si puede comprobar que este Rif le pertenece, envíe una copia a soporte@tulocalidad.com.ve para tomar las medidas necesarias.";
                         angular.element("#validacion_modal").modal("show");
                         $scope.rif = "";
                     }else{

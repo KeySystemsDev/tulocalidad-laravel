@@ -95,4 +95,9 @@ class AuthController extends Controller {
             return \Redirect::to('mis-empresas');
         }
 	}
+
+	public function HabilitarUsuario($id_usuario){
+		Usuario::where('id_usuario','=', $id_usuario)->update(array('habilitado_usuario' => 1));
+		return view('auth/habilitado');
+	}
 }

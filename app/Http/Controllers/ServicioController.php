@@ -52,7 +52,7 @@ class ServicioController extends Controller {
 	}
 
 	public function Empresa($id_empresa){
-		$empresa                     = Empresa::where('id_empresa','=',$id_empresa)->first();
+		$empresa                   = Empresa::where('id_empresa','=',$id_empresa)->first();
 		$empresa->visitas_empresas = $empresa->visitas_empresas + 1;
 		$empresa->save();
 

@@ -20,21 +20,6 @@ class AuthController extends Controller {
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function CambiarPassword(){
-		return view('auth/reset');
-	}
-
-	public function PostCambiarPassword(){
-		
-		return Redirect::to('/servicios');
-	}
-
-
-	public function CerrarSesion(){
-		\Session::flush();
-		return Redirect::to('/servicios');
-	}
-
 	public function getRegister(){
 		$error =	'';
 		return view('auth/register', compact('error'));
@@ -89,7 +74,10 @@ class AuthController extends Controller {
 	public function getLogin(){
 		$error 		 = "";
 		$success 	 = "";
-		return view('auth/login', compact('error','success'));
+		if (\Session::get('id')){
+			return Redirect::to('/servicios');
+		}
+		return view('/auth/login', compact('error','success'));
 	}
 
 	public function postLogin(){

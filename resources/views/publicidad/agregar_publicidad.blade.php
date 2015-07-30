@@ -37,14 +37,14 @@
 								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="formulario" method="post" name="publicidad" enctype="multipart/form-data">
 
 									<input type="hidden" name="id_empresa"><br>
-									
+
 	                                <div class="row">
-	                                    <div class="col-lg-3 col-lg-offset-3">* Datos requeridos</div>
+	                                    <div class="col-lg-3 col-lg-offset-4"><h6>* Datos requeridos</h6></div>
 	                                </div>
 	                                <br>
 									<div class="form-group">
-										<label class="control-label col-lg-3" for="inputSuccess">Empresa:  *</label>
-										<div class="col-lg-9">
+										<label class="control-label col-lg-4" for="inputSuccess">Empresa:  *</label>
+										<div class="col-lg-8">
 											<select class="form-control m-bot15" name="i_empresa">
 												<!--<option class="option" value="" selected >seleccione una empresa</option>-->
 												@foreach($empresas as $empresa)
@@ -59,9 +59,9 @@
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-lg-3">Imagen de publicidad  *</label>
+										<label class="control-label col-lg-4">Imagen de publicidad  *</label>
 										<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
-										<div class="col-sm-9 iconic-input right">
+										<div class="col-sm-8 iconic-input right">
 
 											<div class="fileinput fileinput-new" data-provides="fileinput">
 												<div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
@@ -79,16 +79,16 @@
 									</div>									
 
 									<div class="form-group">
-										<label class="control-label col-lg-3">Título:  *</label>
-										<div class="col-sm-9 iconic-input right">
+										<label class="control-label col-lg-4">Título:  *</label>
+										<div class="col-sm-8 iconic-input right">
 											<i class="fa fa-bullhorn" data-original-title="" title=""></i>
 											<input type="text" maxlength="30" class="form-control" placeholder="Titulo" name="i_titulo" ng-model="formData.i_titulo" required>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-lg-3">Descripción de la campaña:  *</label>
-										<div class="col-sm-9 iconic-input right">
+										<label class="control-label col-lg-4">Descripción de la campaña:  *</label>
+										<div class="col-sm-8 iconic-input right">
 											<textarea cols=20 rows=3 class="form-control" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
 										</div>
 									</div>

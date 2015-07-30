@@ -987,7 +987,7 @@ figure.effect-zoe figcaption {
 	bottom: 0;
 	padding: 1em;
 	height: 3em;
-	background: #6B1A1A;
+	background: rgba(0,0,0,.4);;
 	color: #FFF;
 	-webkit-transition: -webkit-transform 0.35s;
 	transition: transform 0.35s;

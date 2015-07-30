@@ -471,3 +471,15 @@ figure.effect-zoe p.icon-links a {
 .item-perfil{
     border: 1px solid #e1e8ed;
 }
+.username{
+    font-size: 15px;
+}
+.nav-button-icon{
+    margin-top: 6px;
+    width: 25px;
+    height: 30px;
+}
+.nav-button-item:hover{
+    background-color: rgba(0,0,0,.4);
+    border-radius: 2px;
+}

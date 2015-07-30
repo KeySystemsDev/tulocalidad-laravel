@@ -37,9 +37,9 @@
 													<p class="icon-links icon-links-custon">															
 														<!--<a href="#"><i class="fa fa-link"></i></a>
 														<a href="#"><i class="fa fa-comment-o"></i></a>-->
-														<a href="http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}&text={{$key->titulo_publicidad}}" onclick="window.open('http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}&text={{$key->titulo_publicidad}}', 'newwindow', 'width=500, height=250'); return false;"><i class="fa fa-twitter-square"></i></a>
+														<a href="http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}&text={{$key->titulo_publicidad}}" onclick="window.open('http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}&text={{$key->titulo_publicidad}}', 'newwindow', 'width=500, height=250'); return false;"><i class="fa fa-twitter"></i></a>
 														<a href="http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}"  onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$key->id_empresa}}', 'newwindow', 'width=500, height=250'); return false;">
-															<i class="fa fa-facebook-official"></i>
+															<i class="fa fa-facebook"></i>
 														</a>
 														<span style="font-size: 12px;">{{$key->titulo_publicidad}}</span>
 

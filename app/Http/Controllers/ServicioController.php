@@ -70,7 +70,8 @@ class ServicioController extends Controller {
 		$publicidad = Publicidad::where('id_publicidad','=',$id_publicidad)->first();
 		$publicidad->visitas_publicidad = $publicidad->visitas_publicidad + 1;
 		$publicidad->save();
-		return view('servicio/recomendados_detalle', compact('publicidad'));
+		$recomendados = \DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('listado_publicidades','','','','',''));
+		return view('servicio/recomendados_detalle', compact('publicidad', 'recomendados'));
 	}
 
 

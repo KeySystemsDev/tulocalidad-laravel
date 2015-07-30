@@ -14,7 +14,7 @@ class AuthController extends Controller {
 	use AuthenticatesAndRegistersUsers;
 
 	public function __construct(Guard $auth, Registrar $registrar){
-		$this->auth = $auth;
+		$this->auth 	 = $auth;
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
@@ -87,24 +87,38 @@ class AuthController extends Controller {
 	}
 
 	public function getLogin(){
-		$error 		= "";
-		$success 	= "";
+		$error 		 = "";
+		$success 	 = "";
 		return view('auth/login', compact('error','success'));
 	}
 
 	public function postLogin(){
+		$data = "";
 		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
-			$error 		= "Usuario o clave incorrecto";
-			$success 	= '';
-        	return view('auth/login', compact('error','success'));
+			$msj 	 = "Usuario o clave incorrecto";
+			$success = false;
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data);
         }
-        else
-        {
+        elseif($auth->habilitado_usuario == 0){
+        	//MENSAJE POR CORREGIR
+			$msj 	 = "Usuario no activado, revise su bandeja de entrada y siga las instrucciones";
+			$success = false;
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data);
+        }else{
             \Session::put('usuario', $auth->correo_usuario);
-            \Session::put('id', $auth->id_usuario);
-            return \Redirect::to('mis-empresas');
+            \Session::put('id', 	 $auth->id_usuario);
+            $msj 	 = "logeado";
+            $success = true;
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data);
         }
+        return json_encode($json);
 	}
 
 	public function HabilitarUsuario($id_usuario){

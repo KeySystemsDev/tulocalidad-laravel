@@ -1,5 +1,9 @@
 @extends('base')
 
+@section('js')
+	<script src="{{ asset('/js/controllers/auth/login.js') }}"></script>
+@endsection
+
 <ul class="cb-slideshow ul-login">
     <li class="li-login"><span></span></li>
     <li class="li-login"><span></span></li>
@@ -13,46 +17,28 @@
 	
 @include('layouts/nav-top-auth')
 
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="LoginController">
 
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
 				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center>
 				<div class="panel-body">
-					@if ($error)
-					<div class="row">
-						<div class="alert alert-danger alert-dismissable col-md-7 col-md-offset-2">
-	                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-	                        	<i class="fa fa-times" data-original-title="" title=""></i>
-	                        </button>
-	                        <strong>Error!</strong> {{ $error }}.
-	                    </div>
-					</div>
-					@endif
 
-					@if ($success)
-						<div class="row">
-							<div class="alert alert-success col-md-7 col-md-offset-2">
-								<strong>{{$success}}</strong>
-							</div>
-						</div>
-					@endif
-
-					<form class="form-horizontal" role="form" method="post" action="{{ url('/auth/login') }}">
+					<form id="form" class="form-horizontal" role="form" method="post" action="{{ url('/auth/login') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Correo Electrónico</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="" >
+								<input type="email" class="form-control" name="email" ng-model="email" >
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password" value="" >
+								<input type="password" class="form-control" name="password" ng-model="password" >
 							</div>
 						</div>
 
@@ -71,7 +57,10 @@
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-danger">Iniciar Sesión  <i class="fa fa-sign-in"></i></button>
+								<button type="button" ng-click="checkMe()" class="btn btn-danger">
+									Iniciar Sesión 
+									<i class="fa fa-sign-in"></i>
+								</button>
 
 								<a class="btn btn-link btn-register" href="{{ url('/auth/register') }}">Registrarte</a>
 							</div>
@@ -81,5 +70,6 @@
 			</div>
 		</div>
 	</div>
+	@include('modals/validacion_modal')
 </div>
 @endsection

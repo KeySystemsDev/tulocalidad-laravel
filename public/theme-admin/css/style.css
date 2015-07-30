@@ -1,4 +1,4 @@
-/*
+ /*
  Themes Name : Srikandi Themes;
  Themes Author : Candra Dwi Waskito;
  Themes URL : http://bismillah.web.id/themes/srikandi;
@@ -436,7 +436,7 @@ a:hover{
 }
 
 #header .navbar-toggle{
-	background-color: #2980b9;
+	background-color: transparent;
 	color: #ecf0f1;
 }
 
@@ -3090,7 +3090,11 @@ footer .content-widget-footer .icon-footer i.fa{
 	}
 
 	#header .overlay{
-		background: rgba(41, 128, 185, 1);
+		background: transparent;
+	}
+	#header .navbar-collapse ul.nav > li > a {
+	  width: 250px;
+	  margin: 0 auto;
 	}
 
 	#header ul.nav br{

@@ -72,4 +72,22 @@ class ServicioController extends Controller {
 		$publicidad->save();
 		return view('servicio/recomendados_detalle', compact('publicidad'));
 	}
+
+
+	public function VerificarRif(){
+		$data 		= array();
+		$success 	= true;
+		$mensaje 	= "";
+		$repetidos 	= Empresa::where('rif_empresa', '=', \Input::get('rif'))->first(); 
+		if ($repetidos){
+			$success = false; 
+			$mensaje = "Rif ya registrado, introduzca otro.";
+		}
+
+		$json = array('success' => $success,
+					  'mensaje' => $mensaje,
+					  'data' 	=> $data,
+					  );
+		return json_encode($json);
+	}
 }

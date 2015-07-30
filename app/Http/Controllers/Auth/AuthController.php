@@ -41,37 +41,48 @@ class AuthController extends Controller {
 	}
 
 	public function postRegister(){
-		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->first();
+		$email = \Input::get('email');
+		$auth  = Usuario::where('correo_usuario', '=', $email)->first();
+		$data  = \Input::get('email');
 		if (count($auth)==0){
 
 			$usuario = new Usuario;
 			$usuario->correo_usuario   = \Input::get('email'); 	
 			$usuario->clave_usuario    = \Input::get('password');
 			$usuario->save();
-			$error 	 = '';
-			$success = "Usuario creado exitosamente.";
-			return view('auth/login', compact('error','success'));
+			//ACOMODAR EL MENSAJE
+			$mensaje ='
+					<html>
+						<head>
+				 			<title>Bienvenido</title>
+						</head>
+						<body>
+							<p align="center">
+								<b>para activar su usuario haga click
+								<a href="http://tulocalidad.com.ve/auth/activacion/'.$usuario->id_usuario.'">aquí.</b>
+								<br><br>
+							</p>
+						</body>		
+					</html>';
+
+			$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
+			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
+			$cabeceras .= "From: contacto@keysystems.com.ve";
+			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
+			$msj 	 = 'Registro exitoso, revise su correo para activar su usuario.';
+			$success = true;
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data
+				);
 		}else{
-			$success 	= '';
-			$error 		= 'El correo ya se encuentra registrado.';
-			return view('auth/register', compact('error'));
+			$success = false;
+			$msj 	 = 'El correo ya se encuentra registrado.';
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data
+				);
 		}
-	}
-
-	public function VerificarRif(){
-		$data 		= array();
-		$success 	= true;
-		$mensaje 	= "";
-		$repetidos 	= Empresa::where('rif_empresa', '=', \Input::get('rif'))->first(); 
-		if ($repetidos){
-			$success = false; 
-			$mensaje = "Rif ya registrado, introduzca otro.";
-		}
-
-		$json = array('success' => $success,
-					  'mensaje' => $mensaje,
-					  'data' 	=> $data,
-					  );
 		return json_encode($json);
 	}
 

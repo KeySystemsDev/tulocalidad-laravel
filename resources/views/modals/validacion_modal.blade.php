@@ -14,7 +14,7 @@
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-xs-4 col-xs-offset-4">
-                        <button type="button" class="btn btn-danger btn-block btn-flat" data-dismiss="modal" aria-label="Close">Cerrar</button>
+                        <a class="btn btn-danger btn-block btn-flat" ng-click="redirecto()" data-dismiss="modal" aria-label="Close">Cerrar</a>
                     </div>
                 </div>
             </div>

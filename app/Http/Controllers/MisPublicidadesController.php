@@ -99,7 +99,6 @@ class MisPublicidadesController extends Controller {
 				'habilitado_publicidad' => 0,
 			)
 		);
-
 		return \Redirect::to('mis-publicidades/');
 	}
 

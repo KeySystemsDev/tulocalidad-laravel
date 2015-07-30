@@ -23,7 +23,7 @@ Route::post('auth/post-cambiar-password', 'Auth\AuthController@PostCambiarPasswo
 Route::any('auth/activacion/{id_usuario}', 'Auth\AuthController@HabilitarUsuario');
 
 
-Route::any('verificacion/rif', 'Auth\AuthController@VerificarRif');
+Route::any('verificacion/rif', 'ServicioController@VerificarRif');
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

@@ -25,24 +25,16 @@
 				<div><center><h5>Registra tu cuenta</h5></center></div>
 				<div class="panel-body">	   
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}" name="formulario">
+					<form id="form" class="form-horizontal" role="form" method="POST"  name="formulario">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						
-						<div class="row" ng-if="error == 1" ng-cloak>
-							<div class="alert alert-danger alert-dismissable col-md-7 col-md-offset-2">
-	                    		<button type="button" class="close" ng-click="ocultar_error()" ng-cloak>
-	                    			<i class="fa fa-times" data-original-title="" title=""></i>
-	                    		</button>
-	                    		<strong>Error!</strong> Las contraseñas no coinciden. 		
-	                		</div>
-						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Correo Electrónico</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="" ng-class="{'error':formulario.email.$invalid && formulario.email.$touched}" ng-model="email" required>
-								<div class="col-lg-10" ng-show="formulario.email.$dirty && formulario.email.$invalid" ng-cloak>
-			        				<p class="help-block text-blanco" ng-show="formulario.email.$error.email" ng-cloak>Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
+								<input type="email" class="form-control" name="email" value="" ng-class="{'error':error_email && submit_email}" 
+										ng-model="email" ng-blur="validar_email()" required>
+								<div class="col-lg-10" ng-show="error_email && submit_email" ng-cloak>
+			        				<p class="help-block text-blanco" ng-cloak>Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
 			      				</div>
 							</div>
 						</div>
@@ -50,21 +42,28 @@
 						<div class="form-group">
 							<label class="col-md-4 control-label">Contraseña</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password" ng-model="pw" name="pw" id="pw" required>
+								<input type="password" class="form-control" name="password" ng-model="pw" ng-blur="validar_pass1()"
+										name="pw" id="pw" ng-class="{'error':error_pass1 && submit_pass1}" required >
+								<div class="col-lg-10" ng-show="error_pass1 && submit_pass1" ng-cloak>
+		        					<p class="help-block text-blanco" ng-cloak>[[msj_error_pass1]]</p>
+		      					</div>	
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-md-4 control-label">Repetir Contraseña</label>
 							<div class="col-md-6">
-								<input type="password" class="form-control" name="password" ng-model="pw2" name="pw2" id="pw2" required>
+								<input type="password" class="form-control" name="password" ng-model="pw2" ng-blur="validar_pass2()"
+										 name="pw2" id="pw2" ng-class="{'error':error_pass2 && submit_pass2}" required>
 								<ul id="strength" check-strength="pw"></ul>
-							</div>
+								<div class="col-lg-10" ng-show="error_pass2 && submit_pass2" ng-cloak>
+		        					<p class="help-block text-blanco" ng-cloak>[[msj_error_pass2]]</p>
+		      					</div>	
+							</div>						
 						</div>
-
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
-								<button type="button" class="btn btn-danger" ng-click="checkMe()" ng-disabled="formulario.$invalid">
+								<button type="button" class="btn btn-danger" ng-click="checkMe()" ng-disabled="formulario.$invalid || error_email || error_pass2 || error_pass1">
 									Registrar <i class="fa fa-pencil-square-o"></i>
 								</button>
 							</div>
@@ -85,5 +84,6 @@
 			</div>
 		</div>
 	</div>
+	@include('/modals/validacion_modal')
 </div>
 @endsection

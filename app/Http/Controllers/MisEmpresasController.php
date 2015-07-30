@@ -123,7 +123,6 @@ class MisEmpresasController extends Controller {
 			    unlink($ruta_imagen_low.$old_image);
 			};
 		}
-		
 		$estado = explode(" + ",Input::get('estado'));
 		$empresa->update(
 			array(

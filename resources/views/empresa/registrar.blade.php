@@ -21,7 +21,7 @@
                 		<header class="panel-heading center">
 		                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
 		                    <h2>
-		                        Formulario de Registro de Empresa
+		                        Formulario de registro de empresa
 		                    </h2>
 		                    <p>
 		                    	Registra tu empresa para el directorio
@@ -34,17 +34,21 @@
                     <section class="panel">                         
                         <div class="panel-body">
 							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" name="formulario" id="formulario" method ="post">
-
+								<br>
+								<div class="row">
+									<div class="col-lg-3 col-lg-offset-3">* Datos requeridos</div>
+								</div>
+								<br>
 								<div class="form-group">
-					      			<label class="control-label col-lg-3">Nombre Empresa</label>
+					      			<label class="control-label col-lg-3">Nombre de empresa  *</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
-					      				<input type="text" maxlength="100" class="form-control" placeholder="Nombre de la Empresa" name="i_nombre" ng-model="formData.i_nombre" required>
+					      				 <input type="text" maxlength="100" class="form-control" placeholder="Nombre de la Empresa" name="i_nombre" ng-model="formData.i_nombre" required>
 					    			</div>
 					    		</div>
 
 								<div class="form-group">
-									<label class="control-label col-lg-3">Imagen de perfil</label>
+									<label class="control-label col-lg-3">Imagen de perfil  *</label>
 									<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
 									<div class="col-sm-9 iconic-input right">
 
@@ -64,7 +68,7 @@
 								</div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">Rif</label>
+					      			<label class="control-label col-lg-3">Rif  *</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
 					      				<input id="i_rif" type="text"  placeholder="J-12345678-9" class="form-control" name="i_rif" ng-model="rif" ng-blur="ValidateRif()" 
@@ -76,21 +80,21 @@
 					    		</div>
 
 								<div class="form-group">
-									<label class="control-label col-lg-3">Descripción</label>
+									<label class="control-label col-lg-3">Descripción  *</label>
 									<div class="col-sm-9 iconic-input right">
 										<textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
 									</div>
 								</div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">Dirección</label>
+					      			<label class="control-label col-lg-3">Dirección  *</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" ng-model="formData.i_direccion" required></textarea>				      				
 					    			</div>
 					    		</div>
 
 					    		<div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Categoria</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Categoría  *</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15 selectpicker" data-live-search="true" name="i_categoria">
                                             @foreach($categoria as $key)
@@ -101,7 +105,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local</label>
+                                    <label class="control-label col-lg-3">Teléfono local</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono">
@@ -109,7 +113,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local</label>
+                                    <label class="control-label col-lg-3">Teléfono local</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono2">
@@ -117,7 +121,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local</label>
+                                    <label class="control-label col-lg-3">Teléfono local</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono3">
@@ -125,7 +129,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono móvil</label>
+                                    <label class="control-label col-lg-3">Teléfono móvil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" placeholder="(9999) 999-99-99" data-mask="(9999) 999-99-99" class="form-control" name="i_celular">
@@ -133,7 +137,7 @@
                                 </div>
 								
                                 <div class="form-group">
-                                  	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
+                                  	<label for="cemail" class="control-label col-lg-3">Correo electrónico</label>
                                   	<div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-envelope" data-original-title="" title=""></i>
                                       	<input class="form-control" type="email" placeholder="ejample@dominio.com"
@@ -146,7 +150,7 @@
                               	</div>
 
                               	<div class="form-group">
-                                    <label for="curl" class="control-label col-lg-3">Sitio Web</label>
+                                    <label for="curl" class="control-label col-lg-3">Sitio web</label>
                                     <div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-link" data-original-title="" title=""></i>
                                         <input class="form-control" type="url" placeholder="Ejemplo: http://test.com" ng-class="{'error':formulario.i_sitio_web.$invalid && formulario.i_sitio_web.$touched}" name="i_sitio_web" ng-model="formData.i_sitio_web">
@@ -157,7 +161,7 @@
 
                                 <div class="form-group">
                                     <input type="hidden" id="id_estado" name="id_estado">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estado  *</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="estado" ng-change="estado_ruta(estado)" ng-model="estado" required>
 											<option value="" selected>
@@ -173,7 +177,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Privacidad de ubicación</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Privacidad de ubicación  *</label>
                                     <div class="col-lg-9">
 										<div class="radio-inline">
                                             <input type="radio" name="id_privacidad" id="id_privacidad" value="1" checked>
@@ -191,7 +195,7 @@
                                     <div class="col-lg-9 iconic-input right">
                                       	<div class="panel panel-danger panel-drop ">
 				                            <div class="panel-body">
-				                                Selecione la posicion de su empresa arrastrando el marcador del mapa sobre la ubicación.
+				                                Selecione la posición exacta de su empresa arrastrando el marcador del mapa sobre la ubicación.
 				                            </div>
 				                        </div>
                                     </div>

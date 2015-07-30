@@ -170,8 +170,7 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
             $scope.invalidrif = true;
         };
     };
-
-
+    
     $scope.checkMe = function(){
         var data = {};
         // TRANSFORMANDO UN FORM A UN JSON

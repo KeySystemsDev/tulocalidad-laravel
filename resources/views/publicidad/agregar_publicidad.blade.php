@@ -24,7 +24,7 @@
 									Publicidad
 								</h2>
 								<p>
-									Nueva Campaña Publicitaria
+									Nueva campaña publicitaria
 								</p>
 							</header>
 						</section>
@@ -37,9 +37,13 @@
 								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="formulario" method="post" name="publicidad" enctype="multipart/form-data">
 
 									<input type="hidden" name="id_empresa"><br>
-
+									
+	                                <div class="row">
+	                                    <div class="col-lg-3 col-lg-offset-3">* Datos requeridos</div>
+	                                </div>
+	                                <br>
 									<div class="form-group">
-										<label class="control-label col-lg-3" for="inputSuccess">Empresa</label>
+										<label class="control-label col-lg-3" for="inputSuccess">Empresa:  *</label>
 										<div class="col-lg-9">
 											<select class="form-control m-bot15" name="i_empresa">
 												<!--<option class="option" value="" selected >seleccione una empresa</option>-->
@@ -55,22 +59,7 @@
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-lg-3">Titulo</label>
-										<div class="col-sm-9 iconic-input right">
-											<i class="fa fa-bullhorn" data-original-title="" title=""></i>
-											<input type="text" maxlength="30" class="form-control" placeholder="Titulo" name="i_titulo" ng-model="formData.i_titulo" required>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-lg-3">Descripción de la Campaña</label>
-										<div class="col-sm-9 iconic-input right">
-											<textarea cols=20 rows=3 class="form-control" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-lg-3">Imagen de publicidad</label>
+										<label class="control-label col-lg-3">Imagen de publicidad  *</label>
 										<input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
 										<div class="col-sm-9 iconic-input right">
 
@@ -86,6 +75,21 @@
 													</button>
 												</div>
 											</div>
+										</div>
+									</div>									
+
+									<div class="form-group">
+										<label class="control-label col-lg-3">Título:  *</label>
+										<div class="col-sm-9 iconic-input right">
+											<i class="fa fa-bullhorn" data-original-title="" title=""></i>
+											<input type="text" maxlength="30" class="form-control" placeholder="Titulo" name="i_titulo" ng-model="formData.i_titulo" required>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-lg-3">Descripción de la campaña:  *</label>
+										<div class="col-sm-9 iconic-input right">
+											<textarea cols=20 rows=3 class="form-control" name="i_descripcion" ng-model="formData.i_descripcion" required></textarea>
 										</div>
 									</div>
 							</div>

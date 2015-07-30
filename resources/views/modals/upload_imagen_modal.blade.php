@@ -5,7 +5,7 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-picture-o"></i> Agregar Imágen de la Empresa</h4>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-picture-o"></i> Agregar imagen</h4>
 			</div>
 			<div class="modal-body">
 				<div>
@@ -13,7 +13,7 @@
 						<div class = "row">
 							<div class="col-12">
 								<div class="center">
-									<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccionar Archivo
+									<span class="btn btn-success btn-file"><i class="fa fa-picture-o"></i> Seleccione un archivo
 									<input type="file" name="i_image" accept=".jpg,.png" file-model="myFile" id="fileInput"/>
 									</span>
 								</div>
@@ -23,10 +23,10 @@
 						<div class="row">
 
 							<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
-								<i class="fa fa-file-image-o"></i>Imagen Original
+								<i class="fa fa-file-image-o"></i>Imagen original
 							</div>
 							<div class="col-xs-5 col-xs-offset-1 text-img-cortar">
-								<i class="fa fa-scissors"></i> Pre visualizar Recorte
+								<i class="fa fa-scissors"></i>Recorte
 							</div>
 							<div class="cropArea col-xs-5 col-xs-offset-1">
 								<img-crop area-type="square" image="myImage" result-image-size="700" result-image-quality="1" result-image='srcimg'></img-crop>

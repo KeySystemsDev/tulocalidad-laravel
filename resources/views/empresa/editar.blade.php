@@ -29,7 +29,7 @@
                 		<header class="panel-heading center">
 		                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
 		                    <h2>
-		                        Actualizar Registro de Empresa
+		                        Actualizar registro de empresa
 		                    </h2>
 		                    <p>
 		                    	Manten tus datos al día
@@ -42,12 +42,16 @@
                     <section class="panel">                         
                         <div class="panel-body">
 
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action="../editar-exitoso" method="post" name="formulario" id="formulario">
-		
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" method="post" name="formulario" id="formulario">
+                                <br>
 								<input type="hidden" id="id_empresa" name="id_empresa" value="{{$empresa->id_empresa}}">
 								
+                                <div class="row">
+                                    <div class="col-lg-3 col-lg-offset-3">* Datos requeridos</div>
+                                </div>
+                                <br>
 								<div class="form-group">
-					      			<label class="control-label col-lg-3">Nombre Empresa</label>
+					      			<label class="control-label col-lg-3">Nombre de empresa  *</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-coffee" data-original-title="" title=""></i>
 					      				<input type="text" maxlength="20" class="form-control" name="i_nombre" ng-value="nombre_empresa" readonly>
@@ -55,7 +59,7 @@
 					    		</div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Imagen de perfil</label>
+                                    <label class="control-label col-lg-3">Imagen de perfil  *</label>
                                     <input type="hidden" name="namefile" id="namefile" ng-model="formData.namefile" ng-update-hidden required>
                                     <div class="col-sm-9 iconic-input right">
                                         <div class="fileinput fileinput-new" data-provides="fileinput">
@@ -74,7 +78,7 @@
                                 </div>
 
 					    		<div class="form-group">
-					      			<label class="control-label col-lg-3">Rif</label>
+					      			<label class="control-label col-lg-3">Rif *</label>
 					      			<div class="col-sm-9 iconic-input right">
 					      				<i class="fa fa-flag" data-original-title="" title=""></i>
 					      				<input type="text" maxlength="10" minlength="10" class="form-control" name="i_rif" value="{{$empresa->rif_empresa}}" readonly>
@@ -82,25 +86,21 @@
 					    		</div>
 
 					    		<div class="form-group">
-                                    <label class="control-label col-lg-3">Descripción</label>
+                                    <label class="control-label col-lg-3">Descripción  *</label>
                                     <div class="col-sm-9 iconic-input right">
                                         <textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Descripción de la Empresa" name="i_descripcion" required>{{$empresa->descripcion_empresa}}</textarea>                                        
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-					      			<label class="control-label col-lg-3">Dirección</label>
+					      			<label class="control-label col-lg-3">Dirección  *</label>
 					      			<div class="col-sm-9 iconic-input right">
                                         <textarea cols=20 rows=3 maxlength="300" class="form-control" placeholder="Direccion de la Empresa" name="i_direccion" required>{{$empresa->direccion_empresa}}</textarea> 
                                     </div>                                    
 					    		</div>
 
-                                
-
-                                    
-
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Categorias</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Categorías  *</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15 selectpicker" data-live-search="true" name="s_categoria">
                                             @foreach($categoria as $key)
@@ -111,7 +111,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local 1</label>
+                                    <label class="control-label col-lg-3">Teléfono local 1</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono" value="{{$empresa->telefono_empresa}}">
@@ -119,7 +119,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local 2</label>
+                                    <label class="control-label col-lg-3">Teléfono local 2</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono2" value="{{$empresa->telefono_2_empresa}}">
@@ -127,7 +127,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono local 3</label>
+                                    <label class="control-label col-lg-3">Teléfono local 3</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_telefono3" value="{{$empresa->telefono_3_empresa}}">
@@ -135,7 +135,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">Telefono movil</label>
+                                    <label class="control-label col-lg-3">Teléfono movil</label>
                                     <div class="col-sm-9 iconic-input right">
                                     	<i class="fa fa-phone" data-original-title="" title=""></i>
                                         <input type="text" data-mask="(9999) 999-99-99" class="form-control" name="i_celular" value="{{$empresa->telefono_movil_empresa}}">
@@ -143,7 +143,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                  	<label for="cemail" class="control-label col-lg-3">Correo Electrónico</label>
+                                  	<label for="cemail" class="control-label col-lg-3">Correo electrónico</label>
                                   	<div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-envelope" data-original-title="" title=""></i>
                                       	<input type="email" class="form-control" name="i_correo" value="{{$empresa->correo_empresa}}">
@@ -151,7 +151,7 @@
                               	</div>
 
                               	<div class="form-group">
-                                    <label for="curl" class="control-label col-lg-3">Sitio Web</label>
+                                    <label for="curl" class="control-label col-lg-3">Sitio web</label>
                                     <div class="col-lg-9 iconic-input right">
                                       	<i class="fa fa-link" data-original-title="" title=""></i>
                                         <input type="url" class="form-control" name="i_sitio_web" value="{{$empresa->url_empresa}}">
@@ -160,7 +160,7 @@
 
                                 <div class="form-group">
                                     <input type="hidden" id="id_estado" name="id_estado">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Estado</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Estado  *</label>
                                     <div class="col-lg-9">
                                         <select class="form-control m-bot15" name="estado" ng-change="estado_ruta(estado)" ng-model="estado" ng-cloak="">
                                             @foreach($estados as $key)
@@ -173,13 +173,9 @@
                                         </select>
                                     </div>
                                 </div>
-                                        
-                                <input class="form-control" ng-value="[[i_latitud]]" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa" required>
-                                
-                                <input class="form-control" ng-value="[[i_longitud]]" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" required>
-		
+
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3" for="inputSuccess">Dirección del Mapa</label>
+                                    <label class="control-label col-lg-3" for="inputSuccess">Privacidad de ubicación  *</label>
                                     <div class="col-lg-9">
                                         <div class="radio-inline">
                                             <input type="radio" name="id_privacidad" id="id_privacidad" value="1" @if($empresa->privacidad_empresa) checked @endif>
@@ -191,7 +187,21 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
+                                <input class="form-control" ng-value="[[i_latitud]]" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa" required>
+                                
+                                <input class="form-control" ng-value="[[i_longitud]]" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa" required>
+        
+                                <div class="form-group">
+                                    <label for="curl" class="control-label col-lg-3"></label>
+                                    <div class="col-lg-9 iconic-input right">
+                                        <div class="panel panel-danger panel-drop ">
+                                            <div class="panel-body">
+                                                Selecione la posición exacta de su empresa arrastrando el marcador del mapa sobre la ubicación.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 						</div>
                  	</section>
               	</div>
@@ -219,7 +229,7 @@
               	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-refresh" type="submit" value="Actualizar Registro"> Actualizar Registro</button>
+            				<button class="btn btn-success btn-lg fa fa-check" type="button" ng-click="checkMe()"> Actualizar Registro</button>
       					</header>
       				</section>
       			</div>
@@ -230,6 +240,7 @@
 		</div>
 	</div>
 
+    @include('modals/validacion_modal')
     @include('modals/upload_imagen_modal')
 
 </div>

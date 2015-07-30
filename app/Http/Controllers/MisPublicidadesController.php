@@ -26,6 +26,7 @@ class MisPublicidadesController extends Controller {
 		return View::make('publicidad/mis_publicidades',compact('publicidad','mensaje'));   
 	}
 
+
 	public function AgregarPublicidad($id_seleccion=0){
 		$id       = session('id');
 		$empresas = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
@@ -35,10 +36,21 @@ class MisPublicidadesController extends Controller {
 		return View::make('publicidad/agregar_publicidad', compact('empresas','id_seleccion'));
 	}
 
+
 	public function AgregarPublicidadExitoso(){
-		
-		$nombreArchivo 						= e(Input::get('namefile'));
+		$nombreArchivo 						= Input::get('namefile');
 		$rutaOrigen    						= "uploads/temp/".$nombreArchivo;
+
+		//VALIDACIONES
+		if (!file_exists($rutaOrigen)){
+			$data 	 		= (object) ["titulo" => "Error (11121)"];
+			$success 		= false;
+			$msj 	 		= "No es posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$json 	 		= array('success'  => $success,
+									  'mensaje' => $msj,
+									  'data' 	=> $data);
+			return json_encode($json);
+		}
 
 		if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
 			$imagen 		= imagecreatefromjpeg($rutaOrigen );			
@@ -74,22 +86,28 @@ class MisPublicidadesController extends Controller {
 		$publicidad->descripcion_publicidad = Input::get("i_descripcion");
 		$publicidad->url_imagen_publicidad  = $nombreArchivo;
 		$publicidad->save();
-
-		if (file_exists($rutaOrigen)){
-			unlink($rutaOrigen);
-		}		
-
-		return View::make('publicidad/agregar_publicidad_exitoso');
+		unlink($rutaOrigen);
+	
+		$data 	 		= "";
+		$success 		= true;
+		$msj 	 		= "Publicidad creada exitosamente.";
+		$json 	 		= array('success'  => $success,
+								  'mensaje' => $msj,
+								  'data' 	=> $data);
+		return json_encode($json);
 	}
+
 
 	public function EditarPublicidad($id_publicidad){
 		return View::make('publicidad/editar_publicidad', compact('id_publicidad'));   
 	}	
 
+
 	public function BorrarPublicidad($id){
 		Empresa::destroy($id);
 		return \Redirect::to('mis-empresas/');
 	}
+
 
 	public function DeshabilitarPublicidad($id){
 

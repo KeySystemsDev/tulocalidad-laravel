@@ -1,7 +1,7 @@
 // Declare use of strict javascript
 'use strict';
 
-app.controller('PublicidadController', function($scope, $log, estados, registro_service) {
+app.controller('PublicidadController', function($scope, $log, estados, registro_service, ajax, $window) {
     $log.log('PublicidadController');
     $scope.formData = {};
     $scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
@@ -107,9 +107,60 @@ app.controller('PublicidadController', function($scope, $log, estados, registro_
                     $scope.snipper = false;
                     $scope.disable = false;
                     $scope.formData.namefile = data.name;
+                }else{
+                    $scope.titulo = "Error (5001)";
+                    $scope.mensaje = "Disculpe, intente seleccionar su imagen nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-publicidades/agregar";
+                    }                    
+                    angular.element("#validacion_modal").modal("show");
+                }
+            },
+            //error (400,500)
+            function(data) {
+                $scope.invalidrif = true;
+                $scope.titulo = "Error (7781)";
+                $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                $scope.redirecto = function() {
+                    $window.location.href = "/mis-publicidades/agregar";
                 };
-            }
-        );
+                angular.element("#validacion_modal").modal("show");
+            });
         angular.element("#myModal").modal("hide");
     };
+
+
+    $scope.checkMe = function(){
+        var data = {};
+        // TRANSFORMANDO UN FORM A UN JSON
+        angular.element('#formulario').serializeArray().map(function(x){data[x.name] = x.value;});
+        ajax.Post("/mis-publicidades/agregar-exitoso", data ).$promise.then(
+            function(data) {
+                $scope.titulo = "Registro de empresa"
+                if (data.success){
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        $window.location.href = "/mis-publicidades/"; 
+                    }                
+                }else{
+                    $scope.titulo       = data.data.titulo;
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        //$route.reload();
+                        $window.location.href = "/mis-publicidades/agregar-publicidad"; 
+                    }
+                }
+                angular.element("#validacion_modal").modal("show");
+            },
+            //error (400,500)
+            function(data) {
+                    $scope.titulo = "Error (7779)";
+                    $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-publicidades/agregar-publicidad"; 
+                    } 
+                    angular.element("#validacion_modal").modal("show");
+            });
+        }
+
 });

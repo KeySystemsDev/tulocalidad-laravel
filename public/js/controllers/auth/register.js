@@ -63,15 +63,12 @@ app.controller('RegisterUsuarioController', function($scope, $log, ajax, $window
                 $scope.redirecto = function() {
                     $window.location.href= "/auth/login"; 
                 }                
-            	angular.element("#validacion_modal").modal("show");
-                
             }else{
             	$scope.mensaje = data.mensaje;
                 $scope.redirecto = function() {
-                    $window.location.href= "#"; 
                 }
-            	angular.element("#validacion_modal").modal("show");
             }
+            angular.element("#validacion_modal").modal("show");
 	    });
 	}
 });

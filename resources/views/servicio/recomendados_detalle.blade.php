@@ -48,12 +48,13 @@
                 </div>
 
           
-            
+                <!--
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="panel panel-default">
                         <p>Publicidades relacionadas</p>
                     </div>
                 </div>
+                -->
                 
             
             </div>

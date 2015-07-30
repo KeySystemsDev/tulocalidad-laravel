@@ -476,7 +476,7 @@ figure.effect-zoe p.icon-links a {
     margin-top: 3px;
 }
 .item-perfil{
-    border: 1px solid #e1e8ed;
+    border: 1px solid #e1e8ed; 
 }
 .username{
     font-size: 15px;
@@ -494,7 +494,9 @@ figure.effect-zoe p.icon-links a {
     border-left: 4px solid #721520;
     text-align: justify;
 }
-
+.img-logo-nav-top img{
+    display: inline-block;
+}
 
 @media all and (max-width: 550px)  {
     #store-list img {

@@ -1,3 +1,6 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 #map_canvas {
     height: 400px;
@@ -491,8 +494,6 @@ figure.effect-zoe p.icon-links a {
     border-left: 4px solid #721520;
     text-align: justify;
 }
-
-
 
 
 @media all and (max-width: 550px)  {

@@ -45,7 +45,7 @@
                 </div>
 
           
-            
+                <!--
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -68,6 +68,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 
             
             </div>

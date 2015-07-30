@@ -106,7 +106,7 @@ a:hover{
 ========================================*/
 
 .header-top .navbar{
-	background-color: #721520;
+	background-image: url(../../img/nav-top.png);
 	border-bottom: 2px solid rgba(0,0,0,.4);
   	opacity: 0.9;
 }

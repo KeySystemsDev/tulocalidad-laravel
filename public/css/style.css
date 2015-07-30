@@ -426,5 +426,29 @@ figure.effect-zoe p.icon-links a {
     font-size: 1.4em;
     padding-right: 15px;
 }
-
-
+.grid figure {
+    background: transparent;
+}
+.box-detalle-publicidad{
+    margin: 30px;
+}
+.img-detalle-publicidad{
+    width: 100%;
+    border: 5px solid #ecf0f1;
+}
+.btn.btn-facebook {
+  border-color: #3B5998;
+  background-color: #3B5998;
+  border: 1px solid #3B5998;
+}
+.btn-facebook:hover {
+  background-color: #4666AA;
+}
+.btn.btn-twitter {
+  border-color: #55acee;
+  background-color: #55acee;
+  border: 1px solid #55acee;
+}
+.btn-twitter:hover {
+  background-color: #64B6F4;
+}

@@ -483,3 +483,7 @@ figure.effect-zoe p.icon-links a {
     background-color: rgba(0,0,0,.4);
     border-radius: 2px;
 }
+.blockquote-tulocalidad{
+    border-left: 4px solid #721520;
+    text-align: justify;
+}

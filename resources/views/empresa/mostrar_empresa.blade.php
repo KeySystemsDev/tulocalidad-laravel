@@ -28,6 +28,12 @@
 			                    </section>
 			                </div>
                         </header>
+
+                        <div class="col-lg-12">                            
+                            <header class="panel-heading center">
+                                <a href="/mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop btn-normal" data-original-title="" title=""> Agregar Empresa</button></a>
+                            </header>                            
+                        </div>
                         @if(count($consulta)>0)                            
                             <article class="panel-body">
                                 <div class="timeline">
@@ -82,14 +88,6 @@
                                 </div>
                             </div>                 
                         @endif
-                    </section>
-                </div>
-
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading center">
-                            <a href="/mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar empresa</button></a>
-                        </header>
                     </section>
                 </div>
                 

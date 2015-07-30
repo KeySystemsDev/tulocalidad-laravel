@@ -19,22 +19,24 @@
         <!-- start:store list -->
         <div class="row" id="store-list">
             @foreach($empresas as $empresa)
-            <div class="col-lg-3">
+            <div class="col-lg-6">  
                 <div class="panel">
                     <div class="panel-body">
-                        <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_mid/'.$empresa->icon_empresa) }}" class="img-responsive"></a>
-                        <div class="title-realestates-columns">
-                            <h5><a href="#"><strong>{{ ucfirst(substr($empresa->nombre_empresa, 0,28)) }}..</strong></a></h5>
-                            <small class="label label-warning">Rif: {{$empresa->rif_empresa}}</small>
-                            <hr>
-                            <p>{{$empresa->descripcion_empresa}}</p>
-                        </div>
-                        <div class="footer-realestates-columns">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-primary btn-block" data-original-title="" title="">Ver Empresa</a>
-                                </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_mid/'.$empresa->icon_empresa) }}" class="img-responsive"></a>
+                                <!--<a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>-->
                             </div>
+                            <div class="col-sm-7">
+                                <h4 class="title-store">
+                                    <strong><a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}">{{ ucfirst(substr($empresa->nombre_empresa, 0,28)) }}</a></strong>
+                                </h4>
+                                <hr>
+                                <p>{{ ucfirst(substr($empresa->descripcion_empresa, 0,200)) }}..</p>
+                            </div>
+                            <p>
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-primary btn-sm button-ver-detalle" data-original-title="" title="">Ver Empresa <i class="fa fa-chevron-right"></i></a>
+                            </p>
                         </div>
                     </div>
                 </div>

@@ -14,43 +14,42 @@
 /*=======================================
 =            Auth Controller            =
 =======================================*/
-Route::get('home', 'HomeController@index');
-Route::any('upload/img', 'ImgController@create' );
-Route::any('theme', 'WelcomeController@theme');
-Route::any('auth/cerrar', 'Auth\AuthController@CerrarSesion');
-Route::any('auth/cambiar-password', 'Auth\AuthController@CambiarPassword');
-Route::post('auth/post-cambiar-password', 'Auth\AuthController@PostCambiarPassword');
-Route::any('auth/activacion/{id_usuario}', 'Auth\AuthController@HabilitarUsuario');
-
-
-Route::any('verificacion/rif', 'ServicioController@VerificarRif');
+Route::get('home', 							'HomeController@index');
+Route::any('theme', 						'WelcomeController@theme');
+Route::any('auth/activacion/{id_usuario}',  'Auth\AuthController@HabilitarUsuario');
+Route::any('verificacion/rif',				'ServicioController@VerificarRif');
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+	'auth' 		=> 'Auth\AuthController',
+	'password'  => 'Auth\PasswordController',
 ]);
 
 $router->group(['middleware' => 'auth'], function() {
 
+	Route::any('upload/img',				 	'ImgController@create');
+	Route::any('perfil/cambiar-password',		'UsuarioController@CambiarPassword');
+	Route::post('perfil/post-cambiar-password', 'UsuarioController@PostCambiarPassword');
+	Route::any('perfil/cerrar',					'UsuarioController@CerrarSesion');
+
 	/* MisEmpresas Controller*/
 
-	Route::any('mis-empresas/','MisEmpresasController@Index');
-	Route::any('mis-empresas/publicaciones/{id_empresa}','MisEmpresasController@PublicacionEmpresa');
-	Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
-	Route::any('mis-empresas/editar/{id_empresa?}', 'MisEmpresasController@Editar');
-	Route::any('mis-empresas/deshabilitar/{id_empresa?}', 'MisEmpresasController@DeshabilitarEmpresa');
-	Route::post('mis-empresas/editar-exitoso', 'MisEmpresasController@Editar_Exitoso');
-	Route::post('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
-	Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
-	Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
+	Route::any('mis-empresas/',							   'MisEmpresasController@Index');
+	Route::any('mis-empresas/publicaciones/{id_empresa}',  'MisEmpresasController@PublicacionEmpresa');
+	Route::any('mis-empresas/agregar', 					   'MisEmpresasController@Agregar');
+	Route::any('mis-empresas/editar/{id_empresa?}', 	   'MisEmpresasController@Editar');
+	Route::any('mis-empresas/deshabilitar/{id_empresa?}',  'MisEmpresasController@DeshabilitarEmpresa');
+	Route::post('mis-empresas/editar-exitoso', 			   'MisEmpresasController@Editar_Exitoso');
+	Route::post('mis-empresas/agregar-exitoso', 		   'MisEmpresasController@Agregar_Exitoso');
+	Route::any('mis-empresas/agregar-sucursal/{id}', 	   'MisEmpresasController@Agregar_sucursal');
+	Route::any('mis-empresas/agregar-sucursal-exitoso',    'MisEmpresasController@Agregar_sucursal_Exitoso');
 
 	/* MisPublicidades Contoller */	
 
-	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
-	Route::any('mis-publicidades/agregar-publicidad/{id}','MisPublicidadesController@AgregarPublicidad');
-	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
-	Route::post('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
+	Route::any('mis-publicidades/', 								'MisPublicidadesController@Index');
+	Route::any('mis-publicidades/agregar-publicidad/{id}',			'MisPublicidadesController@AgregarPublicidad');
+	Route::any('mis-publicidades/agregar-publicidad',				'MisPublicidadesController@AgregarPublicidad');
+	Route::post('mis-publicidades/agregar-exitoso',					'MisPublicidadesController@AgregarPublicidadExitoso');
 	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
-	Route::any('mis-publicidades/deshabilitar/{id_publicidad?}', 'MisPublicidadesController@DeshabilitarPublicidad');
+	Route::any('mis-publicidades/deshabilitar/{id_publicidad?}', 	'MisPublicidadesController@DeshabilitarPublicidad');
 	
 });
 

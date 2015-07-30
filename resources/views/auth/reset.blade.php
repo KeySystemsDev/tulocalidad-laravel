@@ -19,7 +19,7 @@
                             <div class="panel-body">
                                 <div class="text-center" id="author">
                                     <img class="img-perfil" src="{{asset('img/usuario.png')}}">
-                                    <h3>{{\Session::get('usuario')}}</h3>
+                                    <p>{{\Session::get('usuario')}}</p>
                                 </div>
                             </div>
                         </div>

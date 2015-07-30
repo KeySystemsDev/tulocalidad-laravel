@@ -41,11 +41,13 @@ class MisPublicidadesController extends Controller {
 		$nombreArchivo 						= Input::get('namefile');
 		$rutaOrigen    						= "uploads/temp/".$nombreArchivo;
 
-		//VALIDACIONES
+		/*
+		* 	Validaciones
+		*/
 		if (!file_exists($rutaOrigen)){
 			$data 	 		= (object) ["titulo" => "Error (11121)"];
 			$success 		= false;
-			$msj 	 		= "No es posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$msj 	 		= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
 			$json 	 		= array('success'  => $success,
 									  'mensaje' => $msj,
 									  'data' 	=> $data);
@@ -90,8 +92,8 @@ class MisPublicidadesController extends Controller {
 	
 		$data 	 		= "";
 		$success 		= true;
-		$msj 	 		= "Publicidad creada exitosamente.";
-		$json 	 		= array('success'  => $success,
+		$msj 	 		= "Su publicidad ha sido creada exitosamente.";
+		$json 	 		= array('success'   => $success,
 								  'mensaje' => $msj,
 								  'data' 	=> $data);
 		return json_encode($json);

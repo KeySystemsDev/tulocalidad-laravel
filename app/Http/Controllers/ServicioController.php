@@ -42,8 +42,8 @@ class ServicioController extends Controller {
 			return view('servicio/sin_resultado');
 		}
 		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
-								->where('id_categoria','=',$categoria->id_categoria)
-								->get();
+							 ->where('id_categoria','=',$categoria->id_categoria)
+							 ->get();
 		if( !$empresas or count($empresas)==0 ){
 			return view('servicio/sin_resultado');
 		}
@@ -81,7 +81,7 @@ class ServicioController extends Controller {
 		$repetidos 	= Empresa::where('rif_empresa', '=', \Input::get('rif'))->first(); 
 		if ($repetidos){
 			$success = false; 
-			$mensaje = "Rif ya registrado, introduzca otro.";
+			$mensaje = "El Rif ya ha sido registrado, introduzca otro.";
 		}
 
 		$json = array('success' => $success,

@@ -408,6 +408,10 @@ ul#strength {
 .button-eliminar-publicidad{
     float: right;
 }
+.button-ver-detalle{
+    float: right;
+    margin-right: 10px;
+}
 .button-vinotinto{
     border-color: #832c2c;
     background-color: #832c2c;
@@ -470,4 +474,32 @@ figure.effect-zoe p.icon-links a {
 }
 .item-perfil{
     border: 1px solid #e1e8ed;
+}
+.username{
+    font-size: 15px;
+}
+.nav-button-icon{
+    margin-top: 6px;
+    width: 25px;
+    height: 30px;
+}
+.nav-button-item:hover{
+    background-color: rgba(0,0,0,.4);
+    border-radius: 2px;
+}
+.blockquote-tulocalidad{
+    border-left: 4px solid #721520;
+    text-align: justify;
+}
+
+
+
+
+@media all and (max-width: 550px)  {
+    #store-list img {
+      width: 100%;
+      height: 280px;
+      border: 5px solid #ecf0f1;
+      margin-bottom: 7px;
+    }
 }

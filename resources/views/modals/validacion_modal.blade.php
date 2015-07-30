@@ -7,10 +7,15 @@
                 </button>
                 <h4 class="modal-title">[[titulo]]</h4>
             </div>
-            <div class="modal-body">
-                <div class="col-xs-12">[[mensaje]]</div>
+            <div class="row">
+                <div class="modal-body">
+                    <div class="col-xs-12">
+                        <blockquote class="blockquote-tulocalidad">
+                            <p class="username">[[mensaje]]</p>
+                        </blockquote>
+                    </div>
+                </div>
             </div>
-            <br>
             <div class="modal-footer">
                 <div class="row">
                     <div class="col-xs-4 col-xs-offset-4">

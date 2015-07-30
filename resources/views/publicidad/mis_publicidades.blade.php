@@ -30,6 +30,13 @@
                                 </section>
                             </div>
                         </header>
+
+                        <div class="col-lg-12">
+                            <header class="panel-heading center">
+                                <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop btn-normal" data-original-title="" title=""> Agregar Publicidad</button></a>
+                            </header>
+                        </div>
+
                         @if(count($publicidad)>0)                            
                             <div class="panel-body">
                                 <div class="timeline">
@@ -86,13 +93,7 @@
                     </section>
                 </div>
 
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading center">
-                            <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar publicidad</button></a>
-                        </header>
-                    </section>
-                </div>
+                
             </div>
         </div>
         @include('modals/confirmacion')

@@ -49,8 +49,8 @@
                         <!--<li><a href="#"><i class=" fa fa-suitcase" data-original-title="" title=""></i>Profile</a></li>
                         <li><a href="#"><i class="fa fa-cog" data-original-title="" title=""></i> Settings</a></li>
                         <li><a href="#"><i class="fa fa-bell-o" data-original-title="" title=""></i> Notification</a></li>-->                        
-                        <li><a href="{{ url ('auth/cambiar-password') }}"><i class="fa fa-key" data-original-title="" title=""></i> Cambiar contraseña</a></li>
-                        <li><a href="{{ url ('auth/cerrar') }}"><i class="fa fa-sign-in" data-original-title="" title=""></i> Cerrar sesión</a></li>
+                        <li><a href="{{ url ('perfil/cambiar-password') }}"><i class="fa fa-key" data-original-title="" title=""></i> Cambiar contraseña</a></li>
+                        <li><a href="{{ url ('perfil/cerrar') }}"><i class="fa fa-sign-in" data-original-title="" title=""></i> Cerrar sesión</a></li>
                     </ul>
                 </li>
             </ul>

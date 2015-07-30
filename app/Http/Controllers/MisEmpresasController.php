@@ -75,7 +75,9 @@ class MisEmpresasController extends Controller {
 			$old_image 			= $consulta->icon_empresa;
 			$rutaOrigen 		= "uploads/temp/".$nombreArchivo;
 
-			//VALIDACIONES
+			/*
+			* 	Validaciones
+			*/
 			if (!file_exists($rutaOrigen)){
 				$data 	 		= (object) ["titulo" => "Error (11112)"];
 				$success 		= false;
@@ -115,7 +117,9 @@ class MisEmpresasController extends Controller {
 
 
 
-			//VALIDACIONES
+			/*
+			* 	Validaciones
+			*/
 			if (file_exists($ruta_imagen_full.$old_image)) {
 			    unlink($ruta_imagen_full.$old_image);
 			}else{
@@ -163,7 +167,9 @@ class MisEmpresasController extends Controller {
 
 			$consulta->icon_empresa  = $nombreArchivo;
 			$consulta->save();
-			//BORRAMOS LA IMAGEN LUEGO DE GUARDAR LA CONSULTA
+			/*
+			* 	Se borra la imagen luego de guardar la consulta.
+			*/
 			unlink($rutaOrigen);
 			
 		}
@@ -263,7 +269,7 @@ class MisEmpresasController extends Controller {
 		}else{
 			$data 	 		= (object) ["titulo" => "Error (11111)"];
 			$success 		= false;
-			$msj 	 		= "No es posible registrar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$msj 	 		= "No se pudo registrar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
 			$json 	 		= array('success'  => $success,
 									  'mensaje' => $msj,
 									  'data' 	=> $data);
@@ -273,7 +279,7 @@ class MisEmpresasController extends Controller {
 		$empresa->save();
 
 		$success = true;
-		$msj 	 = "Empresa creada exitosamente. Ahora puede asignarle una publicidad a su empresa.";
+		$msj 	 = "Su empresa ha sido creada exitosamente. Ahora puede asignarle una publicidad a su empresa.";
 		$data 	 = "";
 		$json 	 = array('success'  => $success,
 						  'mensaje' => $msj,

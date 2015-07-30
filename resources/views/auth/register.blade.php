@@ -45,7 +45,7 @@
 								<input type="password" class="form-control" name="password" ng-model="pw" ng-blur="validar_pass1()"
 										name="pw" id="pw" ng-class="{'error':error_pass1 && submit_pass1}" required >
 								<div class="col-lg-10" ng-show="error_pass1 && submit_pass1" ng-cloak>
-		        					<p class="help-block text-blanco" ng-cloak>[[msj_error_pass1]]</p>
+		        					<p class="help-block" ng-cloak>[[msj_error_pass1]]</p>
 		      					</div>	
 							</div>
 						</div>
@@ -57,7 +57,7 @@
 										 name="pw2" id="pw2" ng-class="{'error':error_pass2 && submit_pass2}" required>
 								<ul id="strength" check-strength="pw"></ul>
 								<div class="col-lg-10" ng-show="error_pass2 && submit_pass2" ng-cloak>
-		        					<p class="help-block text-blanco" ng-cloak>[[msj_error_pass2]]</p>
+		        					<p class="help-block" ng-cloak>[[msj_error_pass2]]</p>
 		      					</div>	
 							</div>						
 						</div>

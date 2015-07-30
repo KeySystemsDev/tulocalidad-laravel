@@ -22,7 +22,7 @@
                     <div class="panel">
                         <div class="panel-body">
                         	<div class="box-detalle-publicidad">
-                            	<img class="img-detalle-publicidad" src="{{ url('/uploads/publicidades_high/'.$publicidad->url_imagen_publicidad)}}">
+                            	<img class="img-detalle-publicidad" src="{{ url('/uploads/publicidades_full/'.$publicidad->url_imagen_publicidad)}}">
                         		<br>
                         		<h3>{{$publicidad->descripcion_publicidad}}</h3>
                         		<br>

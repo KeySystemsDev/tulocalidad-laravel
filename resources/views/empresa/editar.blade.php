@@ -42,7 +42,7 @@
                     <section class="panel">                         
                         <div class="panel-body">
 
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" action="../editar-exitoso" method="post" name="formulario" id="formulario">
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" method="post" name="formulario" id="formulario">
 		
 								<input type="hidden" id="id_empresa" name="id_empresa" value="{{$empresa->id_empresa}}">
 								
@@ -219,7 +219,7 @@
               	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-refresh" type="submit" value="Actualizar Registro"> Actualizar Registro</button>
+            				<button class="btn btn-success btn-lg fa fa-refresh" type="button" ng-click="checkMe()"> Actualizar Registro</button>
       					</header>
       				</section>
       			</div>
@@ -230,6 +230,7 @@
 		</div>
 	</div>
 
+    @include('modals/validacion_modal')
     @include('modals/upload_imagen_modal')
 
 </div>

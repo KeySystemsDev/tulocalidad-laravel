@@ -1,7 +1,7 @@
 // Declare use of strict javascript
 'use strict';
 
-app.controller('EditarEmpresaController', function($scope, $log, estados, registro_service) {
+app.controller('EditarEmpresaController', function($scope, $log, estados, registro_service, ajax, $window) {
     $log.log('EditarEmpresaController');
 
     $scope.estados = estados.get();
@@ -115,9 +115,58 @@ app.controller('EditarEmpresaController', function($scope, $log, estados, regist
                     $scope.snipper = false;
                     $scope.disable = false;
                     $scope.formData.namefile = data.name;
+                }else{
+                    $scope.titulo = "Error (5001)";
+                    $scope.mensaje = "Disculpe, intente seleccionar su imagen nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-empresas/editar";
+                    }                    
+                    angular.element("#validacion_modal").modal("show");
+                }
+            },
+            //error (400,500)
+            function(data) {
+                $scope.titulo = "Error (7780)";
+                $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                $scope.redirecto = function() {
+                    $window.location.href = "/mis-empresas/editar";
                 };
-            }
-        );
+                angular.element("#validacion_modal").modal("show");
+            });
         angular.element("#myModal").modal("hide");
     };
+
+    $scope.checkMe = function(){
+        var data = {};
+        // TRANSFORMANDO UN FORM A UN JSON
+        angular.element('#formulario').serializeArray().map(function(x){data[x.name] = x.value;});
+        ajax.Post("/mis-empresas/editar-exitoso", data ).$promise.then(
+            function(data) {
+                $scope.titulo = "Actualizar datos de empresa"
+                if (data.success){
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        $window.location.href = "/mis-empresas/"; 
+                    }                
+                }else{
+                    $scope.titulo       = data.data.titulo;
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        //$route.reload();
+                        $window.location.href = "/mis-empresas/editar"; 
+                    }
+                }
+                angular.element("#validacion_modal").modal("show");
+            },
+            //error (400,500)
+            function(data) {
+                    $scope.titulo = "Error (7776)";
+                    $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-empresas/editar"; 
+                    } 
+                    angular.element("#validacion_modal").modal("show");
+            });
+        }
+
 });

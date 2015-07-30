@@ -38,8 +38,8 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::any('mis-empresas/agregar', 'MisEmpresasController@Agregar');
 	Route::any('mis-empresas/editar/{id_empresa?}', 'MisEmpresasController@Editar');
 	Route::any('mis-empresas/deshabilitar/{id_empresa?}', 'MisEmpresasController@DeshabilitarEmpresa');
-	Route::any('mis-empresas/editar-exitoso', 'MisEmpresasController@Editar_Exitoso');
-	Route::any('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
+	Route::post('mis-empresas/editar-exitoso', 'MisEmpresasController@Editar_Exitoso');
+	Route::post('mis-empresas/agregar-exitoso', 'MisEmpresasController@Agregar_Exitoso');
 	Route::any('mis-empresas/agregar-sucursal/{id}', 'MisEmpresasController@Agregar_sucursal');
 	Route::any('mis-empresas/agregar-sucursal-exitoso', 'MisEmpresasController@Agregar_sucursal_Exitoso');
 
@@ -48,7 +48,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::any('mis-publicidades/', 'MisPublicidadesController@Index');
 	Route::any('mis-publicidades/agregar-publicidad/{id}','MisPublicidadesController@AgregarPublicidad');
 	Route::any('mis-publicidades/agregar-publicidad','MisPublicidadesController@AgregarPublicidad');
-	Route::any('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
+	Route::post('mis-publicidades/agregar-exitoso','MisPublicidadesController@AgregarPublicidadExitoso');
 	Route::any('mis-publicidades/editar-publicidad/{id_publicidad}','MisPublicidadesController@EditarPublicidad');
 	Route::any('mis-publicidades/deshabilitar/{id_publicidad?}', 'MisPublicidadesController@DeshabilitarPublicidad');
 	

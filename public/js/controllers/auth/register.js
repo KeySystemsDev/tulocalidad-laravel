@@ -56,19 +56,29 @@ app.controller('RegisterUsuarioController', function($scope, $log, ajax, $window
     	var data = {};
     	// TRANSFORMANDO UN FORM A UN JSON
     	angular.element('#form').serializeArray().map(function(x){data[x.name] = x.value;});
-	    ajax.Post("/auth/register", data ).$promise.then(function(data) {
-	    	$scope.titulo = "Registro"
-            if (data.success){
-            	$scope.mensaje 		= data.mensaje;
-                $scope.redirecto = function() {
-                    $window.location.href= "/auth/login"; 
-                }                
-            }else{
-            	$scope.mensaje = data.mensaje;
-                $scope.redirecto = function() {
+	    ajax.Post("/auth/register", data ).$promise.then(
+            function(data) {
+    	    	$scope.titulo = "Registro de usuario"
+                if (data.success){
+                	$scope.mensaje 		= data.mensaje;
+                    $scope.redirecto = function() {
+                        $window.location.href= "/auth/login"; 
+                    }                
+                }else{
+                	$scope.mensaje = data.mensaje;
+                    $scope.redirecto = function() {
+                    }
                 }
-            }
-            angular.element("#validacion_modal").modal("show");
-	    });
+                angular.element("#validacion_modal").modal("show");
+    	    },
+            //error (400,500)
+            function(data) {
+                $scope.titulo = "Error (7772)";
+                $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                $scope.redirecto = function() {
+                    $window.location.href = "/auth/register"; 
+                } 
+                angular.element("#validacion_modal").modal("show");
+            });
 	}
 });

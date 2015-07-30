@@ -34,7 +34,7 @@
 						<section class="panel">
 							<div class="panel-body">
 
-								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="publicidad" action="/mis-publicidades/agregar-exitoso" method="post" name="publicidad" enctype="multipart/form-data">
+								<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" id="formulario" method="post" name="publicidad" enctype="multipart/form-data">
 
 									<input type="hidden" name="id_empresa"><br>
 
@@ -95,7 +95,7 @@
 					<div class="col-lg-12">
 						<section class="panel">
 							<header class="panel-heading center">
-								<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Agregar" ng-disabled="publicidad.$invalid"> Agregar</button>
+								<button class="btn btn-success btn-lg fa fa-check" type="button" ng-click="checkMe()" ng-disabled="publicidad.$invalid"> Agregar</button>
 							</header>
 						</section>
 					</div>
@@ -104,7 +104,7 @@
 				</div>
 			</div>
 		</div>
-
+		@include('modals/validacion_modal')
 		@include('modals/upload_imagen_modal')
 	</div>
 

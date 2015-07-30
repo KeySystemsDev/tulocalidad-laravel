@@ -71,10 +71,20 @@ class MisEmpresasController extends Controller {
 		$nombreArchivo = Input::get('namefile');
 
 		if ($nombreArchivo){
-			$consulta 				= $empresa->first();
-			$old_image 				= $consulta->icon_empresa;
+			$consulta 			= $empresa->first();
+			$old_image 			= $consulta->icon_empresa;
+			$rutaOrigen 		= "uploads/temp/".$nombreArchivo;
 
-			$rutaOrigen 			= "uploads/temp/".$nombreArchivo;
+			//VALIDACIONES
+			if (!file_exists($rutaOrigen)){
+				$data 	 		= (object) ["titulo" => "Error (11112)"];
+				$success 		= false;
+				$msj 	 		= "No es posible editar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+				$json 	 		= array('success'  => $success,
+										  'mensaje' => $msj,
+										  'data' 	=> $data);
+				return json_encode($json);
+			}
 
 			if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
 				$imagen 		= imagecreatefromjpeg($rutaOrigen );			
@@ -103,31 +113,67 @@ class MisEmpresasController extends Controller {
 			imagejpeg( $lienzo_mid,  $ruta_imagen_mid.$nombreArchivo  , 90 );
 			imagejpeg( $lienzo_low,  $ruta_imagen_low.$nombreArchivo  , 90 );
 
-			$consulta->icon_empresa  = $nombreArchivo;
-			$consulta->save();
 
-			if (file_exists($rutaOrigen)){
-				unlink($rutaOrigen);
-			}
 
+			//VALIDACIONES
 			if (file_exists($ruta_imagen_full.$old_image)) {
 			    unlink($ruta_imagen_full.$old_image);
+			}else{
+				$data 	 		= (object) ["titulo" => "Error (11113)"];
+				$success 		= false;
+				$msj 	 		= "No es posible editar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+				$json 	 		= array('success'  => $success,
+										  'mensaje' => $msj,
+										  'data' 	=> $data);
+				return json_encode($json);
 			};
 			if (file_exists($ruta_imagen_high.$old_image)) {
 			    unlink($ruta_imagen_high.$old_image);
+			}else{
+				$data 	 		= (object) ["titulo" => "Error (11114)"];
+				$success 		= false;
+				$msj 	 		= "No es posible editar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+				$json 	 		= array('success'  => $success,
+										  'mensaje' => $msj,
+										  'data' 	=> $data);
+				return json_encode($json);			    
 			};
 			if (file_exists($ruta_imagen_mid.$old_image)) {
 			    unlink($ruta_imagen_mid.$old_image);
+			}else{
+				$data 	 		= (object) ["titulo" => "Error (11115)"];
+				$success 		= false;
+				$msj 	 		= "No es posible editar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+				$json 	 		= array('success'  => $success,
+										  'mensaje' => $msj,
+										  'data' 	=> $data);
+				return json_encode($json);			    
 			};
 			if (file_exists($ruta_imagen_low.$old_image)) {
 			    unlink($ruta_imagen_low.$old_image);
+			}else{
+				$data 	 		= (object) ["titulo" => "Error (11116)"];
+				$success 		= false;
+				$msj 	 		= "No es posible editar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+				$json 	 		= array('success'  => $success,
+										  'mensaje' => $msj,
+										  'data' 	=> $data);
+				return json_encode($json);			    
 			};
+
+			$consulta->icon_empresa  = $nombreArchivo;
+			$consulta->save();
+			//BORRAMOS LA IMAGEN LUEGO DE GUARDAR LA CONSULTA
+			unlink($rutaOrigen);
+			
 		}
 		$estado = explode(" + ",Input::get('estado'));
 		$empresa->update(
 			array(
+				'nombre_empresa'                => (Input::get('i_nombre')),
+				'rif_empresa'                   => (Input::get('i_rif')),
 				'direccion_empresa'             => (Input::get('i_direccion')),
-				'id_categoria'                  => (Input::get('i_categoria')),
+				'id_categoria'                  => (Input::get('s_categoria')),
 				'correo_empresa'                => (Input::get('i_correo')),
 				'id_estado'                     => (int) $estado[0],
 				'url_empresa'                   => (Input::get('i_sitio_web')),
@@ -141,7 +187,15 @@ class MisEmpresasController extends Controller {
 				'privacidad_empresa'		 	=> (Input::get('id_privacidad')),
 			)
 		);
-	 	return View::make('empresa/actualizado');
+
+		$success 	= true;
+		$msj 	 	= "Empresa actualizada exitosamente.";
+		$data 		= "";
+		$json 	 	= array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data);
+		return json_encode($json);		
+	 	
 
 	}
 
@@ -183,9 +237,6 @@ class MisEmpresasController extends Controller {
 		imagejpeg( $lienzo_mid,  $ruta_imagen_mid  , 90 );
 		imagejpeg( $lienzo_low,  $ruta_imagen_low  , 90 );
 
-		if (file_exists($rutaOrigen)){
-			unlink($rutaOrigen);
-		}
 
 		$id                                     = session('id');
 		$empresa                                = new Empresa;
@@ -206,9 +257,28 @@ class MisEmpresasController extends Controller {
 		$empresa->privacidad_empresa 	        = e(Input::get('id_privacidad'));
 		$empresa->id_usuario                    = $id;
 		$empresa->icon_empresa                  = $nombreArchivo;
+
+		if (file_exists($rutaOrigen)){
+			unlink($rutaOrigen);
+		}else{
+			$data 	 		= (object) ["titulo" => "Error (11111)"];
+			$success 		= false;
+			$msj 	 		= "No es posible registrar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$json 	 		= array('success'  => $success,
+									  'mensaje' => $msj,
+									  'data' 	=> $data);
+			return json_encode($json);
+		}
+
 		$empresa->save();
 
-		return View::make('empresa/creado');
+		$success = true;
+		$msj 	 = "Empresa creada exitosamente. Ahora puede asignarle una publicidad a su empresa.";
+		$data 	 = "";
+		$json 	 = array('success'  => $success,
+						  'mensaje' => $msj,
+						  'data' 	=> $data);
+		return json_encode($json);
 	}
 
 	/**

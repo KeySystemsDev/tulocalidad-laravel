@@ -33,7 +33,7 @@
                 <div class="col-lg-12">
                     <section class="panel">                         
                         <div class="panel-body">
-							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" name="formulario" id="formulario" action="agregar-exitoso" method ="post">
+							<form class="form-horizontal tasi-form col-lg-8 col-md-push-2" role="form" name="formulario" id="formulario" method ="post">
 
 								<div class="form-group">
 					      			<label class="control-label col-lg-3">Nombre Empresa</label>
@@ -229,7 +229,7 @@
             	<div class="col-lg-12">
                 	<section class="panel">
                 		<header class="panel-heading center">
-            				<button class="btn btn-success btn-lg fa fa-check" type="submit" value="Registrar" ng-disabled="formulario.$invalid || invalidrif">Registrar</button>
+            				<button class="btn btn-success btn-lg fa fa-check" ng-click="checkMe()" ng-disabled="formulario.$invalid || invalidrif">Registrar</button>
       					</header>
       				</section>
       			</div>    
@@ -241,7 +241,6 @@
 
 		</div>
 	</div>
-
 
 	@include('modals/upload_imagen_modal')
 	@include('modals/validacion_modal')

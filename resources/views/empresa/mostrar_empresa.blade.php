@@ -59,8 +59,8 @@
                                                                 <p>{{$value->descripcion_empresa}}</p>
                                                                 <br>
                                                                 <p>
-                                                                    <a href="{{ url ('mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-sm"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a>
-                                                                    <a href="mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-sm" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a>
+                                                                    <a href="{{ url ('/mis-publicidades/agregar-publicidad/'.$value->id_empresa) }}"><button class="btn btn-success btn-sm"><i class="fa fa-bullhorn" data-original-title="" title=""></i> Agregar Publicidad</button></a>
+                                                                    <a href="/mis-empresas/editar/{{$value->id_empresa}}"><button class="btn btn-primary btn-sm" data-original-title="" title=""><i class="fa fa-pencil" data-original-title="" title=""></i> Editar</button></a>
                                                                     <button type="button" class="btn btn-danger btn-circle btn-sm" data-original-title="" title="" ng-click="deshabilitar({{$value->id_empresa}})"><i class="fa fa-trash" data-original-title="" title=""></i></button>
                                                                 </p>
                                                             </div>
@@ -88,7 +88,7 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading center">
-                            <a href="mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar empresa</button></a>
+                            <a href="/mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop fa fa-plus-square-o" data-original-title="" title=""> Agregar empresa</button></a>
                         </header>
                     </section>
                 </div>

@@ -1,7 +1,7 @@
 // Declare use of strict javascript
 'use strict';
 
-app.controller('EmpresaRegistroController', function($scope, $log, estados, registro_service, ajax, $timeout) {
+app.controller('EmpresaRegistroController', function($scope, $log, estados, registro_service, ajax, $timeout, $window) {
     $log.log('EmpresaRegistroController');
     $scope.formData = {};
     $scope.map = {center: {latitude: 10.4713637669733, longitude: -66.807892578125 }, zoom: 9 };
@@ -37,7 +37,6 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
     };
 
     $scope.estados = estados.get();
-    console.log($scope.estados);
 
     $scope.estado_ruta = function(estado) {
         $scope.array = estado.split('+');
@@ -47,7 +46,6 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
             $scope.array[1] = "10.333083818097196";
             $scope.array[2] = "-67.03379895019532";
         };
-        console.log($scope.array);
 
         $scope.map = {center : { latitude: $scope.array[1], longitude: $scope.array[2] }};
         angular.element('#id_estado').val($scope.array[0]);
@@ -114,9 +112,24 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
                     $scope.snipper = false;
                     $scope.disable = false;
                     $scope.formData.namefile = data.name;
+                }else{
+                    $scope.titulo = "Error (5001)";
+                    $scope.mensaje = "Disculpe, intente seleccionar su imagen nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-empresas/agregar";
+                    }                    
+                    angular.element("#validacion_modal").modal("show");
+                }
+            },
+            //error (400,500)
+            function(data) {
+                $scope.titulo = "Error (7778)";
+                $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                $scope.redirecto = function() {
+                    $window.location.href = "/mis-empresas/agregar";
                 };
-            }
-        );
+                angular.element("#validacion_modal").modal("show");
+            });
         angular.element("#myModal").modal("hide");
     };
     $scope.titulo   = "";
@@ -127,28 +140,69 @@ app.controller('EmpresaRegistroController', function($scope, $log, estados, regi
     $scope.rifsubmit  = false;
     $scope.ValidateRif =function(){
         var validador = /^([JGVEPjgvep][-][0-9]{8}[-][0-9]{1})$/;
-        console.log("validacion: ",$scope.rif, validador.test($scope.rif));
         $scope.rifsubmit  = true;
         if (validador.test($scope.rif)){
-            console.log($scope.rif);
             ajax.Post("/verificacion/rif", {"rif":$scope.rif } ).$promise.then(
+                //200
                 function(data) {
                     if (data.success == false){
-
                         $scope.invalidrif = true;
-                        console.log("incorrecto");
                         $scope.titulo = "Disculpe!";
                         $scope.mensaje = "El Rif que coloco actualmente esta siendo usado por otra empresa. Si puede comprobar que este Rif le pertenece, envíe una copia a soporte@tulocalidad.com.ve para tomar las medidas necesarias.";
+                        $scope.redirecto = function() {} 
                         angular.element("#validacion_modal").modal("show");
                         $scope.rif = "";
                     }else{
                         $scope.invalidrif = false;
                     }
-                }
-            );
+                },
+                //error (400,500)
+                function(data) {
+                    $scope.invalidrif = true;
+                    $scope.titulo = "Error (7777)";
+                    $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-empresas/agregar";
+                    };
+                    angular.element("#validacion_modal").modal("show");
+                });
         }else{
-            console.log("mostrar_mensaje");
             $scope.invalidrif = true;
         };
     };
+
+
+    $scope.checkMe = function(){
+        var data = {};
+        // TRANSFORMANDO UN FORM A UN JSON
+        angular.element('#formulario').serializeArray().map(function(x){data[x.name] = x.value;});
+        ajax.Post("/mis-empresas/agregar-exitoso", data ).$promise.then(
+            function(data) {
+                $scope.titulo = "Registro de empresa"
+                if (data.success){
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        $window.location.href = "/mis-empresas/"; 
+                    }                
+                }else{
+                    $scope.titulo       = data.data.titulo;
+                    $scope.mensaje      = data.mensaje;
+                    $scope.redirecto    = function() {
+                        //$route.reload();
+                        $window.location.href = "/mis-empresas/agregar"; 
+                    }
+                }
+                angular.element("#validacion_modal").modal("show");
+            },
+            //error (400,500)
+            function(data) {
+                    $scope.titulo = "Error (7779)";
+                    $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = "/mis-empresas/agregar"; 
+                    } 
+                    angular.element("#validacion_modal").modal("show");
+            });
+        }
+
 });

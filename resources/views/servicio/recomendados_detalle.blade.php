@@ -11,7 +11,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    
+                    {{print($recomendados)}}
                 </div>
             </div>
 			

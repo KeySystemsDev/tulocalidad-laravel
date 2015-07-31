@@ -134,37 +134,22 @@ class MisEmpresasController extends Controller {
 	**/
 
 	public function Agregar_Exitoso(){
-		$nombreArchivo 		= e(Input::get('namefile'));
-		$rutaOrigen    		= "uploads/temp/".$nombreArchivo;
+		$nombreArchivo 	= Input::get('namefile');
+		$rutaOrigen    	= "uploads/temp/".$nombreArchivo;
+		$nombre_carpeta = "empresas";
 
-		if (substr(strtoupper($nombreArchivo), -3) == "JPG"){
-			$imagen 		= imagecreatefromjpeg($rutaOrigen );			
-		}else{
-			$imagen 		= imagecreatefrompng( $rutaOrigen );
-			$nombreArchivo  = substr($nombreArchivo, 0, -3)."jpg";
-		};
+		$imgController 	= new ImgController();
+		$result			= $imgController->create_thumbnails($nombreArchivo, $nombre_carpeta);
 
-		$lienzo_full 		= imagecreatetruecolor(700, 700);
-		$lienzo_high 		= imagecreatetruecolor(362, 362);
-		$lienzo_mid  		= imagecreatetruecolor(181, 181);
-		$lienzo_low  		= imagecreatetruecolor(157, 157);
-
-		imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 700, 700, 700, 700);
-		imagecopyresampled($lienzo_high, $imagen, 0, 0, 0, 0, 362, 362, 700, 700);
-		imagecopyresampled($lienzo_mid,  $imagen, 0, 0, 0, 0, 181, 181, 700, 700);
-		imagecopyresampled($lienzo_low,  $imagen, 0, 0, 0, 0, 157, 157, 700, 700);
-
-		$rutabase 			= "uploads/"; 
-		$ruta_imagen_full 	= $rutabase."empresas_full/".$nombreArchivo;
-		$ruta_imagen_high 	= $rutabase."empresas_high/".$nombreArchivo;
-		$ruta_imagen_mid  	= $rutabase."empresas_mid/".$nombreArchivo;
-		$ruta_imagen_low  	= $rutabase."empresas_low/".$nombreArchivo;
-
-		imagejpeg( $lienzo_full, $ruta_imagen_full , 90 );
-		imagejpeg( $lienzo_high, $ruta_imagen_high , 90 );
-		imagejpeg( $lienzo_mid,  $ruta_imagen_mid  , 90 );
-		imagejpeg( $lienzo_low,  $ruta_imagen_low  , 90 );
-
+		if (!$result['success']){
+			$data 	 	= (object) ["titulo" => "Error (11111)"];
+			$success 	= false;
+			$msj 	 	= "No se pudo registrar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$json 	 	= array('success'  => $success,
+								  'mensaje' => $msj,
+								  'data' 	=> $data);
+			return json_encode($json);
+		}
 
 		$id                                     = session('id');
 		$empresa                                = new Empresa;
@@ -184,20 +169,7 @@ class MisEmpresasController extends Controller {
 		$empresa->telefono_movil_empresa        = e(Input::get('i_celular'));
 		$empresa->privacidad_empresa 	        = e(Input::get('id_privacidad'));
 		$empresa->id_usuario                    = $id;
-		$empresa->icon_empresa                  = $nombreArchivo;
-
-		if (file_exists($rutaOrigen)){
-			unlink($rutaOrigen);
-		}else{
-			$data 	 		= (object) ["titulo" => "Error (11111)"];
-			$success 		= false;
-			$msj 	 		= "No se pudo registrar su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
-			$json 	 		= array('success'  => $success,
-									  'mensaje' => $msj,
-									  'data' 	=> $data);
-			return json_encode($json);
-		}
-
+		$empresa->icon_empresa                  = $result['data']['nombreArchivo'];
 		$empresa->save();
 
 		$success = true;

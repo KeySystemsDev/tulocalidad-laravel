@@ -2,6 +2,18 @@
   display: none !important;
 }
 
+.img-2{
+    border-radius: 2%;
+    -webkit-border-radius: 2%;
+    -moz-border-radius: 2%;
+    -o-border-radius: 2%;
+}
+.img-5{
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -o-border-radius: 5%;
+}
 #map_canvas {
     height: 400px;
     width: 100%;

@@ -52,10 +52,10 @@
                                                              <span class="arrow-alt"></span>
                                                         @endif
                                                         <span class="timeline-icon vinotinto"></span>
-                                                        <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$value->rif_empresa}}</span></span>
+                                                        <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$value->rif_empresa}}</span></span>                                                        
                                                         <div class="row">
                                                             <div class="col-sm-5">
-                                                                <a href="#"><img src="{{url('/uploads/empresas_mid/'.$value->icon_empresa)}}" class="img-responsive"></a>
+                                                                <a href="#"><img src="{{url('/uploads/empresas_mid/'.$value->icon_empresa)}}" class="img-responsive img-2"></a>
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <h4 class="title-real-estates vinotinto">

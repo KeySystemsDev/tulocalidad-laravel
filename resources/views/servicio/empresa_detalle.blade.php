@@ -20,16 +20,14 @@
         <div class="row" id="real-estates-detail">
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <header class="panel-title">
-                            <div class="text-center">
-                                <strong>{{$empresa->nombre_empresa}}</strong>
-                            </div>
-                        </header>
+                    <div class="panel-heading">                        
+                        <b align="center">
+                            {{$empresa->nombre_empresa}}
+                        </b>                         
                     </div>
                     <div class="panel-body">
                         <div class="text-center" id="author">
-                            <img width="157" height="157" src="{{ url('/uploads/empresas_mid/'.$empresa->icon_empresa) }}">
+                            <img width="157" height="157" src="{{ url('/uploads/empresas_mid/'.$empresa->icon_empresa) }}" class="img-5">
                             <h3></h3>
                             <small class="label label-info">{{$empresa->rif_empresa}}</small>
                             <p>{{$empresa->descripcion_empresa}}</p>

@@ -24,19 +24,22 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_high/'.$empresa->icon_empresa) }}" class="img-responsive"></a>
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_high/'.$empresa->icon_empresa) }}" class="img-responsive img-5"></a>
                                 <!--<a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>-->
                             </div>
                             <div class="col-sm-7">
-                                <h4 class="title-store">
-                                    <strong><a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}">{{ ucfirst(substr($empresa->nombre_empresa, 0,28)) }}</a></strong>
-                                </h4>
-                                <hr>
-                                <p>{{ ucfirst(substr($empresa->descripcion_empresa, 0,200)) }}..</p>
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-default btn-drop" data-original-title="" title="">
+                                    {{ ucfirst(substr($empresa->nombre_empresa, 0,28)) }} 
+                                    <i class="fa fa-chevron-right" data-original-title="" title=""></i> 
+                                </a>
+                                <hr>                                                                    
+                                <p>{{ ucfirst($empresa->descripcion_empresa) }}</p>
                             </div>
+<!--
                             <p>
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-primary btn-sm button-ver-detalle" data-original-title="" title="">Ver Empresa <i class="fa fa-chevron-right"></i></a>
+                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-primary btn-sm button-ver-detalle" data-original-title="" title="" style="bottom:0px;">Ver Empresa <i class="fa fa-chevron-right"></i></a>
                             </p>
+-->
                         </div>
                     </div>
                 </div>

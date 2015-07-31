@@ -51,10 +51,15 @@ class MisEmpresasController extends Controller {
 
 	public function Editar($id_empresa){
 		$empresa   = Empresa::where('id_empresa','=', $id_empresa)->get()->first();
+		if (!$empresa){
+			return Redirect::to('/mis-empresas');
+		}
 		$categoria = DB::table('t_categoria')->orderBy('nombre_categoria')->get();
 		$estados   = DB::table('t_estados')->orderBy('nombre_estado')->get();
+		if ($empresa->id_usuario != session('id')){
+			return Redirect::to('/mis-empresas');
+		}
 		return View::make('empresa/editar', compact('empresa', 'categoria', 'estados'));
-		
 	}
 
 	/**

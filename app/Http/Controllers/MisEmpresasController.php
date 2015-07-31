@@ -81,8 +81,8 @@ class MisEmpresasController extends Controller {
 				$success 	= false;
 				$msj 	 	= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
 				$json 	 	= array('success'  => $success,
-										  'mensaje' => $msj,
-										  'data' 	=> $data);
+									  'mensaje' => $msj,
+									  'data' 	=> $data);
 				return json_encode($json);
 			}
 
@@ -111,12 +111,12 @@ class MisEmpresasController extends Controller {
 			)
 		);
 
-		$success 	= true;
-		$msj 	 	= "Empresa actualizada exitosamente.";
-		$data 		= "";
-		$json 	 	= array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data);
+		$success 			= true;
+		$msj 	 			= "Empresa actualizada exitosamente.";
+		$data 				= "";
+		$json 	 			= array('success'  => $success,
+									  'mensaje' => $msj,
+									  'data' 	=> $data);
 		return json_encode($json);		
 	 	
 

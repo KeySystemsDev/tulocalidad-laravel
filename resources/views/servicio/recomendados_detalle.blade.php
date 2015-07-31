@@ -22,7 +22,7 @@
                         	<div class="box-detalle-publicidad">
                             	<img class="img-detalle-publicidad img-2" src="{{ url('/uploads/publicidades_full/'.$publicidad->url_imagen_publicidad)}}" >
                                 </br></br>
-                        		<p><b>{{$publicidad->titulo_publicidad}}</b>: {{$publicidad->descripcion_publicidad}}</p>
+                        		<p><b>{{ucfirst($publicidad->titulo_publicidad)}}</b>: {{$publicidad->descripcion_publicidad}}</p>
                         		<div class="footer-realestates-columns">
                                     <div class="row">
                                         <div class="col-sm-3">

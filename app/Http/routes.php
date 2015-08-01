@@ -55,25 +55,25 @@ $router->group(['middleware' => 'auth'], function() {
 
 /*  Servicio Controller   */
 
-Route::any('/servicios', 'ServicioController@Index');
-Route::any('/servicios/todo', 'ServicioController@Todo');
-Route::any('/servicios/estado/{id_estado}', 'ServicioController@Estado');
-Route::any('/servicios/categoria/{id_estado}/{id_categoria}', 'ServicioController@Categoria');
-Route::any('/servicios/empresa/{id_empresa}', 'ServicioController@Empresa');
-Route::any('/servicios/publicacion/{id_publicidad}', 'ServicioController@Publicidad');
+Route::any('/servicios', 										'ServicioController@Index');
+Route::any('/servicios/todo', 									'ServicioController@Todo');
+Route::any('/servicios/estado/{id_estado}', 					'ServicioController@Estado');
+Route::any('/servicios/categoria/{id_estado}/{id_categoria}', 	'ServicioController@Categoria');
+Route::any('/servicios/empresa/{id_empresa}', 					'ServicioController@Empresa');
+Route::any('/servicios/publicacion/{id_publicidad}', 			'ServicioController@Publicidad');
 
 
-Route::any('movil/empresa/estados', 'Movil\EmpresaController@ActionEstados');
-Route::any('movil/empresa/categoria', 'Movil\EmpresaController@ActionCategorias');
-Route::any('movil/empresa/categoria-estado', 'Movil\EmpresaController@ActionCategoriaEstado');
-Route::any('movil/empresa/empresa-categoria', 'Movil\EmpresaController@ActionEmpresaCategoria');
-Route::any('movil/empresa/empresa-detalle', 'Movil\EmpresaController@ActionEmpresaDetalle');
-Route::any('movil/empresa/publicidad', 'Movil\PublicidadController@ActionPublicidad');
+Route::any('movil/empresa/estados', 			'Movil\EmpresaController@ActionEstados');
+Route::any('movil/empresa/categoria', 			'Movil\EmpresaController@ActionCategorias');
+Route::any('movil/empresa/categoria-estado', 	'Movil\EmpresaController@ActionCategoriaEstado');
+Route::any('movil/empresa/empresa-categoria', 	'Movil\EmpresaController@ActionEmpresaCategoria');
+Route::any('movil/empresa/empresa-detalle', 	'Movil\EmpresaController@ActionEmpresaDetalle');
+Route::any('movil/empresa/publicidad', 			'Movil\PublicidadController@ActionPublicidad');
 
 
 
-Route::any('/', 'WelcomeController@index');
-Route::any('pago', 'PagoPruebaController@pago');
+Route::any('/', 	'WelcomeController@index');
+Route::any('pago', 	'PagoPruebaController@pago');
 
 
 

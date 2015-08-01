@@ -59,7 +59,7 @@
                                                         <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$key->rif_empresa}}</span></span>
                                                         <div class="row">
                                                             <div class="col-sm-5">
-                                                                <a href="#"><img src="{{url('/uploads/publicidades_mid/'.$key->url_imagen_publicidad)}}" class="img-responsive"></a>
+                                                                <a href="#"><img src="{{url('/uploads/publicidades_mid/'.$key->url_imagen_publicidad)}}" class="img-responsive img-2"></a>
                                                             </div>
                                                             <div class="col-sm-7">
                                                                 <h4 class="title-real-estates">

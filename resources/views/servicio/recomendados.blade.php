@@ -31,7 +31,7 @@
 										@foreach ($consulta as $key)
 											<figure class="effect-zoe">
 												<a href="/servicios/publicacion/{{$key->id_publicidad}}">
-													<img src="{{ url('/uploads/publicidades_high/'.$key->url_imagen_publicidad)}}">		
+													<img src="{{ url('/uploads/publicidades_high/'.$key->url_imagen_publicidad)}}" class="img-2">		
 												</a>
 												<figcaption>														
 													<p class="icon-links icon-links-custon">															

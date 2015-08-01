@@ -18,7 +18,7 @@
                         <div class="panel panel-default item-perfil">
                             <div class="panel-body">
                                 <div class="text-center" id="author">
-                                    <img class="img-perfil" src="{{asset('img/usuario.png')}}">
+                                    <img class="img-perfil img-5" src="{{asset('img/usuario.png')}}">
                                     <p>{{\Session::get('usuario')}}</p>
                                 </div>
                             </div>

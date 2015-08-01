@@ -8,13 +8,7 @@
 
 	<div class="container">
         <div id="main">
-
-            <div class="row">
-                <div class="col-lg-12">
-                    {{print($recomendados)}}
-                </div>
-            </div>
-			
+ 
 			<div class="row" id="real-estates-detail">
                 <div class="col-lg-8 col-md-8 col-xs-12">
                     <div class="panel">
@@ -45,7 +39,7 @@
                 </div>
 
           
-                <!--
+                
                 <div class="col-lg-4 col-md-4 col-xs-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -55,20 +49,28 @@
                         </div>
                         <div class="panel-body">
                             <div class="grid">
-                                @foreach ($recomendados as $key)
-                                    <div class="col-md-6">
-                                        <figure class="effect-zoe" style="border-radius: 5px;">
-                                            <a href="/servicios/publicacion/{{$key->id_publicidad}}">
-                                                <img src="{{ url('/uploads/publicidades_high/'.$key->url_imagen_publicidad)}}">     
-                                            </a>
-                                        </figure>
+                                @if(count($recomendados) > 1)
+                                    @foreach ($recomendados as $key)
+                                        @if($key->id_publicidad  != $publicidad->id_publicidad)
+                                            <div class="col-md-6">
+                                                <figure class="effect-zoe img-5">
+                                                    <a href="/servicios/publicacion/{{$key->id_publicidad}}">
+                                                        <img src="{{ url('/uploads/publicidades_high/'.$key->url_imagen_publicidad)}}">     
+                                                    </a>
+                                                </figure>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <div class="col-md-12" align="left">
+                                        No tiene publicidades relacionadas.
                                     </div>
-                                @endforeach
+                                @endif
                             </div>        
                         </div>
                     </div>
                 </div>
-                -->
+                
                 
             
             </div>

@@ -63,7 +63,7 @@ class ServicioController extends Controller {
 		}
 		$empresas->update(
 				array(
-					'visitas_empresa' => $empresa->visitas_empresa+1,
+					'visitas_empresas' => $empresa->visitas_empresa+1,
 					)
 				);
 

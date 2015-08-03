@@ -9,6 +9,7 @@ use Redirect;
 use Session;
 use App\Publicidad;
 use Request;
+use Illuminate\Pagination\Paginator;
 
 class MisEmpresasController extends Controller {
 	/**
@@ -18,9 +19,20 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Index(){
-		$id_usuario	= session('id');
-		$consulta 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id_usuario));
-		return View::make('empresa/mostrar_empresa', compact('consulta'));
+		$id_usuario		= session('id');
+		$current_page 	= 1;
+		$query	 		= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id_usuario));
+		$total 			= count($query);
+		$count_items	= 5;
+
+		if(\Input::has('page')){
+			$current_page = \Input::get('page');
+		}	
+		
+		$data 		= HelperController::Paginador($query, $count_items, $current_page);
+		//$paginator 		= new Paginator($query,$count_items, $current_page);
+		//$paginator->setPath("/mis-empresas/");
+		return View::make('empresa/mostrar_empresa', compact('data'));
 	} 
 	/* 
 		publicaciones de las empresas

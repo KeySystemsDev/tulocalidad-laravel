@@ -37,11 +37,11 @@
                             </header>
                         </div>
 
-                        @if(count($publicidad)>0)                            
+                        @if(count($data->consulta)>0)                            
                             <div class="panel-body">
                                 <div class="timeline">
 
-                                    @foreach($publicidad as $index=>$key)
+                                    @foreach($data->consulta as $index=>$key)
                                         @if($index%2)
                                             <article class="timeline-item">
                                         @else
@@ -90,6 +90,29 @@
                             </div>
                         @endif
 
+                        <!-- PAGINADOR 
+                            
+                            $data->current_page   = es la pagina actual.
+                            $data->pages          = es el numero de paginas que tiene la paginacion
+
+                        -->
+                        <div>
+                            @if ($data->pages > 1)
+                            <ul>
+                                @if (1 < $data->current_page )
+                                    <li>  <a href ="/mis-publicidades/?page={{$data->current_page-1}}"><</a> </li>
+                                @endif                                        
+                                @for ($active = 0; $active < $data->pages; $active++)
+                                    <li>
+                                        <a href ="/mis-publicidades/?page={{$active+1}}" >{{$active+1}}</a>
+                                    </li>
+                                @endfor
+                                @if ($data->current_page < $data->pages)
+                                    <li>  <a href ="/mis-publicidades/?page={{$data->current_page+1}}">></a> </li>
+                                @endif
+                            </ul>
+                            @endif  
+                        </div>  
                     </section>
                 </div>
 

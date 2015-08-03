@@ -4,7 +4,7 @@
         <div class="container">
             <!-- start:navbar-header -->
             <div class="navbar-header">
-                <a class="navbar-brand img-logo-nav-top" href="{{ url ('/servicios') }}"><img width="20" src="img/logo.png"><strong> Tu</strong>Localidad<strong></strong></a>
+                <a class="navbar-brand img-logo-nav-top" href="{{ url ('/servicios') }}"><img width="20" src="/img/logo.png"><strong> Tu</strong>Localidad<strong></strong></a>
             </div>
 
             @if(!\Session::get('usuario'))

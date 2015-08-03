@@ -14,7 +14,9 @@ class MisPublicidadesController extends Controller {
 
 	public function Index(){
 		$id         = session('id');
-		$publicidad = (array)\DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
+		$count_items= 6;
+		$current_page=1;
+		$query = (array)\DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
 		$mensaje 	= "";
 		$empresas 	= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id));
 
@@ -23,7 +25,14 @@ class MisPublicidadesController extends Controller {
 		}else{
 			$mensaje 	= "No tiene publicidades registradas.";
 		}
-		return View::make('publicidad/mis_publicidades',compact('publicidad','mensaje'));   
+
+		if(\Input::has('page')){
+			$current_page = \Input::get('page');
+		}	
+		
+		$data 		= HelperController::Paginador($query, $count_items, $current_page);
+
+		return View::make('publicidad/mis_publicidades',compact('data','mensaje'));   
 	}
 
 
@@ -47,12 +56,12 @@ class MisPublicidadesController extends Controller {
 		$result			= $imgController->create_thumbnails($nombreArchivo, $nombre_carpeta);
 
 		if (!$result['success']){
-			$data 	 		= (object) ["titulo" => "Error (11121)"];
-			$success 		= false;
-			$msj 	 		= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
-			$json 	 		= array('success'  => $success,
-									  'mensaje' => $msj,
-									  'data' 	=> $data);
+			$data 	 	= (object) ["titulo" => "Error (11121)"];
+			$success 	= false;
+			$msj 	 	= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$json 	 	= array('success'  => $success,
+								  'mensaje' => $msj,
+								  'data' 	=> $data);
 			return json_encode($json);
 		}
 		

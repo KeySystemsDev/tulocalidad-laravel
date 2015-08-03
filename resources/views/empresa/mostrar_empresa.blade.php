@@ -34,10 +34,10 @@
                                 <a href="/mis-empresas/agregar"><button type="button" class="btn btn-agregar-nuevo btn-drop btn-normal" data-original-title="" title=""> Agregar Empresa</button></a>
                             </header>                            
                         </div>
-                        @if(count($consulta)>0)                            
+                        @if(count($data->consulta)>0)                            
                             <article class="panel-body">
                                 <div class="timeline">
-                                    @foreach($consulta as $index=>$value)
+                                    @foreach($data->consulta as $index=>$value)
                                         @if($index%2)
                                             <article class="timeline-item">
                                         @else
@@ -77,6 +77,10 @@
                                         </article>
                                     @endforeach
                                 </div>
+
+
+
+
                             </article>
                             <div class="clearfix">&nbsp;</div>                            
                         @else
@@ -88,6 +92,30 @@
                                 </div>
                             </div>                 
                         @endif
+
+                                <!-- PAGINADOR 
+                                    
+                                    $data->current_page   = es la pagina actual.
+                                    $data->pages          = es el numero de paginas que tiene la paginacion
+
+                                -->
+                                <div>
+                                    @if ($data->pages > 1)
+                                    <ul>
+                                        @if (1 < $data->current_page )
+                                            <li>  <a href ="/mis-empresas/?page={{$data->current_page-1}}"><</a> </li>
+                                        @endif                                        
+                                        @for ($active = 0; $active < $data->pages; $active++)
+                                            <li>
+                                                <a href ="/mis-empresas/?page={{$active+1}}" >{{$active+1}}</a>
+                                            </li>
+                                        @endfor
+                                        @if ($data->current_page < $data->pages)
+                                            <li>  <a href ="/mis-empresas/?page={{$data->current_page+1}}">></a> </li>
+                                        @endif
+                                    </ul>
+                                    @endif  
+                                </div>                          
                     </section>
                 </div>
                 

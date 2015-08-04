@@ -14,7 +14,7 @@ class MisPublicidadesController extends Controller {
 
 	public function Index(){
 		$id         = session('id');
-		$count_items= 6;
+		$count_items= 5;
 		$current_page=1;
 		$query = (array)\DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('publicidad_por_usuario',$id,'','','',''));
 		$mensaje 	= "";

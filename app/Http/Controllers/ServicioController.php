@@ -14,8 +14,18 @@ use Redirect;
 class ServicioController extends Controller {
 
 	public function Index(){
-		$consulta = \DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('listado_publicidades','','','','',''));
-		return view('servicio/recomendados',compact('consulta'));
+		$current_page 	= 1;
+		$query	 		= \DB::select('CALL p_t_publicidad(?,?,?,?,?,?)',array('listado_publicidades','','','','',''));
+		$total 			= count($query);
+		$count_items	= 12;
+
+		if(\Input::has('page')){
+			$current_page = \Input::get('page');
+		}	
+		
+		$data 		= HelperController::Paginador($query, $count_items, $current_page);
+
+		return view('servicio/recomendados',compact('data'));
 	}
 
 	public function Todo(){
@@ -47,11 +57,24 @@ class ServicioController extends Controller {
 		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
 							 ->where('id_categoria','=',$categoria->id_categoria)
 							 ->get();
+
 		if( !$empresas or count($empresas)==0 ){
 			return view('servicio/sin_resultado');
 		}
 
-		return view('servicio/empresas', compact('empresas', 'id_estado', 'id_categoria'));
+		$current_page 	= 1;
+
+		$total 			= count($empresas);
+		$count_items	= 8;
+
+		if(\Input::has('page')){
+			$current_page = \Input::get('page');
+		}	
+		
+		$data 		= HelperController::Paginador($empresas->toArray(), $count_items, $current_page);
+
+
+		return view('servicio/empresas', compact('empresas', 'id_estado', 'id_categoria','data' ));
 	}
 
 

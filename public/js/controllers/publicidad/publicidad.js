@@ -4,7 +4,7 @@
 app.controller('MisPublicidadesController', function($scope, $log) {
     $log.log('MisPublicidadController');
     $scope.formData = {};
-
+    $scope.paginacionhref="";
 
     $scope.deshabilitar = function(id){
         console.log("deshabilitando");

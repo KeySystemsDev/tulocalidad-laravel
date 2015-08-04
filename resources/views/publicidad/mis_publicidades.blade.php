@@ -13,7 +13,10 @@
 
     <div class="container" ng-controller="MisPublicidadesController">
         <div id="main">
-
+            <!--
+                INICIALIZACION DE VARIABLE DE REDIREECION DE PAGINACION
+            -->
+            <div ng-init="paginacion-href='/mis-publicidades/'"></div>
             <div class="row">
                 <div class="col-lg-12">
                     <section class="panel">
@@ -96,23 +99,23 @@
                             $data->pages          = es el numero de paginas que tiene la paginacion
 
                         -->
-                        <div>
-                            @if ($data->pages > 1)
-                            <ul>
-                                @if (1 < $data->current_page )
-                                    <li>  <a href ="/mis-publicidades/?page={{$data->current_page-1}}"><</a> </li>
-                                @endif                                        
-                                @for ($active = 0; $active < $data->pages; $active++)
-                                    <li>
-                                        <a href ="/mis-publicidades/?page={{$active+1}}" >{{$active+1}}</a>
-                                    </li>
-                                @endfor
-                                @if ($data->current_page < $data->pages)
-                                    <li>  <a href ="/mis-publicidades/?page={{$data->current_page+1}}">></a> </li>
-                                @endif
-                            </ul>
-                            @endif  
-                        </div>  
+                         <center>
+                            <div class="col-lg-12">
+                                @if ($data->pages > 1)
+                                <ul  class="pagination pagination-primary pagination-separated">
+                                    @if (1 < $data->current_page )
+                                        <li>  <a href ="[[paginacionhref]]?page={{$data->current_page-1}}"><</a> </li>
+                                    @endif                                        
+                                    @for ($active = 0; $active < $data->pages; $active++)
+                                        <li><a href ="[[paginacionhref]]?page={{$active+1}}" >{{$active+1}}</a></li>
+                                    @endfor
+                                    @if ($data->current_page < $data->pages)
+                                        <li>  <a href ="[[paginacionhref]]?page={{$data->current_page+1}}">></a> </li>
+                                    @endif
+                                </ul>
+                                @endif  
+                            </div>
+                        </center>   
                     </section>
                 </div>
 

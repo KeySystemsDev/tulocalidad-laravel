@@ -1964,8 +1964,8 @@ a:hover{
 	    margin-left: 25px;
 	    position: relative;
 	    text-align: left;
-	    background: #FFFFFF;
-	    border-color: #AF8E92;
+	    background: #F4F4F4;
+	    border: 1px solid rgba(175,142,146, .4);
 	}
 
 	.timeline-item .timeline-desk .arrow {
@@ -1979,7 +1979,7 @@ a:hover{
 	    width: 0;
 	}
 	.timeline-item .timeline-desk .arrow {
-	    border-right: 8px solid #855157 !important;
+	    border-right: 8px solid rgba(175,142,146, .4) !important;
 	}
 
 	.timeline-item.alt .timeline-desk .arrow-alt {
@@ -1995,7 +1995,7 @@ a:hover{
 	}
 
 	.timeline-item.alt .timeline-desk .arrow-alt {
-	    border-left: 8px solid #855157 !important;
+	    border-left: 8px solid rgba(175,142,146, .4) !important;
 	}
 
 	.timeline .timeline-icon {

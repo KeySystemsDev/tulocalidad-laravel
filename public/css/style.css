@@ -352,6 +352,7 @@ ul#strength {
 }
 .header-top .nav-top-auth{
     background-color: rgba(0,0,0,.4);
+    background-image: none;
     border-bottom: 0px;
 }
 .auth-intro-button{

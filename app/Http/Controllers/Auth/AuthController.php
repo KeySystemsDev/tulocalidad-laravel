@@ -35,6 +35,7 @@ class AuthController extends Controller {
 			$usuario = new Usuario;
 			$usuario->correo_usuario   = \Input::get('email'); 	
 			$usuario->clave_usuario    = \Input::get('password');
+			$usuario->codigo_activacion= substr(md5(uniqid(rand(), true)), 16, 16);
 			$usuario->save();
 			//ACOMODAR EL MENSAJE
 			$mensaje ='
@@ -45,7 +46,7 @@ class AuthController extends Controller {
 						<body>
 							<p align="center">
 								<b>para activar su usuario haga click
-								<a href="http://tulocalidad.com.ve/auth/activacion/'.$usuario->id_usuario.'">aquí.</b>
+								<a href="http://tulocalidad.com.ve/auth/activacion/'.$usuario->codigo_activacion.'">aquí.</b>
 								<br><br>
 							</p>
 						</body>		
@@ -56,7 +57,8 @@ class AuthController extends Controller {
 			$cabeceras .= "From: contacto@keysystems.com.ve";
 			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
 			$msj 	 = 'Revise su correo para activar su usuario.';
-			$data  	 = (object) ["titulo" => "Registro exitoso!"];
+			$data  	 = (object) ["titulo" => "Registro exitoso!",
+								 "id_user" => $usuario->codigo_activacion,];
 			$success = true;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -114,8 +116,8 @@ class AuthController extends Controller {
         return json_encode($json);
 	}
 
-	public function HabilitarUsuario($id_usuario){
-		Usuario::where('id_usuario','=', $id_usuario)->update(array('habilitado_usuario' => 1));
+	public function HabilitarUsuario($codigo_activacion){
+		Usuario::where('codigo_activacion','=', $codigo_activacion)->update(array('habilitado_usuario' => 1));
 		return view('auth/habilitado');
 	}
 }

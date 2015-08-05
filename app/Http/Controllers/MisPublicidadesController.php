@@ -58,7 +58,7 @@ class MisPublicidadesController extends Controller {
 		if (!$result['success']){
 			$data 	 	= (object) ["titulo" => "Error (11121)"];
 			$success 	= false;
-			$msj 	 	= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte al soporte tecnico a través del correo: soporte@tulocalidad.com.ve";
+			$msj 	 	= "No ha sido posible asignar la publicidad a su empresa, intentelo nuevamente y si el problema continua contacte a nuestro soporte a través del correo: soporte@tulocalidad.com.ve";
 			$json 	 	= array('success'  => $success,
 								  'mensaje' => $msj,
 								  'data' 	=> $data);

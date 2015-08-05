@@ -170,6 +170,15 @@
             </div>
             @endif
 
+            @if ($publicidades)
+                @foreach($publicidades as $index => $publicidad )
+                    <label>publicidad {{$index}}</label><div>{{$publicidad->titulo_publicidad}}</div>
+                @endforeach
+            @else
+
+                <div>no posee publicidades registradas</div>
+            @endif
+            
         </div>
         <!-- end:real estates detail -->
 

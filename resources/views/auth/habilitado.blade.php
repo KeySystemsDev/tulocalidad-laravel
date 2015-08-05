@@ -10,3 +10,5 @@
 @if ($codigo == -1)
 	<h1>Codigo invalido</h1>
 @endif
+
+{{print_r($usuario_habilitados->first())}}

@@ -118,7 +118,7 @@ class AuthController extends Controller {
 	}
 
 	public function HabilitarUsuario($codigo_activacion){
-		
+
 		$mensaje = "Usuario Habilitado Satisfactoriamente";
 		$codigo 	 =  1;
 		$usuarios = Usuario::where('codigo_activacion_usuario', $codigo_activacion);
@@ -128,9 +128,10 @@ class AuthController extends Controller {
 			return view('auth/habilitado', compact('codigo'));
 		}
 
-		$usuario_habilitados = $usuarios->where('habilitado_usuario', true);
+		$usuario_habilitados = $usuarios->where('habilitado_usuario', 1);
 
-		if ($usuario_habilitados){
+
+		if ($usuario_habilitados->first()){
 			$codigo	 = 2;
 			return view('auth/habilitado', compact('codigo'));
 		}

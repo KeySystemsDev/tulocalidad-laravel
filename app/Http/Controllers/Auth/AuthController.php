@@ -46,7 +46,7 @@ class AuthController extends Controller {
 						<body>
 							<p align="center">
 								<b>Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta.</b>
-								<b><a href="'.URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
+								<b><a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
 								<br>
 								<b>Muchas gracias por su valioso tiempo.</b>
 							</p>
@@ -100,7 +100,7 @@ class AuthController extends Controller {
         elseif($auth->habilitado_usuario == 0){
         	//MENSAJE POR CORREGIR
         	$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = "Usuario no activado, revise su bandeja de entrada y siga las instrucciones";
+			$msj 	 = "Correo no verificado, revise su bandeja de entrada y siga las instrucciones";
 			$success = false;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -118,7 +118,24 @@ class AuthController extends Controller {
 	}
 
 	public function HabilitarUsuario($codigo_activacion){
-		Usuario::where('codigo_activacion','=', $codigo_activacion_usuario)->update(array('habilitado_usuario' => 1));
-		return view('auth/habilitado');
+		
+		$mensaje = "Usuario Habilitado Satisfactoriamente";
+		$codigo 	 =  1;
+		$usuarios = Usuario::where('codigo_activacion_usuario', $codigo_activacion);
+
+		if (!$usuarios){
+			$codigo 	 =  -1;
+			return view('auth/habilitado', compact('codigo'));
+		}
+
+		$usuario_habilitados = $usuarios->where('habilitado_usuario', true);
+
+		if ($usuario_habilitados){
+			$codigo	 = 2;
+			return view('auth/habilitado', compact('codigo'));
+		}
+
+		$usuarios->update(array('habilitado_usuario' => 1));
+		return view('auth/habilitado', compact('codigo'));
 	}
 }

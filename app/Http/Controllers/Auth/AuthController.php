@@ -91,16 +91,15 @@ class AuthController extends Controller {
 		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
         	$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = "Usuario o clave incorrecto";
+			$msj 	 = "Usuario o Contraseña son incorrectos";
 			$success = false;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
 							  'data' 	=> $data);
         }
         elseif($auth->habilitado_usuario == 0){
-        	//MENSAJE POR CORREGIR
         	$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = "Correo no verificado, revise su bandeja de entrada y siga las instrucciones";
+			$msj 	 = "Correo no verificado, revise su bandeja de entrada y siga las instrucciones enviadas.";
 			$success = false;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -124,19 +123,18 @@ class AuthController extends Controller {
 		$usuarios = Usuario::where('codigo_activacion_usuario', $codigo_activacion);
 
 		if (!$usuarios){
-			$codigo 	 =  -1;
+			echo $codigo 	 =  -1;
 			return view('auth/habilitado', compact('codigo'));
 		}
 
 		$usuario_habilitados = $usuarios->where('habilitado_usuario', 1);
 
-
 		if ($usuario_habilitados->first()){
-			$codigo	 = 2;
+			echo $codigo	 = 2;
 			return view('auth/habilitado', compact('codigo'));
 		}
 
-		$usuarios->update(array('habilitado_usuario' => 1));
+		Usuario::where('codigo_activacion_usuario','=', $codigo_activacion)->update(array('habilitado_usuario' => 1));
 		return view('auth/habilitado', compact('codigo'));
 	}
 }

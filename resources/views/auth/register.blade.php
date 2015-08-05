@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('js')
-	<script src="{{ asset('/js/controllers/auth/register.js') }}"></script>
+	<script src="{{ asset('public/js/controllers/auth/register.js') }}"></script>
 @endsection
 
 <ul class="cb-slideshow ul-login">
@@ -21,7 +21,7 @@
 	<div class="row login-tulocalidad-register">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>
+				<div class=""><center><img class="img-registrar-logo" src="{{ asset('public/img/tulocalidad-blanco.png') }}"></center></div>
 				<div><center><h5>Registra tu cuenta</h5></center></div>
 				<div class="panel-body">	   
 

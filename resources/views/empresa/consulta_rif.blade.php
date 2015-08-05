@@ -17,7 +17,7 @@
 		                        <div class="col-lg-12">
 				                	<section class="panel">
 				                		<header class="panel-heading center">
-						                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
+						                    <img class="img-registrar-logo" src="{{ asset('public/img/tulocalidad.png') }}">
 						                    <h2>
 						                        Formulario de Consulta de Rif
 						                    </h2>

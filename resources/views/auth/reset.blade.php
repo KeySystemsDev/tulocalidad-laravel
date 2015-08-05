@@ -3,7 +3,7 @@
 @section('content')
 
 @section('js')
-	<script src="{{ asset('/js/controllers/auth/reset.js') }}"></script>
+	<script src="{{ asset('public/js/controllers/auth/reset.js') }}"></script>
 @endsection
 
 	@include('layouts/nav-top')

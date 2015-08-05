@@ -19,17 +19,17 @@
 		<!-- CSS 
 	        ================================================== -->
 	    <!-- Bootstrap 3-->
-	    <link href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+	    <link href="{{ asset('public/bower_components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
 	    <!-- Google Fonts -->
 	    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 	    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 		
 		<!-- Module Angular-->    
-		<link href="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
+		<link href="{{ asset('public/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
 
 	    <!-- Template Styles -->
-	    <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet" media="screen">
-	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
+	    <link href="{{ asset('public/css/welcome.css') }}" rel="stylesheet" media="screen">
+	    <link rel="stylesheet" type="text/css" href="{{ asset('/public/bower_components/animate.css/animate.min.css') }}">
 	    <link rel="shortcut icon" href="favicon.ico" />
 
 	</head>
@@ -50,14 +50,14 @@
 	    
 	    <!--Replace text with your app name or logo image-->
 	    <a class="navbar-brand" href="#">
-	    	<img class="img-tulocaldiad-bar" src="img/tulocalidad40px.png">
+	    	<img class="img-tulocaldiad-bar" src="public/img/tulocalidad40px.png">
 	    </a>
 	    
 	  	</div>
 	  	<div class="collapse navbar-collapse navbar-ex1-collapse">
 	    	<ul class="nav navbar-nav">
 	      		<li><a onclick="$('header').animatescroll({padding:71});">Inicio</a></li>
-	      		<li><a href="/servicios">Entrar</a></li>
+	      		<li><a href="{{ url('/servicios') }}">Entrar</a></li>
 	      		<li><a onclick="$('.payoff').animatescroll({padding:71});">Descripción</a></li>
 	      		<li><a onclick="$('.detail').animatescroll({padding:71});">¿Cómo Usar?</a></li>
 	      		<li><a onclick="$('.features').animatescroll({padding:71});">Bondades</a></li>
@@ -77,7 +77,7 @@
 		 	<div class="container">
 			 	<div class="row">
 				 	<div class="col-md-12">
-				 		<img class="img-app-icon" src="img/icono.png">
+				 		<img class="img-app-icon" src="public/img/icono.png">
 					  	<h1>tU LOCALIDAD</h1>
 					  	<p class="lead">Un directorio pensado para ti...</p>				  
 					  	<div class="carousel-iphone">
@@ -93,13 +93,13 @@
 							    <!-- Wrapper for slides -->
 							    <div class="carousel-inner">
 							      	<div class="item active">
-							        	<img src="img/screenshots/app-1.jpg" alt="App Screen 1">
+							        	<img src="public/img/screenshots/app-1.jpg" alt="App Screen 1">
 							      	</div>
 							      	<div class="item">
-							        	<img src="img/screenshots/app-2.jpg" alt="App Screen 2">
+							        	<img src="public/img/screenshots/app-2.jpg" alt="App Screen 2">
 							      	</div>
 							      	<div class="item">
-							        	<img src="img/screenshots/app-3.jpg" alt="App Screen 3">
+							        	<img src="public/img/screenshots/app-3.jpg" alt="App Screen 3">
 							      	</div>
 							    </div>
 					  		</div>
@@ -126,14 +126,14 @@
 						</a>
 						<div class="mapa-play button">
     						<a href="{{ url ('/servicios') }}">
-      							<img class="mapa-img" src="img/mapa.jpg" alt="ggIO">
+      							<img class="mapa-img" src="public/img/mapa.jpg" alt="ggIO">
     						</a>
 						</div>	
 					 	<h1>Descargala completamente gratis.</h1>
 					 	    <p class="lead">Busca las empresas que tienes cerca.</p>
 					 	    <div class="andrid-play button">
 	    						<a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.tulocalidad511234">
-	      							<img class="android-img" src="img/Download-Android-App.png" alt="ggIO">
+	      							<img class="android-img" src="public/img/Download-Android-App.png" alt="ggIO">
 	    						</a>
 							</div>	
 				  	</div>
@@ -175,7 +175,7 @@
 					      		</div>
 					      		<div class="col-sm-12 col-md-5">
 					      			<div class="app-screenshot">
-					      				<img src="img/screenshots/app-1.jpg" class="img-responsive" alt="App Screen 1">
+					      				<img src="public/img/screenshots/app-1.jpg" class="img-responsive" alt="App Screen 1">
 					      			</div>
 					      		</div>
 					      	</div>
@@ -188,7 +188,7 @@
 					    		</div>
 					    		<div class="col-sm-12 col-md-5">
 					    			<div class="app-screenshot">
-					    				<img src="img/screenshots/app-4.jpg" class="img-responsive" alt="App Screen 2">
+					    				<img src="public/img/screenshots/app-4.jpg" class="img-responsive" alt="App Screen 2">
 					    			</div>
 					    		</div>
 					    	</div>
@@ -204,7 +204,7 @@
 					      		</div>
 					      		<div class="col-sm-12 col-md-5">
 					      			<div class="app-screenshot">
-					      				<img src="img/screenshots/app-3.jpg" class="img-responsive" alt="App Screen 3">
+					      				<img src="public/img/screenshots/app-3.jpg" class="img-responsive" alt="App Screen 3">
 					      			</div>
 					      		</div>
 					      	</div>
@@ -231,19 +231,19 @@
 			  	<div class="row">
 				
 				  	<div class="col-md-4">
-					  	<div><img src="img/informacion.png"></div>
+					  	<div><img src="public/img/informacion.png"></div>
 					  	<h2>Información</h2>
 					  	<p>Viaja por toda venezuela y encuentra lugares de interés en un solo lugar.</p>
 				  	</div>
 				
 				  	<div class="col-md-4">
-					  	<div><img src="img/movil.png"></div>
+					  	<div><img src="public/img/movil.png"></div>
 					  	<h2>Móvil</h2>
 					  	<p>Todo lo tendrás al alcance de tus manos, en pocos pasos podrás encontrar en <b>Tu Localidad</b> el servicio de tu necesidad.</p>
 				  	</div>
 				 
 				  	<div class="col-md-4">
-					  	<div><img src="img/busqueda.png"></div>
+					  	<div><img src="public/img/busqueda.png"></div>
 					  	<h2>Busqueda</h2>
 					  	<p><b>Tu localidad
 					  	</b> te Facilita la busqueda de establecimientos de tu interés para ahorrarte tiempo.</p>
@@ -254,19 +254,19 @@
 			  	<div class="row">
 				
 				  	<div class="col-md-4">
-					  	<div><img src="img/comodidad.png"></div>
+					  	<div><img src="public/img/comodidad.png"></div>
 					  	<h2>Comodidad</h2>
 					  	<p>Brindrá soluciones tanto para el usuario que lo descarga como para la empresa que se registra en <b>Tu Localidad</b>.</p>
 				  	</div>
 				
 				  	<div class="col-md-4">
-					  	<div><img src="img/rapidez.png"></div>
+					  	<div><img src="public/img/rapidez.png"></div>
 					  	<h2>Rapidéz</h2>
 					  	<p>En el momento que necesites algun servicio y no sepas donde encontrarlo, <b>Tu Localidad</b> te lo podrá a disposición inmediatamente.</p>
 				  	</div>
 				 
 				  	<div class="col-md-4">
-					  	<div><img src="img/empresa.png"></div>
+					  	<div><img src="public/img/empresa.png"></div>
 					  	<h2>Empresa</h2>
 					  	<p>Registra tu empresa totalmente gratis y darte a conocer en tu ciudad local.</p>
 				  	</div>
@@ -282,26 +282,26 @@
 			  	<div class="row">
 			  		<div class="col-md-4">
 			  			<div class="text-descarga">
-			  				<img src="img/text-descarga.jpg">
+			  				<img src="public/img/text-descarga.jpg">
 			  			</div>
 					</div>
 				 	<div class="col-md-4">
-						<img src="img/descarga_tu_localidad.jpg">
+						<img src="public/img/descarga_tu_localidad.jpg">
 				 	</div>
 				 	<div class="col-md-4 col-descarga">
 				 		<a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.tulocalidad511234">
 	   
 							<div class="col-img-descarga">
-								<img src="img/descarga_tu_localidad_play.jpg">
+								<img src="public/img/descarga_tu_localidad_play.jpg">
 							</div>
 							<div class="col-img-descarga">
-								<img src="img/descarga_tu_localidad_logo.jpg">
+								<img src="public/img/descarga_tu_localidad_logo.jpg">
 							</div>
 							<div class="col-img-descarga">
-								<img src="img/descarga_tu_localidad_instalar.jpg">
+								<img src="public/img/descarga_tu_localidad_instalar.jpg">
 							</div>
 							<div class="col-img-descarga">
-								<img src="img/descarga_tu_localidad_instalado.jpg">
+								<img src="public/img/descarga_tu_localidad_instalado.jpg">
 							</div>
 
 						</a>
@@ -317,7 +317,7 @@
 			  	<div class="row">
 			  		<div class="col-md-12">
 			  			<a href="{{ url ('/auth/login') }}">
-			  				<img src="img/9-registrate.jpg">
+			  				<img src="public/img/9-registrate.jpg">
 			  			</a>
 			  		</div>
 			  	</div>
@@ -354,7 +354,7 @@
 	  					<p class="lead">Solo necesitas tenerlo en tu dispositivo movil, para encontrar lo que necesites...</p>
 	  					<div class="andrid-play">
 							<a target="_blank" href="https://play.google.com/store/apps/details?id=com.ionicframework.tulocalidad511234">
-									<img class="android-img" src="img/Download-Android-App.png" alt="Descargala en Android">
+									<img class="android-img" src="public/img/Download-Android-App.png" alt="Descargala en Android">
 							</a>
 							</div>	
 	  				</div>
@@ -384,28 +384,28 @@
 <!-- Scripts -->
 			 <!-- JAVASCRIPT
 		     ================================================== -->
-	    <script src="{{ asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
-	    <script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/retinajs/dist/retina.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/animatescroll/animatescroll.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/jquery/dist/jquery.min.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/angular/angular.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/retinajs/dist/retina.min.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/animatescroll/animatescroll.min.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/lodash/dist/lodash.js') }}"></script>
 			
 		<!-- Module Angular -->
-	    <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
-	    <script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
-		<script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
-	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/angular-animate/angular-animate.min.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
+		<script src="{{ asset('/public/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
+	    <script src="{{ asset('/public/bower_components/angular-resource/angular-resource.js') }}"></script>
 
-		<script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
-		<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
+		<script src="{{ asset('/public/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
+		<script src="{{ asset('/public/bower_components/angular-base64/angular-base64.min.js') }}"></script>
 
 		 <!-- your app's js -->
-    	<script src="{{ asset('/js/app.js') }}"></script>
-    	<script src="{{ asset('/js/controller.js') }}"></script>
+    	<script src="{{ asset('/public/js/app.js') }}"></script>
+    	<script src="{{ asset('/public/js/controller.js') }}"></script>
 
 	    <!-- Scripts -->
-	    <script src="{{ asset('/js/scripts.js') }}"></script>
+	    <script src="{{ asset('/public/js/scripts.js') }}"></script>
 
 	</body>
 </html>

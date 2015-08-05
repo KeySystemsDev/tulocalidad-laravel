@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('js')
-<script src="{{ asset('/js/controllers/empresa/empresa.js') }}"></script>
+<script src="{{ asset('public/js/controllers/empresa/empresa.js') }}"></script>
 @endsection
 
 @section('content')
@@ -23,7 +23,7 @@
                             <div class="col-lg-12">
 			                	<section class="panel">
 			                		<header class="panel-heading center">
-					                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
+					                    <img class="img-registrar-logo" src="{{ asset('public/img/tulocalidad.png') }}">
 					                    <h2>
 					                        Empresas registradas
 					                    </h2>

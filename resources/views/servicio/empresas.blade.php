@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('js')
-    <script src="{{ asset('/js/controllers/empresa/servicios_recomendados.js') }}"></script>
+    <script src="{{ asset('public/js/controllers/empresa/servicios_recomendados.js') }}"></script>
 @endsection
 
 @section('content')

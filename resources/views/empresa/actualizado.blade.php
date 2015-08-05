@@ -15,7 +15,7 @@
 		                        <div class="col-lg-12">
 				                	<section class="panel">
 				                		<header class="panel-heading center">
-						                    <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
+						                    <img class="img-registrar-logo" src="{{ asset('public/img/tulocalidad.png') }}">
 						                    <br><br><br>
 						                    <div class="row">
 					                            <div class="col-lg-6 col-md-6 msn-no-empresa">

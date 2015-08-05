@@ -1,7 +1,7 @@
 @extends('base')
 
 @section('js')
-	<script src="{{ asset('/js/controllers/auth/login.js') }}"></script>
+	<script src="{{ asset('public/js/controllers/auth/login.js') }}"></script>
 @endsection
 
 <ul class="cb-slideshow ul-login">
@@ -22,7 +22,7 @@
 	<div class="row login-tulocalidad">
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
-				<center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center>
+				<center><img class="img-registrar-logo" src="{{ asset('public/img/tulocalidad-blanco.png') }}"></center>
 				<div class="panel-body">
 
 					<form id="form" class="form-horizontal" role="form" method="post" action="{{ url('/auth/login') }}">

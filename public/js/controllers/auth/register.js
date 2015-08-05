@@ -63,7 +63,7 @@ app.controller('RegisterUsuarioController', function($scope, $log, ajax, $window
         angular.element('#form').serializeArray().map(function(x){data[x.name] = x.value;});
         ajax.Post($scope.hrefPost, data ).$promise.then(
             function(data) {
-                $scope.titulo     = data.titulo;
+                $scope.titulo     = data.data.titulo;
                 $scope.mensaje    = data.mensaje;
 
                 if (data.success){

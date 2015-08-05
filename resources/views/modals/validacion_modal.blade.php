@@ -10,9 +10,7 @@
             <div class="row">
                 <div class="modal-body">
                     <div class="col-xs-12">
-                        <blockquote >
-                            <p class="username">[[mensaje]]</p>
-                        </blockquote>
+                        <p class="username">[[mensaje]]</p>
                     </div>
                 </div>
             </div>

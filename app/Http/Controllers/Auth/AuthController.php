@@ -43,13 +43,12 @@ class AuthController extends Controller {
 						<head>
 				 			<title>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</title>
 						</head>
-						<body>
-							<img width="20" src="'.\URL::to('img/tulocalidad.png').'">
+						<body style="font-family: calibri;">
+							<p align="center"><img src="'.\URL::to('img/tulocalidad.png').'"></p>
 							<p align="justify">
-								<Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta.</b>
-								<b><a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
+								Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta: <a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
 								<br>
-								<b>Muchas gracias por su valioso tiempo.</b>
+								Muchas gracias por su valioso tiempo.
 							</p>
 						</body>		
 					</html>';

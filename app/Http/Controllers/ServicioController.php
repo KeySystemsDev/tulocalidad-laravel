@@ -56,7 +56,9 @@ class ServicioController extends Controller {
 		}
 		$empresas 	= Empresa::where('id_estado','=',$estado->id_estado)
 							 ->where('id_categoria','=',$categoria->id_categoria)
-							 ->get();
+							 ->get()
+							 ->all();
+							 
 
 		if( !$empresas or count($empresas)==0 ){
 			return view('servicio/sin_resultado');
@@ -71,10 +73,10 @@ class ServicioController extends Controller {
 			$current_page = \Input::get('page');
 		}	
 		
-		$data 		= HelperController::Paginador($empresas->toArray(), $count_items, $current_page);
+		$data 		= HelperController::Paginador($empresas, $count_items, $current_page);
 
 
-		return view('servicio/empresas', compact('empresas', 'id_estado', 'id_categoria','data' ));
+		return view('servicio/empresas', compact('id_estado', 'id_categoria','data' ));
 	}
 
 

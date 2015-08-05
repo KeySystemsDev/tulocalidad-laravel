@@ -21,15 +21,11 @@
             <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-location-arrow"></i> {{ $id_estado }}</a></li>
             <li class="active"><i class="fa fa-rocket"></i> {{ $id_categoria }} </li>
         </ol>
-        <!--<h3>{{$empresas->first()}}</h3>-->
 
         <!-- start:store list -->
-        {{print_r($data->type)}}
-        {{print("______________________________________________________________________________")}}
-        {{print_r($empresas->type)}}
 
         <div class="row" id="store-list">
-            @foreach($empresas as $empresa)
+            @foreach($data->consulta as $empresa)
             <div class="col-lg-6">  
                 <div class="panel">
                     <div class="panel-body">
@@ -56,39 +52,29 @@
                 </div>
             </div>
             @endforeach
+            <!-- PAGINADOR 
+                
+                $data->current_page   = es la pagina actual.
+                $data->pages          = es el numero de paginas que tiene la paginacion
 
-
-        <div class="row" id="store-list">
-            @foreach($empresas as $empresa)
-            <div class="col-lg-6">  
-                <div class="panel">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-5">
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}"><img src="{{ url('/uploads/empresas_high/'.$empresa->icon_empresa) }}" class="img-responsive img-5"></a>
-                                <!--<a class="btn btn-danger" data-original-title="" title="">{{$empresa->rif_empresa}}</a>-->
-                            </div>
-                            <div class="col-sm-7">
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-default btn-drop" data-original-title="" title="">
-                                    {{ ucfirst(substr($empresa->nombre_empresa, 0,28)) }} 
-                                    <i class="fa fa-chevron-right" data-original-title="" title=""></i> 
-                                </a>
-                                <hr>                                                                    
-                                <p>{{ ucfirst($empresa->descripcion_empresa) }}</p>
-                            </div>
-<!--
-                            <p>
-                                <a href="{{ url ('servicios/empresa/'.$empresa->id_empresa)}}" class="btn btn-primary btn-sm button-ver-detalle" data-original-title="" title="" style="bottom:0px;">Ver Empresa <i class="fa fa-chevron-right"></i></a>
-                            </p>
--->
-                        </div>
-                    </div>
+            -->
+             <center>
+                <div class="col-lg-12">
+                    @if ($data->pages > 1)
+                    <ul  class="pagination pagination-primary pagination-separated">
+                        @if (1 < $data->current_page )
+                            <li>  <a href ="[[paginacionhref]]?page={{$data->current_page-1}}"><</a> </li>
+                        @endif                                        
+                        @for ($active = 0; $active < $data->pages; $active++)
+                            <li><a href ="[[paginacionhref]]?page={{$active+1}}" >{{$active+1}}</a></li>
+                        @endfor
+                        @if ($data->current_page < $data->pages)
+                            <li>  <a href ="[[paginacionhref]]?page={{$data->current_page+1}}">></a> </li>
+                        @endif
+                    </ul>
+                    @endif  
                 </div>
-            </div>
-            @endforeach
-
-        </div>
-        <!-- end:store list -->
+            </center>   
 
     </div>
 </div>

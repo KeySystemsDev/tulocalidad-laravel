@@ -72,7 +72,7 @@ class MisPublicidadesController extends Controller {
 		$publicidad->url_imagen_publicidad  = $result['data']['nombreArchivo'];
 		$publicidad->save();
 
-		$data 	 		= "";
+		$data 	 		= (object) ["titulo" => "Registro exitoso!"];
 		$success 		= true;
 		$msj 	 		= "Su publicidad ha sido creada exitosamente.";
 		$json 	 		= array('success'   => $success,

@@ -52,33 +52,45 @@ app.controller('RegisterUsuarioController', function($scope, $log, ajax, $window
     	}
     };
 
-	$scope.checkMe = function(){
-    	var data = {};
-    	// TRANSFORMANDO UN FORM A UN JSON
-    	angular.element('#form').serializeArray().map(function(x){data[x.name] = x.value;});
-	    ajax.Post("/auth/register", data ).$promise.then(
+
+    $scope.hrefPost = "#";
+    $scope.hrefSuccess = "#";
+    $scope.hrefFailed = "#";
+    $scope.hrefErrorServer = "#";
+    $scope.checkMe = function(){
+        var data = {};
+        // TRANSFORMANDO UN FORM A UN JSON
+        angular.element('#form').serializeArray().map(function(x){data[x.name] = x.value;});
+        ajax.Post($scope.hrefPost, data ).$promise.then(
             function(data) {
-    	    	$scope.titulo = "Registro de usuario"
+                $scope.titulo     = data.titulo;
+                $scope.mensaje    = data.mensaje;
+
                 if (data.success){
-                	$scope.mensaje 		= data.mensaje;
                     $scope.redirecto = function() {
-                        $window.location.href= "/auth/login"; 
+                        $window.location.href= $scope.hrefSuccess; 
                     }                
-                }else{
-                	$scope.mensaje = data.mensaje;
+                }else if (!data.success){
                     $scope.redirecto = function() {
+                        $window.location.href= $scope.hrefFailed; 
+                    }
+                }else{
+                    $scope.titulo = "Error (7772)";
+                    $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
+                    $scope.redirecto = function() {
+                        $window.location.href = $scope.hrefErrorServer; 
                     }
                 }
                 angular.element("#validacion_modal").modal("show");
-    	    },
+            },
             //error (400,500)
             function(data) {
                 $scope.titulo = "Error (7772)";
                 $scope.mensaje = "Disculpe, Intentelo nuevamente. Si el error continua contacte a soporte (soporte@tulocalidad.com.ve)";
                 $scope.redirecto = function() {
-                    $window.location.href = "/auth/register"; 
+                    $window.location.href = $scope.hrefErrorServer; 
                 } 
                 angular.element("#validacion_modal").modal("show");
             });
-	}
+    }
 });

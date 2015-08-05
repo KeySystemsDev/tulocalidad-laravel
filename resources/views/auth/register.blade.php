@@ -18,7 +18,16 @@
 @include('layouts/nav-top-auth')
 
 <div class="container-fluid" ng-controller="RegisterUsuarioController">
+	<!-- Inicializando rutas -->
+	<div ng-init="hrefPost		  ='{{ url('/auth/register')}}'"></div>
+	<div ng-init="hrefSuccess	  ='{{ url('/auth/login')}}'"></div>
+	<div ng-init="hrefFailed	  ='{{ url('#')}}'"></div>
+	<div ng-init="hrefErrorServer ='{{ url('/auth/register')}}'"></div>
 	<div class="row login-tulocalidad-register">
+
+
+
+
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-default border-tulocalidad">
 				<div class=""><center><img class="img-registrar-logo" src="{{ asset('/img/tulocalidad-blanco.png') }}"></center></div>

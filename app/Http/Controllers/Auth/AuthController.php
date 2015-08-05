@@ -28,7 +28,8 @@ class AuthController extends Controller {
 	public function postRegister(){
 		$email = \Input::get('email');
 		$auth  = Usuario::where('correo_usuario', '=', $email)->first();
-		$data  = \Input::get('email');
+		
+
 		if (count($auth)==0){
 
 			$usuario = new Usuario;
@@ -54,7 +55,8 @@ class AuthController extends Controller {
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
 			$cabeceras .= "From: contacto@keysystems.com.ve";
 			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
-			$msj 	 = 'Registro exitoso, revise su correo para activar su usuario.';
+			$msj 	 = 'Revise su correo para activar su usuario.';
+			$data  	 = (object) ["titulo" => "Registro exitoso!"];
 			$success = true;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -62,6 +64,7 @@ class AuthController extends Controller {
 				);
 		}else{
 			$success = false;
+			$data  	 = (object) ["titulo" => "Disculpe!"];
 			$msj 	 = 'El correo ya se encuentra registrado.';
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -84,6 +87,7 @@ class AuthController extends Controller {
 		$data = "";
 		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
         if(count($auth) == 0){
+        	$data  	 = (object) ["titulo" => "Disculpe!"];
 			$msj 	 = "Usuario o clave incorrecto";
 			$success = false;
 			$json 	 = array('success'  => $success,
@@ -92,6 +96,7 @@ class AuthController extends Controller {
         }
         elseif($auth->habilitado_usuario == 0){
         	//MENSAJE POR CORREGIR
+        	$data  	 = (object) ["titulo" => "Disculpe!"];
 			$msj 	 = "Usuario no activado, revise su bandeja de entrada y siga las instrucciones";
 			$success = false;
 			$json 	 = array('success'  => $success,

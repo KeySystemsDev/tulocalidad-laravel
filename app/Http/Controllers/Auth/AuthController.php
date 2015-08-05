@@ -44,8 +44,9 @@ class AuthController extends Controller {
 				 			<title>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</title>
 						</head>
 						<body>
-							<p align="center">
-								<b>Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta.</b>
+							<img width="20" src="'.\URL::to('img/tulocalidad.png').'">
+							<p align="justify">
+								<Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta.</b>
 								<b><a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
 								<br>
 								<b>Muchas gracias por su valioso tiempo.</b>
@@ -55,7 +56,7 @@ class AuthController extends Controller {
 
 			$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
-			$cabeceras .= "From: contacto@keysystems.com.ve";
+			$cabeceras .= "From: no-responder@tulocalidad.com.ve";
 			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
 			$msj 	 = 'Revise su correo para activar su usuario.';
 			$data  	 = (object) ["titulo" => "Registro exitoso!",

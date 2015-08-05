@@ -35,19 +35,20 @@ class AuthController extends Controller {
 			$usuario = new Usuario;
 			$usuario->correo_usuario   = \Input::get('email'); 	
 			$usuario->clave_usuario    = \Input::get('password');
-			$usuario->codigo_activacion= substr(md5(uniqid(rand(), true)), 16, 16);
+			$usuario->codigo_activacion_usuario= substr(md5(uniqid(rand(), true)), 16, 16);
 			$usuario->save();
 			//ACOMODAR EL MENSAJE
 			$mensaje ='
 					<html>
 						<head>
-				 			<title>Bienvenido</title>
+				 			<title>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</title>
 						</head>
 						<body>
 							<p align="center">
-								<b>para activar su usuario haga click
-								<a href="http://tulocalidad.com.ve/auth/activacion/'.$usuario->codigo_activacion.'">aquí.</b>
-								<br><br>
+								<b>Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta.</b>
+								<b><a href="'.URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
+								<br>
+								<b>Muchas gracias por su valioso tiempo.</b>
 							</p>
 						</body>		
 					</html>';
@@ -58,7 +59,7 @@ class AuthController extends Controller {
 			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
 			$msj 	 = 'Revise su correo para activar su usuario.';
 			$data  	 = (object) ["titulo" => "Registro exitoso!",
-								 "id_user" => $usuario->codigo_activacion,];
+								 "id_user" => $usuario->codigo_activacion_usuario,];
 			$success = true;
 			$json 	 = array('success'  => $success,
 							  'mensaje' => $msj,
@@ -117,7 +118,7 @@ class AuthController extends Controller {
 	}
 
 	public function HabilitarUsuario($codigo_activacion){
-		Usuario::where('codigo_activacion','=', $codigo_activacion)->update(array('habilitado_usuario' => 1));
+		Usuario::where('codigo_activacion','=', $codigo_activacion_usuario)->update(array('habilitado_usuario' => 1));
 		return view('auth/habilitado');
 	}
 }

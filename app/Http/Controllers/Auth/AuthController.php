@@ -122,15 +122,15 @@ class AuthController extends Controller {
 		$codigo 	 =  1;
 		$usuarios = Usuario::where('codigo_activacion_usuario', $codigo_activacion);
 
-		if (!$usuarios){
-			echo $codigo 	 =  -1;
+		if (!$usuarios->first()){
+			$codigo 	 =  -1;
 			return view('auth/habilitado', compact('codigo'));
 		}
 
 		$usuario_habilitados = $usuarios->where('habilitado_usuario', 1);
 
 		if ($usuario_habilitados->first()){
-			echo $codigo	 = 2;
+			$codigo	 = 2;
 			return view('auth/habilitado', compact('codigo'));
 		}
 

@@ -51,12 +51,13 @@ class PasswordController extends Controller {
 	 */
 	public function postEmail(){
 		$email = Usuario::where('correo_usuario', '=',\Input::get('email'))->pluck('correo_usuario');
+
 		if (strtolower($email)==strtolower(\Input::get('email'))){
 			$pass= new Reset_Clave;
 			$password = $pass->NuevaPass(10);
 			Usuario::where('correo_usuario', '=',\Input::get('email'))->update(
 				array(
-					'clave_usuario'                =>$password,
+					'clave_usuario'=>$password,
 				)
 			);
 			$mensaje ='<html>
@@ -78,15 +79,25 @@ class PasswordController extends Controller {
 			$cabeceras .= "From: contacto@keysystems.com.ve";
 			
 			mail($email,"Nueva clave de Acceso",$mensaje,$cabeceras);
-			$success 	= 1;
-			$error 		= "";
-			return view('auth.password',compact('error','success'));
+
+
+			$msj 	 = 'Una nueva contraseña a sido enviado a su correo.';
+			$data  	 = (object) ["titulo" => "Cambio de contraseña exitoso!",];
+			$success = true;
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data
+				);
+		}else{
+			$success = false;
+			$data  	 = (object) ["titulo" => "Disculpe!"];
+			$msj 	 = 'El correo colocado no existe.';
+			$json 	 = array('success'  => $success,
+							  'mensaje' => $msj,
+							  'data' 	=> $data
+				);
 		}
-		else{
-			$success 	= "";
-			$error 		= 1;
-			return view('auth.password',compact('success','error'));
-		}
+		return json_encode($json);
 		
 	}
 }

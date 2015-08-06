@@ -81,21 +81,24 @@ class ServicioController extends Controller {
 
 
 	public function Empresa($id_empresa){
-		$empresas 		= Empresa::where('id_empresa','=',$id_empresa);
-		$empresa 		= $empresas->first();
+		$empresa 		= Empresa::where('id_empresa',$id_empresa)->first();
+
+		$empresas 		= Empresa::where('id_empresa',$id_empresa)->update(
+										array(
+											'visitas_empresas' => $empresa->visitas_empresa+1,
+											)
+									);
+		
 		if (!$empresa){
 			return view('servicio/sin_resultado');
 		}
-		$empresas->update(
-				array(
-					'visitas_empresas' => $empresa->visitas_empresa+1,
-					)
-				);
 
 		$estado    = Estado::where('id_estado','=',$empresa->id_estado)->first()->nombre_estado;
 		$categoria = Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;
 
-		return view('servicio/empresa_detalle', compact('empresa','estado','categoria'));
+		$publicidades = Publicidad::where('id_empresa', $id_empresa)->get()->all();
+
+		return view('servicio/empresa_detalle', compact('empresa','estado','categoria','publicidades'));
 	}
 
 

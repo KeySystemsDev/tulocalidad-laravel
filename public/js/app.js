@@ -3,7 +3,7 @@
 
 // Application -----------------------------------------------------------------
 
-var app = angular.module('tulocalidad', ['ngResource','uiGmapgoogle-maps', 'ngImgCrop', 'chieffancypants.loadingBar', 'ngAnimate']
+var app = angular.module('tulocalidad', ['ngResource','uiGmapgoogle-maps', 'ngImgCrop', 'chieffancypants.loadingBar', 'ngAnimate', '720kb.tooltips']
 	, function($interpolateProvider){
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');

@@ -35,6 +35,7 @@
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/font-awesome/css/font-awesome.min.css') }}">
 	    <!-- Module Angular-->    
 		<link href="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.css') }}" rel='stylesheet' />
+		<link href="{{ asset('/bower_components/angular-tooltips/dist/angular-tooltips.min.css') }}" rel='stylesheet' />
 		<link href="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.css') }}" rel="stylesheet" type="text/css">
 
 	    <link rel="stylesheet" type="text/css" href="{{ asset('/bower_components/animate.css/animate.min.css') }}">
@@ -84,6 +85,7 @@
 	    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
 	    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
 
+		<script src="{{ asset('/bower_components/angular-tooltips/dist/angular-tooltips.min.js') }}"></script>
 		<script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
 		<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
 

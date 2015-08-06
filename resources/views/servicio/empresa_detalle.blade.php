@@ -8,7 +8,7 @@
 
 <div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
-
+        <a href="#" tooltips title="tooltip" tooltip-side="bottom">Tooltip me</a>
         <ol class="breadcrumb">
             <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
             <li><a href="{{ url ('/servicios/estado/'.$estado) }}"><i class="fa fa-location-arrow"></i> {{ $estado }}</a></li>

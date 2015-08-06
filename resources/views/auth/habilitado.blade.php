@@ -1,4 +1,5 @@
 @extends('base')
+
 @if ($codigo == 1)
 	<h1>Usuario Habilitado Satisfactoriamente</h1>
 @endif

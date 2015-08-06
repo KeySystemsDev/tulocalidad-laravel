@@ -170,6 +170,7 @@
             </div>
             @endif
 
+            
             @if ($publicidades)
 
                 <div class="grid grid-detalle-empresa">   

@@ -170,6 +170,7 @@
             </div>
             @endif
 
+            
             @if ($publicidades)
                 @foreach($publicidades as $index => $publicidad )
                     <label>publicidad {{$index}}</label><div>{{$publicidad->titulo_publicidad}}</div>

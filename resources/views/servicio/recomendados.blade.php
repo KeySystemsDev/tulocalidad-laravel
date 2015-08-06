@@ -1,9 +1,5 @@
 @extends('base')
 
-@section('js')
-<script src="{{ asset('/js/controllers/empresa/servicios_recomendados.js') }}"></script>
-@endsection
-
 @section('content')
 	
 	@include('layouts/nav-top')

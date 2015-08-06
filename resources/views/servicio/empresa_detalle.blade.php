@@ -171,11 +171,34 @@
             @endif
 
             @if ($publicidades)
-                @foreach($publicidades as $index => $publicidad )
-                    <label>publicidad {{$index}}</label><div>{{$publicidad->titulo_publicidad}}</div>
-                @endforeach
-            @else
 
+                <div class="grid grid-detalle-empresa">   
+                @foreach($publicidades as $index => $publicidad )
+               
+                        <figure class="effect-zoe effect-zoe-detalle-empresa">
+                            <a href="/servicios/publicacion/{{$publicidad->id_publicidad}}">
+                                <img src="{{ url('/uploads/publicidades_high/'.$publicidad->url_imagen_publicidad)}}" class="img-2">       
+                            </a>
+                            <figcaption>                                                        
+                                <p class="icon-links icon-links-custon">                                                            
+                                    <!--<a href="#"><i class="fa fa-link"></i></a>
+                                    <a href="#"><i class="fa fa-comment-o"></i></a>-->
+                                    <a href="http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}" onclick="window.open('http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}', 'newwindow', 'width=500, height=250'); return false;"><i class="fa fa-twitter"></i></a>
+                                    <a href="http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}"  onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}', 'newwindow', 'width=500, height=250'); return false;">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <span style="font-size: 12px;">{{$publicidad->titulo_publicidad}}</span>
+
+                                </p>
+                                <!--<p class="description">{{$publicidad->descripcion_publicidad}}</p>-->
+                            </figcaption>                                               
+                        </figure>
+                        
+                    
+                @endforeach
+                </div>
+
+            @else
                 <div>no posee publicidades registradas</div>
             @endif
             

@@ -511,6 +511,18 @@ figure.effect-zoe p.icon-links a {
     display: inline-block;
 }
 
+.grid-detalle-empresa {
+    position: relative;
+    margin: 14px;
+    padding: 0em 0 0em;
+    max-width: 1200px;
+    list-style: none;
+    text-align: center;
+}
+figure.effect-zoe-detalle-empresa {
+  width: 345px;
+}
+
 @media all and (max-width: 550px)  {
     #store-list img {
       width: 100%;

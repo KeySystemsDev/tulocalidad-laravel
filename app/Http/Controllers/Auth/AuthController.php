@@ -40,10 +40,8 @@ class AuthController extends Controller {
 			//ACOMODAR EL MENSAJE
 			$mensaje ='
 					<html>
-						<head>
-				 			<title>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</title>
-						</head>
 						<body style="font-family: calibri;">
+							<p>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</p>
 							<p align="center"><img src="'.\URL::to('img/tulocalidad.png').'"></p>
 							<p align="justify">
 								Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta: <a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
@@ -56,7 +54,7 @@ class AuthController extends Controller {
 			$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
 			$cabeceras .= "From: no-responder@tulocalidad.com.ve";
-			mail($email,"tulocalidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
+			mail($email,"Tu Localidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
 			$msj 	 = 'Revise su correo para activar su usuario.';
 			$data  	 = (object) ["titulo" => "Registro exitoso!",
 								 "id_user" => $usuario->codigo_activacion_usuario,];

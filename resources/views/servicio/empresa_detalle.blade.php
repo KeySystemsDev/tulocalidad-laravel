@@ -8,7 +8,6 @@
 
 <div class="container" ng-controller="DetalleEmpresaController">
     <div id="main">
-        <a href="#" tooltips title="tooltip" tooltip-side="bottom">Tooltip me</a>
         <ol class="breadcrumb">
             <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
             <li><a href="{{ url ('/servicios/estado/'.strtolower($estado)) }}"><i class="fa fa-globe"></i> {{ $estado }}</a></li>
@@ -173,34 +172,41 @@
             
             @if ($publicidades)
 
-                <div class="grid grid-detalle-empresa">   
-                @foreach($publicidades as $index => $publicidad )
-               
-                        <figure class="effect-zoe effect-zoe-detalle-empresa">
-                            <a href="/servicios/publicacion/{{$publicidad->id_publicidad}}">
-                                <img src="{{ url('/uploads/publicidades_high/'.$publicidad->url_imagen_publicidad)}}" class="img-2">       
-                            </a>
-                            <figcaption>                                                        
-                                <p class="icon-links icon-links-custon">                                                            
-                                    <!--<a href="#"><i class="fa fa-link"></i></a>
-                                    <a href="#"><i class="fa fa-comment-o"></i></a>-->
-                                    <a href="http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}" onclick="window.open('http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}', 'newwindow', 'width=500, height=250'); return false;"><i class="fa fa-twitter"></i></a>
-                                    <a href="http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}"  onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}', 'newwindow', 'width=500, height=250'); return false;">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                    <span style="font-size: 12px;">{{$publicidad->titulo_publicidad}}</span>
+                <div class="grid grid-detalle-empresa ">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="panel">
+                                <div class="panel-body">
+                                @foreach($publicidades as $index => $publicidad )
+                                    <figure class="effect-zoe effect-zoe-detalle-empresa">
+                                        <a href="/servicios/publicacion/{{$publicidad->id_publicidad}}">
+                                            <img src="{{ url('/uploads/publicidades_high/'.$publicidad->url_imagen_publicidad)}}" class="img-2">       
+                                        </a>
+                                        <figcaption>                                                        
+                                            <p class="icon-links icon-links-custon">                                                            
+                                                <!--<a href="#"><i class="fa fa-link"></i></a>
+                                                <a href="#"><i class="fa fa-comment-o"></i></a>-->
+                                                <a href="http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}" onclick="window.open('http://twitter.com/share?url=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}&text={{$publicidad->titulo_publicidad}}', 'newwindow', 'width=500, height=250'); return false;"><i class="fa fa-twitter"></i></a>
+                                                <a href="http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}"  onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.tulocalidad.com.ve/servicios/empresa/{{$publicidad->id_empresa}}', 'newwindow', 'width=500, height=250'); return false;">
+                                                    <i class="fa fa-facebook"></i>
+                                                </a>
+                                                <span style="font-size: 12px;">{{$publicidad->titulo_publicidad}}</span>
 
-                                </p>
-                                <!--<p class="description">{{$publicidad->descripcion_publicidad}}</p>-->
-                            </figcaption>                                               
-                        </figure>
-                        
-                    
-                @endforeach
+                                            </p>
+                                            <!--<p class="description">{{$publicidad->descripcion_publicidad}}</p>-->
+                                        </figcaption>                                               
+                                    </figure>
+                                @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             @else
-                <div>no posee publicidades registradas</div>
+            <center>
+                <h5><span class="label label-info">No posee publicidades registradas.</span></h5>
+            </center>
             @endif
             
         </div>

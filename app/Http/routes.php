@@ -69,6 +69,7 @@ Route::any('movil/empresa/categoria-estado', 	'Movil\EmpresaController@ActionCat
 Route::any('movil/empresa/empresa-categoria', 	'Movil\EmpresaController@ActionEmpresaCategoria');
 Route::any('movil/empresa/empresa-detalle', 	'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 			'Movil\PublicidadController@ActionPublicidad');
+Route::any('movil/detalle_publicidad/', 		'Movil\PublicidadController@DetallePublicidad');
 
 
 

@@ -520,7 +520,10 @@ figure.effect-zoe p.icon-links a {
     text-align: center;
 }
 figure.effect-zoe-detalle-empresa {
-  width: 345px;
+  width: 335px;
+}
+.panel-custon{
+    border: 1px solid rgba(175,142,146, .4);
 }
 
 @media all and (max-width: 550px)  {

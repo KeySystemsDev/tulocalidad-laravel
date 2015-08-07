@@ -10,8 +10,8 @@
     <div id="main">
         <ol class="breadcrumb">
             <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicos</a></li>
-            <li><a href="{{ url ('/servicios/estado/'.strtolower($estado)) }}"><i class="fa fa-globe"></i> {{ $estado }}</a></li>
-            <li><a href="{{ url ('/servicios/categoria/'.strtolower($estado).'/'.strtolower($categoria)) }}"><i class="fa fa-cubes"></i> {{ $categoria }}</a></li>
+            <li><a href="{{ url ('/servicios/estado/'.$estado) }}"><i class="fa fa-globe"></i> {{ $estado }}</a></li>
+            <li><a href="{{ url ('/servicios/categoria/'.$estado.'/'.$categoria) }}"><i class="fa fa-cubes"></i> {{ $categoria }}</a></li>
             <li class="active"><i class="fa fa-rocket"></i> {{ $empresa->nombre_empresa }} </li>
         </ol>
     

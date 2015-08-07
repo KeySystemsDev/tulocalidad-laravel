@@ -18,7 +18,7 @@
         <div ng-init="paginacion-href='/servicios/categoria/{{ $id_estado }}/{{ $id_categoria }}/'"></div>
         <ol class="breadcrumb">
             <li><a href="{{ url ('/servicios/todo') }}"><i class="fa fa-coffee"></i> Servicios</a></li>
-            <li><a href="{{ url ('/servicios/estado/'.$id_estado }}"><i class="fa fa-globe"></i> {{ $id_estado }}</a></li>
+            <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-globe"></i> {{ $id_estado }}</a></li>
             <li class="active"><i class="fa fa-location-arrow"></i> {{ $id_categoria }} </li>
         </ol>
 

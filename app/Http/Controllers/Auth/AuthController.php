@@ -39,9 +39,9 @@ class AuthController extends Controller {
 			$usuario->save();
 			$mensaje ='
 					<html>
-						<body style="font-family: calibri;">
+						<body style="font-family: calibri; font-size: 12px;">
 							<p>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</p>
-							<p align="center"><img src="'.\URL::to('img/tulocalidad.png').'"></p>
+							<p align="center"><img src="'.\URL::to('img/tulocalidad.png').'" width="150"></p>
 							<p align="justify">
 								Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta: <a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
 								<br>

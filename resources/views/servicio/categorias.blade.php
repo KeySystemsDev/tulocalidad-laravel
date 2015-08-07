@@ -24,7 +24,7 @@
 				                            <div class="panel-body">				                                
 				                                <ul class="list-group col-lg-4">				                                    
 				                                    @foreach(array_slice($categorias, 0, $i) as $key)
-														<a class="list-group-item" href="/servicios/categoria/{{$id_estado}}/{{$key->nombre_categoria}}">
+														<a class="list-group-item" href="/servicios/categoria/{{strtolower($id_estado)}}/{{strtolower($key->nombre_categoria)}}">
 					                                        <span class="badge badge-success">{{$key->cantidad}}</span>
 					                                        {{$key->nombre_categoria}}					                                        
 					                                    </a>
@@ -32,7 +32,7 @@
 				                                </ul>
 				                                <ul class="list-group col-lg-4">
 				                                    @foreach(array_slice($categorias, $i, $i) as $key)
-														<a class="list-group-item" href="/servicios/categoria/{{$id_estado}}/{{$key->nombre_categoria}}">
+														<a class="list-group-item" href="/servicios/categoria/{{strtolower($id_estado)}}/{{strtolower($key->nombre_categoria)}}">
 					                                        <span class="badge badge-success">{{$key->cantidad}}</span>					                                        
 					                                        {{$key->nombre_categoria}}	
 					                                    </a>
@@ -40,7 +40,7 @@
 				                                </ul>
 				                                <ul class="list-group col-lg-4">
 				                                    @foreach(array_slice($categorias, $i * 2, $i) as $key)
-														<a class="list-group-item" href="/servicios/categoria/{{$id_estado}}/{{$key->nombre_categoria}}">
+														<a class="list-group-item" href="/servicios/categoria/{{strtolower($id_estado)}}/{{strtolower($key->nombre_categoria)}}">
 					                                        <span class="badge badge-success">{{$key->cantidad}}</span>
 					                                        {{$key->nombre_categoria}}	
 					                                    </a>

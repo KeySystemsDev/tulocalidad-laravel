@@ -37,7 +37,6 @@ class AuthController extends Controller {
 			$usuario->clave_usuario    = \Input::get('password');
 			$usuario->codigo_activacion_usuario= substr(md5(uniqid(rand(), true)), 16, 16);
 			$usuario->save();
-			//ACOMODAR EL MENSAJE
 			$mensaje ='
 					<html>
 						<body style="font-family: calibri;">

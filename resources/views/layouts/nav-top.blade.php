@@ -59,13 +59,13 @@
                 <ul class="nav navbar-nav navbar-right top-menu ">
                     <!-- start dropdown 1 -->
                     <li class="dropdown nav-button-item" >
-                        <a class="dropdown-toggle nav-button-icon" tooltips title="Empresas" tooltip-side="bottom"  href="{{ url ('mis-empresas') }}" >
+                        <a class="dropdown-toggle nav-button-icon" tooltips title="Mis Empresas" tooltip-side="bottom"  href="{{ url ('mis-empresas') }}" >
                             <i class="fa fa-building" data-original-title="" title=""></i>
                            
                         </a>
                     </li>
                     <li class="dropdown nav-button-item">
-                        <a class="dropdown-toggle nav-button-icon" tooltips title="Publicidad" tooltip-side="bottom"href="{{ url ('mis-publicidades') }}">
+                        <a class="dropdown-toggle nav-button-icon" tooltips title="Mis Publicidades" tooltip-side="bottom"href="{{ url ('mis-publicidades') }}">
                             <i class="fa fa-bullhorn" data-original-title="" title=""></i>
                             
                         </a>

@@ -12,7 +12,7 @@ class ImgController extends Controller {
 	public function create(){
 		$base64img = Input::get('img');
 		$urlUpload = "uploads/temp/";
-		$user = Session::get('usuario'); // -> aqui va el usuario logueado o el id del usuario
+		$user = substr(md5(uniqid(rand(), true)), 16, 16);; // -> aqui va el hash unico
 
 
 		$nameImg = $user.date("-d_n_Y-H:i:s");

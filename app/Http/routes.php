@@ -18,6 +18,8 @@ Route::get('home', 							'HomeController@index');
 Route::any('theme', 						'WelcomeController@theme');
 Route::any('auth/activacion/{id_usuario}',  'Auth\AuthController@HabilitarUsuario');
 Route::any('verificacion/rif',				'ServicioController@VerificarRif');
+
+
 Route::controllers([
 	'auth' 		=> 'Auth\AuthController',
 	'password'  => 'Auth\PasswordController',
@@ -70,7 +72,7 @@ Route::any('movil/empresa/empresa-categoria', 	'Movil\EmpresaController@ActionEm
 Route::any('movil/empresa/empresa-detalle', 	'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 			'Movil\PublicidadController@ActionPublicidad');
 Route::any('movil/detalle_publicidad/', 		'Movil\PublicidadController@DetallePublicidad');
-
+Route::get('movil/version',						'Movil\UtilsController@GetVersion');
 
 
 Route::any('/', 	'WelcomeController@index');

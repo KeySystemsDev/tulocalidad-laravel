@@ -7,6 +7,7 @@ use DB;
 use App\Categoria;
 use App\Estado;
 use App\Empresa;
+use App\Publicidad;
 
 class EmpresaController extends Controller {
 
@@ -41,10 +42,21 @@ class EmpresaController extends Controller {
     }
 
     public function ActionEmpresaDetalle(){
-        $empresa    =e(Input::get('id_empresa'));
-        $consulta   = Empresa::where('id_empresa','=',$empresa)->get();        
+        $id_empresa     = Input::get('id_empresa');
+        $empresa        = Empresa::where('id_empresa','=',$id_empresa)->get()->all();        
 //        $consulta   = DB::select('CALL p_t_empresas(?,?,?,?,?)',array('detalle_empresa','','','',$empresa));
-        return json_encode($consulta);
+
+
+        $publicidades   = Publicidad::where('id_empresa', $id_empresa)->get()->all();
+        $success        = true;
+        $msj            = "";
+        $json           = array('success'  => $success,
+                                    'mensaje'  => $msj,
+                                    'consulta' => array('detalle'       => $empresa,
+                                                        'publicidades'  => $publicidades
+                                                    )
+                                    );
+        return json_encode($json);
     }
 }
 ?>

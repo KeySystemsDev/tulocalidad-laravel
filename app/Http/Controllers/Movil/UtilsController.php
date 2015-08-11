@@ -13,7 +13,7 @@ class UtilsController extends Controller {
         $version        = explode("." ,\Input::get("version"));
         $descargar      = false;
         $success        = true;
-
+        $msj            = "";
         if (count($version)!=3){
             $success    = false;
             $msj        = "formato invalido";

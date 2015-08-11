@@ -72,7 +72,7 @@ Route::any('movil/empresa/empresa-categoria', 	'Movil\EmpresaController@ActionEm
 Route::any('movil/empresa/empresa-detalle', 	'Movil\EmpresaController@ActionEmpresaDetalle');
 Route::any('movil/empresa/publicidad', 			'Movil\PublicidadController@ActionPublicidad');
 Route::any('movil/detalle_publicidad/', 		'Movil\PublicidadController@DetallePublicidad');
-Route::get('movil/version',						'UtilsController@GetVersion');
+Route::get('movil/version',						'Movil\UtilsController@GetVersion');
 
 
 Route::any('/', 	'WelcomeController@index');

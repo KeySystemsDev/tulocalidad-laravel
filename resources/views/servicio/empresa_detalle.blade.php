@@ -173,7 +173,7 @@
             @if ($publicidades)
 
                 <div class="grid grid-detalle-empresa ">
-                    <div class="row">
+                    <div class="grid-content">
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             <div class="panel">
                                 <div class="panel-body">

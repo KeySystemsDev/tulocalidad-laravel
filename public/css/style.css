@@ -519,6 +519,10 @@ figure.effect-zoe p.icon-links a {
     list-style: none;
     text-align: center;
 }
+.grid-content{
+    margin-right: -15px;
+    margin-left: -15px;
+}
 figure.effect-zoe-detalle-empresa {
   width: 335px;
 }

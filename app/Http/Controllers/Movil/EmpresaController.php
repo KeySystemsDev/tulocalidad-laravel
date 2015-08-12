@@ -22,14 +22,14 @@ class EmpresaController extends Controller {
     }
 
     public function ActionCategoriaEstado(){
-        $estado     =e(Input::get('id_estado'));
+        $estado     =(Input::get('id_estado'));
         $data       = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado,''));
         return json_encode($data);
     }
 
     public function ActionEmpresaCategoria(){
-        $id_categoria   =e(Input::get('id_categoria'));
-        $id_estado      =e(Input::get('id_estado'));
+        $id_categoria   =(Input::get('id_categoria'));
+        $id_estado      =(Input::get('id_estado'));
 
         $empresas       = Empresa::where('id_estado','=',$id_estado)
                                 ->where('id_categoria','=',$id_categoria)

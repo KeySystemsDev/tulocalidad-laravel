@@ -147,7 +147,7 @@
             </div>
 
             <div ng-init="mapa = {id : 0, coords : { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'} }"></div>
-            <div ng-init="mapa_posicion = { zoom: 9, center : { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'} }"></div>
+            <div ng-init="mapa_posicion = { zoom: 14, center : { latitude: '{{$empresa->positionmap_empresa_latitude}}', longitude: '{{$empresa->positionmap_empresa_longitude}}'} }"></div>
 
             @if($empresa->privacidad_empresa==1)
             <div class="col-lg-12 col-md-12 col-xs-12">

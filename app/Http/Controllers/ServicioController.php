@@ -39,8 +39,16 @@ class ServicioController extends Controller {
 		if ($estado == null){
 			return view('servicio/sin_resultado');
 		}		
+		echo("categorias:    ".$estado);
+
 		$categorias = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado->id_estado,''));
-		$i = round(count($categorias) / 3);
+		$i = count($categorias) / 3;
+		if (0 < $i && $i < 1 ){
+			$i = 1;
+		}else{
+			$i = round($i);
+		}
+		echo("i:    ".$i);
 		return view('servicio/categorias', compact('id_estado','categorias', 'i'));
 	}
 
@@ -83,15 +91,15 @@ class ServicioController extends Controller {
 	public function Empresa($id_empresa){
 		$empresa 		= Empresa::where('id_empresa',$id_empresa)->first();
 
+		if (!$empresa){
+			return view('servicio/sin_resultado');
+		}
+
 		$empresas 		= Empresa::where('id_empresa',$id_empresa)->update(
 										array(
 											'visitas_empresas' => $empresa->visitas_empresa+1,
 											)
 									);
-		
-		if (!$empresa){
-			return view('servicio/sin_resultado');
-		}
 
 		$estado    = Estado::where('id_estado','=',$empresa->id_estado)->first()->nombre_estado;
 		$categoria = Categoria::where('id_categoria','=',$empresa->id_categoria)->first()->nombre_categoria;

@@ -38,9 +38,7 @@ class ServicioController extends Controller {
 		$estado     = Estado::where('nombre_estado','=',$id_estado)->first();
 		if ($estado == null){
 			return view('servicio/sin_resultado');
-		}		
-		echo("categorias:    ".$estado);
-
+		}
 		$categorias = \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_categoria_por_estado','',$estado->id_estado,''));
 		$i = count($categorias) / 3;
 		if (0 < $i && $i < 1 ){
@@ -48,7 +46,6 @@ class ServicioController extends Controller {
 		}else{
 			$i = round($i);
 		}
-		echo("i:    ".$i);
 		return view('servicio/categorias', compact('id_estado','categorias', 'i'));
 	}
 

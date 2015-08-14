@@ -113,7 +113,7 @@ class MisEmpresasController extends Controller {
 				'nombre_empresa'                => (Input::get('i_nombre')),
 				'rif_empresa'                   => (Input::get('i_rif')),
 				'direccion_empresa'             => (Input::get('i_direccion')),
-				'id_categoria'                  => (Input::get('s_categoria')),
+				'id_categoria'                  => (Input::get('i_categoria')),
 				'correo_empresa'                => (Input::get('i_correo')),
 				'id_estado'                     => (int) $estado[0],
 				'url_empresa'                   => (Input::get('i_sitio_web')),

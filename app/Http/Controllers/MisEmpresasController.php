@@ -108,12 +108,13 @@ class MisEmpresasController extends Controller {
 			
 		}
 		$estado = explode(" + ",Input::get('estado'));
-		$empresa->update(
+		Empresa::where('id_empresa','=', Input::get('id_empresa'))->update(
 			array(
+				'id_empresa'					=> (Input::get('id_empresa')),
 				'nombre_empresa'                => (Input::get('i_nombre')),
 				'rif_empresa'                   => (Input::get('i_rif')),
 				'direccion_empresa'             => (Input::get('i_direccion')),
-				'id_categoria'                  => (Input::get('i_categoria')),
+				'id_categoria'                  => (Input::get('s_categoria')),
 				'correo_empresa'                => (Input::get('i_correo')),
 				'id_estado'                     => (int) $estado[0],
 				'url_empresa'                   => (Input::get('i_sitio_web')),

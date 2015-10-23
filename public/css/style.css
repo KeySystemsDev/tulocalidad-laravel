@@ -530,6 +530,25 @@ figure.effect-zoe-detalle-empresa {
     border: 1px solid rgba(175,142,146, .4);
 }
 
+.navbar.navbar-default {
+  background: url(../../img/nav-top-admin.png);
+}
+.navbar-default .navbar-brand {
+  color: #fff;
+}
+.navbar-default .navbar-nav>li>a {
+  color: #fff;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+  color: #E9E9E9;
+  background-color: #e7e7e7;
+}
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
+  color: #D9D9D9;
+  background-color: transparent;
+}
+
+
 @media all and (max-width: 550px)  {
     #store-list img {
       width: 100%;

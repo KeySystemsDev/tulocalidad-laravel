@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="wanaitravel">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -86,8 +86,8 @@
     <!-- your app's js -->
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="{{ asset('/js/controller.js') }}"></script>
-    <script src="{{ asset('/js/service.js') }}"></script>
-    <script src="{{ asset('/js/directives.js') }}"></script>
+    <script src="{{ asset('/js/services.js') }}"></script>
+    <!--<script src="{{ asset('/js/directives.js') }}"></script>-->
 
     <!-- angular modules -->
     <script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>

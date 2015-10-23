@@ -34,7 +34,8 @@ $router->group(['middleware' => 'auth'], function() {
 
 	/* MisEmpresas Controller*/
 
-	Route::any('mis-empresas/',							   'MisEmpresasController@Index');
+	Route::any('mis-empresas/',					   		   'MisEmpresasController@Index');
+	Route::any('mis-empresas/listar',					   'MisEmpresasController@Listar');
 	Route::any('mis-empresas/publicaciones/{id_empresa}',  'MisEmpresasController@PublicacionEmpresa');
 	Route::any('mis-empresas/agregar', 					   'MisEmpresasController@Agregar');
 	Route::any('mis-empresas/editar/{id_empresa?}', 	   'MisEmpresasController@Editar');

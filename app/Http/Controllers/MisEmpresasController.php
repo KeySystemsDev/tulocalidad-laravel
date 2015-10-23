@@ -19,6 +19,11 @@ class MisEmpresasController extends Controller {
 	*
 	**/
 	public function Index(){
+
+		return View::make('empresa/index');
+	} 
+
+	public function Listar(){
 		$id_usuario		= session('id');
 		$current_page 	= 1;
 		$query	 		= \DB::select('CALL p_t_empresas(?,?,?,?)',array('empresas_por_usuario','','',$id_usuario));

@@ -9,8 +9,8 @@
 					<a href="javascript:;"><img src="{{ asset('/thema/assets/img/user-13.jpg') }}" alt="" /></a>
 				</div>-->
 				<div class="info">
-					Panel de Administracion
-					<small>Menu de Gestion</small>
+					Panel de Administración
+					<small>Menu de Gestión</small>
 				</div>
 			</li>
 		</ul>

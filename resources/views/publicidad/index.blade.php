@@ -12,16 +12,16 @@
    	<div id="content" class="content">
 
 		<ol class="breadcrumb pull-right">
-			<li><a href="{{ url('mis-empresas/agregar')}}">Agregar</a></li>
-			<li><a href="{{ url('mis-empresas/listar')}}">Gestionar </a></li>
+			<li><a href="{{ url('mis-publicidades/agregar-publicidad')}}">Agregar</a></li>
+			<li><a href="{{ url('mis-publicidades/listar')}}">Gestionar </a></li>
 		</ol>
 		
-		<h1 class="page-header"><i class="fa fa-building"></i> Mis Empresas </h1>
+		<h1 class="page-header"><i class="fa fa-bullhorn"></i> Mis Publicidad </h1>
 
 		<div class="row">
 		    <!-- begin col-3 -->
 		    <div class="col-md-3 col-sm-6 button-index">
-		        <a href="{{ url('mis-empresas/agregar')}}" style="text-decoration:none;">
+		        <a href="{{ url('mis-publicidades/agregar-publicidad')}}" style="text-decoration:none;">
 			        <div class="widget widget-stats bg-green">
 			            <div class="stats-icon stats-icon-lg"><i class="fa fa-plus-square fa-fw"></i></div>
 			            <div class="stats-title">Empresas</div>
@@ -38,7 +38,7 @@
 		    <!-- end col-3 -->
 		    <!-- begin col-3 -->
 		    <div class="col-md-3 col-sm-6">
-			    <a href="{{ url('mis-empresas/listar')}}" style="text-decoration:none;">
+			    <a href="{{ url('mis-publicidades/listar')}}" style="text-decoration:none;">
 			        <div class="widget widget-stats bg-blue">
 			            <div class="stats-icon stats-icon-lg"><i class="fa fa-pencil-square-o fa-fw"></i></div>
 			            <div class="stats-title">Empresas</div>

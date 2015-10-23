@@ -48,6 +48,7 @@ $router->group(['middleware' => 'auth'], function() {
 	/* MisPublicidades Contoller */	
 
 	Route::any('mis-publicidades/', 								'MisPublicidadesController@Index');
+	Route::any('mis-publicidades/listar', 							'MisPublicidadesController@Listar');
 	Route::any('mis-publicidades/agregar-publicidad/{id}',			'MisPublicidadesController@AgregarPublicidad');
 	Route::any('mis-publicidades/agregar-publicidad',				'MisPublicidadesController@AgregarPublicidad');
 	Route::post('mis-publicidades/agregar-exitoso',					'MisPublicidadesController@AgregarPublicidadExitoso');

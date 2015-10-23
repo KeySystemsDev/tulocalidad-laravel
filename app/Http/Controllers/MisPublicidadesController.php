@@ -13,6 +13,10 @@ use Request;
 class MisPublicidadesController extends Controller {
 
 	public function Index(){
+		return View::make('publicidad/index');   
+	}
+
+	public function Listar(){
 		$id         = session('id');
 		$count_items= 5;
 		$current_page=1;

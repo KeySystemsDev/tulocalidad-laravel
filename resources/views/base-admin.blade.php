@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="tulocalidad">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -82,6 +82,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
 
     <!-- your app's js -->
     <script src="{{ asset('/js/app.js') }}"></script>
@@ -90,11 +91,14 @@
     <!--<script src="{{ asset('/js/directives.js') }}"></script>-->
 
     <!-- angular modules -->
-    <script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular-resource/angular-resource.min.js') }}"></script>
-    <script src="{{ asset('/bower_components/ui-select/dist/select.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular-sanitize/angular-sanitize.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
+
+	<script src="{{ asset('/bower_components/angular-tooltips/dist/angular-tooltips.min.js') }}"></script>
+	<script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
+	<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
 
 
     <!-- bootstrap modules -->
@@ -139,7 +143,7 @@
 	<script src="{{ asset('/thema/assets/js/apps.min.js') }}"></script>
 	
 	<!-- ===================== ANGULAR CONTROLLERS ==============================-->
-	@yield('controller')
+	@yield('js')
 
 	<script>
 		$(document).ready(function() {

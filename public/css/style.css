@@ -593,6 +593,26 @@ figure.effect-zoe-detalle-empresa {
 .navbar-default .navbar-toggle .icon-bar {
   background: #fff;
 }
+.gritter-close, .gritter-light .gritter-close {
+  background: #8d1928!important;
+}
+.well-listar{
+    background: #d9e0e7;
+}
+.timeline-header .userimage {
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.timeline-header {
+  line-height: 100px;
+}
+.button-eliminar{
+  margin-top: -7px;
+  float: right;
+}
 
 @media all and (max-width: 550px)  {
     #store-list img {

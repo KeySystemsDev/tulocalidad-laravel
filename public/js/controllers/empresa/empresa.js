@@ -13,4 +13,12 @@ app.controller('MisEmpresasController', function($scope, $log) {
         $scope.href =  "/mis-empresas/deshabilitar/" + id;
         angular.element("#ModalConfimacion").modal('show');
     }
+
+    
+    $scope.ocultar = false;
+    $scope.cerrar = function(){
+        $scope.ocultar = true;
+    }
+
+   
 });

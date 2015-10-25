@@ -1,105 +1,98 @@
-@extends('base')
-
+@extends('base-admin')
 
 @section('js')
-<script src="{{ asset('/js/controllers/publicidad/publicidad.js') }}"></script>
+    <script src="{{ asset('/js/controllers/publicidad/publicidad.js') }}"></script>
 @endsection
 
 @section('content')
+
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="MisPublicidadesController">
     
-    @include('layouts/nav-top')
+    @include('layouts/navbar-admin')
 
-    @include('layouts/nav')
+    @include('layouts/sidebar-admin')
+    
+    <div id="content" class="content ng-scope">
+        
+        <ol class="breadcrumb pull-right">
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <a href="{{ url('mis-publicidades/agregar-publicidad')}}" class="btn btn-white btn-sm p-l-20 p-r-20">
+                        <i class="fa fa-plus-square"></i>
+                    </a>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ url('mis-publicidades/listar')}}" class="btn btn-white btn-sm p-l-20 p-r-20">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                </div>
+            </div>
+        </ol>
 
-    <div class="container" ng-controller="MisPublicidadesController">
-        <div id="main">
-            <!--
-                INICIALIZACION DE VARIABLE DE REDIREECION DE PAGINACION
-            -->
-            <div ng-init="paginacion-href='/mis-publicidades/'"></div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <section class="panel">
-                        <header class="panel-heading">
-                              
-                            <div class="col-lg-12">
-                                <section class="panel">
-                                    <header class="panel-heading center">
-                                        <img class="img-registrar-logo" src="{{ asset('/img/tulocalidad.png') }}">
-                                        <h2>
-                                            Publicidad
-                                        </h2>
-                                    </header>
-                                </section>
-                            </div>
-                        </header>
-
-                        <div class="col-lg-12">
-                            <header class="panel-heading center">
-                                <a href="../mis-publicidades/agregar-publicidad"><button type="button" class="btn btn-agregar-nuevo btn-drop btn-normal" data-original-title="" title=""> Agregar Publicidad</button></a>
-                            </header>
+        <h1 class="page-header"><i class="fa fa-bullhorn"></i> Mis Pueblicidades </h1>
+        
+        <div class="row">
+            <!-- begin col-12 -->
+            <div class="col-12 ui-sortable">
+                <!-- begin panel -->
+                <div class="panel panel-inverse">
+                    <div class="panel-heading">
+                        <div class="panel-heading-btn">
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand" data-original-title="" title=""><i class="fa fa-expand"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload" data-original-title="" title=""><i class="fa fa-repeat"></i></a>
+                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse" data-original-title="" title=""><i class="fa fa-minus"></i></a>
                         </div>
+                        <h4 class="panel-title">Todas las Publicidad</h4>
+                    </div>
 
-                        @if(count($data->consulta)>0)                            
-                            <div class="panel-body">
-                                <div class="timeline">
+                    <div class="panel-body">
 
-                                    @foreach($data->consulta as $index=>$key)
-                                        @if($index%2)
-                                            <article class="timeline-item">
-                                        @else
-                                            <article class="timeline-item alt">
-                                        @endif
-                                            <div class="timeline-desk">
-                                                <div class="panel">
-                                                    <div class="panel-body">
-                                                        @if($index%2)
-                                                            <span class="arrow"></span>
-                                                        @else
-                                                            <span class="arrow-alt"></span>
-                                                        @endif
-                                                        <span class="timeline-icon vinotinto"></span>
-                                                        <span class="timeline-date"><span class="label label-vinotinto-claro label-mini">{{$key->rif_empresa}}</span></span>
-                                                        <div class="row">
-                                                            <div class="col-sm-5">
-                                                                <a href="#"><img src="{{url('/uploads/publicidades_mid/'.$key->url_imagen_publicidad)}}" class="img-responsive img-2"></a>
-                                                            </div>
-                                                            <div class="col-sm-7">
-                                                                <h4 class="title-real-estates">
-                                                                    <strong><a href="#"><i class="fa fa-bullhorn"></i> {{$key->nombre_empresa}}</a></strong> <span class="pull-right"></span>
-                                                                </h4>
-                                                                <br>
-                                                                <p>{{$key->titulo_publicidad}}.</p>
-                                                                <br>
-                                                                <p>
-                                                                    <button class="btn btn-danger btn-sm button-eliminar-publicidad" ng-click="deshabilitar({{$key->id_publicidad}})"><i class="fa fa-trash" data-original-title="" title=""></i> Eliminar</button>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    @endforeach
-                                </div>
-                            <div class="clearfix">&nbsp;</div>                            
-                        @else
+                        <div class="well well-listar-2">
+                            @if(count($data->consulta)>0)  
+
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 msn-no-empresa">
-                                    <div class="well well-danger well-borde">
-                                        {{$mensaje}} 
+                                @foreach($data->consulta as $index=>$key)
+                                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                    <div class="thumbnail" href="#">
+                                        <img class="img-responsive img-responsive-custon" src="{{url('/uploads/publicidades_mid/'.$key->url_imagen_publicidad)}}" alt="">
+                                        <div class="info-publicidad">
+                                            <h6>{{$key->nombre_empresa}}</h6>
+                                            <p>{{$key->titulo_publicidad}}</p>
+                                        </div>
+                                        <div class="row row-2">
+                                            <div class="btn-group-sm boton-barrar">
+                                                <button type="button" class="btn btn-danger">
+                                                    <i class="fa fa-trash"></i> Borrar
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endif
-
-                        <!-- PAGINADOR 
+                                @endforeach
                             
-                            $data->current_page   = es la pagina actual.
-                            $data->pages          = es el numero de paginas que tiene la paginacion
+                            </div>
 
-                        -->
-                         <center>
+                            @else
+                                <div id="gritter-notice-wrapper" ng-hide="ocultar">
+                                    <div id="gritter-item-1" class="gritter-item-wrapper my-sticky-class" role="alert">
+                                        <div class="gritter-top"></div>
+                                        <div class="gritter-item">
+                                            <a class="gritter-close" tabindex="1" style="display: none;" ng-click="cerrar()">Close Notification</a>
+                                            <img src="{{ asset('/img/tulocalidad-blanco.png') }}" class="gritter-image">
+                                            <div class="gritter-with-image">
+                                                <span class="gritter-title">Estimado Usuario</span>
+                                                <p>En estos momentos no posee niguna publicidad registra.</p>
+                                            </div>
+                                            <div style="clear:both"></div>
+                                        </div>
+                                        <div class="gritter-bottom"></div>
+                                    </div>
+                                </div>
+                            @endif
+                            
+                        </div>
+                        
+                        <center>
                             <div class="col-lg-12">
                                 @if ($data->pages > 1)
                                 <ul  class="pagination pagination-primary pagination-separated">
@@ -115,16 +108,18 @@
                                 </ul>
                                 @endif  
                             </div>
-                        </center>   
-                    </section>
-                </div>
+                        </center> 
 
-                
+                    </div>
+                </div>
             </div>
         </div>
-        @include('modals/confirmacion')
-    </div>
 
-    @include('layouts/footer')
+    </div><!-- content -->
+    
+    @include('modals/confirmacion')
+
+</div>
+
 
 @endsection

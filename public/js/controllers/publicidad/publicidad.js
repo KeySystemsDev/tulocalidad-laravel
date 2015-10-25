@@ -13,4 +13,10 @@ app.controller('MisPublicidadesController', function($scope, $log) {
         $scope.href =  "/mis-publicidades/deshabilitar/" + id;
         angular.element("#ModalConfimacion").modal('show');
     };
+
+    $scope.ocultar = false;
+    $scope.cerrar = function(){
+        $scope.ocultar = true;
+    }
+
 });

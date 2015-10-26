@@ -653,6 +653,11 @@ figure.effect-zoe-detalle-empresa {
   color: #FFF;
 }
 
+.btn:hover, .btn:focus, .btn.focus {
+  color: #fff;
+  text-decoration: none;
+}
+
 @media all and (max-width: 550px)  {
     #store-list img {
       width: 100%;

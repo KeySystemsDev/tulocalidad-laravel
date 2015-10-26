@@ -1,21 +1,24 @@
-@extends('base')
+@extends('base-cliente')
 
 @section('content')
-	
-	@include('layouts/nav-top')
 
-	@include('layouts/nav')
-
-	<div class="container">
-        <div id="main">
+<div id="page-container" class="fade">
+    
+    @include('layouts/navbar-cliente')
+    
+    <!-- begin #contact -->
+    <div class="content bg-silver-lighter">
+        <!-- begin container -->
+        <div class="container">
+          <br><br>
  
 			<div class="row" id="real-estates-detail">
                 <div class="col-lg-8 col-md-8 col-xs-12">
                     <div class="panel">
                         <div class="panel-body">
                         	<div class="box-detalle-publicidad">
-                            	<img class="img-detalle-publicidad img-2" src="{{ url('/uploads/publicidades_full/'.$publicidad->url_imagen_publicidad)}}" >
-                                </br></br>
+                            	<img class="img-detalle-publicidad img-2" src="{{ url('/uploads/publicidades_full/'.$publicidad->url_imagen_publicidad)}}">
+                                <br><br>
                         		<p><b>{{ucfirst($publicidad->titulo_publicidad)}}</b>: {{$publicidad->descripcion_publicidad}}</p>
                         		<div class="footer-realestates-columns">
                                     <div class="row">
@@ -70,14 +73,18 @@
                         </div>
                     </div>
                 </div>
-                
+
+            </div>
+ 
+        </div>
+        <!-- end container -->
+    </div>
+    <!-- end #contact -->
+    
+    @include('layouts/footer')
+
+</div>
+@endsection
                 
             
-            </div>
-
-        </div>
-    </div>
-
-	@include('layouts/footer')
-
-@endsection
+            

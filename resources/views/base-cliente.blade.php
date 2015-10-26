@@ -9,7 +9,9 @@
     <title>.:Tu Localidad | Venezuela:.</title>
 	
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-    
+
+	<!-- css HoverEffectIdeas -->
+	<link href="{{ asset('/css/HoverEffectIdeas/set1.css') }}" rel="stylesheet">
 
     <!-- angular modules style -->
     <link href="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.css') }}" rel="stylesheet">
@@ -34,10 +36,6 @@
   	<link href="{{ asset('/thema/assets/plugins/isotope/isotope.css') }}" rel="stylesheet" />
   	<link href="{{ asset('/thema/assets/plugins/lightbox/css/lightbox.css') }}" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
-	
-	<!-- ================== gallery ================== -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('/scatteredpolaroidsgallery/css/component.css') }}" />
-	<script src="{{ asset('/scatteredpolaroidsgallery/js/modernizr.min.js') }}"></script>
 
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('/thema/assets-frontend/plugins/pace/pace.min.js') }}"></script>
@@ -60,12 +58,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('/bower_components/angular/angular.js') }}"></script>
+    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
 
     <!-- your app's js -->
     <script src="{{ asset('/js/app.js') }}"></script>
     <script src="{{ asset('/js/controller.js') }}"></script>
-    <script src="{{ asset('/js/directives.js') }}"></script>
-    <script src="{{ asset('/js/service.js') }}"></script>
+    <!--<script src="{{ asset('/js/directives.js') }}"></script>-->
+    <script src="{{ asset('/js/services.js') }}"></script>
 
     <!-- angular modules -->
     <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
@@ -76,6 +75,7 @@
     <script src="{{ asset('/bower_components/angular-resource/angular-resource.min.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-tooltips/dist/angular-tooltips.min.js') }}"></script>
 	<script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
+	<script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
 
 	<!-- bootstrap jasny-->
     <script src="{{ asset('/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js') }}"></script>
@@ -90,10 +90,6 @@
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script src="{{ asset('/thema/assets-frontend/js/apps.min.js') }}"></script>
-	
-	<!-- ================== Gallery ================== -->
-	<script src="{{ asset('/scatteredpolaroidsgallery/js/classie.js') }}"></script>
-	<script src="{{ asset('/scatteredpolaroidsgallery/js/photostack.js') }}"></script>
 
 	<!-- ===================== ANGULAR CONTROLLERS ==============================-->
 	@yield('controller')

@@ -6,15 +6,14 @@
 var app = angular.module('tulocalidad', ['ngResource',
 										 'uiGmapgoogle-maps', 
 										 'ngImgCrop', 
-										 'chieffancypants.loadingBar', 
 										 'ngAnimate', 
 										 '720kb.tooltips']
 	, function($interpolateProvider){
 		$interpolateProvider.startSymbol('[[');
 		$interpolateProvider.endSymbol(']]');
 	})
-	.config(function(cfpLoadingBarProvider) {
-    	cfpLoadingBarProvider.includeSpinner = true;
+	.config(function() {
+
   	});
 
 app.config(['$httpProvider', function ($httpProvider) {

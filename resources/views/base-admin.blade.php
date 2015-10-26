@@ -92,7 +92,7 @@
 
     <!-- angular modules -->
     <script src="{{ asset('/bower_components/angular-animate/angular-animate.min.js') }}"></script>
-    <script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>
+    <!--<script src="{{ asset('/bower_components/angular-loading-bar/src/loading-bar.js') }}"></script>-->
     <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-resource/angular-resource.js') }}"></script>
 

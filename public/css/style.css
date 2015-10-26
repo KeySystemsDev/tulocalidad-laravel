@@ -657,6 +657,10 @@ figure.effect-zoe-detalle-empresa {
   color: #fff;
   text-decoration: none;
 }
+.breadcrumb > li+li:before {
+  font-family: FontAwesome;
+  content: '\f054';
+}
 
 @media all and (max-width: 550px)  {
     #store-list img {

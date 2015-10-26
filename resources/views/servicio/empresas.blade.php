@@ -1,17 +1,20 @@
-@extends('base')
+@extends('base-cliente')
 
 @section('js')
     <script src="{{ asset('/js/controllers/empresa/servicios_recomendados.js') }}"></script>
 @endsection
 
 @section('content')
-	
-	@include('layouts/nav-top')
 
-	@include('layouts/nav')
+<div id="page-container" class="fade">
+
+	@include('layouts/navbar-cliente')
 	
-<div class="container">
-    <div id="main">
+    <!-- begin #contact -->
+    <div class="content bg-silver-lighter">
+        <!-- begin container -->
+        <div class="container">
+          <br><br>
 
         <div class="row">
              <div class="col-lg-12">
@@ -26,7 +29,7 @@
                             <li><a href="{{ url ('/servicios/estado/'.$id_estado) }}"><i class="fa fa-globe"></i> {{ $id_estado }}</a></li>
                             <li class="active"><i class="fa fa-location-arrow"></i> {{ $id_categoria }} </li>
                         </ol>
-
+                        <br>
                         <!-- start:store list -->
 
                         <div class="row" id="store-list">
@@ -84,10 +87,14 @@
                     </section>
                 </div>
             </div>
+       
+
         </div>
+        <!-- end container -->
     </div>
+    <!-- end #contact -->
+    
+    @include('layouts/footer')
+
 </div>
-
-@include('layouts/footer')
-
 @endsection

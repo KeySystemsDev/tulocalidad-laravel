@@ -92,7 +92,7 @@
 	<script src="{{ asset('/thema/assets-frontend/js/apps.min.js') }}"></script>
 
 	<!-- ===================== ANGULAR CONTROLLERS ==============================-->
-	@yield('controller')
+	@yield('js')
 	
 	<script>
 		$(document).ready(function() {

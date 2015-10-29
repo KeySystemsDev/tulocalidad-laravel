@@ -661,6 +661,11 @@ figure.effect-zoe-detalle-empresa {
   font-family: FontAwesome;
   content: '\f054';
 }
+.login-icono {
+  width: 19px;
+  height: 34px;
+  padding-bottom: 5px;
+}
 
 @media all and (max-width: 550px)  {
     #store-list img {

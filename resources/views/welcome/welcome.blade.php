@@ -8,12 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 <!-- SITE TITLE -->
-<title>Kane - Responsive App Landing Page</title>
+<title>.:Tu Localidad | Venezuela:.</title>
 
 <!-- =========================
       FAV AND TOUCH ICONS  
 ============================== -->
-<link rel="icon" href="http://templateocean.com/premium/template/kane/files/images/favicon.ico">
+<link rel="icon" href="{{ asset('/favicon.ico') }}">
 <link rel="apple-touch-icon" href="http://templateocean.com/premium/template/kane/files/images/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="72x72" href="http://templateocean.com/premium/template/kane/files/images/apple-touch-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="114x114" href="http://templateocean.com/premium/template/kane/files/images/apple-touch-icon-114x114.png">
@@ -22,7 +22,7 @@
      STYLESHEETS   
 ============================== -->
 <!-- BOOTSTRAP -->
-<link rel="stylesheet" href="{{ asset('/theme-welcome/css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
 
 <!-- FONT ICONS -->
 <link rel="stylesheet" href="{{ asset('/theme-welcome/assets/elegant-icons/style.css') }}">
@@ -56,10 +56,6 @@
 
 <!-- RESPONSIVE FIXES -->
 <link rel="stylesheet" href="{{ asset('/theme-welcome/css/responsive.css') }}">
-
-<!-- STYLE SWITCH STYLESHEET ONLY FOR DEMO -->
-<link rel="stylesheet" href="{{ asset('/theme-welcome/demo/demo.css') }}">
-
 
 <!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
@@ -1067,7 +1063,7 @@
      SCRIPTS 
 ============================== -->
 
-<script src="{{ asset('/theme-welcome/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('/theme-welcome/js/smoothscroll.js') }}"></script>
 <script src="{{ asset('/theme-welcome/js/jquery.scrollTo.min.js') }}"></script>
 <script src="{{ asset('/theme-welcome/js/jquery.localScroll.min.js') }}"></script>
@@ -1082,92 +1078,6 @@
 <script src="{{ asset('/theme-welcome/js/jquery.ajaxchimp.min.js') }}"></script>
 <script src="{{ asset('/theme-welcome/js/jquery.fitvids.js') }}"></script>
 <script src="{{ asset('/theme-welcome/js/custom.js') }}"></script>
-
-<!-- =========================================================
-     STYLE SWITCHER | ONLY FOR DEMO NOT INCLUDED IN MAIN FILES
-============================================================== -->
-<script type="text/javascript" src="{{ asset('/theme-welcome/demo/styleswitcher.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/theme-welcome/demo/demo.js') }}"></script>
-<div class="kane-style-switch" id="switch-style">
-	<a id="toggle-switcher" class="switch-button icon_tools"></a>
-	<div class="switched-options">
-		<div class="config-title">
-			Layout Style:
-		</div>
-		<ul>
-			<li><a href="../../../layout-style-one/dark/image-bg/index.html">Style One</a></li>
-			<li class="active"><a href="#">Style Two</a></li>
-		</ul>
-		
-		<div class="config-title">
-			Layout Color:
-		</div>
-		<ul>
-			<li><a href="../../light/image-bg/index.html">Light</a></li>
-			<li class="active"><a href="#">Dark</a></li>
-		</ul>
-		<div class="config-title">
-			Homepage style:
-		</div>
-		<ul>
-			<li class="active"><a href="#">IMAGE BG</a></li>
-			<li><a href="../transparent-color-bg/index.html">TRANSPARENT COLOR BG</a></li>
-			<li><a href="../solid-color/index.html">SOLID COLOR BG</a></li>
-			<li><a href="../video-bg/index.html">VIDEO BG</a></li>
-			<li class="p">
-				(NOTE: BG = Background)
-			</li>
-		</ul>
-		<div class="config-title">
-			Colors :
-		</div>
-		<ul class="styles">
-			<li><a href="#" onclick="setActiveStyleSheet('blue'); return false;" title="Blue">
-			<div class="blue">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('purple'); return false;" title="Purple">
-			<div class="purple">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('blue-munsell'); return false;" title="Blue Munsell">
-			<div class="blue-munsell">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('orange'); return false;" title="Orange">
-			<div class="orange">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('slate'); return false;" title="Slate">
-			<div class="slate">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('green'); return false;" title="Green">
-			<div class="green">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('yellow'); return false;" title="Yellow">
-			<div class="yellow">
-			</div>
-			</a></li>
-			
-			<li><a href="#" onclick="setActiveStyleSheet('red'); return false;" title="Red">
-			<div class="red">
-			</div>
-			</a></li>
-			<li class="p">
-				( NOTE: Pre Defined Colors. You can change colors very easily )
-			</li>
-		</ul>
-	</div>
-</div>
-
 
 </body>
 </html>

@@ -668,6 +668,10 @@ figure.effect-zoe-detalle-empresa {
   padding-bottom: 5px;
 }
 
+figure.effect-zoe figcaption {
+  border-radius: 0px 0px 5px 5px;
+}
+
 @media all and (max-width: 550px)  {
     #store-list img {
       width: 100%;

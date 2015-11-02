@@ -1,7 +1,7 @@
 <!-- begin #header -->
-    <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
+    <div id="header" class="header navbar navbar-default navbar-fixed-top">
         <!-- begin container -->
-        <div class="container">
+        <div class="container-fluid">
             <!-- begin navbar-header -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="{{ url ('/servicios') }}" class="navbar-brand">
-                    <span class="brand-logo"><img width="25" src="/img/logo.png"></span>
+                    <span class="brand-logo"><img width="25" src="/img/icono.png"></span>
                     <span class="brand-text">
                         <span class="text-theme">Tu</span>Localidad
                     </span>
@@ -25,7 +25,7 @@
                     @if(!\Session::get('usuario'))
                     <li><a href="{{ url ('/auth/login') }}"><i class="fa fa-sign-in"></i> Iniciar sesión</a></li>
                     @else
-                    <li class="active dropdown">
+                    <li class="dropdown">
                         <a href="#" data-click="scroll-to-target" data-toggle="dropdown"><i class="fa fa-user"></i> {{\Session::get('usuario')}} <b class="caret"></b></a>
                         <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
                             <li>

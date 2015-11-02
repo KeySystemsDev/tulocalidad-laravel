@@ -530,6 +530,7 @@ figure.effect-zoe-detalle-empresa {
     border: 1px solid rgba(175,142,146, .4);
 }
 
+/*
 .navbar.navbar-default {
   background: url(../../img/nav-top-admin.png);
 }
@@ -546,7 +547,7 @@ figure.effect-zoe-detalle-empresa {
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
   color: #D9D9D9;
   background-color: transparent;
-}
+}*/
 
 .iconic-input input {
   padding-left: 30px !important;
@@ -643,7 +644,7 @@ figure.effect-zoe-detalle-empresa {
   border: 0px solid;
   border-color: #4DCACA #31A3A3 #1D8888;
   margin-right: 10px;
-  margin-top: -5px;
+  margin-top: -10px;
   border-radius: 4px;
 }
 .header.navbar.navbar-inverse .navbar-nav>li>a, .header.navbar.navbar-transparent .navbar-nav>li>a {

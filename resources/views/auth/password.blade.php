@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div div id="page-container" class="fade"  ng-controller="ResetPasswordController">
+<div id="page-container" class="fade"  ng-controller="ResetPasswordController">
 
 	<!-- incializando variables -->
 	<div ng-init="hrefPost		  ='{{ url('/password/email')}}'"></div>
@@ -58,7 +58,7 @@
 
 					<div class="form-group m-b-15">
 						<input type="email" class="form-control" name="email" value="" ng-class="{'error':error_email && submit_email}" 
-								ng-model="email" ng-blur="validar_email()" required placeholder="Correo Electronico">
+								ng-model="email" ng-blur="validar_email()" required placeholder="@ Correo Electrónico">
 						<div class="col-lg-12" ng-show="error_email && submit_email" ng-cloak>
 	        				<br><p class="help-block text-gris" ng-cloak>Verifique el formato del correo: Ejemplo: ejample@dominio.com</p>
 	      				</div>

@@ -1,4 +1,4 @@
-@font-face {
+/*@font-face {
 	font-weight: normal;
 	font-style: normal;
 	font-family: 'feathericons';
@@ -7,7 +7,7 @@
 		url('../fonts/feathericons/feathericons.woff?-8is7zf') format('woff'),
 		url('../fonts/feathericons/feathericons.ttf?-8is7zf') format('truetype'),
 		url('../fonts/feathericons/feathericons.svg?-8is7zf#feathericons') format('svg');
-}
+}*/
 
 .grid {
 	position: relative;

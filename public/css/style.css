@@ -437,6 +437,15 @@ ul#strength {
     width: 30px;
     height: 30px;
 }
+.icon-publicidad-box{
+  margin-top: 10px;
+}
+.size-icon i{
+  font-size: 25px;
+  color: #C2C2C2;
+  float: right;
+  padding-right: 8px;
+}
 .icon-links-custon a{
     padding-right: 5px;
 }
@@ -671,6 +680,15 @@ figure.effect-zoe-detalle-empresa {
 .text-gris{
   color: #707478;
 }
+
+.gallery .image img {
+  width: 100%;
+  height: auto;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
 
 figure.effect-zoe figcaption {
   border-radius: 0px 0px 5px 5px;

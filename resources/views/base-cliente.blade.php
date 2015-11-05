@@ -97,6 +97,7 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
+			Gallery.init();
 		});
 	</script>
 	

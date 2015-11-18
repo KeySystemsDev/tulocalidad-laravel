@@ -4,7 +4,7 @@
 	<div class="container-fluid">
 		<!-- begin mobile sidebar expand / collapse button -->
 		<div class="navbar-header">
-			<a href="{{ url('/servicios')}}" class="navbar-brand img-logo-nav-top"><img width="20" src="/img/icono.png"><strong> Tu</strong>Localidad<strong></strong></a>
+			<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> Color Admin</a>
 			<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -15,7 +15,7 @@
 		
 		<!-- begin header navigation right -->
 		<ul class="nav navbar-nav navbar-right">
-			<!--<li>
+			<li>
 				<form class="navbar-form full-width">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Enter keyword" />
@@ -41,7 +41,7 @@
                     </li>
                     <li class="media">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/thema/assets/img/user-1.jpg') }}" class="media-object" alt="" /></div>
+                            <div class="media-left"><img src="{{ url('/thema/admin/html/assets/img/user-1.jpg') }}" class="media-object" alt="" /></div>
                             <div class="media-body">
                                 <h6 class="media-heading">John Smith</h6>
                                 <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
@@ -51,7 +51,7 @@
                     </li>
                     <li class="media">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/thema/assets/img/user-2.jpg') }}" class="media-object" alt="" /></div>
+                            <div class="media-left"><img src="{{ url('/thema/admin/html/assets/img/user-2.jpg') }}" class="media-object" alt="" /></div>
                             <div class="media-body">
                                 <h6 class="media-heading">Olivia</h6>
                                 <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
@@ -81,22 +81,20 @@
                         <a href="javascript:;">View more</a>
                     </li>
 				</ul>
-			</li>-->
+			</li>
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-					<i class="glyphicon glyphicon-user"></i>
-					<span class="hidden-xs">{{\Session::get('usuario')}}</span> <b class="caret"></b>
+					<img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 
+					<span class="hidden-xs">Adam Schwartz</span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>
-					<!--<li><a href="javascript:;">Edit Profile</a></li>
+					<li><a href="javascript:;">Edit Profile</a></li>
 					<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
 					<li><a href="javascript:;">Calendar</a></li>
 					<li><a href="javascript:;">Setting</a></li>
-					<li class="divider"></li>-->
-					<li><a href="{{ url ('mis-empresas') }}"><i class="fa fa-cogs" data-original-title="" title=""></i> Administrar</a></li>
-					<li><a href="{{ url ('perfil/cambiar-password') }}"><i class="fa fa-key" data-original-title="" title=""></i> Cambiar contraseña</a></li>
-					<li><a href="{{ url ('perfil/cerrar') }}"><i class="fa fa-sign-in" data-original-title="" title=""></i>  Cerrar sesión</a></li>
+					<li class="divider"></li>
+					<li><a href="javascript:;">Log Out</a></li>
 				</ul>
 			</li>
 		</ul>

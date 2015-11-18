@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => true, //env('APP_DEBUG'),
+	'debug' => env('APP_DEBUG'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost/',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -192,7 +192,7 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-		'Generate'  => 'Way\Generators\GeneratorsServiceProvider'
+
 	],
 
 ];

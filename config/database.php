@@ -55,21 +55,9 @@ return [
 		'mysql' => [
 			'driver'    => 'mysql',
 			'host'      => env('DB_HOST', 'localhost'),
-			'database'  => env('DB_DATABASE', 'keypan5_tulocalidad'),
-			'username'  => env('DB_USERNAME', 'root'),
+			'database'  => env('DB_DATABASE', 'forge'),
+			'username'  => env('DB_USERNAME', 'forge'),
 			'password'  => env('DB_PASSWORD', ''),
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-			'strict'    => false,
-		],
-
-		'permiso' => [
-			'driver'    => 'mysql',
-			'host'      => env('DB_HOST1', 'localhost'),
-			'database'  => env('DB_DATABASE1', 'keypan5_permisologia'),
-			'username'  => env('DB_USERNAME1', 'root'),
-			'password'  => env('DB_PASSWORD1', ''),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -4,134 +4,35 @@ use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-use App\Usuario;
-use Redirect;
-use App\Empresa;
 
 class AuthController extends Controller {
 
+	/*
+	|--------------------------------------------------------------------------
+	| Registration & Login Controller
+	|--------------------------------------------------------------------------
+	|
+	| This controller handles the registration of new users, as well as the
+	| authentication of existing users. By default, this controller uses
+	| a simple trait to add these behaviors. Why don't you explore it?
+	|
+	*/
 
 	use AuthenticatesAndRegistersUsers;
 
-	public function __construct(Guard $auth, Registrar $registrar){
-		$this->auth 	 = $auth;
+	/**
+	 * Create a new authentication controller instance.
+	 *
+	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
+	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+	 * @return void
+	 */
+	public function __construct(Guard $auth, Registrar $registrar)
+	{
+		$this->auth = $auth;
 		$this->registrar = $registrar;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function getRegister(){
-		$error =	'';
-		return view('auth/register', compact('error'));
-	}
-
-	public function postRegister(){
-		$email = \Input::get('email');
-		$auth  = Usuario::where('correo_usuario', '=', $email)->first();
-		
-
-		if (count($auth)==0){
-
-			$usuario = new Usuario;
-			$usuario->correo_usuario   = \Input::get('email'); 	
-			$usuario->clave_usuario    = \Input::get('password');
-			$usuario->codigo_activacion_usuario= substr(md5(uniqid(rand(), true)), 16, 16);
-			$usuario->save();
-			$mensaje ='
-					<html>
-						<body style="font-family: calibri; font-size: 12px;">
-							<p>Bienvenido '.$usuario->correo_usuario.' al directorio venezolano TU LOCALIDAD</p>
-							<p align="center"><img src="'.\URL::to('img/tulocalidad.png').'" width="150"></p>
-							<p align="justify">
-								Para poder disfrutar de esta herramienta solo debes ingresar al siguiente enlace para activar su cuenta: <a href="'.\URL::to('/auth/activacion/'.$usuario->codigo_activacion_usuario).'">Enlace de activación</a>.</b>
-								<br>
-								Muchas gracias por su valioso tiempo.
-							</p>
-						</body>		
-					</html>';
-
-			$cabeceras  = '<b>MIME-Version: 1.0<br>' . "\r\n";
-			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1<br>' . "\r\n";
-			$cabeceras .= "From: no-responder@tulocalidad.com.ve";
-			mail($email,"Tu Localidad",$mensaje,$cabeceras); // ACOMODAR EL TITULO
-			$msj 	 = 'Revise su correo para activar su usuario.';
-			$data  	 = (object) ["titulo" => "Registro exitoso!",
-								 "id_user" => $usuario->codigo_activacion_usuario,];
-			$success = true;
-			$json 	 = array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data
-				);
-		}else{
-			$success = false;
-			$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = 'El correo ya se encuentra registrado.';
-			$json 	 = array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data
-				);
-		}
-		return json_encode($json);
-	}
-
-	public function getLogin(){
-		$error 		 = "";
-		$success 	 = "";
-		if (\Session::get('id')){
-			return Redirect::to('/servicios');
-		}
-		return view('/auth/login', compact('error','success'));
-	}
-
-	public function postLogin(){
-		$data = "";
-		$auth = Usuario::where('correo_usuario', '=', \Input::get('email'))->where('clave_usuario','=',(\Input::get('password')))->first();
-        if(count($auth) == 0){
-        	$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = "Usuario o Contraseña son incorrectos";
-			$success = false;
-			$json 	 = array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data);
-        }
-        elseif($auth->habilitado_usuario == 0){
-        	$data  	 = (object) ["titulo" => "Disculpe!"];
-			$msj 	 = "Correo no verificado, revise su bandeja de entrada y siga las instrucciones enviadas.";
-			$success = false;
-			$json 	 = array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data);
-        }else{
-            \Session::put('usuario', $auth->correo_usuario);
-            \Session::put('id', 	 $auth->id_usuario);
-            $msj 	 = "logeado";
-            $success = true;
-			$json 	 = array('success'  => $success,
-							  'mensaje' => $msj,
-							  'data' 	=> $data);
-        }
-        return json_encode($json);
-	}
-
-	public function HabilitarUsuario($codigo_activacion){
-
-		$mensaje = "Usuario Habilitado Satisfactoriamente";
-		$codigo 	 =  1;
-		$usuarios = Usuario::where('codigo_activacion_usuario', $codigo_activacion);
-
-		if (!$usuarios->first()){
-			$codigo 	 =  -1;
-			return view('auth/habilitado', compact('codigo'));
-		}
-
-		$usuario_habilitados = $usuarios->where('habilitado_usuario', 1);
-
-		if ($usuario_habilitados->first()){
-			$codigo	 = 2;
-			return view('auth/habilitado', compact('codigo'));
-		}
-
-		Usuario::where('codigo_activacion_usuario','=', $codigo_activacion)->update(array('habilitado_usuario' => 1));
-		return view('auth/habilitado', compact('codigo'));
-	}
 }

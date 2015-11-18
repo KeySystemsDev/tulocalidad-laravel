@@ -1,87 +1,61 @@
-@extends('base-cliente')
-
-@section('js')
-    <script src="{{ asset('/js/controllers/auth/login.js') }}"></script>
-@endsection
+@extends('app')
 
 @section('content')
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">Login</div>
+				<div class="panel-body">
+					@if (count($errors) > 0)
+						<div class="alert alert-danger">
+							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<ul>
+								@foreach ($errors->all() as $error)
+									<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+					@endif
 
-<div id="page-container" class="fade" ng-controller="LoginController">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-	<div class="login login-with-news-feed">
-        <!-- begin news-feed -->
-        <div class="news-feed">
-            <div class="news-image">
-            	<ul class="cb-slideshow ul-login">
-			        <li class="li-login"><span></span></li>
-			        <li class="li-login"><span></span></li>
-			        <li class="li-login"><span></span></li>
-			        <li class="li-login"><span></span></li>
-			        <li class="li-login"><span></span></li>
-			        <li class="li-login"><span></span></li>
-			    </ul>
-                <!--<img src="{{ asset('/img/bg-7.jpg') }}" data-id="login-cover-image" alt="">-->
-            </div>
-            <div class="news-caption">
-                <h4 class="caption-title"> <img class="login-icono" src="{{ asset('/img/icono.png') }}">  TuLocalidad </h4>
-                <p>
-                    Lo que buscas a la mano.
-                </p>
-            </div>
-        </div>
-        <!-- end news-feed -->
-        <!-- begin right-content -->
-        <div class="right-content">
-            <!-- begin login-header -->
-            <div class="login-header">
-                <div class="brand">
-                    <img class="login-icono" src="{{ asset('/img/icono.png') }}"> TuLocalidad
-                    <small> Un directorio pensado para ti...</small>
-                </div>
-                <div class="icon">
-                    <i class="fa fa-sign-in"></i>
-                </div>
-            </div>
-            <!-- end login-header -->
-            <!-- begin login-content -->
-            <div class="login-content">
-                <form id="form" class="form-horizontal" role="form" method="post" action="{{ url('/auth/login') }}">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-group m-b-15">
-                        <input type="email" class="form-control input-lg" name="email" ng-model="email" placeholder="Correo Electronico" >
-                    </div>
-                    <div class="form-group m-b-15">
-                        <input type="password" class="form-control input-lg" name="password" ng-model="password" placeholder="Contraseña">
-                    </div>
-                    <div class="form-group">
-              
-                            <a class="btn btn-link btn-oldivar" href="{{ url('/password/email') }}">Olvido contraseña?</a>
-                        
-                    </div>
-                    <div class="login-buttons">
-                        <!--<button type="submit" class="btn btn-success btn-block btn-lg">Sign me in</button>-->
-                        <button class="btn btn-danger btn-block btn-lg" type="button" ng-click="checkMe()">Iniciar Sesión </button>
-                    </div>
-                    <div class="m-t-20 m-b-40 p-b-40">
-                        ¿No eres miembro todavía? <a href="{{ url('/auth/register') }}" class="text-success">Haga clic aquí </a> Registrar.
-                    </div>
-                    <hr>
-                    <p class="text-center text-inverse">
-                        © Copyright Key Systems C.A 2015
-                    </p>
+						<div class="form-group">
+							<label class="col-md-4 control-label">E-Mail Address</label>
+							<div class="col-md-6">
+								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+							</div>
+						</div>
 
-                    <p class="text-center text-inverse">
-                       Nunca fue tan fácil encontrar algo...
-                    </p>
-                </form>
-            </div>
-            <!-- end login-content -->
-        </div>
-        <!-- end right-container -->
-    </div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">Password</label>
+							<div class="col-md-6">
+								<input type="password" class="form-control" name="password">
+							</div>
+						</div>
 
-	@include('modals/validacion_modal')
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="remember"> Remember Me
+									</label>
+								</div>
+							</div>
+						</div>
 
+						<div class="form-group">
+							<div class="col-md-6 col-md-offset-4">
+								<button type="submit" class="btn btn-primary">Login</button>
+
+								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
 @endsection

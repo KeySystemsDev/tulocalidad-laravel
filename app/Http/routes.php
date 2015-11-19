@@ -10,15 +10,17 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', 'IndexClienteController@index');
-Route::get('gallery', 'GalleryController@gallery');
-
-Route::get('index-admin', 'IndexAdminController@index');
-
-Route::get('home', 'HomeController@index');
+$router->group(['middleware' => 'auth'], function() {
+	Route::get('/', 'IndexClienteController@index');
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+
+
+Route::get( 'login', 'LoginController@login');
+Route::post('login', 'LoginController@postLogin');
+Route::get('logout', 'LoginController@Logout');

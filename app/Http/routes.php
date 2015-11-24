@@ -24,3 +24,9 @@ Route::controllers([
 Route::get( 'login', 'LoginController@login');
 Route::post('login', 'LoginController@postLogin');
 Route::get('logout', 'LoginController@Logout');
+
+
+Route::resource('empresas','EmpresasController');
+Route::resource('empresas.servicios','ServiciosController');
+Route::resource('empresas.productos','ProductosController');
+

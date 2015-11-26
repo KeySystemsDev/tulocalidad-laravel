@@ -25,7 +25,7 @@ coreApp.factory("PaqueteImgService", function($resource){
 });
 
 coreApp.factory("registro_service", function($resource){
-    return $resource('http://www.keypanelservices.com/tulocalidad_pruebas', {}, {
+    return $resource('http://www.keypanelservices.com/tulocalidad_pruebas/upload/img', {}, {
         Post:{
             method: "POST",
             headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },

@@ -47,3 +47,19 @@ coreApp.config(['$httpProvider', function ($httpProvider) {
 
 }]);
 
+coreApp.directive('fileSelect', function() {
+        var template = '<input type="file" name="files" id="fileInput"/>';
+        return function( scope, elem, attrs ) {
+            var selector = $( template );
+
+            selector.bind('change', function( event ) {
+                scope.$apply(function() {
+                    var html = '<input type="file" name="i_image" file-model="myFile" id="fileInput"/>'
+                    var e =$compile(html)(scope);
+                    elem.replaceWith(e);
+                });
+            });
+        };
+    });
+
+

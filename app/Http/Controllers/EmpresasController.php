@@ -22,6 +22,12 @@ class EmpresasController extends Controller
     }
 
     public function store(Request $request){
+
+        $imgController  = new ImgController();
+        $nombre_carpeta = 'empresas';
+        $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
+        $request['url_imagen'] = $result['data']['nombreArchivo'];
+        //$request->all());
         Empresa::create($request->all());
         return redirect('/empresas');
     }
@@ -39,7 +45,18 @@ class EmpresasController extends Controller
 
     public function update(Request $request, $id)
     {
-        Empresa::find($id)->update($request->all());
+        $empresa = Empresa::find($id);//->update($request->all());
+        if ($empresa->url_imagen != $request->namefile){
+
+            $imgController  = new ImgController();
+            $nombre_carpeta = 'empresas';
+            $imgController->DeleteThumbnails($empresa->url_imagen, $nombre_carpeta);
+            $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
+            $request['url_imagen'] = $result['data']['nombreArchivo'];
+        }
+        $empresa->fill($request->except('_token','namefile'));
+        $empresa->save();
+
         return redirect('/empresas');
     }
 

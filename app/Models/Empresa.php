@@ -21,7 +21,7 @@ class Empresa extends Model {
 							'piso_direccion',
 
 							'rif_empresa', //falta en db
-							'logo_empresa'];
+							'url_imagen'];
 
 	public $cast = ['nombre_empresa' 		=>'string',
 					'correo_empresa' 		=>'string',

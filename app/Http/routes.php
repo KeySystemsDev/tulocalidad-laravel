@@ -26,6 +26,8 @@ Route::post('login', 'LoginController@postLogin');
 Route::get('logout', 'LoginController@Logout');
 
 
+Route::any('upload/img',		'ImgController@create');
+
 Route::resource('empresas','EmpresasController');
 Route::resource('empresas.servicios','ServiciosController');
 Route::resource('empresas.productos','ProductosController');

@@ -51,7 +51,7 @@
 
 	<!-- select2 -->
 	<link href="{{ asset('/bower_components/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
-	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+	
 
   	<!-- ui-select files -->
 	
@@ -64,6 +64,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<script src="{{ asset('/thema/admin/html/assets/plugins/pace/pace.min.js') }}"></script>
+	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 </head>
 <body>
 	

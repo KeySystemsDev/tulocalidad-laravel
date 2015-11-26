@@ -1,7 +1,7 @@
 @extends('base-admin')
 
 @section('controller')
-	<script src="{{ asset('/js/controllers/registro_empresa.js') }}"></script>
+	<script src="{{ asset('/public/js/controllers/registro_empresa.js') }}"></script>
 @endsection
 
 
@@ -11,7 +11,7 @@
 		@if($empresa)
 			<h2>Editar Empresa</h2>
 			<div ng-init="empresa={{ $empresa }}"></div>
-			<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen" ></div>
+			<div ng-init="img = '{{ url ('/public/uploads/empresas/low/') }}/'+empresa.url_imagen" ></div>
 			<form action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="_method" value="PUT">
 		@else

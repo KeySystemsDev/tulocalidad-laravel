@@ -7,4 +7,6 @@ class Estado extends Model {
 	protected $fillable = [];
 	protected $primaryKey = "id_estado";
 
+
+	public $cast = ['id_estado' 			=> 'integer'];
 }

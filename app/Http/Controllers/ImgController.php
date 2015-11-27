@@ -12,10 +12,9 @@ class ImgController extends Controller {
 
     public function create(){
         $base64img = Input::get('img');
-        $urlUpload = SITE_ROOT."/uploads/temp/"; //<- servidor 
-        //$urlUpload = "uploads/temp/";
+        $urlUpload = SITE_ROOT."/uploads/temp/"; 
+        //$urlUpload = SITE_ROOT."/public/uploads/temp/"; //<- servidor 
         $user = substr(md5(uniqid(rand(), true)), 16, 16);; // -> aqui va el hash unico
-
 
         $nameImg = $user.date("-dnYHis");
         if (strpos($base64img,'png') !== true){
@@ -48,10 +47,12 @@ class ImgController extends Controller {
         if (!$nombreArchivo){
             dd('error');
         }
-        $rutaOrigen         = SITE_ROOT."/uploads/temp/".$nombreArchivo; // <- Servidor
-        $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; // <- Servidor
-        //$rutaOrigen         = "uploads/temp/".$nombreArchivo;
-        //$rutabase           = "uploads/".$prex_carpeta; 
+        $rutaOrigen         = SITE_ROOT."/uploads/temp/".$nombreArchivo; 
+        $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; 
+
+        // $rutaOrigen         = SITE_ROOT."/public/uploads/temp/".$nombreArchivo; // <- Servidor
+        // $rutabase           = SITE_ROOT."/public/uploads/".$prex_carpeta; // <- Servidor
+
         $ruta_imagen_full   = $rutabase."/full/";
         $ruta_imagen_high   = $rutabase."/high/";
         $ruta_imagen_mid    = $rutabase."/mid/";
@@ -139,8 +140,9 @@ class ImgController extends Controller {
 
 
     public function DeleteThumbnails($nombreArchivo, $prex_carpeta){
-        $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; // <- Servidor
-        //$rutabase           = "uploads/".$prex_carpeta; 
+        $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; 
+        //$rutabase           = SITE_ROOT."/public/uploads/".$prex_carpeta; // <- Servidor
+
         $ruta_imagen_full   = $rutabase."/full/";
         $ruta_imagen_high   = $rutabase."/high/";
         $ruta_imagen_mid    = $rutabase."/mid/";

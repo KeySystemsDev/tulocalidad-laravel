@@ -88,7 +88,7 @@
 				<br>	
 				<div class="from-group">
 					<label for="">Urbanizacion</label>
-					<input type="text" class="form-control" ng-model="empresa.parroquia_direccion" name="parroquia_direccion">
+					<input type="text" class="form-control" ng-model="empresa.urbanizacion_direccion" name="urbanizacion_direccion">
 				</div>
 				<br>	
 				<div class="from-group">

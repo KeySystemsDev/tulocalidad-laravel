@@ -44,9 +44,6 @@ class ImgController extends Controller {
 
     public function create_thumbnails($nombreArchivo, $prex_carpeta, $old_image=false){
 
-        if (!$nombreArchivo){
-            dd('error');
-        }
         // $rutaOrigen         = SITE_ROOT."/uploads/temp/".$nombreArchivo; 
         // $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; 
 
@@ -78,7 +75,6 @@ class ImgController extends Controller {
             mkdir($ruta_imagen_low, 0775, true);
             chmod($ruta_imagen_low, 0775);
         }
-
 
         if (!file_exists($rutaOrigen)){
             /*
@@ -119,7 +115,7 @@ class ImgController extends Controller {
         $lienzo_mid         = imagecreatetruecolor(181, 181);
         $lienzo_low         = imagecreatetruecolor(157, 157);
 
-        imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 700, 700, 700, 700);
+        imagecopyresampled($lienzo_full, $imagen, 0, 0, 0, 0, 698, 698, 700, 700);
         imagecopyresampled($lienzo_high, $imagen, 0, 0, 0, 0, 362, 362, 700, 700);
         imagecopyresampled($lienzo_mid,  $imagen, 0, 0, 0, 0, 181, 181, 700, 700);
         imagecopyresampled($lienzo_low,  $imagen, 0, 0, 0, 0, 157, 157, 700, 700);

@@ -30,5 +30,6 @@ Route::any('upload/img',		'ImgController@create');
 
 Route::resource('empresas','EmpresasController');
 Route::resource('empresas.servicios','ServiciosController');
+Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');
 Route::resource('empresas.productos','ProductosController');
 

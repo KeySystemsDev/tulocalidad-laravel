@@ -1,7 +1,7 @@
 @extends('base-admin')
 
 @section('controller')
-    <script src="{{ asset('/js/controllers/registro_producto.js') }}"></script>
+    <script src="{{ asset('/public/js/controllers/registro_producto.js') }}"></script>
 @endsection
 
 @section('content')

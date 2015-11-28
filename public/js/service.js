@@ -4,26 +4,6 @@
 // Declare use of strict javascript
 'use strict';
 
-coreApp.factory("HotelImgService", function($resource){
-    return $resource('/upload-image-hotel', {}, {
-        Post:{
-            method: "POST",
-            headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },
-        }
-
-    })
-});
-
-coreApp.factory("PaqueteImgService", function($resource){
-    return $resource('/upload-image-paquete', {}, {
-        Post:{
-            method: "POST",
-            headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },
-        }
-
-    })
-});
-
 coreApp.factory("registro_service", function($resource){
     return $resource('/upload/img', {}, {
         Post:{
@@ -41,9 +21,22 @@ coreApp.factory("ajax", function($resource){
             Post:{
                 method: "POST",
                 headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },
-                }
+                },
+            Get:{
+                method: "GET",
+                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },
+            }
 
             }).Post();
-        }
+        },
+        Get: function(url, params){
+            return $resource(url, params, {
+            Get:{
+                method: "GET",
+                headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') },
+            }
+
+            }).Get();
+        }        
     }
 });

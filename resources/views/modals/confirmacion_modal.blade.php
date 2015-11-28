@@ -17,7 +17,7 @@
                         <button type="button" class="btn btn-danger btn-block btn-flat" data-dismiss="modal" aria-label="Close">No</button>
                     </div>
                     <div class="col-xs-6">
-                        <button type="button" class="btn btn-primary btn-block btn-flat" data-dismiss="modal" ng-click="ejecutar()">Si</button>
+                        <button type="button" class="btn btn-primary btn-block btn-flat" data-dismiss="modal" ng-click="ejecutar(parameters)">Si</button>
                     </div>
                 </div>
             </div>

@@ -105,7 +105,7 @@ coreApp.controller('uploadManyFiles', function ($scope, $window, $rootScope, aja
         if ($scope.cantidad <= 5){
             $scope.cantidad += 1;
             $rootScope.objetos.push({
-                                     img        :'/img/no-imagen.jpg',
+                                     img        :'http://www.keypanelservices.com/tulocalidad_pruebas/public/img/no-imagen.jpg',
                                      url_imagen : null,
                                      nuevo      : true,
                                      cargando   : false,

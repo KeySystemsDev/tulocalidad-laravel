@@ -26,7 +26,7 @@ class EmpresasController extends Controller
         $imgController  = new ImgController();
         $nombre_carpeta = 'empresas';
         $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
-        $request['url_imagen'] = $result['data']['nombreArchivo'];
+        $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         //$request->all());
         Empresa::create($request->all());
         return redirect('/empresas');
@@ -52,7 +52,7 @@ class EmpresasController extends Controller
             $nombre_carpeta = 'empresas';
             $imgController->DeleteThumbnails($empresa->url_imagen, $nombre_carpeta);
             $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
-            $request['url_imagen'] = $result['data']['nombreArchivo'];
+            $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         }
         $empresa->fill($request->except('_token','namefile'));
         $empresa->save();

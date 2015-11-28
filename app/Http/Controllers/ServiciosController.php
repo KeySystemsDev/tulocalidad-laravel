@@ -19,6 +19,10 @@ class ServiciosController extends Controller
     }
 
     public function store(Request $request){
+        $imgController  = new ImgController();
+        $nombre_carpeta = 'servicios';
+        $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
+        $request['url_imagen_servicio'] = $result['data']['nombreArchivo'];
         Servicio::create($request->all());
         return redirect('/empresas/'.$request->id_empresa.'/servicios');
     }
@@ -34,7 +38,20 @@ class ServiciosController extends Controller
     }
 
     public function update(Request $request, $id_empresa, $id){
-        $servicio = Servicio::find($id)->update($request->except('_method'));
+
+        $servicio = Servicio::find($id);//->update($request->all());
+        if ($servicio->url_imagen != $request->namefile){
+
+            $imgController  = new ImgController();
+            $nombre_carpeta = 'servicios';
+            $imgController->DeleteThumbnails($servicio->url_imagen_servicio, $nombre_carpeta);
+            $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
+            $request['url_imagen_servicio'] = $result['data']['nombreArchivo'];
+        }
+        $servicio->fill($request->except('_token','namefile'));
+        $servicio->save();
+
+
         return redirect('/empresas/'.$id_empresa.'/servicios');
     }
 

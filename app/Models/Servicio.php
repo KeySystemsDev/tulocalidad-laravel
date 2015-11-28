@@ -10,13 +10,14 @@ class Servicio extends Model {
 							'nombre_servicio',
 							'descripcion_servicio',
 							'precio_servicio',
-							'id_imagen',
+							'url_imagen_servicio',
 							'id_servicios_tags'
 							];
 
 	public $cast = ['id_empresa' 			=>'integer',
 					'nombre_servicio' 		=>'string',
 					'descripcion_servicio' 	=>'string',
+					'url_imagen_servicio' 	=>'string',
 					'precio_servicio' 		=>'integer',];
 
 }

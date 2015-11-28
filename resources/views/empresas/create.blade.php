@@ -11,7 +11,7 @@
 		@if($empresa)
 			<h2>Editar Empresa</h2>
 			<div ng-init="empresa={{ $empresa }}"></div>
-			<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen" ></div>
+			<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen_empresa" ></div>
 			<form action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="_method" value="PUT">
 		@else
@@ -25,7 +25,7 @@
 					<label class="control-label col-md-3">Imagen de perfil</label>
 					<div class="col-md-9 iconic-input right">
 						<div class="fileinput fileinput-new" data-provides="fileinput">
-							<input type="hidden" name="namefile" id="namefile" ng-model="empresa.url_imagen" ng-value="empresa.url_imagen" ng-update-hidden required>
+							<input type="hidden" name="namefile" id="namefile" ng-model="empresa.url_imagen_empresa" ng-value="empresa.url_imagen_empresa" ng-update-hidden required>
 							<div class="fileinput-new thumbnail" style="width: 200px; height: 200px;">
 								<img class="img-responsive img-responsive-custon" ng-src="[[img]]" alt="" style="width: 200px; height: 200px;">
 							</div>

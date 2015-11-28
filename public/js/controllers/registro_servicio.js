@@ -1,10 +1,10 @@
 'use stric'
 
 
-coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, registro_service) {
-    console.log('EmpresaContoller');
+coreApp.controller('ServicioContoller', function($scope, $log, ajax, $window, registro_service) {
+    console.log('ServicioContoller');
 
-    $scope.empresa  = {};
+    $scope.model  = {};
     $scope.submitted = false;
     $scope.opciones_servicio = [];
     $scope.data_select_multiple =[];
@@ -42,7 +42,7 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, reg
                 if (data.status === "success"){
                     $scope.snipper = false;
                     $scope.disable = false;
-                    $scope.empresa.url_imagen_empresa = data.name;
+                    $scope.model.url_imagen_servicio = data.name;
                 }else{
                     $scope.titulo = "Error (5001)";
                     $scope.mensaje = "Disculpe, intente seleccionar su imagen nuevamente. Si el error continua contacte a soporte técnico.";

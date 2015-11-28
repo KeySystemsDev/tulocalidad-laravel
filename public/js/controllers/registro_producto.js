@@ -26,7 +26,7 @@ coreApp.controller('CtrlImg', function ($scope, $window, ajax, $log, $rootScope,
                 if (data.status === "success"){
                     $rootScope.objetos[id].cargando      = false;
                     $rootScope.objetos[id].img          = $scope.srcimg;
-                    $rootScope.objetos[id].url_imagen   = data.name;
+                    $rootScope.objetos[id].url_imagen_servicio   = data.name;
                     angular.element("#myModal").modal("hide");
 
                     var input = angular.element("#fileInput");
@@ -102,7 +102,7 @@ coreApp.controller('uploadManyFiles', function ($scope, $window, $rootScope, aja
 
 
     $scope.agregar = function () {
-        if ($scope.cantidad <= 5){
+        if ($scope.cantidad <= 3){
             $scope.cantidad += 1;
             $rootScope.objetos.push({
                                      img        :'/img/no-imagen.jpg',

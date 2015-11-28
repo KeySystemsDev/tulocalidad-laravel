@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 
-	<img src="{{ url ('public/uploads/empresas/high/'.$empresa->url_imagen) }}"></img> <br>
+	<img src="{{ url ('public/uploads/empresas/high/'.$empresa->url_imagen_empresa) }}"></img> <br>
 
 	nombre_empresa: {{ $empresa->nombre_empresa }}  <br><br>
 	correo_empresa: {{ $empresa->correo_empresa }}  <br><br>

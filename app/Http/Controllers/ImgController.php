@@ -58,7 +58,7 @@ class ImgController extends Controller {
         /*
         *   Validaciones
         */
-        dd($rutaOrigen, $rutabase);
+        
 
         if (!file_exists($ruta_imagen_full)) {
             mkdir($ruta_imagen_full, 0775, true);

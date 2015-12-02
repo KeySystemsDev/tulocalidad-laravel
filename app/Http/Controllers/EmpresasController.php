@@ -46,11 +46,11 @@ class EmpresasController extends Controller
     public function update(Request $request, $id)
     {
         $empresa = Empresa::find($id);//->update($request->all());
-        if ($empresa->url_imagen != $request->namefile){
+        if ($empresa->url_imagen_empresa != $request->namefile){
 
             $imgController  = new ImgController();
             $nombre_carpeta = 'empresas';
-            $imgController->DeleteThumbnails($empresa->url_imagen, $nombre_carpeta);
+            $imgController->DeleteThumbnails($empresa->url_imagen_empresa, $nombre_carpeta);
             $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
             $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         }

@@ -23,8 +23,8 @@ class ProductosController extends Controller
     }
 
     public function store(Request $request){
-        // \DB::beginTransaction();
-        // try {
+        \DB::beginTransaction();
+        try {
             $producto = Producto::create($request->all());
             foreach ($request->imagen as $nombreArchivo) {
                 if ($nombreArchivo){
@@ -38,10 +38,10 @@ class ProductosController extends Controller
                                               'id_producto'   => $producto->id_producto]);
                 }
             };
-        //     \DB::commit();
-        // } catch (Exception $e) {
-        //     \DB::rollback();
-        // }
+            \DB::commit();
+        } catch (Exception $e) {
+            \DB::rollback();
+        }
         return redirect('/empresas/'.$request->id_empresa.'/productos');
     }
 

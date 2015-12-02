@@ -26,7 +26,7 @@ coreApp.controller('CtrlImg', function ($scope, $window, ajax, $log, $rootScope,
                 if (data.status === "success"){
                     $rootScope.objetos[id].cargando      = false;
                     $rootScope.objetos[id].img          = $scope.srcimg;
-                    $rootScope.objetos[id].url_imagen_servicio   = data.name;
+                    $rootScope.objetos[id].url_imagen  = data.name;
                     angular.element("#myModal").modal("hide");
 
                     var input = angular.element("#fileInput");

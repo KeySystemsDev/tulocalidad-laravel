@@ -28,6 +28,7 @@ class Empresa extends Model {
 					'descripcion_empresa' 	=> 'string',
 					'web_empresa' 			=> 'string',
 					'id_estado' 			=> 'integer',
+					'url_imagen' 			=> 'integer',
 					//direccion
 					'municipio_direccion' 	=> 'string',
 					'parroquia_direccion'	=> 'string',

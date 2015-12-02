@@ -44,8 +44,8 @@ class ImgController extends Controller {
 
     public function create_thumbnails($nombreArchivo, $prex_carpeta, $old_image=false){
 
-        //$rutaOrigen         = SITE_ROOT."/uploads/temp/".$nombreArchivo; 
-        //$rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; 
+        // $rutaOrigen         = SITE_ROOT."/uploads/temp/".$nombreArchivo; 
+        // $rutabase           = SITE_ROOT."/uploads/".$prex_carpeta; 
 
         $rutaOrigen         = SITE_ROOT."/public/uploads/temp/".$nombreArchivo; // <- Servidor
         $rutabase           = SITE_ROOT."/public/uploads/".$prex_carpeta; // <- Servidor

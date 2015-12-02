@@ -23,12 +23,12 @@ class Empresa extends Model {
 							'rif_empresa', //falta en db
 							'url_imagen_empresa'];
 
-	public $cast = ['nombre_empresa' 		=>'string',
-					'correo_empresa' 		=>'string',
+	public $cast = ['nombre_empresa' 		=> 'string',
+					'correo_empresa' 		=> 'string',
 					'descripcion_empresa' 	=> 'string',
 					'web_empresa' 			=> 'string',
 					'id_estado' 			=> 'integer',
-					'url_imagen_empresa'	=> 'integer',
+					'url_imagen_empresa'	=> 'string',
 					//direccion
 					'municipio_direccion' 	=> 'string',
 					'parroquia_direccion'	=> 'string',

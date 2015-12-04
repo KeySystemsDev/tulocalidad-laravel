@@ -7,7 +7,14 @@
 
 @section('content')
 	<div class="container" ng-controller='ServicioContoller'>
+		@include('layouts/navbar-admin')
 
+		<br>
+		<br>
+		<br>
+		<br>
+		@include('alerts.mensaje_success')
+		@include('alerts.mensaje_error')
 		@if($servicio)
 			<h2>Editar Servicios</h2>
 			<div ng-init="model={{ $servicio }}"></div>

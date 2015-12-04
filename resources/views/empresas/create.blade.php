@@ -4,13 +4,20 @@
 	<script src="{{ asset('/js/controllers/registro_empresa.js') }}"></script>
 @endsection
 
-
 @section('content')
 	<div class="container" ng-controller="EmpresaContoller">
+		@include('layouts/navbar-admin')
 
+		<br>
+		<br>
+		<br>
+		<br>
+		@include('alerts.mensaje_success')
+		@include('alerts.mensaje_error')
 		@if($empresa)
 			<h2>Editar Empresa</h2>
 			<div ng-init="empresa={{ $empresa }}"></div>
+			<div ng-init="incializar_telefonos({{ $telefonos }})"></div>
 			<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen_empresa" ></div>
 			<form action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="_method" value="PUT">
@@ -80,7 +87,7 @@
 					<label for="">Municipio</label>
 					<input type="text" class="form-control" ng-model="empresa.municipio_direccion" name="municipio_direccion">
 				</div>
-				<br>
+				<br>		
 				<div class="from-group">
 					<label for="">Parroquia</label>
 					<input type="text" class="form-control" ng-model="empresa.parroquia_direccion" name="parroquia_direccion">
@@ -106,7 +113,19 @@
 					<input type="text" class="form-control" ng-model="empresa.piso_direccion" name="piso_direccion">
 				</div>
 				<br>
-	            		
+				<div class="from-group">telefonos:
+						<button type='button' ng-click="addPhone()"> agregar telefono</button>
+				</div>
+				<div ng-repeat="telefono in telefonos track by $index">
+					<br>
+					<div class="from-group" >
+
+						<label for="">telefono [[$index+1]]</label>
+						<input type="text" class="form-control" ng-model='telefono.numero' name="telefonos_secundarios[]">
+					</div>
+					<button type='button' ng-click="delPhone($index)"> eliminar telefono</button>
+				</div>
+				<br>
 				<button class="btn btn-success btn-stm" type="submit">
 					@if($empresa)
 						Actualizar

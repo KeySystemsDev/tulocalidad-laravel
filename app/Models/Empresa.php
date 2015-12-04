@@ -9,6 +9,7 @@ class Empresa extends Model {
 	protected $primaryKey = "id_empresa";
 	protected $fillable = ['nombre_empresa',
 							'correo_empresa',
+							'id_usuario',
 							'descripcion_empresa',
 							'web_empresa',
 							'id_estado',
@@ -25,6 +26,7 @@ class Empresa extends Model {
 
 	public $cast = ['nombre_empresa' 		=> 'string',
 					'correo_empresa' 		=> 'string',
+					'id_usuario' 			=> 'integer',
 					'descripcion_empresa' 	=> 'string',
 					'web_empresa' 			=> 'string',
 					'id_estado' 			=> 'integer',

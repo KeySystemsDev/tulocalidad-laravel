@@ -3,7 +3,7 @@
 
 coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, registro_service) {
     console.log('EmpresaContoller');
-
+    $scope.telefonos  = [];
     $scope.empresa  = {};
     $scope.submitted = false;
     $scope.opciones_servicio = [];
@@ -15,6 +15,30 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, reg
     $scope.myCroppedImage  = '';
     $scope.srcimg          = null;
     $scope.img             = '/img/no-imagen.jpg';
+
+
+    $scope.addPhone = function() {
+        if ($scope.telefonos.length < 10){
+            var obj = {
+                    numero: '',
+            }
+            $scope.telefonos.push(obj);
+        }
+    }
+
+    $scope.delPhone = function(index) {
+        console.log(index);
+        $scope.telefonos.splice(index,1);
+    }
+    $scope.incializar_telefonos = function(array) {
+        console.log(array);
+        for (i in array){
+            var obj = {
+                numero: array[i].numero_telefono,
+            };
+            $scope.telefonos.push(obj);
+        }
+    }
 
 
     var handleFileSelect = function (evt) {

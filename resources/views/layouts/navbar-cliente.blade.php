@@ -29,8 +29,8 @@
                             <li><a href="extra_element.html">Extra Element</a></li>
                         </ul>
                     </li>
-                    <li><a href="#about" data-click="scroll-to-target">ABOUT</a></li>
-                    <li><a href="#team" data-click="scroll-to-target">TEAM</a></li>
+                    <li><a href="{{url('/login')}}" >INICIAR SESION</a></li>
+                    <li><a href="{{url('/registrar')}}" >REGISTRAR</a></li>
                     <li><a href="#service" data-click="scroll-to-target">SERVICES</a></li>
                     <li><a href="#work" data-click="scroll-to-target">WORK</a></li>
                     <li><a href="#client" data-click="scroll-to-target">CLIENT</a></li>

@@ -1,4 +1,4 @@
-@extends('base-cliente.blade')
+@extends('base-cliente')
 
 @section('content')
 <div class="container-fluid">
@@ -7,9 +7,16 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Register</div>
 				<div class="panel-body">
+					@include('layouts/navbar-admin')
 
+					<br>
+					<br>
+					<br>
+					<br>
+					@include('alerts.mensaje_success')
+					@include('alerts.mensaje_error')
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/registro') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/registrar') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 						<div class="form-group">
@@ -25,6 +32,12 @@
 								<input type="text" class="form-control" name="password">
 							</div>
 						</div>
+						<div class="form-group">
+							<label class="col-md-4 control-label">repeat Password</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="re-password">
+							</div>
+						</div>						
 
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">

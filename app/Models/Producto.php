@@ -8,12 +8,14 @@ class Producto extends Model {
 	protected $primaryKey = "id_producto";
 	protected $fillable = ['id_empresa',
 							'nombre_producto',
+							'id_usuario',
 							'precio_producto',
 							'descripcion_producto',
 							'texto_enriquecido_producto'];
 
 	public $cast = ['id_producto'				=>'integer',
 					'id_empresa' 				=>'integer',
+					'id_usuario' 				=>'integer',
 					'nombre_producto' 			=>'string',
 					'precio_producto' 			=>'integer',
 					'descripcion_producto' 		=>'string',

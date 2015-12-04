@@ -4,21 +4,49 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Route;
 use App\Models\Empresa;
 use App\Models\Estado;
+use App\Models\Telefonos;
+use Auth;
 
 class EmpresasController extends Controller
 {
+    public function __construct(){
+        //$this->beforeFilter('@permisos');
+        $this->beforeFilter('@find', ['only' => ['show','update','edit','destroy']]);
+    }
+
+    public function find(Route $route){
+        //$this->empresa = Empresas::find($route->getParameter('admin_empresas'));
+        $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
+                            ->where('id_empresa',$route->getParameter('empresas'))
+                            ->first();
+        if (!$this->empresa){
+            Session::flash("mensaje-error","No puede acceder a ese registro");
+            return redirect('/empresas');
+        }
+
+    }
+
+    public function permisos(Route $route){
+        if(Gate::denies('empresas', $route->getName()) ){
+            Session::flash("mensaje-error","No tiene permisos para acceder al modulo: ".$route->getName());
+            return redirect('/');
+        };
+    }
 
     public function index(){
-        $empresas = Empresa::all();
+        $empresas = Empresa::where('id_usuario',Auth::user()->id_usuario)
+                            ->get();
         return view('empresas.list',compact('empresas'));
     }
 
     public function create(){
         $estados = Estado::all();
         $empresa = "";
-        return view('empresas.create', compact('estados', 'empresa'));
+        $telefonos ="";
+        return view('empresas.create', compact('estados', 'empresa', 'telefonos'));
     }
 
     public function store(Request $request){
@@ -27,26 +55,30 @@ class EmpresasController extends Controller
         $nombre_carpeta = 'empresas';
         $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
         $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
-        //$request->all());
-        Empresa::create($request->all());
+        $request['id_usuario'] = Auth::user()->id_usuario;
+        $empresa = Empresa::create($request->all());
+        foreach($request->telefonos_secundarios as $telefono) {
+            Telefonos::create(['numero_telefono'=>$telefono,
+                                'id_empresa'=>$empresa->id_empresa]);
+        }
         return redirect('/empresas');
     }
 
     public function show($id_empresa){
-        $empresa = Empresa::find($id_empresa);
-        return view('empresas.detalle', compact('empresa','id_empresa'));
+        return view('empresas.detalle', ['empresa'=> $this->empresa,'id_empresa'=>$id_empresa]);
     }
 
-    public function edit($id){
+    public function edit($id_empresa){
         $estados = Estado::all();
-        $empresa = Empresa::find($id);
-        return view('empresas.create', compact('estados', 'empresa'));
+        $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
+        return view('empresas.create', ['estados'=>$estados,
+                                         'empresa'=>$this->empresa,
+                                         'telefonos' => $telefonos]);
     }
 
     public function update(Request $request, $id)
     {
-        $empresa = Empresa::find($id);//->update($request->all());
-        if ($empresa->url_imagen_empresa != $request->namefile){
+        if ($this->empresa->url_imagen_empresa != $request->namefile){
 
             $imgController  = new ImgController();
             $nombre_carpeta = 'empresas';
@@ -54,8 +86,15 @@ class EmpresasController extends Controller
             $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
             $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         }
-        $empresa->fill($request->except('_token','namefile'));
-        $empresa->save();
+        $this->empresa->fill($request->except('_token','namefile'));
+        $this->empresa->save();
+
+        Telefonos::where('id_empresa',$id)->delete();
+
+        foreach ($request->telefonos_secundarios as $telefono) {
+            Telefonos::create(['numero_telefono'=>$telefono,
+                                'id_empresa'=>$this->empresa->id_empresa]);
+        }        
 
         return redirect('/empresas');
     }

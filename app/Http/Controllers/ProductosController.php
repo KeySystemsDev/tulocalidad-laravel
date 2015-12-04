@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Route;
 use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Imagen;

@@ -6,7 +6,14 @@
 
 @section('content')
 	<div class="container" ng-controller="uploadManyFiles">
+		@include('layouts/navbar-admin')
 
+		<br>
+		<br>
+		<br>
+		<br>
+		@include('alerts.mensaje_success')
+		@include('alerts.mensaje_error')
 		@if($producto)
 			<h2>Editar Producto</h2>
             <div ng-init="model={{ $producto }}"></div>

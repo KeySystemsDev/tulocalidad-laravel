@@ -7,7 +7,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
+				@include('layouts/navbar-admin')
 
+				<br>
+				<br>
+				<br>
+				<br>
+				@include('alerts.mensaje_success')
 				@include('alerts.mensaje_error')
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -41,7 +47,8 @@
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>
 
-								<a class="btn btn-link" href="{{ url('/password/email') }}">¿Olvido contraseña?</a>
+								<a class="btn btn-link" href="{{ url('/forget-password') }}">¿Olvido contraseña?</a>
+								<a class="btn btn-link" href="{{ url('/registrar') }}">Registrarse</a>
 							</div>
 						</div>
 					</form>

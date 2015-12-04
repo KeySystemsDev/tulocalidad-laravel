@@ -1,43 +1,42 @@
-@extends('app')
+@extends('base-admin')
 
 @section('content')
 <div class="container-fluid">
+
+		@include('layouts/navbar-admin')
+
+		<br>
+		<br>
+		<br>
+		<br>
+		@include('alerts.mensaje_success')
+		@include('alerts.mensaje_error')
+
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Reset Password</div>
 				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
+					<form class="form-horizontal" role="form" method="POST" action="{{ url('/reset-password') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="token" value="{{ $token }}">
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
+							<label class="col-md-4 control-label">Old Password</label>
 							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+								<input type="password" class="form-control" name="old-password">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
+							<label class="col-md-4 control-label">New Password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-md-4 control-label">Confirm Password</label>
+							<label class="col-md-4 control-label">Confirm new Password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password_confirmation">
 							</div>

@@ -3,7 +3,12 @@
 
 @section('content')
 	<div class="container">
+		@include('layouts/navbar-admin')
 
+		<br>
+		<br>
+		<br>
+		<br>
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
 				

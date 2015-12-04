@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+	@include('layouts/navbar-admin')
+
+		<br>
+		<br>
+		<br>
+		<br>
+		@include('alerts.mensaje_success')
+		@include('alerts.mensaje_error')
 	@foreach($imagenes as $imagen)
 		<img src="{{url('/uploads/productos/mid/'.$imagen->nombre_imagen_producto)}}" alt="">
 	@endforeach

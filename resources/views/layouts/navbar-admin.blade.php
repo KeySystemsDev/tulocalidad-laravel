@@ -15,7 +15,10 @@
 		
 		<!-- begin header navigation right -->
 		<ul class="nav navbar-nav navbar-right">
-			<li>
+            <li>
+                    <a href="{{url('/empresas')}}"> Empresas</a>
+            </li>			
+            <li>
 				<form class="navbar-form full-width">
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="Enter keyword" />
@@ -89,12 +92,8 @@
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>
-					<li><a href="javascript:;">Edit Profile</a></li>
-					<li><a href="javascript:;"><span class="badge badge-danger pull-right">2</span> Inbox</a></li>
-					<li><a href="javascript:;">Calendar</a></li>
-					<li><a href="javascript:;">Setting</a></li>
-					<li class="divider"></li>
-					<li><a href="javascript:;">Log Out</a></li>
+					<li><a href="{{ url('/reset-password') }}">Edit password</a></li>
+					<li><a href="{{ url('/logout') }}">Log Out</a></li>
 				</ul>
 			</li>
 		</ul>

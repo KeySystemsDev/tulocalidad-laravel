@@ -50,22 +50,24 @@ class EmpresasController extends Controller
     }
 
     public function store(Request $request){
-
+        //dd($request->all());
         $imgController  = new ImgController();
         $nombre_carpeta = 'empresas';
         $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
         $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         $request['id_usuario'] = Auth::user()->id_usuario;
         $empresa = Empresa::create($request->all());
-        foreach($request->telefonos_secundarios as $telefono) {
+        foreach($request->telefonos as $value=>$telefono) {
             Telefonos::create(['numero_telefono'=>$telefono,
+                                'codigo_telefono'=> $request->codigos[$value],
                                 'id_empresa'=>$empresa->id_empresa]);
         }
         return redirect('/empresas');
     }
 
     public function show($id_empresa){
-        return view('empresas.detalle', ['empresa'=> $this->empresa,'id_empresa'=>$id_empresa]);
+        $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
+        return view('empresas.detalle', ['empresa'=> $this->empresa,'id_empresa'=>$id_empresa, 'telefonos'=>$telefonos]);
     }
 
     public function edit($id_empresa){
@@ -91,8 +93,9 @@ class EmpresasController extends Controller
 
         Telefonos::where('id_empresa',$id)->delete();
 
-        foreach ($request->telefonos_secundarios as $telefono) {
+        foreach ($request->telefonos as $value=>$telefono) {
             Telefonos::create(['numero_telefono'=>$telefono,
+                                'codigo_telefono'=> $request->codigos[$value],
                                 'id_empresa'=>$this->empresa->id_empresa]);
         }        
 

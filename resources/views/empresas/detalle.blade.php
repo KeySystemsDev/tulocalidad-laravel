@@ -10,7 +10,14 @@
 		<br>
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
-	<img src="{{ url ('/uploads/empresas/high/'.$empresa->url_imagen_empresa) }}"></img> <br>
+		<br><br>
+	<div>
+		<a class='btn btn-smt btn-success' href="{{ url('/empresas/'.$id_empresa.'/productos')}}"> Gestionar Productos</a>		
+		<a class='btn btn-smt btn-success' href="{{ url('/empresas/'.$id_empresa.'/servicios')}}"> Gestionar Servicios</a>	
+	</div>
+	<br>
+	<h3>Detalle de la empresa</h3>
+	<img src="{{ url ('/uploads/empresas/high/'.$empresa->url_imagen_empresa) }}"></img> <br><br>
 	nombre_empresa: {{ $empresa->nombre_empresa }}  <br><br>
 	correo_empresa: {{ $empresa->correo_empresa }}  <br><br>
 	descripcion_empresa: {{ $empresa->descripcion_empresa}}  <br><br>
@@ -22,11 +29,13 @@
 	calle_avenida_direccion: {{ $empresa->calle_avenida_direccion}}  <br><br>
 	casa_apto_direccion: {{ $empresa->casa_apto_direccion}}  <br><br>
 	piso_direccion: {{ $empresa->piso_direccion}}  <br><br>
+<br><br>
+	telefonos: <br><br>
+		@foreach($telefonos as $telefono)
+			<li>({{$telefono->codigo_telefono}}){{$telefono->numero_telefono}} </li><br>
+		@endforeach
+<br><br>
 
-	<div>
-		<a class='btn btn-smt btn-success' href="{{ url('/empresas/'.$id_empresa.'/productos')}}"> Gestionar Productos</a>		
-		<a class='btn btn-smt btn-success' href="{{ url('/empresas/'.$id_empresa.'/servicios')}}"> Gestionar Servicios</a>	
-	</div>
 	
 </div>
 @stop

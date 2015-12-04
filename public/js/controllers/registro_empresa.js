@@ -21,6 +21,7 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, reg
         if ($scope.telefonos.length < 10){
             var obj = {
                     numero: '',
+                    codigo: '',
             }
             $scope.telefonos.push(obj);
         }
@@ -35,6 +36,7 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, reg
         for (i in array){
             var obj = {
                 numero: array[i].numero_telefono,
+                codigo: array[i].codigo_telefono,
             };
             $scope.telefonos.push(obj);
         }

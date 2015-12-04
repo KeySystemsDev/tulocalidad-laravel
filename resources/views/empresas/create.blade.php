@@ -119,9 +119,12 @@
 				<div ng-repeat="telefono in telefonos track by $index">
 					<br>
 					<div class="from-group" >
-
-						<label for="">telefono [[$index+1]]</label>
-						<input type="text" class="form-control" ng-model='telefono.numero' name="telefonos_secundarios[]">
+						
+						<label for="">telefono [[$index+1]]</label><br>
+						<label for="">Codigo</label>
+						<input type="text" class="form-control" ng-model='telefono.codigo' name="codigos[]">
+						<label for="">Numero</label>
+						<input type="text" class="form-control" ng-model='telefono.numero' name="telefonos[]">
 					</div>
 					<button type='button' ng-click="delPhone($index)"> eliminar telefono</button>
 				</div>

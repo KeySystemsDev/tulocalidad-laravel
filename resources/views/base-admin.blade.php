@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content='{{ csrf_token() }}'>
 
-    <title>.: Base Admin :.</title>
+    <title>.: TuLocalidad :.</title>
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
@@ -91,6 +91,8 @@
     <script src="{{ asset('/js/directives.js') }}"></script>
 
     <!-- angular modules -->
+    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
     <script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-resource/angular-resource.min.js') }}"></script>
@@ -145,7 +147,7 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
-			DashboardV2.init(); /*quitar cuando no se usan elmentos de esta vista*/
+			/*DashboardV2.init(); quitar cuando no se usan elmentos de esta vista*/
 		});
 	</script>
 	

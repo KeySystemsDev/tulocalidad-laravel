@@ -27,6 +27,8 @@ Route::post('registrar', 'LoginController@postRegistro');
 Route::get('forget-password', 'LoginController@forgetPassword');
 Route::post('forget-password', 'LoginController@postForgetPassword');
 
+Route::resource('empresas','EmpresasController');
+
 
 $router->group(['middleware' => 'auth'], function() {
 	Route::any('upload/img',		'ImgController@create');

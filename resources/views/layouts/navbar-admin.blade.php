@@ -16,8 +16,11 @@
 		<!-- begin header navigation right -->
 		<ul class="nav navbar-nav navbar-right">
             <li>
-                    <a href="{{url('/empresas')}}"> Empresas</a>
+                <a href="{{url('/empresas')}}"> Empresas</a>
             </li>			
+            <li>
+                <a href="{{url('/redes_sociales')}}"> Redes Sociales</a>
+            </li>               
             <li>
 				<form class="navbar-form full-width">
 					<div class="form-group">

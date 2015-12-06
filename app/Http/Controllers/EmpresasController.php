@@ -8,6 +8,8 @@ use Illuminate\Routing\Route;
 use App\Models\Empresa;
 use App\Models\Estado;
 use App\Models\Telefonos;
+use App\Models\Redes;
+use App\Models\MMRedes;
 use Auth;
 
 class EmpresasController extends Controller
@@ -23,7 +25,7 @@ class EmpresasController extends Controller
                             ->where('id_empresa',$route->getParameter('empresas'))
                             ->first();
         if (!$this->empresa){
-            Session::flash("mensaje-error","No puede acceder a ese registro");
+            Session::flash("mensaje-error","No existe ese registro.");
             return redirect('/empresas');
         }
 
@@ -46,7 +48,9 @@ class EmpresasController extends Controller
         $estados = Estado::all();
         $empresa = "";
         $telefonos ="";
-        return view('empresas.create', compact('estados', 'empresa', 'telefonos'));
+        $redes_empresa ="";
+        $redes = Redes::where('habilitado_red_social',1)->get();
+        return view('empresas.create', compact('estados', 'empresa', 'telefonos','redes'));
     }
 
     public function store(Request $request){
@@ -57,25 +61,49 @@ class EmpresasController extends Controller
         $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         $request['id_usuario'] = Auth::user()->id_usuario;
         $empresa = Empresa::create($request->all());
-        foreach($request->telefonos as $value=>$telefono) {
-            Telefonos::create(['numero_telefono'=>$telefono,
-                                'codigo_telefono'=> $request->codigos[$value],
-                                'id_empresa'=>$empresa->id_empresa]);
+        if ($request->telefonos){
+            foreach($request->telefonos as $value=>$telefono) {
+                Telefonos::create(['numero_telefono'=>$telefono,
+                                    'codigo_telefono'=> $request->codigos[$value],
+                                    'id_empresa'=>$empresa->id_empresa]);
+            }
         }
+        if ($request->identificador_red){
+            foreach($request->identificador_red as $value=>$identificador_red) {
+                MMRedes::create(['identificador_red'=>$identificador_red,
+                                    'id_red_social'=> $request->id_red_social[$value],
+                                    'id_empresa'=>$empresa->id_empresa]);
+            }
+        }        
         return redirect('/empresas');
     }
 
     public function show($id_empresa){
         $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
-        return view('empresas.detalle', ['empresa'=> $this->empresa,'id_empresa'=>$id_empresa, 'telefonos'=>$telefonos]);
+
+
+        //$redes = MMRedes::where('id_empresa',$id_empresa)->get();
+
+        $redes = \DB::table('t_redes')
+                            ->where('t_redes.id_empresa','=',$id_empresa)
+                            ->join('t_redes_sociales','t_redes_sociales.id_red_social', '=', 't_redes.id_red_social')
+                            ->get();
+        return view('empresas.detalle', ['empresa'=> $this->empresa,
+                                         'id_empresa'=>$id_empresa,
+                                         'redes'=>$redes,
+                                         'telefonos'=>$telefonos]);
     }
 
     public function edit($id_empresa){
         $estados = Estado::all();
         $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
+        $redes = Redes::where('habilitado_red_social',1)->get();
+        $redes_empresa = MMRedes::where('id_empresa',$id_empresa)->get();
         return view('empresas.create', ['estados'=>$estados,
                                          'empresa'=>$this->empresa,
-                                         'telefonos' => $telefonos]);
+                                         'telefonos' => $telefonos,
+                                         'redes_empresa' => $redes_empresa,
+                                         'redes'=>$redes]);
     }
 
     public function update(Request $request, $id)
@@ -93,11 +121,21 @@ class EmpresasController extends Controller
 
         Telefonos::where('id_empresa',$id)->delete();
 
-        foreach ($request->telefonos as $value=>$telefono) {
-            Telefonos::create(['numero_telefono'=>$telefono,
-                                'codigo_telefono'=> $request->codigos[$value],
-                                'id_empresa'=>$this->empresa->id_empresa]);
-        }        
+        if ($request->telefonos){
+            foreach ($request->telefonos as $value=>$telefono) {
+                Telefonos::create(['numero_telefono'=>$telefono,
+                                    'codigo_telefono'=> $request->codigos[$value],
+                                    'id_empresa'=>$this->empresa->id_empresa]);
+            }
+        }
+        if ($request->identificador_red){
+            foreach($request->identificador_red as $value=>$identificador_red) {
+                MMRedes::create(['identificador_red'=>$identificador_red,
+                                    'id_red_social'=> $request->id_red_social[$value],
+                                    'id_empresa'=>$this->empresa->id_empresa]);
+            }
+        }
+        
 
         return redirect('/empresas');
     }

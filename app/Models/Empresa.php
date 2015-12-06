@@ -13,15 +13,13 @@ class Empresa extends Model {
 							'descripcion_empresa',
 							'web_empresa',
 							'id_estado',
-							//direccion
 							'municipio_direccion',
 							'parroquia_direccion',
 							'urbanizacion_direccion',
 							'calle_avenida_direccion',
 							'casa_apto_direccion',
 							'piso_direccion',
-
-							'rif_empresa', //falta en db
+							'rif_empresa',
 							'url_imagen_empresa'];
 
 	public $cast = ['nombre_empresa' 		=> 'string',

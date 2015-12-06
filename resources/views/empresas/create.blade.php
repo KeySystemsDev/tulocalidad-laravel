@@ -213,9 +213,9 @@
 
 							</div>
 
-							<input class="form-control" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+							<input class="form-control" type="hidden" id="i_latitud" name="latitud_empresa" readonly="false">
                                 
-                            <input class="form-control" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
+                            <input class="form-control" type="hidden" id="i_longitud" name="longitud_empresa" readonly="false">
                                 
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-maps">

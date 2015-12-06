@@ -28,7 +28,9 @@
 	urbanizacion_direccion: {{ $empresa->urbanizacion_direccion}}  <br><br>
 	calle_avenida_direccion: {{ $empresa->calle_avenida_direccion}}  <br><br>
 	casa_apto_direccion: {{ $empresa->casa_apto_direccion}}  <br><br>
-	piso_direccion: {{ $empresa->piso_direccion}}  <br><br>
+	piso_direccion: {{ $empresa->piso_direccion}}  <br><br><br><br>
+	latitud: {{ $empresa->latitud_empresa}}  <br><br>
+	longitud: {{ $empresa->longitud_empresa}}  <br><br><br><br>
 <br><br>
 	@if($telefonos)
 		telefonos: <br><br>

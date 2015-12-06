@@ -27,12 +27,14 @@ Route::post('registrar', 'LoginController@postRegistro');
 Route::get('forget-password', 'LoginController@forgetPassword');
 Route::post('forget-password', 'LoginController@postForgetPassword');
 
+Route::resource('empresas','EmpresasController');
+
 
 $router->group(['middleware' => 'auth'], function() {
 	Route::any('upload/img',		'ImgController@create');
 	Route::get('reset-password', 'LoginController@resetPassword');
 	Route::post('reset-password', 'LoginController@postResetPassword');
-	Route::resource('empresas','EmpresasController');
+	
 	Route::resource('empresas.servicios','ServiciosController');
 	Route::resource('empresas.productos','ProductosController');
 	Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');

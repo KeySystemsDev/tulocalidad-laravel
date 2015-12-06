@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content='{{ csrf_token() }}'>
 
-    <title>.: Base Admin :.</title>
+    <title>.: TuLocalidad :.</title>
 
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
@@ -145,7 +145,7 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
-			DashboardV2.init(); /*quitar cuando no se usan elmentos de esta vista*/
+			/*DashboardV2.init(); quitar cuando no se usan elmentos de esta vista*/
 		});
 	</script>
 	

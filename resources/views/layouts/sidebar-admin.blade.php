@@ -25,8 +25,8 @@
 				    <span>Empresas</span>
 			    </a>
 				<ul class="sub-menu">
-				    <li><a href="#">Listar Empresas</a></li>
-				    <li><a href="#">Crear Empresas</a></li>
+				    <li><a href="{{ url('empresas/') }}">Listar Empresas</a></li>
+				    <li><a href="{{ url('empresas/create') }}">Crear Empresas</a></li>
 				</ul>
 			</li>
 	        <!-- begin sidebar minify button -->

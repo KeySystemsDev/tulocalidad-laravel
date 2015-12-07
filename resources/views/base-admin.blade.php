@@ -91,6 +91,8 @@
     <script src="{{ asset('/js/directives.js') }}"></script>
 
     <!-- angular modules -->
+    <script src="{{ asset('/bower_components/lodash/dist/lodash.js') }}"></script>
+    <script src="{{ asset('/bower_components/angular-google-maps/dist/angular-google-maps.js') }}"></script>
     <script src="{{ asset('/bower_components/ngImgCrop/compile/minified/ng-img-crop.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-base64/angular-base64.min.js') }}"></script>
     <script src="{{ asset('/bower_components/angular-resource/angular-resource.min.js') }}"></script>

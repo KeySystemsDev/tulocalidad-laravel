@@ -188,6 +188,33 @@
 								</div>
 							
 							</div>
+
+							<input class="form-control" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+                                
+                            <input class="form-control" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
+                                
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12 col-maps">
+                                    <section class="panel panel-map">
+                                        <header class="panel-heading-maps">
+                                            <div id="map_canvas">
+                                                <ui-gmap-google-map 
+                                                    center="map.center" 
+                                                    zoom="map.zoom" 
+                                                    draggable="true" 
+                                                    options="options">
+                                                        <ui-gmap-marker 
+                                                            coords="marker.coords" 
+                                                            options="marker.options"
+                                                            events="marker.events" 
+                                                            idkey="marker.id">
+                                                        </ui-gmap-marker>
+                                                </ui-gmap-google-map>
+                                            </div>
+                                        </header>
+                                    </section>
+                                </div>
+                            </div>
 							
 							<br>
 

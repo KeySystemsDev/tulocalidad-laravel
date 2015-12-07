@@ -16,12 +16,6 @@
 		<!-- begin header navigation right -->
 
 		<ul class="nav navbar-nav navbar-right">	
-            <li>
-                <a href="{{url('/empresas')}}"> Empresas</a>
-            </li>           
-            <li>
-                <a href="{{url('/redes_sociales')}}"> Redes Sociales</a>
-            </li>     
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 

@@ -3,8 +3,6 @@
 @section('content')
 <div class="container-fluid">
 
-		@include('layouts/navbar-admin')
-
 		<br>
 		<br>
 		<br>

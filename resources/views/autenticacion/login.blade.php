@@ -1,4 +1,4 @@
-@extends('base-cliente')
+@extends('base-admin')
 
 @section('content')
 <div class="container-fluid">

@@ -14,11 +14,18 @@
 		<!-- end mobile sidebar expand / collapse button -->
 		
 		<!-- begin header navigation right -->
+
 		<ul class="nav navbar-nav navbar-right">	
+            <li>
+                <a href="{{url('/empresas')}}"> Empresas</a>
+            </li>           
+            <li>
+                <a href="{{url('/redes_sociales')}}"> Redes Sociales</a>
+            </li>     
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 
-					<span class="hidden-xs">Nombre Usuario</span> <b class="caret"></b>
+					<span class="hidden-xs">{{Auth::user()->correo_usuario}}</span> <b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu animated fadeInLeft">
 					<li class="arrow"></li>

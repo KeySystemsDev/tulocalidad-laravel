@@ -7,7 +7,6 @@
 
 	<div class="row">
 
-		@include('layouts/navbar-admin')
 
 		<br>
 		<br>

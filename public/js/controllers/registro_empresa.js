@@ -4,6 +4,7 @@
 coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, registro_service) {
     console.log('EmpresaContoller');
     $scope.telefonos  = [];
+    $scope.redes  = [];
     $scope.empresa  = {};
     $scope.submitted = false;
     $scope.opciones_servicio = [];
@@ -70,6 +71,32 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, reg
                 codigo: array[i].codigo_telefono,
             };
             $scope.telefonos.push(obj);
+        }
+    }
+
+    $scope.addRed = function() {
+        if ($scope.redes.length < 10){
+            var obj = {
+                    id_red_social: '',
+                    identificador_red: '',
+            }
+            $scope.redes.push(obj);
+        }
+    }
+
+    $scope.delRed = function(index) {
+        console.log(index);
+        $scope.redes.splice(index,1);
+    }    
+
+    $scope.incializar_redes = function(array) {
+        console.log(array);
+        for (i in array){
+            var obj = {
+                id_red_social: array[i].id_red_social,
+                identificador_red: array[i].identificador_red,
+            };
+            $scope.redes.push(obj);
         }
     }
 

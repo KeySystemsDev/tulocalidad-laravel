@@ -1,4 +1,4 @@
-@extends('base-cliente')
+@extends('base-admin')
 
 @section('content')
 <div class="container-fluid">
@@ -7,8 +7,6 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Register</div>
 				<div class="panel-body">
-					@include('layouts/navbar-admin')
-
 					<br>
 					<br>
 					<br>

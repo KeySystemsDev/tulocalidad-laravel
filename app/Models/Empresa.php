@@ -13,15 +13,15 @@ class Empresa extends Model {
 							'descripcion_empresa',
 							'web_empresa',
 							'id_estado',
-							//direccion
 							'municipio_direccion',
 							'parroquia_direccion',
 							'urbanizacion_direccion',
 							'calle_avenida_direccion',
 							'casa_apto_direccion',
 							'piso_direccion',
-
-							'rif_empresa', //falta en db
+							'rif_empresa',
+							'latitud_empresa',
+							'longitud_empresa',
 							'url_imagen_empresa'];
 
 	public $cast = ['nombre_empresa' 		=> 'string',
@@ -38,7 +38,12 @@ class Empresa extends Model {
 					'calle_avenida_direccion'=> 'string',
 					'casa_apto_direccion' 	=> 'string',
 					'piso_direccion' 		=> 'string',
+					'piso_direccion' 		=> 'string',
 					'rif_empresa' 			=> 'string', //falta en db
-					'logo_empresa' 			=> 'string'];
+					'logo_empresa' 			=> 'string',
+					'latitud_empresa'		=> 'integer',
+					'longitud_empresa'		=> 'integer',
+
+					];
 
 }

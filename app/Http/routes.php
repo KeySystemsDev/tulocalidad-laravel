@@ -34,9 +34,19 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::any('upload/img',		'ImgController@create');
 	Route::get('reset-password', 'LoginController@resetPassword');
 	Route::post('reset-password', 'LoginController@postResetPassword');
-	
+
+	Route::get('empresas/{id}/destroy','EmpresasController@destroy');
+	Route::resource('empresas','EmpresasController');
+
+	Route::get('empresas/{id_empresa}/servicio/{id_servicio}/destroy','ServiciosController@destroy');
 	Route::resource('empresas.servicios','ServiciosController');
+
+	Route::get('empresas/{id_empresa}/productos/{$id_productos}/destroy','ProductosController@destroy');
 	Route::resource('empresas.productos','ProductosController');
+
+	Route::get('redes_sociales/{redes_sociales}/destroy','RedesSocialesController@destroy');
+	Route::resource('redes_sociales','RedesSocialesController');
+
 	Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');
 
 });

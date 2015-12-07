@@ -18,6 +18,7 @@
         <h1 class="page-header"><i class="fa fa-briefcase"></i> Editar Empresa</h1>
         <div ng-init="empresa={{ $empresa }}"></div>
 		<div ng-init="incializar_telefonos({{ $telefonos }})"></div>
+		<div ng-init="incializar_redes({{ $redes_empresa }})"></div>
 		<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen_empresa" ></div>
 		<form class="form-horizontal" action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="PUT">
@@ -187,11 +188,34 @@
 									</div>				
 								</div>
 							
+
+								<div class="from-group">Redes Sociales:
+										<button type='button' ng-click="addRed()"> agregar Red Social</button>
+								</div>
+								<div ng-repeat="red in redes track by $index">
+									<br>
+									<div class="from-group" >
+										<div class="from-group">
+											<label for="">Red Social</label>
+											<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" required>
+												<option class="option" value="">Seleccione una red social</option>
+												@foreach($redes as $key)
+													<option class="option" value="{{$key->id_red_social}}">
+														{{$key->nombre_red_social}}</option>
+												@endforeach
+											</select>
+										</div>	
+										<label for="">Identificador de su red social</label>
+										<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]">
+									</div>
+									<button type='button' ng-click="delRed($index)"> eliminar Red</button>
+								</div>	
+
 							</div>
 
-							<input class="form-control" type="hidden" id="i_latitud" name="i_latitud" readonly="false" placeholder="Posición en el Mapa">
+							<input class="form-control" type="hidden" id="i_latitud" name="latitud_empresa" readonly="false">
                                 
-                            <input class="form-control" type="hidden" id="i_longitud" name="i_longitud" readonly="false" placeholder="Posición en el Mapa">
+                            <input class="form-control" type="hidden" id="i_longitud" name="longitud_empresa" readonly="false">
                                 
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-xs-12 col-maps">

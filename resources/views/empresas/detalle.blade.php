@@ -59,12 +59,23 @@
 	urbanizacion_direccion: {{ $empresa->urbanizacion_direccion}}  <br><br>
 	calle_avenida_direccion: {{ $empresa->calle_avenida_direccion}}  <br><br>
 	casa_apto_direccion: {{ $empresa->casa_apto_direccion}}  <br><br>
-	piso_direccion: {{ $empresa->piso_direccion}}  <br><br>
+	piso_direccion: {{ $empresa->piso_direccion}}  <br><br><br><br>
+	latitud: {{ $empresa->latitud_empresa}}  <br><br>
+	longitud: {{ $empresa->longitud_empresa}}  <br><br><br><br>
 <br><br>
-	telefonos: <br><br>
+	@if($telefonos)
+		telefonos: <br><br>
 		@foreach($telefonos as $telefono)
 			<li>({{$telefono->codigo_telefono}}){{$telefono->numero_telefono}} </li><br>
 		@endforeach
+	@endif
+<br><br>
+	@if($redes)
+		redes sociales: <br><br>
+		@foreach($redes as $red)
+			<li> {{$red->nombre_red_social}} - {{$red->identificador_red}} </li><br>
+		@endforeach
+	@endif
 <br><br>
 
 					</div><!-- boby -->

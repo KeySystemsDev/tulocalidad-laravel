@@ -587,7 +587,7 @@ figure.effect-zoe-detalle-empresa {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #721520;
+  background-color: #242a30;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -693,6 +693,14 @@ figure.effect-zoe-detalle-empresa {
 figure.effect-zoe figcaption {
   border-radius: 0px 0px 5px 5px;
 }
+
+.nav-admin-logo{
+  width: 25px;
+  float: left;
+  margin-right: 10px;
+  margin-top: -5px;
+}
+
 
 @media all and (max-width: 550px)  {
     #store-list img {

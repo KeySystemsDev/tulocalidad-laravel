@@ -21,7 +21,7 @@
         </ol>
         
 
-        <h1 class="page-header"><i class="fa fa-laptop"></i> Lista de Productos </h1>
+        <h1 class="page-header"><i class="fa fa-shopping-cart"></i> Lista de Productos </h1>
         
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')

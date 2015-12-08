@@ -1,15 +1,6 @@
 /vendor
 /node_modules
 .env
-/public/uploads/empresas_high/*.jpg
-/public/uploads/empresas_full/*.jpg
-/public/uploads/empresas_mid/*.jpg
-/public/uploads/empresas_low/*.jpg
-/public/uploads/publicidades_high/*.jpg
-/public/uploads/publicidades_full/*.jpg
-/public/uploads/publicidades_mid/*.jpg
-/public/uploads/publicidades_low/*.jpg
-/public/uploads/temp/*.jpg
-/public/uploads/temp/*.png
+/public/uploads/*
 
 

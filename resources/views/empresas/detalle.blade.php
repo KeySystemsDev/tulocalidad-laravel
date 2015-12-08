@@ -18,7 +18,7 @@
                     </a>
                 </div>
                 <div class="btn-group">
-                    <a href="{{ url('/empresas/'.$id_empresa.'/servicios')}}" class="btn btn-success btn-sm p-l-20 p-r-20" data-toggle="tooltip" data-title="Gestionar Servicios">
+                    <a href="{{ url('/empresas/'.$id_empresa.'/servicios')}}" class="btn btn-danger btn-sm p-l-20 p-r-20" data-toggle="tooltip" data-title="Gestionar Servicios">
                         <i class="fa fa-coffee"></i>
                     </a>
                 </div>

@@ -57,7 +57,7 @@ class LoginController extends Controller {
         $verificacion = User::where('correo_usuario', $request->correo_usuario)->first();
         if ($verificacion){
             Session::flash("mensaje-error","usuario existente");
-            return redirect("/admin_usuarios/create");
+            return redirect("/registro");
         };
 
         $request['password'] = \Hash::make($request['password']);

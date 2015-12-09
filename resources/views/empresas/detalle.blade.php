@@ -189,7 +189,6 @@
 					</div><!-- boby -->
                 </div>
             </div>
-
         
         </div><!-- row -->
 

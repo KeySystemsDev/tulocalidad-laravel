@@ -733,10 +733,10 @@ figure.effect-zoe figcaption {
 
 @media (max-width: 767px)  {
     .navbar.navbar-default {
-        background: #8d1928;
+        background: #fff;
     }
     .navbar-header {
-        border-bottom: 1px solid #8d1928;
+        border-bottom: 1px solid #fff;
     }
     .breadcrumb {
         padding-bottom: 15px;

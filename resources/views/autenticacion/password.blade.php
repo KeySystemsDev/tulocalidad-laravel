@@ -49,7 +49,7 @@
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
 					<br>
-					
+
 					<div class="form-group m-b-15">
 						<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico">
 					</div>
@@ -58,7 +58,7 @@
 
 					<div class="login-buttons">
 						<button type="submit" class="btn btn-danger btn-block btn-lg">
-							Enviar nueva contraseña
+							Enviar contraseña
 						</button>
 					</div>
 

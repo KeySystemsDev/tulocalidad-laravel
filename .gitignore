@@ -2,5 +2,12 @@
 /node_modules
 .env
 /public/uploads/*
-
+public/uploads/productos/full/*.jpg
+public/uploads/productos/high/*.jpg
+public/uploads/productos/low/*.jpg
+public/uploads/productos/mid/*.jpg
+public/uploads/servicios/full/*.jpg
+public/uploads/servicios/high/*.jpg
+public/uploads/servicios/low/*.jpg
+public/uploads/servicios/mid/*.jpg
 

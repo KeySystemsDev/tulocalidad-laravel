@@ -19,5 +19,13 @@ class Producto extends Model {
 					'nombre_producto' 			=>'string',
 					'precio_producto' 			=>'integer',
 					'descripcion_producto' 		=>'string',
-					'texto_enriquecido_producto'=>'string'];
+					'texto_enriquecido_producto'=>'string',
+					'imagenes'					=> 'array'];
+
+	protected $appends = ['imagenes'];
+
+	public function getImagenesAttribute(){
+		//return ['yes'];
+        return Imagen::where("id_producto", $this->id_producto)->get()->toArray();
+    }
 }

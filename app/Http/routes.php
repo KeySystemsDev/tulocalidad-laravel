@@ -50,3 +50,12 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');
 
 });
+
+
+//APIS
+Route::group( [ 'prefix' => 'API' ], function ()
+{
+	Route::get('/productos/{empresa}', 'ApisController@getProductos');
+	Route::get('/servicios/{empresa}', 'ApisController@getServicios');
+ 
+} );

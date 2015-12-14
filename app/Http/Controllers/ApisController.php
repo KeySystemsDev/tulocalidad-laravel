@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\Servicio;
 use App\Models\Imagen;
+use App\Models\Empresa;
 
 class ApisController extends Controller {
 
@@ -22,20 +23,38 @@ class ApisController extends Controller {
 	}
 
 	public function getProductos($empresa){
-		$productos = Producto::where('id_empresa', $empresa)->get()->toArray();
+		$model = Producto::where('id_empresa', $empresa)->get()->toArray();
 
 		return json_encode([
 						"success" => true,
-						"data" => $productos,
+						"data" => $model,
 						]);
 	}
 
 	public function getServicios($empresa){
-		$servicios = Servicio::where('id_empresa', $empresa)->get()->toArray();
+		$model = Servicio::where('id_empresa', $empresa)->get()->toArray();
 
 		return json_encode([
 						"success" => true,
-						"data" => $servicios,
+						"data" => $model,
+						]);
+	}
+
+	public function getPerfilEmpresa($empresa){
+		$model = Empresa::find($empresa);
+
+		return json_encode([
+						"success" => true,
+						"data" => $model,
+						]);
+	}
+
+	public function getDetalleProducto($producto){
+		$model = Producto::find($producto);
+
+		return json_encode([
+						"success" => true,
+						"data" => $model,
 						]);
 	}
 

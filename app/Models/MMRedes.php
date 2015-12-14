@@ -17,4 +17,10 @@ class MMRedes extends Model {
 					'identificador_red' 	=> 'string',
 					'habilitado_red'		=> 'integer',
 					];
+
+	protected $appends = ['red_data',];
+
+	public function getRedDataAttribute(){
+        return Redes::find($this->id_red_social);
+    }
 }

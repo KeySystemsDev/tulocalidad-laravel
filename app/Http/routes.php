@@ -57,5 +57,7 @@ Route::group( [ 'prefix' => 'API' ], function ()
 {
 	Route::get('/productos/{empresa}', 'ApisController@getProductos');
 	Route::get('/servicios/{empresa}', 'ApisController@getServicios');
+	Route::get('/empresa/{empresa}', 'ApisController@getPerfilEmpresa');
+	Route::get('/detalle-producto/{producto}', 'ApisController@getDetalleProducto');
  
 } );

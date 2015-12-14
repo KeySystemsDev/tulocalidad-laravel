@@ -43,7 +43,24 @@ class Empresa extends Model {
 					'logo_empresa' 			=> 'string',
 					'latitud_empresa'		=> 'integer',
 					'longitud_empresa'		=> 'integer',
+					'nombre_estado'			=> 'string',
+					'telefonos'				=> 'array',
+					'redes'					=> 'array',
 
 					];
+
+	protected $appends = ['nombre_estado','telefonos', 'redes'];
+
+	public function getNombreEstadoAttribute(){
+        return Estado::find($this->id_estado)->nombre_estado;
+    }
+
+   	public function getTelefonosAttribute(){
+        return Telefonos::where('id_empresa',$this->id_empresa)->get();
+    }
+
+   	public function getRedesAttribute(){
+        return MMRedes::where('id_empresa',$this->id_empresa)->get();
+    }
 
 }

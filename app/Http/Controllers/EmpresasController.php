@@ -112,7 +112,7 @@ class EmpresasController extends Controller
 
             $imgController  = new ImgController();
             $nombre_carpeta = 'empresas';
-            $imgController->DeleteThumbnails($empresa->url_imagen_empresa, $nombre_carpeta);
+            $imgController->DeleteThumbnails($this->empresa->url_imagen_empresa, $nombre_carpeta);
             $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
             $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         }

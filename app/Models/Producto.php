@@ -11,7 +11,8 @@ class Producto extends Model {
 							'id_usuario',
 							'precio_producto',
 							'descripcion_producto',
-							'texto_enriquecido_producto'];
+							'texto_enriquecido_producto',
+							'habilitado_producto'];
 
 	public $cast = ['id_producto'				=>'integer',
 					'id_empresa' 				=>'integer',
@@ -20,12 +21,20 @@ class Producto extends Model {
 					'precio_producto' 			=>'integer',
 					'descripcion_producto' 		=>'string',
 					'texto_enriquecido_producto'=>'string',
-					'imagenes'					=> 'array'];
+					'imagenes'					=> 'array',
+					'primera_imagen'			=> 'string',
+					];
 
-	protected $appends = ['imagenes'];
+	protected $appends = ['imagenes',
+							'primera_imagen'];
 
 	public function getImagenesAttribute(){
 		//return ['yes'];
         return Imagen::where("id_producto", $this->id_producto)->get()->toArray();
+    }
+
+	public function getPrimeraImagenAttribute(){
+		//return ['yes'];
+        return Imagen::where("id_producto", $this->id_producto)->first();
     }
 }

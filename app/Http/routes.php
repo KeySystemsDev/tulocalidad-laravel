@@ -27,7 +27,11 @@ Route::post('registrar', 'LoginController@postRegistro');
 Route::get('forget-password', 'LoginController@forgetPassword');
 Route::post('forget-password', 'LoginController@postForgetPassword');
 
-Route::resource('empresas','EmpresasController');
+Route::get('/lista-empresas','ClientController@listarEmpresas');
+Route::get('/lista-productos','ClientController@listarProductos');
+
+
+
 
 
 $router->group(['middleware' => 'auth'], function() {
@@ -48,6 +52,17 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::resource('redes_sociales','RedesSocialesController');
 
 	Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');
+
+//	CARRITO DE COMPRA //
+	Route::get('/agregar-carrito/{id_producto}','ClientController@agregarACarrito');
+	Route::get('/eliminar-carrito/{id_producto}','ClientController@eliminarDeCarrito');
+	Route::get('/lista-carrito/','ClientController@listarCarrito');
+	Route::get('/comprar/','ClientController@comprar');
+	Route::get('/comprar/metodo-pago','ClientController@tipoDePago');
+
+	//mercadopago
+	Route::get('/comprar/mercadopago','ClientController@mercadopago1');
+	Route::post('/comprar/mercadopago','ClientController@postMercadopago1');
 
 });
 

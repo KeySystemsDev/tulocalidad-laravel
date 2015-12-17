@@ -18,6 +18,23 @@
 		<!-- begin sidebar nav -->
 		<ul class="nav">
 			<li class="nav-header">TuLocalidad</li>
+
+
+			<li class="">
+				<a href="{{url('lista-productos/')}}">
+				    <i class="fa fa-rocket"></i>
+				    <span>Compra lo que necesites</span>
+			    </a>
+			</li>	
+
+
+			<li class="">
+				<a href="{{url('lista-empresas/')}}">
+				    <i class="fa fa-rocket"></i>
+				    <span>Encuentra lo que buscas</span>
+			    </a>
+			</li>				
+
 			<li class="has-sub">
 				<a href="javascript:;">
 				    <b class="caret pull-right"></b>
@@ -39,7 +56,7 @@
 				    <li><a href="{{ url('redes_sociales/') }}">Listar Redes</a></li>
 				    <li><a href="{{ url('redes_sociales/create') }}">Crear Redes</a></li>
 				</ul>
-			</li>
+			</li>		
 	        <!-- begin sidebar minify button -->
 			<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
 	        <!-- end sidebar minify button -->

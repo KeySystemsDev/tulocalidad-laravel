@@ -22,7 +22,8 @@ class Empresa extends Model {
 							'rif_empresa',
 							'latitud_empresa',
 							'longitud_empresa',
-							'url_imagen_empresa'];
+							'url_imagen_empresa',
+							'habilitado_empresa'];
 
 	public $cast = ['nombre_empresa' 		=> 'string',
 					'correo_empresa' 		=> 'string',

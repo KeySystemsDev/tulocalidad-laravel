@@ -1,5 +1,5 @@
 body{
-	background: #F4F4F4;
+	background: #fff;
 }
 .fa-size i{
 	font-size: 22px;
@@ -28,4 +28,77 @@ body{
     font-size: 16px;
     text-decoration: none;
     margin-top: 0px;
+}
+#slider{
+	background: #fff;
+	padding-top: 30px;
+}
+.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+  background: #edf0f5;
+}
+.item h1 span {
+  color: #721520;
+}
+.carousel-indicators li.active {
+  background: #721520;
+}
+.left-sidebar h2, .brands_products h2 {
+  color: #721520;
+}
+h2.title {
+  color: #721520;
+}
+.productinfo h2 {
+  color: #721520;
+}
+.panel-default>.panel-heading .badge {
+  color: #f5f5f5;
+  background-color: #721520;
+}
+.recommended-item-control i {
+  background: none repeat scroll 0 0 #721520;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 4px 10px;
+}
+.category-tab ul {
+  background: #f1f1f1;
+  border-bottom: 1px solid #721520;
+  list-style: none outside none;
+  margin: 0 0 30px;
+  padding: 0;
+  width: 100%;
+}
+.nav-tabs li.active a, .nav-tabs li.active a:hover, .nav-tabs li.active a:focus {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #721520;
+  border: 0px;
+  color: #FFFFFF;
+  cursor: default;
+  margin-right: 0;
+  margin-left: 0;
+}
+.category-tab ul  li  a:hover{
+	background:#D9D9D9;
+	color:#fff;
+}
+.companyinfo h2 span {
+  color: #721520;
+}
+.footer-bottom p span a {
+  color: #721520;
+  font-style: italic;
+  text-decoration: underline;
+}
+a#scrollUp {
+  bottom: 0px;
+  right: 10px;
+  padding: 5px 10px;
+  background: #721520;
+  color: #FFF;
+  -webkit-animation: bounce 2s ease infinite;
+  animation: bounce 2s ease infinite;
 }

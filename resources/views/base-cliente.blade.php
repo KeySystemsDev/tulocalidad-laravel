@@ -42,9 +42,16 @@
 	<!-- ================== BEGIN BASE JS ================== -->
 	<script src="{{ asset('/thema/frontend/one-page-parallax/assets/plugins/pace/pace.min.js') }}"></script>
 	<!-- ================== END BASE JS ================== -->
+	
+	<!-- THema CART -->
+	<link href="{{ asset('/cart/Eshopper/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ asset('/cart/Eshopper/css/price-range.css') }}" rel="stylesheet">
+    <link href="{{ asset('/cart/Eshopper/css/animate.css') }}" rel="stylesheet">
+	<link href="{{ asset('/cart/Eshopper/css/main.css') }}" rel="stylesheet">
+	<link href="{{ asset('/cart/Eshopper/css/responsive.css') }}" rel="stylesheet">
 
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/style-cliente.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/style-cliente.css') }}" rel="stylesheet">	
 
 </head>
 <body>
@@ -91,7 +98,8 @@
 	<script src="{{ asset('/thema/admin/html/assets/plugins/isotope/jquery.isotope.min.js') }}"></script>
   	<script src="{{ asset('/thema/admin/html/assets/plugins/lightbox/js/lightbox-2.6.min.js') }}"></script>
 	<script src="{{ asset('/thema/admin/html/assets/js/gallery.demo.min.js') }}"></script>
-	
+	<script src="{{ asset('/cart/Eshopper/js/jquery.scrollUp.min.js') }}"></script>
+
 	<!-- Thema Frontend JS -->
 	<script src="{{ asset('/thema/frontend/one-page-parallax/assets/js/apps.min.js') }}"></script>
 	
@@ -101,7 +109,24 @@
 	<script>
 		$(document).ready(function() {
 			App.init();
-			Gallery.init();
+			$(function () {
+				$.scrollUp({
+			        scrollName: 'scrollUp', // Element ID
+			        scrollDistance: 300, // Distance from top/bottom before showing element (px)
+			        scrollFrom: 'top', // 'top' or 'bottom'
+			        scrollSpeed: 300, // Speed back to top (ms)
+			        easingType: 'linear', // Scroll to top easing (see http://easings.net/)
+			        animation: 'fade', // Fade, slide, none
+			        animationSpeed: 200, // Animation in speed (ms)
+			        scrollTrigger: false, // Set a custom triggering element. Can be an HTML string or jQuery object
+							//scrollTarget: false, // Set a custom target element for scrolling to the top
+			        scrollText: '<i class="fa fa-angle-up"></i>', // Text for element, can contain HTML
+			        scrollTitle: false, // Set a custom <a> title if required.
+			        scrollImg: false, // Set true to use image
+			        activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
+			        zIndex: 2147483647 // Z-Index for the overlay
+				});
+			});
 		});
 	</script>
 	

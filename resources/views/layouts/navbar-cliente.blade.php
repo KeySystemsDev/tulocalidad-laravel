@@ -23,8 +23,16 @@
                     <span class="username">Registrarse</span>
                 </a>
             </li>
+            <li>
+                <form class="navbar-form full-width">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </li>
             <li class="dropdown">
-                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-12 fa-size" aria-expanded="false">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
                     <i class="fa fa fa-shopping-cart"></i>
                     <span class="label">3</span>
                 </a>
@@ -69,7 +77,7 @@
                 </a>
                 <ul class="dropdown-menu animated fadeInLeft">
                     <li class="arrow"></li>
-                    <li><a href="{{ url('/reset-password') }}"><i class="fa fa-gear"></i> Administrar</a></li>
+                    <li><a href="{{ url('/empresas') }}"><i class="fa fa-gear"></i> Administrar</a></li>
                     <li><a href="{{ url('/reset-password') }}"><i class="fa fa-key"></i> Recuperar Contraseña</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sección</a></li>

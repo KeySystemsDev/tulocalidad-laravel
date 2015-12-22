@@ -19,22 +19,6 @@
 		<ul class="nav">
 			<li class="nav-header">TuLocalidad</li>
 
-
-			<li class="">
-				<a href="{{url('lista-productos/')}}">
-				    <i class="fa fa-rocket"></i>
-				    <span>Compra lo que necesites</span>
-			    </a>
-			</li>	
-
-
-			<li class="">
-				<a href="{{url('lista-empresas/')}}">
-				    <i class="fa fa-rocket"></i>
-				    <span>Encuentra lo que buscas</span>
-			    </a>
-			</li>				
-
 			<li class="has-sub">
 				<a href="javascript:;">
 				    <b class="caret pull-right"></b>

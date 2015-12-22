@@ -10,7 +10,58 @@
         
         <!-- begin header navigation right -->
 
-        <ul class="nav navbar-nav navbar-right">    
+        <ul class="nav navbar-nav navbar-right">   
+            <li class="dropdown navbar-user">
+                <a class="auth-intro-button" href="{{ url('/login') }}">
+                    <i class="fa fa-sign-in" data-original-title="" title=""></i>
+                    <span class="username">Iniciar sesión</span>
+                </a>
+            </li>
+            <li class="dropdown navbar-user">
+                <a class="auth-intro-button" href="{{ url('/registrar') }}">
+                    <i class="fa fa-pencil-square-o" data-original-title="" title=""></i>
+                    <span class="username">Registrarse</span>
+                </a>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-12 fa-size" aria-expanded="false">
+                    <i class="fa fa fa-shopping-cart"></i>
+                    <span class="label">3</span>
+                </a>
+                <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                    <li class="dropdown-header">Total: 3000 Bs</li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="media-heading">Cosmetido de Bellza</h5>
+                                <div class="text-muted f-s-11">400 Bs</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="media-heading">Guitarra</h5>
+                                <div class="text-muted f-s-11">400 Bs</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="media">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="media-heading">Zapatos adiddas</h5>
+                                <div class="text-muted f-s-11">400 Bs</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-footer text-center">
+                        <a href="{{ url('/lista-carrito') }}">Ver todos...</a>
+                    </li>
+                </ul>
+            </li> 
             <li class="dropdown navbar-user">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 

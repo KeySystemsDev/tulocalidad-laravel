@@ -1,3 +1,31 @@
 body{
 	background: #F4F4F4;
 }
+.fa-size i{
+	font-size: 22px;
+}
+.dropdown-header {
+  font-size: 14px;
+  font-weight: 700;
+  color: #242a30;
+  padding: 0;
+  margin: 0 0 0; 
+}
+.dropdown-menu.media-list>.media .media-object {
+  height: 36px;
+  width: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin-right: 10px;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  border-radius: 10%;
+}
+.auth-intro-button{
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-top: 0px;
+}

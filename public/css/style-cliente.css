@@ -48,8 +48,12 @@ body{
 h2.title {
   color: #721520;
 }
-.productinfo h2 {
+.productinfo h2 , h5{
   color: #721520;
+}
+.item h5 {
+  margin-bottom: 22px;
+  margin-top: 20px;
 }
 .panel-default>.panel-heading .badge {
   color: #f5f5f5;

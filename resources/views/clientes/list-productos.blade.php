@@ -27,17 +27,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -46,17 +41,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -65,17 +55,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -84,17 +69,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 									<img src="{{ asset('/cart/Eshopper/images/home/new.png') }}" class="new" alt="">
 								</div>
@@ -104,17 +84,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 									<img src="{{ asset('/cart/Eshopper/images/home/sale.png') }}" class="new" alt="">
 								</div>
@@ -124,17 +99,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -144,17 +114,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -164,17 +129,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -184,17 +144,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -204,17 +159,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -225,17 +175,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>
@@ -245,17 +190,12 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">
+										<a href="#">
+											<img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">
+										</a>
 										<h2>$56</h2>
 										<p>Easy Polo Black Edition</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
 									</div>
 								</div>
 							</div>

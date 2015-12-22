@@ -332,7 +332,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend1.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -345,7 +345,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend2.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -358,7 +358,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend3.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -373,7 +373,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend1.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -386,7 +386,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend2.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -399,7 +399,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend3.jpg') }}" alt="" />
-													<h2>$56</h2>
+													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>

@@ -1,45 +1,32 @@
 <!-- begin #header -->
-    <div id="header" class="header navbar navbar-transparent navbar-fixed-top">
-        <!-- begin container -->
-        <div class="container">
-            <!-- begin navbar-header -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="index.html" class="navbar-brand">
-                    <span class="brand-logo"></span>
-                    <span class="brand-text">
-                        <span class="text-theme">Color</span> Admin
-                    </span>
-                </a>
-            </div>
-            <!-- end navbar-header -->
-            <!-- begin navbar-collapse -->
-            <div class="collapse navbar-collapse" id="header-navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active dropdown">
-                        <a href="#home" data-click="scroll-to-target" data-toggle="dropdown">HOME <b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdown-menu-left animated fadeInDown">
-                            <li><a href="index.html">Page with Transparent Header</a></li>
-                            <li><a href="index_inverse_header.html">Page with Inverse Header</a></li>
-                            <li><a href="index_default_header.html">Page with White Header</a></li>
-                            <li><a href="extra_element.html">Extra Element</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="{{url('/login')}}" >INICIAR SESION</a></li>
-                    <li><a href="{{url('/registrar')}}" >REGISTRAR</a></li>
-                    <li><a href="#service" data-click="scroll-to-target">SERVICES</a></li>
-                    <li><a href="#work" data-click="scroll-to-target">WORK</a></li>
-                    <li><a href="#client" data-click="scroll-to-target">CLIENT</a></li>
-                    <li><a href="#pricing" data-click="scroll-to-target">PRICING</a></li>
-                    <li><a href="#contact" data-click="scroll-to-target">CONTACT</a></li>
-                </ul>
-            </div>
-            <!-- end navbar-collapse -->
+<div id="header" class="header navbar navbar-default navbar-fixed-top">
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+        <!-- begin mobile sidebar expand / collapse button -->
+        <div class="navbar-header">
+            <a href="{{ url('/') }}" class="navbar-brand"><img class="nav-admin-logo" src="{{ url('img/icono.png') }}">TuLocalidad</a>
         </div>
-        <!-- end container -->
+        <!-- end mobile sidebar expand / collapse button -->
+        
+        <!-- begin header navigation right -->
+
+        <ul class="nav navbar-nav navbar-right">    
+            <li class="dropdown navbar-user">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 
+                    <span class="hidden-xs">{{Auth::user()->correo_usuario}}</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft">
+                    <li class="arrow"></li>
+                    <li><a href="{{ url('/reset-password') }}"><i class="fa fa-gear"></i> Administrar</a></li>
+                    <li><a href="{{ url('/reset-password') }}"><i class="fa fa-key"></i> Recuperar Contraseña</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sección</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- end header navigation right -->
     </div>
-    <!-- end #header -->
+    <!-- end container-fluid -->
+</div>
+<!-- end #header -->

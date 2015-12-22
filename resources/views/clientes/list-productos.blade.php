@@ -1,21 +1,13 @@
-@extends('base-admin')
+@extends('base-cliente')
 
 @section('content')
 
 <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
 	
-	@include('layouts/navbar-admin')
-
-    @include('layouts/sidebar-admin')
+	@include('layouts/navbar-cliente')
 	
 	<div id="content" class="content ng-scope">
         
-        <ol class="breadcrumb pull-right">
-            <div class="btn-toolbar">
-            </div>
-        </ol>
-        
-
         <h1 class="page-header"><i class="fa fa-laptop"></i> Lista de todos los productos </h1>
         
         <div class="row">

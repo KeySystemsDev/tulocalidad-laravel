@@ -586,7 +586,7 @@ figure.effect-zoe-detalle-empresa {
   padding-left: 0px;
 }
 
-::-webkit-scrollbar-thumb {
+/*::-webkit-scrollbar-thumb {
   background-color: #242a30;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -599,7 +599,8 @@ figure.effect-zoe-detalle-empresa {
 }
 ::-webkit-scrollbar-track {
   background-color: #FFFFFF;
-}
+}*/
+
 .navbar-default .navbar-toggle .icon-bar {
   background: #fff;
 }

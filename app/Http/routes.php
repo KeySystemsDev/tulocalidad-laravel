@@ -15,8 +15,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::get('/', 'IndexClienteController@index');
-
 Route::get( 'login', 'LoginController@login');
 Route::post('login', 'LoginController@postLogin');
 Route::get('logout', 'LoginController@Logout');
@@ -27,8 +25,15 @@ Route::post('registrar', 'LoginController@postRegistro');
 Route::get('forget-password', 'LoginController@forgetPassword');
 Route::post('forget-password', 'LoginController@postForgetPassword');
 
+Route::get('/','ClientController@index');
+
 Route::get('/lista-empresas','ClientController@listarEmpresas');
 Route::get('/lista-productos','ClientController@listarProductos');
+Route::get('/lista-servicios','ClientController@listarServicios');
+
+Route::get('/detalle-empresa','ClientController@DetalleEmpresa');
+Route::get('/detalle-producto','ClientController@DetalleProducto');
+Route::get('/detalle-servicio','ClientController@DetalleServicio');
 
 
 

@@ -102,3 +102,6 @@ a#scrollUp {
   -webkit-animation: bounce 2s ease infinite;
   animation: bounce 2s ease infinite;
 }
+.control-carousel:hover{
+  color: #721520 ;
+}

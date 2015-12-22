@@ -19,6 +19,26 @@ class ClientController extends Controller {
 	public function filter(){
 	}
 
+	public function index(){
+		return view('/clientes/index');
+	}
+
+	public function DetalleEmpresa(){
+		return view('/clientes/detalle-empresa');
+	}
+
+	public function DetalleProducto(){
+		return view('/clientes/detalle-producto');
+	}
+
+	public function DetalleServicio(){
+		return view('/clientes/detalle-servicio');
+	}
+
+	public function listarServicios(){
+		return view('/clientes/list-servicios');
+	}	
+
 	public function listarEmpresas(Request $request){
 		$model = Empresa::where('habilitado_empresa', 1)->get();
 

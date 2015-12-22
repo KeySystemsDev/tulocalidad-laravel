@@ -51,6 +51,9 @@ h2.title {
 .productinfo h2 , h5{
   color: #721520;
 }
+.productinfo h5{
+  margin-top: 15px;
+}
 .item h5 {
   margin-bottom: 22px;
   margin-top: 20px;

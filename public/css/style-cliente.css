@@ -161,3 +161,13 @@ a#scrollUp {
 .icon-redes-sociales i{
   font-size: 30px;
 }
+.media-heading {
+  color: #363432;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 10px;
+}
+.text-muted {
+  color: #721520;
+}

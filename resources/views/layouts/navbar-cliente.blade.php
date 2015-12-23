@@ -40,28 +40,28 @@
                     <li class="dropdown-header">Total: 3000 Bs</li>
                     <li class="media">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
                             <div class="media-body">
                                 <h5 class="media-heading">Cosmetido de Bellza</h5>
-                                <div class="text-muted f-s-11">400 Bs</div>
+                                <div class="text-muted f-s-11">400 BsF</div>
                             </div>
                         </a>
                     </li>
                     <li class="media">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
                             <div class="media-body">
                                 <h5 class="media-heading">Guitarra</h5>
-                                <div class="text-muted f-s-11">400 Bs</div>
+                                <div class="text-muted f-s-11">400 BsF</div>
                             </div>
                         </a>
                     </li>
                     <li class="media">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/thema/frontend/one-page-parallax/assets/img/user-3.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
                             <div class="media-body">
                                 <h5 class="media-heading">Zapatos adiddas</h5>
-                                <div class="text-muted f-s-11">400 Bs</div>
+                                <div class="text-muted f-s-11">400 BsF</div>
                             </div>
                         </a>
                     </li>

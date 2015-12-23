@@ -333,7 +333,7 @@
 													<img src="{{ asset('/cart/Eshopper/images/home/recommend1.jpg') }}" alt="" />
 													<h5>Nombre Empresa</h5>
 													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
+													<a href="{{ url('detalle-empresa') }}" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
 												
 											</div>

@@ -146,3 +146,11 @@ a#scrollUp {
   margin-right: 20px;
   margin-top: 0px;
 }
+.add-to-cart{
+    padding: 5px 10px;
+    background: #F5F5ED!important;
+  }
+.add-to-cart:hover{
+    color: #696763;
+    background: #EBEEFF!important;
+  }

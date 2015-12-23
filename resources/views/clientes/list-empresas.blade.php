@@ -27,9 +27,19 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
-                                        </a>
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+                                        <h5>Nombre Empresa</h5>
+                                        <p>Easy Polo Black Edition</p>
+                                        <a href="{{ url('detalle-empresa') }}" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -41,9 +51,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
-                                        </a>
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -54,10 +62,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -68,10 +74,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -82,24 +86,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
-                                        </a>
-                                        <h5>Nombre Empresa</h5>
-                                        <p>Easy Polo Black Edition</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="product-image-wrapper">
-                                <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -111,10 +99,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -126,10 +112,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -141,10 +125,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -156,10 +138,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -172,10 +152,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
@@ -187,10 +165,8 @@
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
-                                    <div class="productinfo text-center">
-                                        <a href="#">
-                                            <img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">
-                                        </a>
+                                    <div class="productinfo text-center">    
+                                        <img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">                                    
                                         <h5>Nombre Empresa</h5>
                                         <p>Easy Polo Black Edition</p>
                                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>

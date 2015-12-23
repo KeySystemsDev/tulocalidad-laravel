@@ -8,6 +8,22 @@
 	
 	<br><br>
 
+	<div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="{{ url('/') }}">Incio <i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="{{ url('/lista-servicios') }}">Lista de Servicios <i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="javascript:;">Servicio</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<section>
 		<div class="container">
 			<div class="row">

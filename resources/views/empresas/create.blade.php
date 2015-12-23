@@ -187,30 +187,44 @@
 										</div>
 									</div>				
 								</div>
-							
 
-								<div class="from-group">Redes Sociales:
-										<button type='button' ng-click="addRed()"> agregar Red Social</button>
+							</div>
+
+							<div class="well">
+
+								<center>
+									<button type="button" class="btn btn-info m-r-5 m-b-5" ng-click="addRed()"><i class="fa fa-plus"></i> Agregar Red Social</button>
+								</center>
+
+								<br>
+
+								<div class="row">
+									<div class="col-md-6" ng-repeat="red in redes track by $index">
+										<div class="well">
+											<center><p>Red Social</p></center>
+											<div class="form-group">
+					                            <label class="col-md-4 control-label">Red Social</label>
+					                            <div class="col-md-5">
+					                            	<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" required>
+														@foreach($redes as $key)
+															<option class="option" value="{{$key->id_red_social}}">
+																{{$key->nombre_red_social}}</option>
+														@endforeach
+													</select>
+					                            </div>
+					                        </div>
+					                        <div class="form-group">
+					                            <label class="col-md-4 control-label">Identificador de su red social</label>
+					                            <div class="col-md-5">
+					                            	<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]">
+					                            </div>
+					                        </div>
+					                        <center>
+					                        	<button class="btn btn-danger m-r-5 m-b-5" type='button' ng-click="delRed($index)" data-toggle="tooltip" data-title="Eliminar Telefono"><i class="fa fa-trash"></i></button>
+											</center>
+										</div>
+									</div>				
 								</div>
-								<div ng-repeat="red in redes track by $index">
-									<br>
-									<div class="from-group" >
-										<div class="from-group">
-											<label for="">Red Social</label>
-											<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" required>
-												<option class="option" value="">Seleccione una red social</option>
-												@foreach($redes as $key)
-													<option class="option" value="{{$key->id_red_social}}">
-														{{$key->nombre_red_social}}</option>
-												@endforeach
-											</select>
-										</div>	
-										<label for="">Identificador de su red social</label>
-										<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]">
-									</div>
-									<button type='button' ng-click="delRed($index)"> eliminar Red</button>
-								</div>	
-
 							</div>
 
 							<input class="form-control" type="hidden" id="i_latitud" name="latitud_empresa" readonly="false">

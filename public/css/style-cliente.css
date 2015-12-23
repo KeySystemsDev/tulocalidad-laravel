@@ -126,3 +126,23 @@ a#scrollUp {
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
 }
+.view-product img {
+  border: 1px solid #F7F7F0;
+  height: auto;
+  width: 100%;
+}
+.item-control i {
+  background: #721520;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+.product-information span span {
+  color: #721520;
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 20px;
+  margin-top: 0px;
+}

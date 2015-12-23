@@ -27,7 +27,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -41,7 +41,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -55,7 +55,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -69,7 +69,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -84,7 +84,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -99,7 +99,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -114,7 +114,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -129,7 +129,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -144,7 +144,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -159,7 +159,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -175,7 +175,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>
@@ -190,7 +190,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-producto') }}">
 											<img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>

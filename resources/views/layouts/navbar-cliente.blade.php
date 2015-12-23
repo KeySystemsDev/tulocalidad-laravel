@@ -71,6 +71,7 @@
                 </ul>
             </li> 
             <li class="dropdown navbar-user">
+                @if(Auth::check())
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 
                     <span class="hidden-xs">{{Auth::user()->correo_usuario}}</span> <b class="caret"></b>
@@ -82,6 +83,7 @@
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sección</a></li>
                 </ul>
+                @endif
             </li>
         </ul>
         <!-- end header navigation right -->

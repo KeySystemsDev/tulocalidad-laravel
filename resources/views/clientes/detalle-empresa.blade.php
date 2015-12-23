@@ -49,7 +49,19 @@
 								</span>
 								<p><b>Servicio:</b> Asesoría Informática</p>
 								<p><b>Correo:</b> example@gmail.com</p>
-								<p><b>URL:</b> http://example@gmail.com</p>
+								<p><b>Web:</b> <a href="#"> http://example@gmail.com </a></p>
+								<br>
+								<div class="row">
+									<div class="col-md-1 icon-redes-sociales">
+										<i class="fa fa-facebook-square"></i>
+									</div>
+									<div class="col-md-1 icon-redes-sociales">
+										<i class="fa fa-twitter-square"></i>
+									</div>
+									<div class="col-md-1 icon-redes-sociales">
+										<i class="fa fa-instagram"></i>
+									</div>
+								</div>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->

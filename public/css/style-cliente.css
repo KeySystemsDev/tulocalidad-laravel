@@ -154,8 +154,10 @@ a#scrollUp {
     color: #696763;
     background: #EBEEFF!important;
   }
-
 .mainmenu ul li a:hover, .mainmenu ul li a.active,  .shop-menu ul li a.active{
   background:none;
   color:#721520;
+}
+.icon-redes-sociales i{
+  font-size: 30px;
 }

@@ -14,13 +14,28 @@
 		</div>
 	</section>
 
+	<div class="header-bottom"><!--header-bottom-->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="mainmenu pull-left">
+                        <ul class="nav navbar-nav collapse navbar-collapse">
+                            <li><a href="{{ url('/') }}">Incio <i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="javascript:;">Lista de Carrito</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<section id="cart_items">
 		<div class="container">
 			<div class="cart_info">
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image">Cart</td>
 							<td class="description"></td>
 							<td class="price">Price</td>
 							<td class="total">Total</td>

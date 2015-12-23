@@ -27,7 +27,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#">
+										<a href="{{ url('detalle-servicio') }}">
 											<img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
 										</a>
 										<h2>$56</h2>

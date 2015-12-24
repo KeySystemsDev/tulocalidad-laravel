@@ -10,7 +10,16 @@
         
         <!-- begin header navigation right -->
 
-        <ul class="nav navbar-nav navbar-right">   
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form class="navbar-form full-width">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </li>
+            @if(!Auth::check())
             <li class="dropdown navbar-user">
                 <a class="auth-intro-button" href="{{ url('/login') }}">
                     <i class="fa fa-sign-in" data-original-title="" title=""></i>
@@ -23,14 +32,8 @@
                     <span class="username">Registrarse</span>
                 </a>
             </li>
-            <li>
-                <form class="navbar-form full-width">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Buscar">
-                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                    </div>
-                </form>
-            </li>
+            @endif
+            @if(Auth::check())
             <li class="dropdown">
                 <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
                     <i class="fa fa fa-shopping-cart"></i>
@@ -69,9 +72,8 @@
                         <a href="{{ url('/lista-carrito') }}">Ver todos...</a>
                     </li>
                 </ul>
-            </li> 
-            <li class="dropdown navbar-user">
-                @if(Auth::check())
+            </li>
+            <li class="dropdown navbar-user">  
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 
                     <span class="hidden-xs">{{Auth::user()->correo_usuario}}</span> <b class="caret"></b>
@@ -83,8 +85,8 @@
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sección</a></li>
                 </ul>
-                @endif
             </li>
+            @endif
         </ul>
         <!-- end header navigation right -->
     </div>

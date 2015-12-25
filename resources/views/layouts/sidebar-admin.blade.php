@@ -23,7 +23,7 @@
 				<a href="javascript:;">
 				    <b class="caret pull-right"></b>
 				    <i class="fa fa-briefcase"></i>
-				    <span>Empresas</span>
+				    <span>EMPRESAS</span>
 			    </a>
 				<ul class="sub-menu">
 				    <li><a href="{{ url('empresas/') }}">Listar Empresas</a></li>
@@ -34,7 +34,7 @@
 				<a href="javascript:;">
 				    <b class="caret pull-right"></b>
 				    <i class="fa fa-rocket"></i>
-				    <span>Redes Social</span>
+				    <span>REDES SOCIALES</span>
 			    </a>
 				<ul class="sub-menu">
 				    <li><a href="{{ url('redes_sociales/') }}">Listar Redes</a></li>

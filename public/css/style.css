@@ -1,5 +1,5 @@
 body{
-  background: #F4F4F4;
+  background: #f7f7f7;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -723,6 +723,54 @@ figure.effect-zoe figcaption {
 .well-color{
   background: #ecf0f1;
   padding: 5px;
+}
+
+.panel-inverse>.panel-heading {
+  background: #e9ecec;
+}
+
+.panel {
+  border: 1px solid #EDEDE4;
+}
+.panel-title {
+  font-size: 12px;
+  color: #696763;
+}
+.sidebar, .sidebar-bg {
+  background: #FCFCFC;
+  border-right: 1px solid #EDEDE4; 
+}
+.sidebar .nav>li>a {
+  color: #696763;
+}
+.sidebar .sub-menu {
+  background: #f7f7f7;
+}
+.sidebar .sub-menu:before {
+  background: rgb(223, 223, 223);;
+}
+.sidebar .nav>li.nav-profile {
+  color: #721520;
+  background: #FAFAFA;
+}
+.sidebar .nav>li.expand>a, .sidebar .nav>li>a:focus, .sidebar .nav>li>a:hover {
+  background: #FFFFFF;
+  color: #696763;
+}
+.sidebar .sub-menu>li>a {
+  color: #696763;
+}
+.sidebar .sub-menu>li>a:hover {
+  color: #721520;
+}
+.sidebar-minify-btn {
+  background: #DADADA;
+}
+.sidebar-minify-btn i {
+  color: #696763;
+}
+.pace-progress {
+  background: #721520;
 }
 
 

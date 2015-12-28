@@ -26,48 +26,37 @@
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
 
-        <div class="row">
-            <!-- begin col-12 -->
-            <div class="col-12 ui-sortable">
-                <!-- begin panel -->
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand" data-original-title="" title=""><i class="fa fa-expand"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload" data-original-title="" title=""><i class="fa fa-repeat"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse" data-original-title="" title=""><i class="fa fa-minus"></i></a>
-                        </div>
-                        <h4 class="panel-title">Productos</h4>
-                    </div>
-
-                    <div class="panel-body">
-
-						<table class="table table-hover">
-						    <thead>
-						      <tr>
-								<th> nombre</th>
-								<th> precio</th>
-						        <th> Operaciones</th>
-						      </tr>
-						    </thead>
-						    <tbody>
-						    	@foreach($productos as $producto)
-							    	<tr>
-										<td>{{$producto->nombre_producto}}</td>
-										<td>{{$producto->precio_producto}}</td>
-							        	<td >
-							        		<a class="btn btn-sm btn-info" href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto ) }}"  data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
-							        		<a class="btn btn-sm btn-success" href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto.'/edit' ) }}"  data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>	        		
-							        	</td>
-							        </tr>
-								@endforeach
-						    </tbody>
-						</table>
-
-					</div><!-- boby -->
-                </div>
-            </div>
-        </div>
+		<section>
+        	<div class="row">
+		        <div class="col-sm-12 padding-right">
+		            <div class="features_items"><!--features_items-->
+		                @foreach($productos as $producto)
+		                <div class="col-sm-3">
+		                    <div class="product-image-wrapper">
+		                        <div class="single-products">
+		                            <div class="productinfo text-center">
+		                                <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+		                                <h2>{{$producto->nombre_producto}} BsF</h2>
+		                                <p>{{$producto->nombre_producto}}.</p>
+		                                <div class="row">
+		                                	<div class="col-md-4"></div>
+		                                	<div class="col-md-2">
+			                                	<a href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto ) }}" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
+			                                </div>
+			                                <div class="col-md-2">
+			                                	<a href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto.'/edit' ) }}" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
+			                            	</div>
+			                            </div>
+		                            	<br>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            	@endforeach
+		            </div>
+		        </div>
+		    </div>
+		</section>
 
     </div><!-- content -->
 	

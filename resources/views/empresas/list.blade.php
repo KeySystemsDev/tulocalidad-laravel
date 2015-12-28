@@ -40,10 +40,10 @@
 		                                <div class="row">
 		                                	<div class="col-md-4"></div>
 		                                	<div class="col-md-2">
-			                                	<a href="{{ url( '/empresas/'.$empresa->id_empresa ) }}" class="btn btn-info" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
+			                                	<a href="{{ url( '/empresas/'.$empresa->id_empresa ) }}" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
-			                                	<a href="{{ url( '/empresas/'.$empresa->id_empresa.'/edit' ) }}" class="btn btn-success" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
+			                                	<a href="{{ url( '/empresas/'.$empresa->id_empresa.'/edit' ) }}" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
 			                            </div>
 		                            	<br>

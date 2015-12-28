@@ -175,3 +175,20 @@ a#scrollUp {
 .product-information {
   border: 1px solid #EAEAEA;
 }
+.productinfo {
+  position: relative;
+  background: #fff;
+}
+
+.btn-info-hover:hover{
+    color: #fff;
+    background: #49b6d6!important;
+  }
+.btn-success-hover:hover{
+    color: #fff;
+    background: #00acac!important;
+}
+
+.carousel-inner {
+  margin-left: 6px;
+}

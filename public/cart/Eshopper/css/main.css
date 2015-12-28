@@ -276,7 +276,7 @@ a#scrollUp i{
     background-color: #fff;
 }
 
-
+/*
 .nav.navbar-nav > li:hover > ul.sub-menu{
   display: block;
   -webkit-animation: fadeInUp 400ms;
@@ -321,7 +321,7 @@ ul.sub-menu {
 
 .navbar-nav li ul.sub-menu li a:hover{
     color: #FDB45E;
-}
+}*/
 
 .fa-angle-down{
   padding-left: 5px; 
@@ -806,7 +806,7 @@ h2.title:before{
 }
 
 
-.tooltip-inner {
+/*.tooltip-inner {
   background-color: #FE980F;
   border-radius: 4px;
   color: #FFFFFF;
@@ -822,7 +822,7 @@ h2.title:before{
   bottom: 0;
   left: 50%;
   margin-left: -5px;
-}
+}*/
 
 
 .padding-right {

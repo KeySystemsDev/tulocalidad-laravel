@@ -64,7 +64,17 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	<script src="{{ asset('/thema/admin/html/assets/plugins/pace/pace.min.js') }}"></script>
+
+	<!-- THema CART -->
+	<link href="{{ asset('/cart/Eshopper/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ asset('/cart/Eshopper/css/price-range.css') }}" rel="stylesheet">
+    <link href="{{ asset('/cart/Eshopper/css/animate.css') }}" rel="stylesheet">
+	<link href="{{ asset('/cart/Eshopper/css/main.css') }}" rel="stylesheet">
+	<link href="{{ asset('/cart/Eshopper/css/responsive.css') }}" rel="stylesheet">
+
 	<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/style-admin.css') }}" rel="stylesheet">	
+
 </head>
 <body>
 	

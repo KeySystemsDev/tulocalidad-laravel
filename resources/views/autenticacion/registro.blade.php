@@ -42,8 +42,8 @@
             <!-- begin login-content -->
             <div class="login-content">
 					
-				@include('alerts.mensaje_success')
-				@include('alerts.mensaje_error')
+				@include('alerts.mensaje_success-login')
+				@include('alerts.mensaje_error-login')
 
 				<form class="form-horizontal" role="form" method="POST" action="{{ url('/registrar') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">

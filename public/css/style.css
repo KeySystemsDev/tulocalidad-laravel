@@ -776,6 +776,15 @@ figure.effect-zoe figcaption {
   background: #721520;
 }
 
+#gritter-notice-key {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 301px;
+  height: 10px;
+  z-index: 9999;
+}
+
 
 @media all and (max-width: 550px)  {
     #store-list img {

@@ -17,39 +17,47 @@
         
         <div class="row">
 
-            <div class="col-md-5 ui-sortable">
-                <!-- begin panel -->
-                <div class="panel panel-inverse">
-                    <div class="panel-heading">
-                        <div class="panel-heading-btn">
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand" data-original-title="" title=""><i class="fa fa-expand"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload" data-original-title="" title=""><i class="fa fa-repeat"></i></a>
-                            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse" data-original-title="" title=""><i class="fa fa-minus"></i></a>
-                        </div>
-                        <h4 class="panel-title">Servicio </h4>
-                    </div>
-
-                    <div class="panel-body">
-
-	                    <div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-md-10">
-								<div class="well well-color">
-									<img class="img-detalle-empresa" src="{{ url ('/uploads/servicios/high/'.$servicio->url_imagen_servicio) }}"></img>
-								</div>
-							</div>
+        	<div class="col-sm-12 padding-right">
+				<div class="product-details"><!--product-details-->
+					<div class="col-sm-4">
+						<div class="view-product">
+							<img src="{{ url ('/uploads/servicios/high/'.$servicio->url_imagen_servicio) }}" alt="">
 						</div>
-
-						<div class="center">
-		 					<h3><i class="fa fa-coffee"></i> {{ $servicio->nombre_servicio }}</h3>
-		 					<br>
-		 					<h5> {{ $servicio->descripcion_servicio}}</h5>
-		 					<h4> {{ $servicio->precio_servicio }}</h4>
-		 				</div>
-			
-					</div><!-- boby -->
-                </div>
-            </div>
+					</div>
+					<div class="col-sm-7">
+						<div class="product-information"><!--/product-information-->
+							<!--<img src="images/product-details/new.jpg" class="newarrival" alt="">-->
+							<h2>{{ $servicio->nombre_servicio }}</h2>
+							<p>Web ID: 1089772</p>
+							<span>
+								<span>{{ $servicio->precio_servicio }} BsF</span>
+								<label type="button" class="btn btn-info cart">
+									<i class="fa fa-shopping-cart"></i>
+									Add to cart
+								</label>
+							</span>
+							<p><b>Servicio:</b> Disponible</p>
+							<p><b>Vendidos:</b> 2</p>
+							<a href=""><img src="http://localhost:8000/cart/Eshopper/images/product-details/share.png" class="share img-responsive" alt=""></a>
+						</div><!--/product-information-->
+					</div>
+				</div><!--/product-details-->
+				
+				<div class="category-tab shop-details-tab"><!--category-tab-->
+					<div class="col-sm-12">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#details" data-toggle="tab">DETAlle</a></li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="reviews">
+							<div class="col-sm-12">
+								<p>{{ $servicio->descripcion_servicio}}</p>
+							</div>
+						</div>				
+					</div>
+				</div><!--/category-tab-->
+			</div>
         
         </div><!-- row -->
 

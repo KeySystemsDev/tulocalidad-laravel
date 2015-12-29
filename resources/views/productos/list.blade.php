@@ -25,7 +25,7 @@
         
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
-
+		
 		<section  ng-init="array={{$productos}}">
         	<div class="row" ng-init = "url='{{url()}}'">
 		        <div class="col-sm-12 padding-right">
@@ -34,8 +34,9 @@
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
-		                                <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
-		                                <h2>[[item.nombre_producto]] BsF</h2>
+
+		                                <img ng-src="[[ url + '/uploads/productos/high/'+ item.primera_imagen.nombre_imagen_producto]]" alt="">
+		                                <h2>[[item.precio_producto]] BsF</h2>
 		                                <p>[[item.nombre_producto]].</p>
 		                                <div class="row">
 		                                	<div class="col-md-4"></div>

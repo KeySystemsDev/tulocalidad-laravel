@@ -33,7 +33,7 @@
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
-		                                <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+		                                <img src="{{ asset('/uploads/empresas/high/')}}/[[item.url_imagen_empresa]]" alt="">
 		                                <h5>[[item.nombre_empresa]].</h5>
 		                                <p>[[item.rif_empresa]].</p>
 		                                <div class="row">

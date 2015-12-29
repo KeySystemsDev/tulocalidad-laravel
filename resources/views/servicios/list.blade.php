@@ -31,11 +31,11 @@
         	<div class="row" ng-init="array={{$servicios}}">
 		        <div class="col-sm-12 padding-right">
 		            <div class="features_items"><!--features_items-->
-		                <div class="col-sm-3" >
+		                <div class="col-sm-3" ng-repeat="item in array.data">
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
-		                                <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+		                                <img ng-src="[[ url + 'uploads/servicios/high/'+ item.url_imagen_servicio]]" alt="">
 		                                <h2>[[item.precio_servicio]] BsF</h2>
 		                                <p>[[item.nombre_servicio]].</p>
 		                                <div class="row">

@@ -22,6 +22,7 @@ class EmpresasController extends Controller
 
     public function find(Route $route){
         //$this->empresa = Empresas::find($route->getParameter('admin_empresas'));
+        //dd($route->getParameter('empresas'));
         $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
                             ->where('id_empresa',$route->getParameter('empresas'))
                             ->first();
@@ -150,6 +151,12 @@ class EmpresasController extends Controller
     }
 
     public function destroy($id){
-        //
+        $imgController  = new ImgController();
+        $nombre_carpeta = 'empresas';
+        $imgController->DeleteThumbnails($this->empresa->url_imagen_empresa, $nombre_carpeta);
+        Telefonos::where('id_empresa',$id)->delete();
+        MMRedes::where('id_empresa',$id)->delete();
+        $this->empresa->delete();
+        return redirect('/empresas');
     }
 }

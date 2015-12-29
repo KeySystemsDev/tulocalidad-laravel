@@ -16,7 +16,7 @@ class ProductosController extends Controller
 
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['index','show','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['index','show','update', 'create' ,'edit','destroy']]);
     }
 
     public function find(Route $route){
@@ -51,6 +51,7 @@ class ProductosController extends Controller
     }
 
     public function store(Request $request){
+        $request['id_usuario']=Auth::user()->id_usuario;
         \DB::beginTransaction();
         try {
             $producto = Producto::create($request->all());
@@ -140,6 +141,12 @@ class ProductosController extends Controller
 
 
     public function destroy($id){
-        //
+        $imagenes = Imagen::where('id_producto',$id);
+        foreach ($imagenes->get() as $imagen) {
+            $prex               = "productos";
+            $imgController      = new ImgController();
+            $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
+        };
+        $imagenes->delete();
     }
 }

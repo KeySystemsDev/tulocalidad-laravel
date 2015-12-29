@@ -39,13 +39,17 @@
 		                                <h2>[[item.precio_servicio]] BsF</h2>
 		                                <p>[[item.nombre_servicio]].</p>
 		                                <div class="row">
-		                                	<div class="col-md-4"></div>
+		                                	<div class="col-md-3"></div>
 		                                	<div class="col-md-2">
 			                                	<a  href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio ]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
 			                                	<a  href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/edit' ]]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
+			                                <div class="col-md-2">
+			                                	<a href="[[url+'empresas/'+item.id_empresa+'/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-trash-o"></i></a>
+			                            	</div>	
+			                            			                            	
 			                            </div>
 		                            	<br>
 		                            </div>

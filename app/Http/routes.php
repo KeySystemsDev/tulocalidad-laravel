@@ -44,19 +44,19 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('reset-password', 'LoginController@resetPassword');
 	Route::post('reset-password', 'LoginController@postResetPassword');
 
-	Route::get('empresas/{id}/destroy','EmpresasController@destroy');
+	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
 	Route::resource('empresas','EmpresasController');
 
-	Route::get('empresas/{id_empresa}/servicio/{id_servicio}/destroy','ServiciosController@destroy');
+	Route::get('empresas/{empresas}/servicios/{servicios}/destroy','ServiciosController@destroy');
 	Route::resource('empresas.servicios','ServiciosController');
 
-	Route::get('empresas/{id_empresa}/productos/{$id_productos}/destroy','ProductosController@destroy');
+	Route::get('empresas/{empresas}/productos/{$productos}/destroy','ProductosController@destroy');
 	Route::resource('empresas.productos','ProductosController');
 
 	Route::get('redes_sociales/{redes_sociales}/destroy','RedesSocialesController@destroy');
 	Route::resource('redes_sociales','RedesSocialesController');
 
-	Route::get('/empresas/{id_empresa}/productos/{id_producto}/delete/{id_imagen}','ProductosController@destroyImagen');
+	Route::get('/empresas/{empresas}/productos/{productos}/delete/{imagen}','ProductosController@destroyImagen');
 
 //	CARRITO DE COMPRA //
 	Route::get('/agregar-carrito/{id_producto}','ClientController@agregarACarrito');

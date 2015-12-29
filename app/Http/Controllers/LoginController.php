@@ -26,7 +26,7 @@ class LoginController extends Controller {
 	    );
 
 		if (Auth::attempt($user)){
-			return redirect("/empresas");
+			return redirect("/");
 			//return redirect()->back();
 		}
 		Session::flash('mensaje-error', 'Credenciales incorrectas, intentalo de nuevo.');

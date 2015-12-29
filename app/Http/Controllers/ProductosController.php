@@ -13,7 +13,11 @@ class ProductosController extends Controller
 {
 
     public function index($id_empresa){
-        $productos = Producto::where('id_empresa', $id_empresa)->get();
+        $productos = json_encode(
+                        Producto::where('id_empresa', $id_empresa)
+                                    ->paginate(10)
+                                    ->toArray()
+                    );
         return view('productos.list',compact('productos','id_empresa'));
     }
 

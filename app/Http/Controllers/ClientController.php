@@ -20,6 +20,10 @@ class ClientController extends Controller {
 	}
 
 	public function index(){
+		$productos = Producto::where('habilitado_producto',1)
+							->orderBy('id_producto','desc')
+							->get();
+
 		return view('/clientes/index');
 	}
 

@@ -53,7 +53,9 @@ class Empresa extends Model {
 	protected $appends = ['nombre_estado','telefonos', 'redes'];
 
 	public function getNombreEstadoAttribute(){
-        return Estado::find($this->id_estado)->nombre_estado;
+		$estado = Estado::find($this->id_estado);
+		if ($estado){ return $estado->nombre_estado;}
+        return "error de validacion";
     }
 
    	public function getTelefonosAttribute(){

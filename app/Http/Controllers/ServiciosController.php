@@ -6,21 +6,45 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Routing\Route;
 use App\Models\Servicio;
+use App\Models\Empresa;
+use Auth;
 
 class ServiciosController extends Controller
 {
+
+    public function __construct(){
+        //$this->beforeFilter('@permisos');
+        $this->beforeFilter('@find', ['only' => ['index','show','update','edit','destroy']]);
+    }
+
+    public function find(Route $route){
+        //$this->empresa = Empresas::find($route->getParameter('admin_empresas'));
+        $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
+                                ->where('id_empresa',$route->getParameter('empresas'))
+                                ->first();
+        if (!$this->empresa){
+            Session::flash("mensaje-error","No existe ese registro.");
+            return redirect('/empresas');
+        }
+    }
+
+
     public function index($id_empresa){
         $servicios = json_encode(
                             Servicio::where('id_empresa', $id_empresa)
                                         ->paginate(10)
                                         ->toArray()
                                 );
-        return view('servicios.list',compact('servicios','id_empresa'));
+        return view('servicios.list',['servicios'=>$servicios,
+                                        'id_empresa'=>$id_empresa,
+                                        'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function create($id_empresa){
         $servicio = "";
-        return view('servicios.create', compact('servicio','id_empresa'));
+        return view('servicios.create', ['servicios'=>$servicios,
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function store(Request $request){
@@ -34,12 +58,16 @@ class ServiciosController extends Controller
 
     public function show($id_empresa, $id){
         $servicio = Servicio::find($id);
-        return view('servicios.detalle', compact('servicio','id_empresa'));
+        return view('servicios.detalle', ['servicios'=>$servicios,
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function edit($id_empresa, $id){
         $servicio = Servicio::find($id);
-        return view('servicios.create', compact( 'servicio', 'id_empresa'));
+        return view('servicios.create',['servicio'=>$servicio,
+                                        'id_empresa'=>$id_empresa,
+                                        'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function update(Request $request, $id_empresa, $id){

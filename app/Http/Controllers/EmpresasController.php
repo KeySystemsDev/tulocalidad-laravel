@@ -45,8 +45,8 @@ class EmpresasController extends Controller
                             ->paginate(10)
                             ->toArray()
                         );
-        
-        return view('empresas.list',compact('empresas'));
+        $id_empresa ="";
+        return view('empresas.list',compact('empresas', 'id_empresa'));
     }
 
     public function create(){
@@ -54,8 +54,9 @@ class EmpresasController extends Controller
         $empresa = "";
         $telefonos ="";
         $redes_empresa ="";
+        $id_empresa ="";
         $redes = Redes::where('habilitado_red_social',1)->get();
-        return view('empresas.create', compact('estados', 'empresa', 'telefonos','redes'));
+        return view('empresas.create', compact('estados', 'empresa', 'telefonos','redes','id_empresa'));
     }
 
     public function store(Request $request){
@@ -95,6 +96,7 @@ class EmpresasController extends Controller
                             ->get();
         return view('empresas.detalle', ['empresa'=> $this->empresa,
                                          'id_empresa'=>$id_empresa,
+                                         'nombre_empresa'=>$this->empresa->nombre_empresa,
                                          'redes'=>$redes,
                                          'telefonos'=>$telefonos]);
     }
@@ -106,6 +108,8 @@ class EmpresasController extends Controller
         $redes_empresa = MMRedes::where('id_empresa',$id_empresa)->get();
         return view('empresas.create', ['estados'=>$estados,
                                          'empresa'=>$this->empresa,
+                                         'id_empresa'=>$id_empresa,
+                                         'nombre_empresa'=>$this->empresa->nombre_empresa,
                                          'telefonos' => $telefonos,
                                          'redes_empresa' => $redes_empresa,
                                          'redes'=>$redes]);

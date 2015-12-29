@@ -8,9 +8,27 @@ use Illuminate\Routing\Route;
 use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Imagen;
+use App\Models\Empresa;
+use Auth;
 
 class ProductosController extends Controller
 {
+
+    public function __construct(){
+        //$this->beforeFilter('@permisos');
+        $this->beforeFilter('@find', ['only' => ['index','show','update','edit','destroy']]);
+    }
+
+    public function find(Route $route){
+        //$this->empresa = Empresas::find($route->getParameter('admin_empresas'));
+        $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
+                                ->where('id_empresa',$route->getParameter('empresas'))
+                                ->first();
+        if (!$this->empresa){
+            Session::flash("mensaje-error","No existe ese registro.");
+            return redirect('/empresas');
+        }
+    }
 
     public function index($id_empresa){
         $productos = json_encode(
@@ -18,13 +36,18 @@ class ProductosController extends Controller
                                     ->paginate(10)
                                     ->toArray()
                     );
-        return view('productos.list',compact('productos','id_empresa'));
+        return view('productos.list',['productos'=>$productos,
+                                        'id_empresa'=>$id_empresa,
+                                        'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function create($id_empresa){
         $producto = "";
         $imagenes = "";
-        return view('productos.create', compact('producto','id_empresa','imagenes'));
+        return view('productos.create', ['producto'=>'',
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa,
+                                            'imagenes'=>'',]);
     }
 
     public function store(Request $request){
@@ -53,14 +76,20 @@ class ProductosController extends Controller
     public function show($id_empresa, $id){
         $producto = Producto::find($id);
         $imagenes = Imagen::where('id_producto',$id)->get();
-        return view('productos.detalle', compact('producto','id_empresa', 'imagenes'));
+        return view('productos.detalle', ['producto'=>$producto,
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa,
+                                            'imagenes'=>$imagenes,]);
     }
 
     public function edit($id_empresa, $id){
         $producto = Producto::find($id);
         $imagenes = Imagen::where('id_producto',$id)->get();
-        return view('productos.create', compact( 'producto', 'id_empresa','imagenes'));
-    }
+        return view('productos.create', ['producto'=>$producto,
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa,
+                                            'imagenes'=>$imagenes,]);
+        }
 
     public function update(Request $request, $id_empresa, $id){
         $producto = Producto::find($id);

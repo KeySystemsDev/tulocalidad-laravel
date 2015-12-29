@@ -57,7 +57,7 @@
 		    </div>
 
 		</section>
-		<ul class="pagination">
+		<ul class="pagination" ng-if="array.total">
 			<li ng-if="array.current_page-2 >= 1">
 				<a href="[[array.prev_page_url]]"><</a>
 			</li>

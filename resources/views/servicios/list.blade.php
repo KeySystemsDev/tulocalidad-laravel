@@ -57,28 +57,28 @@
 		    </div>
 		</section>
 
-		<ul class="pagination">
-			<li ng-if="array.current_page-2 >= 1">
-				<a href="[[array.prev_page_url]]"><</a>
-			</li>
+			<ul class="pagination" ng-if="array.total" >
+				<li ng-if="array.current_page-2 >= 1">
+					<a href="[[array.prev_page_url]]"><</a>
+				</li>
 
-			<li ng-if="array.prev_page_url">
-				<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
-			</li>
+				<li ng-if="array.prev_page_url">
+					<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
+				</li>
 
-			<li class="active">
-				<a href="">[[array.current_page]]</a>
-			</li>
+				<li ng-if="array.current_page" class="active">
+					<a href="">[[array.current_page]]</a>
+				</li>
 
-			<li ng-if="array.next_page_url">
-				<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
-			</li>
+				<li ng-if="array.next_page_url">
+					<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
+				</li>
 
-			<li ng-if="array.current_page+2 <= array.last_page ">
-				<a href="[[array.next_page_url]]">></a>
-			</li>
-		</ul>	 
+				<li ng-if="array.current_page+2 <= array.last_page ">
+					<a href="[[array.next_page_url]]">></a>
+				</li>
 
+			</ul>	
     </div><!-- content -->
 	
 </div>

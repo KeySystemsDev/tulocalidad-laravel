@@ -75,6 +75,13 @@
 	                        </div>
 
 	                        <div class="form-group">
+	                            <label class="col-md-4 control-label">Cantidad</label>
+	                            <div class="col-md-5">
+	                            	<input type="text" class="form-control" ng-model="model.cantidad" name="texto_enriquecido_producto">
+	                            </div>
+	                        </div>
+
+	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Texto enriquecido</label>
 	                            <div class="col-md-5">
 	                            	<input type="text" class="form-control" ng-model="model.texto_enriquecido_producto" name="texto_enriquecido_producto">

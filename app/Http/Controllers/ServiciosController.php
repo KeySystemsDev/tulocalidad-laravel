@@ -10,7 +10,11 @@ use App\Models\Servicio;
 class ServiciosController extends Controller
 {
     public function index($id_empresa){
-        $servicios = Servicio::where('id_empresa', $id_empresa)->get();
+        $servicios = json_encode(
+                            Servicio::where('id_empresa', $id_empresa)
+                                        ->paginate(10)
+                                        ->toArray()
+                                );
         return view('servicios.list',compact('servicios','id_empresa'));
     }
 

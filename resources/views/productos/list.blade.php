@@ -26,25 +26,24 @@
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
 
-		<section>
-        	<div class="row">
+		<section  ng-init="array={{$productos}}">
+        	<div class="row" ng-init = "url='{{url()}}'">
 		        <div class="col-sm-12 padding-right">
 		            <div class="features_items"><!--features_items-->
-		                @foreach($productos as $producto)
-		                <div class="col-sm-3">
+		                <div class="col-sm-3" ng-repeat="item in array.data">
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
 		                                <img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
-		                                <h2>{{$producto->nombre_producto}} BsF</h2>
-		                                <p>{{$producto->nombre_producto}}.</p>
+		                                <h2>[[item.nombre_producto]] BsF</h2>
+		                                <p>[[item.nombre_producto]].</p>
 		                                <div class="row">
 		                                	<div class="col-md-4"></div>
 		                                	<div class="col-md-2">
-			                                	<a href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto ) }}" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto ]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
-			                                	<a href="{{ url( '/empresas/'.$producto->id_empresa.'/productos/'.$producto->id_producto.'/edit' ) }}" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/edit']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
 			                            </div>
 		                            	<br>
@@ -52,12 +51,33 @@
 		                        </div>
 		                    </div>
 		                </div>
-		            	@endforeach
 		            </div>
 		        </div>
 		    </div>
-		</section>
 
+		</section>
+		<ul class="pagination">
+			<li ng-if="array.current_page-2 >= 1">
+				<a href="[[array.prev_page_url]]"><</a>
+			</li>
+
+			<li ng-if="array.prev_page_url">
+				<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
+			</li>
+
+			<li class="active">
+				<a href="">[[array.current_page]]</a>
+			</li>
+
+			<li ng-if="array.next_page_url">
+				<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
+			</li>
+
+			<li ng-if="array.current_page+2 <= array.last_page ">
+				<a href="[[array.next_page_url]]">></a>
+			</li>
+		</ul>
+		
     </div><!-- content -->
 	
 </div>

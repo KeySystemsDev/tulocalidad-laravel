@@ -40,8 +40,12 @@ class EmpresasController extends Controller
     }
 
     public function index(){
-        $empresas = Empresa::where('id_usuario',Auth::user()->id_usuario)
-                            ->get();
+        $empresas = json_encode(
+                        Empresa::where('id_usuario',Auth::user()->id_usuario)
+                            ->paginate(10)
+                            ->toArray()
+                        );
+        
         return view('empresas.list',compact('empresas'));
     }
 

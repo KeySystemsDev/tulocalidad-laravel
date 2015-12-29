@@ -81,7 +81,7 @@
                 <ul class="dropdown-menu animated fadeInLeft">
                     <li class="arrow"></li>
                     <li><a href="{{ url('/empresas') }}"><i class="fa fa-gear"></i> Administrar</a></li>
-                    <li><a href="{{ url('/reset-password') }}"><i class="fa fa-key"></i> Recuperar Contraseña</a></li>
+                    <li><a href="{{ url('/reset-password') }}"><i class="fa fa-key"></i> Cambiar Contraseña</a></li>
                     <li class="divider"></li>
                     <li><a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i> Cerrar Sección</a></li>
                 </ul>

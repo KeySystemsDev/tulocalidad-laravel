@@ -192,3 +192,10 @@ a#scrollUp {
 .carousel-inner {
   margin-left: 6px;
 }
+
+.sidebar .sub-menu>li.active>a, .sidebar .sub-menu>li.active>a:focus, .sidebar .sub-menu>li.active>a:hover, .sidebar .sub-menu>li>a:focus, .sidebar .sub-menu>li>a:hover {
+  color: #696763;
+}
+.btn-icon i{
+  margin-top: 3px;
+}

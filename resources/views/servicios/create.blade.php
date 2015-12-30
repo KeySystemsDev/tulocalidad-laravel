@@ -2,6 +2,7 @@
 
 @section('controller')
 	<script src="{{ asset('/js/controllers/registro_servicio.js') }}"></script>
+	<script src="{{ asset('/js/helper.js') }}"></script>
 @endsection
 
 @section('content')
@@ -12,8 +13,10 @@
 
     @include('layouts/sidebar-admin')
 	
-	<div id="content" class="content ng-scope">
+	<div id="content" class="content ng-scope" ng-controller="SubmitController">
         
+		<div ng-init="urlRedirect='{{ url('/empresas/'.$id_empresa.'/servicios')}}'"></div>
+
         @if($servicio)
         <ol class="breadcrumb navegacion-admin pull-left">
             <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
@@ -39,7 +42,8 @@
         
         <h1 class="page-header page-header-new">.</h1>
 
-		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/servicios/') }}" method="POST" ng-submit="submit(formulario.$valid)"  enctype="multipart/form-data">		
+		<div ng-init="urlAction='{{ url('/empresas/'.$id_empresa.'/servicios/') }}'"></div>
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('/empresas/'.$id_empresa.'/servicios/') }}" method="POST" enctype="multipart/form-data">		
 		@endif
 
         	@include('alerts.mensaje_success')
@@ -114,9 +118,9 @@
 
 	                        <center>
 								@if($servicio)
-								<button type="submit" class="btn btn-danger m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-danger m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
 								@else
-								<button type="submit" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)"class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
 								@endif
 							</center>
 				

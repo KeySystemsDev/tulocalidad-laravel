@@ -13,12 +13,14 @@
     @include('layouts/sidebar-admin')
 	
 	<div id="content" class="content ng-scope">
+
+		<div ng-init="urlRedirect='{{ url('/empresas')}}'"></div>
         
         @if($empresa)
         
 		<ol class="breadcrumb navegacion-admin pull-left">
             <li><a href="{{ url('empresas') }}"><i class="fa fa fa-list"></i> Lista Empresas</a></li>
-            <li><i class="fa fa-pencil-square-o"></i> Crear Empresa</li>
+            <li><i class="fa fa-pencil-square-o"></i> Editar Empresa</li>
         </ol>
         
         <h1 class="page-header page-header-new">.</h1>
@@ -27,18 +29,20 @@
 		<div ng-init="incializar_telefonos({{ $telefonos }})"></div>
 		<div ng-init="incializar_redes({{ $redes_empresa }})"></div>
 		<div ng-init="img = '{{ url ('/uploads/empresas/low/') }}/'+empresa.url_imagen_empresa" ></div>
-		<form class="form-horizontal" action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
+		<div ng-init="urlAction='{{ url('empresas/'.$empresa->id_empresa) }}'"></div>
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="PUT">
         @else
         
         <ol class="breadcrumb navegacion-admin pull-left">
             <li><a href="{{ url('empresas') }}"><i class="fa fa fa-list"></i> Lista Empresas</a></li>
-            <li><i class="fa fa-pencil-square-o"></i> Editar Empresa</li>
+            <li><i class="fa fa-pencil-square-o"></i> Crear Empresa</li>
         </ol>
         
         <h1 class="page-header page-header-new">.</h1>
 		
-		<form class="form-horizontal" action="{{ url('empresas/') }}" method="POST" enctype="multipart/form-data" name="formulario" id="formulario" ng-submit="submit(formulario.$valid)" novalidate>		
+		<div ng-init="urlAction='{{ url('empresas/') }}'"></div>
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('empresas/') }}" method="POST" enctype="multipart/form-data">		
 		@endif
 
 		    <div class="row">
@@ -97,48 +101,84 @@
 								<div class="form-group">
 		                            <label class="col-md-4 control-label">Nombre de empresa</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa">
+		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa" ng-required="true">
+		                            	<div class="error campo-requerido" ng-show="formulario.nombre_empresa.$invalid && (formulario.nombre_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.nombre_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Correo electronico</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.correo_empresa" name="correo_empresa">
+		                            	<input type="email" class="form-control" ng-model="empresa.correo_empresa" name="correo_empresa" ng-required="true">
+		                            	<div class="error campo-requerido" ng-show="formulario.correo_empresa.$invalid && (formulario.correo_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.correo_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                                    <small class="error" ng-show="formulario.correo_empresa.$error.email">
+		                                    	* Correo inválido correo@ejemplo.com
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Descripción</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.descripcion_empresa" name="descripcion_empresa">
+		                            	<input type="text" class="form-control" ng-model="empresa.descripcion_empresa" name="descripcion_empresa" ng-required="true">
+		                            	<div class="error campo-requerido" ng-show="formulario.descripcion_empresa.$invalid && (formulario.descripcion_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.descripcion_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Pag web</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.web_empresa" name="web_empresa">
+		                            	<input type="url" class="form-control" ng-model="empresa.web_empresa" name="web_empresa" ng-required="true">
+		                            	<div class="error campo-requerido" ng-show="formulario.web_empresa.$invalid && (formulario.web_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.web_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                                    <small class="error" ng-show="formulario.web_empresa.$error.url">
+		                                    	* URL inválido http://ejemplo.com
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Estado</label>
 		                            <div class="col-md-5">
-		                            	<select class="form-control" name="id_estado" ng-model="empresa.id_estado" required>
+		                            	<select class="form-control" name="id_estado" ng-model="empresa.id_estado" ng-required="true">
 											<option class="option" value="">Seleccione un estado</option>
 											@foreach($estados as $key)
 												<option class="option" value="{{$key->id_estado}}">
 													{{$key->nombre_estado}}</option>
 											@endforeach
 										</select>
+										<div class="error campo-requerido" ng-show="formulario.id_estado.$invalid && (formulario.id_estado.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.id_estado.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Dirección fiscal</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.direccion_empresa" name="direccion_empresa">
+		                            	<input type="text" class="form-control" ng-model="empresa.direccion_empresa" name="direccion_empresa" ng-required="true">
+		                            	<div class="error campo-requerido" ng-show="formulario.direccion_empresa.$invalid && (formulario.direccion_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.direccion_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 
@@ -157,13 +197,23 @@
 											<div class="form-group">
 					                            <label class="col-md-4 control-label">Codigo</label>
 					                            <div class="col-md-5">
-					                            	<input type="text" class="form-control" ng-model='telefono.codigo' name="codigos[]">
+					                            	<input type="text" data-mask="(9999)" class="form-control" ng-model='telefono.codigo' name="codigos[]" ng-required="true">
+					                            	<div class="error campo-requerido" ng-show="formulario.codigo.$invalid && (formulario.codigo.$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.codigo.$error.required">
+					                                        * Campo requerido.
+					                                    </small>
+					                            	</div>
 					                            </div>
 					                        </div>
 					                        <div class="form-group">
 					                            <label class="col-md-4 control-label">Numero</label>
 					                            <div class="col-md-5">
-					                            	<input type="text" class="form-control" ng-model='telefono.numero' name="telefonos[]">
+					                            	<input type="text" data-mask="999-99-99" class="form-control" ng-model='telefono.numero' name="telefonos[]" ng-required="true">
+					                            	<div class="error campo-requerido" ng-show="formulario.numero.$invalid && (formulario.numero.$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.numero.$error.required">
+					                                        * Campo requerido.
+					                                    </small>
+					                            	</div>
 					                            </div>
 					                        </div>
 					                        <center>
@@ -190,18 +240,28 @@
 											<div class="form-group">
 					                            <label class="col-md-4 control-label">Red Social</label>
 					                            <div class="col-md-5">
-					                            	<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" required>
+					                            	<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" ng-required="true">
 														@foreach($redes as $key)
 															<option class="option" value="{{$key->id_red_social}}">
 																{{$key->nombre_red_social}}</option>
 														@endforeach
 													</select>
+													<div class="error campo-requerido" ng-show="formulario.id_red_social.$invalid && (formulario.id_red_social.$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.id_red_social.$error.required">
+					                                        * Campo requerido.
+					                                    </small>
+					                            	</div>
 					                            </div>
 					                        </div>
 					                        <div class="form-group">
 					                            <label class="col-md-4 control-label">Identificador de su red social</label>
 					                            <div class="col-md-5">
-					                            	<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]">
+					                            	<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]" ng-required="true">
+					                            	<div class="error campo-requerido" ng-show="formulario.identificador_red.$invalid && (formulario.identificador_red.$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.identificador_red.$error.required">
+					                                        * Campo requerido.
+					                                    </small>
+					                            	</div>
 					                            </div>
 					                        </div>
 					                        <center>
@@ -243,9 +303,9 @@
 
 							<center>
 								@if($empresa)
-								<button type="submit" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
 								@else
-								<button type="submit" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
 								@endif
 							</center>
 					

@@ -10,6 +10,7 @@ use App\Models\Estado;
 use App\Models\Imagen;
 use App\Models\Empresa;
 use Auth;
+use Session;
 
 class ProductosController extends Controller
 {
@@ -137,8 +138,6 @@ class ProductosController extends Controller
         $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
         $imagen->delete();
     }
-
-
 
     public function deshabilitar($empresa,$id){
         

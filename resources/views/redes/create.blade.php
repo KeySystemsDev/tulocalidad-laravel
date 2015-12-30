@@ -36,8 +36,14 @@
 				<br>	
 
 				<div class="from-group">
-					<label for="">Url de red social</label>
+					<label for="">Url </label>
 					<input type="text" class="form-control" ng-model="model.url_red_social" name="url_red_social">
+				</div>
+				<br>
+
+				<div class="from-group">
+					<label for="">incono</label>
+					<input type="text" class="form-control" ng-model="model.icon_red_social" name="icon_red_social">
 				</div>
 				<br>
 	            		

@@ -44,12 +44,12 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('reset-password', 'LoginController@resetPassword');
 	Route::post('reset-password', 'LoginController@postResetPassword');
 
+	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
+	Route::resource('empresas','EmpresasController');
+
 	Route::get('empresas/{empresas}/productos/{productos}/deshabilitar','ProductosController@deshabilitar');
 	Route::get('empresas/{empresas}/productos/{productos}/destroy','ProductosController@destroy');
 	Route::resource('empresas.productos','ProductosController');
-
-	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
-	Route::resource('empresas','EmpresasController');
 
 	Route::get('empresas/{empresas}/servicios/{servicios}/deshabilitar','ServiciosController@deshabilitar');
 	Route::get('empresas/{empresas}/servicios/{servicios}/destroy','ServiciosController@destroy');

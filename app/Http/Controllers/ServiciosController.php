@@ -8,6 +8,7 @@ use Illuminate\Routing\Route;
 use App\Models\Servicio;
 use App\Models\Empresa;
 use Auth;
+use Session;
 
 class ServiciosController extends Controller
 {
@@ -88,7 +89,27 @@ class ServiciosController extends Controller
         return redirect('/empresas/'.$id_empresa.'/servicios');
     }
 
-    public function destroy($id){
-        //
+    public function deshabilitar($empresa,$id){
+        
+        // $imagenes = Imagen::where('id_producto',$id);
+        // foreach ($imagenes->get() as $imagen) {
+        //     $prex               = "productos";
+        //     $imgController      = new ImgController();
+        //     $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
+        // };
+        // $imagenes->delete();
+        // return redirect('/empresas/'.$id.'/productos');
+    }
+
+    public function destroy($empresa,$id){
+        dd("entro");
+        // $imagenes = Imagen::where('id_producto',$id);
+        // foreach ($imagenes->get() as $imagen) {
+        //     $prex               = "productos";
+        //     $imgController      = new ImgController();
+        //     $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
+        // };
+        // $imagenes->delete();
+        // return redirect('/empresas/'.$id.'/productos');
     }
 }

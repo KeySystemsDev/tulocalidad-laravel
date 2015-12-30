@@ -2,7 +2,6 @@
 
 @section('controller')
 	<script src="{{ asset('/js/controllers/registro_servicio.js') }}"></script>
-	<script src="{{ asset('/js/helper.js') }}"></script>
 @endsection
 
 @section('content')
@@ -13,7 +12,7 @@
 
     @include('layouts/sidebar-admin')
 	
-	<div id="content" class="content ng-scope" ng-controller="SubmitController">
+	<div id="content" class="content ng-scope">
         
 		<div ng-init="urlRedirect='{{ url('/empresas/'.$id_empresa.'/servicios')}}'"></div>
 
@@ -28,8 +27,9 @@
         <h1 class="page-header page-header-new">.</h1>
 
         <div ng-init="model={{ $servicio }}"></div>
-		<div ng-init="img = '{{ url ('/uploads/servicios/low/') }}/'+model.url_imagen_servicio" ></div>			
-		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/servicios/'.$servicio->id_servicio) }}" method="POST"  enctype="multipart/form-data">
+		<div ng-init="img = '{{ url ('/uploads/servicios/low/') }}/'+model.url_imagen_servicio" ></div>
+		<div ng-init="urlAction='{{ url('/empresas/'.$id_empresa.'/servicios/'.$servicio->id_servicio) }}'"></div>		
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('/empresas/'.$id_empresa.'/servicios/'.$servicio->id_servicio) }}" method="POST"  enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="PUT">
 		
 		@else
@@ -96,21 +96,36 @@
 							<div class="form-group">
 	                            <label class="col-md-4 control-label">Nombre del servicio</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.nombre_servicio" name="nombre_servicio">
+	                            	<input type="text" class="form-control" ng-model="model.nombre_servicio" name="nombre_servicio" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.nombre_servicio.$invalid && (formulario.nombre_servicio.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.nombre_servicio.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Descripcion del servicio</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.descripcion_servicio" name="descripcion_servicio">
+	                            	<input type="text" class="form-control" ng-model="model.descripcion_servicio" name="descripcion_servicio" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.descripcion_servicio.$invalid && (formulario.descripcion_servicio.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.descripcion_servicio.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Precio del servicio</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.precio_servicio" name="precio_servicio">
+	                            	<input type="text" numbers-only class="form-control" ng-model="model.precio_servicio" name="precio_servicio" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.precio_servicio.$invalid && (formulario.precio_servicio.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.precio_servicio.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 							
@@ -118,9 +133,9 @@
 
 	                        <center>
 								@if($servicio)
-								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-danger m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
 								@else
-								<button type="button" ng-click="submit(formulario.$valid)"class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
 								@endif
 							</center>
 				

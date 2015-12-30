@@ -9,6 +9,7 @@ class Producto extends Model {
 	protected $fillable = ['id_empresa',
 							'nombre_producto',
 							'id_usuario',
+							'id_categoria',
 							'precio_producto',
 							'descripcion_producto',
 							'texto_enriquecido_producto',
@@ -19,6 +20,7 @@ class Producto extends Model {
 	public $cast = ['id_producto'				=>'integer',
 					'id_empresa' 				=>'integer',
 					'id_usuario' 				=>'integer',
+					'id_categoria' 				=>'integer',
 					'nombre_producto' 			=>'string',
 					'precio_producto' 			=>'integer',
 					'descripcion_producto' 		=>'string',
@@ -26,10 +28,10 @@ class Producto extends Model {
 					'imagenes'					=> 'array',
 					'cantidad_producto'			=> 'integer',
 					'primera_imagen'			=> 'string',
+					'nombre_categoria'			=> 'string',
 					];
 
-	protected $appends = ['imagenes',
-							'primera_imagen'];
+	protected $appends = ['imagenes','primera_imagen','nombre_categoria'];
 
 	public function getImagenesAttribute(){
 		//return ['yes'];
@@ -39,5 +41,14 @@ class Producto extends Model {
 	public function getPrimeraImagenAttribute(){
 		//return ['yes'];
         return Imagen::where("id_producto", $this->id_producto)->first();
+    }
+    
+	public function getNombreCategoriaAttribute(){
+		//return ['yes'];
+		$categoria = CategoriaProductos1::find($this->id_categoria);
+		if ($categoria){
+        	return $categoria->nombre_categoria_productos1;
+		}
+		return "sin categorizar";
     }
 }

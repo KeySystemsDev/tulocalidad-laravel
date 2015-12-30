@@ -22,8 +22,8 @@
         @include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
         
-        <div class="row">
-
+        <div class="row" ng-init="model={{$jsonservicio}}">
+			[[model]]
         	<div class="col-sm-12 padding-right">
 				<div class="product-details"><!--product-details-->
 					<div class="col-sm-4">

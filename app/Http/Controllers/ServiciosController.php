@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Routing\Route;
 use App\Models\Servicio;
 use App\Models\Empresa;
+use App\Models\CategoriaServicios1;
 use Auth;
 use Session;
 
@@ -43,8 +44,10 @@ class ServiciosController extends Controller
 
     public function create($id_empresa){
         $servicio = "";
+        $categorias = CategoriaServicios1::where("habilitado_categoria_servicios1",1)->get();
         return view('servicios.create', ['servicio'=>$servicio,
                                             'id_empresa'=>$id_empresa,
+                                            'categorias'=>$categorias,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
@@ -59,15 +62,19 @@ class ServiciosController extends Controller
 
     public function show($id_empresa, $id){
         $servicio = Servicio::find($id);
+        $jsonservicio = json_encode( $servicio->toArray() );
         return view('servicios.detalle', ['servicio'=>$servicio,
                                             'id_empresa'=>$id_empresa,
+                                            'jsonservicio'=>$jsonservicio,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 
     public function edit($id_empresa, $id){
         $servicio = Servicio::find($id);
+        $categorias = CategoriaServicios1::where("habilitado_categoria_servicios1",1)->get();
         return view('servicios.create',['servicio'=>$servicio,
                                         'id_empresa'=>$id_empresa,
+                                        'categorias'=>$categorias,
                                         'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }
 

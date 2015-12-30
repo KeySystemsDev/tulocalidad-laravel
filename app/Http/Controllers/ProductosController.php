@@ -9,6 +9,7 @@ use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Imagen;
 use App\Models\Empresa;
+use App\Models\CategoriaProductos1;
 use Auth;
 use Session;
 
@@ -46,8 +47,10 @@ class ProductosController extends Controller
     public function create($id_empresa){
         $producto = "";
         $imagenes = "";
+        $categorias = CategoriaProductos1::where("habilitado_categoria_productos1",1)->get();
         return view('productos.create', ['producto'=>'',
                                             'id_empresa'=>$id_empresa,
+                                            'categorias'=>$categorias,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa,
                                             'imagenes'=>'',]);
     }
@@ -78,9 +81,11 @@ class ProductosController extends Controller
 
     public function show($id_empresa, $id){
         $producto = Producto::find($id);
+        $jsonproducto = json_encode( Producto::find($id)->toArray() );
         $imagenes = Imagen::where('id_producto',$id)->get();
         return view('productos.detalle', ['producto'=>$producto,
                                             'id_empresa'=>$id_empresa,
+                                            'jsonproducto'=>$jsonproducto,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa,
                                             'imagenes'=>$imagenes,]);
     }
@@ -88,8 +93,10 @@ class ProductosController extends Controller
     public function edit($id_empresa, $id){
         $producto = Producto::find($id);
         $imagenes = Imagen::where('id_producto',$id)->get();
+        $categorias = CategoriaProductos1::where("habilitado_categoria_productos1",1)->get();
         return view('productos.create', ['producto'=>$producto,
                                             'id_empresa'=>$id_empresa,
+                                            'categorias'=>$categorias,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa,
                                             'imagenes'=>$imagenes,]);
         }

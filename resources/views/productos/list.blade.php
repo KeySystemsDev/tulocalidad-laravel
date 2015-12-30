@@ -39,7 +39,7 @@
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
-
+										
 		                                <img ng-src="[[ url + '/uploads/productos/high/'+ item.primera_imagen.nombre_imagen_producto]]" alt="">
 		                                <h2>[[item.precio_producto]] BsF</h2>
 		                                <p>[[item.nombre_producto]].</p>

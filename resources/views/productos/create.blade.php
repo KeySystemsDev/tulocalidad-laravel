@@ -88,7 +88,7 @@
 	                        </div>
 
 	                        <div class="form-group">
-	                            <label class="col-md-4 control-label">Descripcion del producto</label>
+	                            <label class="col-md-4 control-label">Descripción del producto</label>
 	                            <div class="col-md-5">
 	                            	<input type="text" class="form-control" ng-model="model.descripcion_producto" name="descripcion_producto" ng-required="true">
 	                            	<div class="error campo-requerido" ng-show="formulario.descripcion_producto.$invalid && (formulario.descripcion_producto.$touched || submitted)">
@@ -96,6 +96,19 @@
 	                                        * Campo requerido.
 	                                    </small>
 	                            	</div>
+	                            </div>
+	                        </div>
+
+	                        <div class="form-group">
+	                            <label class="col-md-4 control-label">Categoría</label>
+	                            <div class="col-md-5">
+	                            	<select class="form-control" name="id_categoria" ng-model="empresa.id_categoria" required>
+										<option class="option" value="">Seleccione una categoría</option>
+										@foreach($categorias as $key)
+											<option class="option" value="{{$key->id_categoria_productos1}}">
+												{{$key->nombre_categoria_productos1}}</option>
+										@endforeach
+									</select>
 	                            </div>
 	                        </div>
 

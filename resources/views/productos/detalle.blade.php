@@ -11,6 +11,7 @@
 	<div id="content" class="content ng-scope">
         
         <ol class="breadcrumb navegacion-admin pull-left">
+
             <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
             <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
             <li><a href="{{ url('/empresas/'.$id_empresa.'/productos')}}"><i class="fa fa-list"></i> Lista de Productos</a></li>
@@ -22,7 +23,10 @@
         @include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
         
-        <div class="row">
+        <div class="row" ng-init="model={{$jsonproducto}}">
+        <!-- AQUI SE INICIALIZA LA VARIABLE CON LA DATA, CAMBIAR DATA A ANGULAR,
+            asi podras imprimir la categoria del producto y obtener el array de imagenes de una vs -->
+        <!-- [[model]] -->
 
             <div class="col-sm-12 padding-right">
                 <div class="product-details"><!--product-details-->

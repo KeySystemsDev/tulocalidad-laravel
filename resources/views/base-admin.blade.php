@@ -154,6 +154,8 @@
 	<!-- ===================== ANGULAR CONTROLLERS ==============================-->
 	@yield('controller')
 
+	@yield('js')
+
 	<script>
 		$(document).ready(function() {
 			App.init();

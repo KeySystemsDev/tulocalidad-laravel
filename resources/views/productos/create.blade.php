@@ -4,6 +4,10 @@
     <script src="{{ asset('/js/controllers/registro_producto.js') }}"></script>
 @endsection
 
+@section('js')
+<script src="{{ asset('/bower_components/ckeditor/ckeditor.js') }}"></script>
+@endsection
+
 @section('content')
 
 <div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="uploadManyFiles">
@@ -13,6 +17,8 @@
     @include('layouts/sidebar-admin')
 	
 	<div id="content" class="content ng-scope">
+
+		<div ng-init="urlRedirect='{{ url('/empresas/'.$id_empresa.'/productos')}}'"></div>
         
         @if($producto)
         <ol class="breadcrumb navegacion-admin pull-left">
@@ -28,7 +34,8 @@
         <div ng-init="url='{{ url() }}'"></div>
         <div ng-init="imagenes={{ $imagenes }}"></div>
 		<div ng-init="inicializar_objetos( {{ $imagenes }}, '{{url('/uploads/productos/mid/')}}' )"></div>
-		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/productos/'.$producto->id_producto) }}" method="POST" enctype="multipart/form-data" ng-controller="CtrlImg">
+		<div ng-init="urlAction='{{ url('/empresas/'.$id_empresa.'/productos/'.$producto->id_producto) }}'"></div>
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('/empresas/'.$id_empresa.'/productos/'.$producto->id_producto) }}" method="POST" enctype="multipart/form-data" ng-controller="CtrlImg">
 		<input type="hidden" name="_method" value="PUT" >
 		
 		@else
@@ -40,8 +47,9 @@
         </ol>
         
         <h1 class="page-header page-header-new">.</h1>
-
-		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/productos/') }}" enctype="multipart/form-data" method="POST"  ng-controller="CtrlImg">		
+		
+		<div ng-init="urlAction='{{ url('/empresas/'.$id_empresa.'/productos/') }}'"></div>
+		<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('/empresas/'.$id_empresa.'/productos/') }}" enctype="multipart/form-data" method="POST"  ng-controller="CtrlImg">		
 		
 		@endif
 
@@ -70,45 +78,58 @@
 							<div class="form-group">
 	                            <label class="col-md-4 control-label">Nombre de producto</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.nombre_producto" name="nombre_producto">
+	                            	<input type="text" class="form-control" ng-model="model.nombre_producto" name="nombre_producto" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.nombre_producto.$invalid && (formulario.nombre_producto.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.nombre_producto.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Descripcion del producto</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.descripcion_producto" name="descripcion_producto">
+	                            	<input type="text" class="form-control" ng-model="model.descripcion_producto" name="descripcion_producto" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.descripcion_producto.$invalid && (formulario.descripcion_producto.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.descripcion_producto.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Precio</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.precio_producto" name="precio_producto">
+	                            	<input type="text" numbers-only class="form-control" ng-model="model.precio_producto" name="precio_producto" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.precio_producto.$invalid && (formulario.precio_producto.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.precio_producto.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
 
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Cantidad</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.cantidad_producto" name="cantidad_producto">
+	                            	<input type="text" numbers-only class="form-control" ng-model="model.cantidad_producto" name="cantidad_producto" ng-required="true">
+	                            	<div class="error campo-requerido" ng-show="formulario.cantidad_producto.$invalid && (formulario.cantidad_producto.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.cantidad_producto.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>
 	                            </div>
 	                        </div>
-
+							<!--
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Texto enriquecido</label>
 	                            <div class="col-md-5">
 	                            	<input type="text" class="form-control" ng-model="model.texto_enriquecido_producto" name="texto_enriquecido_producto">
 	                            </div>
 	                        </div>
-							
-							<br>
-							<blockquote class="f-s-14">
-		                        <p>File Upload widget with multiple file selection, drag&amp;drop support, progress bars, validation and preview images, audio and video for jQuery.<br>
-		                        Supports cross-domain, chunked and resumable file uploads and client-side image resizing.<br>
-		                        Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.</p>
-		                    </blockquote>
-
+							-->
 							<div class="well-custon"> 
 			                    <br>
 			                    <center>
@@ -148,9 +169,9 @@
 
 							<center>
 								@if($producto)
-								<button type="submit" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
 								@else
-								<button type="submit" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
+								<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
 								@endif
 							</center>
 

@@ -62,7 +62,7 @@
                                 </button>
                             </span>
                             <p><b>Disponible:</b> En existencia</p>
-                            <p><b>Cantidad:</b> 10</p>
+                            <p><b>Cantidad:</b> {{ $producto->cantidad_producto }}</p>
                             <p><b>Vendidos:</b> 2</p>
                             <a href=""><img src="http://localhost:8000/cart/Eshopper/images/product-details/share.png" class="share img-responsive" alt=""></a>
                         </div><!--/product-information-->

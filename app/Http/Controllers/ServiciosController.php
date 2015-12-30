@@ -58,7 +58,7 @@ class ServiciosController extends Controller
 
     public function show($id_empresa, $id){
         $servicio = Servicio::find($id);
-        return view('servicios.detalle', ['servicios'=>$servicios,
+        return view('servicios.detalle', ['servicio'=>$servicio,
                                             'id_empresa'=>$id_empresa,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }

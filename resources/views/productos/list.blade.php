@@ -52,7 +52,7 @@
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/edit']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
 			                                <div class="col-md-2">
-			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Dar de baja"><i class="fa fa-trash"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/deshabilitar']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Deshabilitar"><i class="fa fa-trash"></i></a>
 			                            	</div>				                            	
 			                            </div>
 		                            	<br>

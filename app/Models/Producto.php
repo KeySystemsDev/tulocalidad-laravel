@@ -12,6 +12,8 @@ class Producto extends Model {
 							'precio_producto',
 							'descripcion_producto',
 							'texto_enriquecido_producto',
+							'cantidad_producto',
+							'estatus_producto',
 							'habilitado_producto'];
 
 	public $cast = ['id_producto'				=>'integer',
@@ -22,6 +24,7 @@ class Producto extends Model {
 					'descripcion_producto' 		=>'string',
 					'texto_enriquecido_producto'=>'string',
 					'imagenes'					=> 'array',
+					'cantidad_producto'			=> 'integer',
 					'primera_imagen'			=> 'string',
 					];
 

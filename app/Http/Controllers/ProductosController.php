@@ -33,6 +33,7 @@ class ProductosController extends Controller
     public function index($id_empresa){
         $productos = json_encode(
                         Producto::where('id_empresa', $id_empresa)
+                                    ->where('habilitado_producto',1)
                                     ->paginate(10)
                                     ->toArray()
                     );
@@ -94,15 +95,13 @@ class ProductosController extends Controller
 
     public function update(Request $request, $id_empresa, $id){
         $producto = Producto::find($id);
+        //dd($producto);
         $imagenes = Imagen::where('id_producto',$id)->get();
 
         \DB::beginTransaction();
         try {
-            $producto->fill($request->only('nombre_producto',
-                                            'descripcion_producto',
-                                            'precio_producto',
-                                            'texto_enriquecido_producto'));
-
+            $producto->fill($request->all());
+            $producto->save();
                 foreach ($request->imagen as $nombreArchivo) {
                     if ($nombreArchivo){
                         if (!Imagen::where('nombre_imagen_producto',$nombreArchivo)->first()){
@@ -122,6 +121,7 @@ class ProductosController extends Controller
             \DB::commit();
         } catch (Exception $e) {
             \DB::rollback();
+            dd("error");
         }
 
         return redirect('/empresas/'.$id_empresa.'/productos');
@@ -140,7 +140,8 @@ class ProductosController extends Controller
 
 
 
-    public function destroy($id){
+    public function deshabilitar($empresa,$id){
+        
         $imagenes = Imagen::where('id_producto',$id);
         foreach ($imagenes->get() as $imagen) {
             $prex               = "productos";
@@ -148,5 +149,18 @@ class ProductosController extends Controller
             $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
         };
         $imagenes->delete();
+        return redirect('/empresas/'.$id.'/productos');
+    }
+
+    public function destroy($empresa,$id){
+        dd("entro");
+        $imagenes = Imagen::where('id_producto',$id);
+        foreach ($imagenes->get() as $imagen) {
+            $prex               = "productos";
+            $imgController      = new ImgController();
+            $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
+        };
+        $imagenes->delete();
+        return redirect('/empresas/'.$id.'/productos');
     }
 }

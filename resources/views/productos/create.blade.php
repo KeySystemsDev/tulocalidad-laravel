@@ -75,7 +75,7 @@
 	                        </div>
 
 	                        <div class="form-group">
-	                            <label class="col-md-4 control-label">Descripcion empresa</label>
+	                            <label class="col-md-4 control-label">Descripcion del producto</label>
 	                            <div class="col-md-5">
 	                            	<input type="text" class="form-control" ng-model="model.descripcion_producto" name="descripcion_producto">
 	                            </div>
@@ -91,7 +91,7 @@
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Cantidad</label>
 	                            <div class="col-md-5">
-	                            	<input type="text" class="form-control" ng-model="model.cantidad" name="texto_enriquecido_producto">
+	                            	<input type="text" class="form-control" ng-model="model.cantidad_producto" name="cantidad_producto">
 	                            </div>
 	                        </div>
 

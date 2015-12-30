@@ -14,7 +14,7 @@ class ServiciosController extends Controller
 
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['index','show','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['index','create','show','update','edit','destroy']]);
     }
 
     public function find(Route $route){
@@ -42,7 +42,7 @@ class ServiciosController extends Controller
 
     public function create($id_empresa){
         $servicio = "";
-        return view('servicios.create', ['servicios'=>$servicios,
+        return view('servicios.create', ['servicio'=>$servicio,
                                             'id_empresa'=>$id_empresa,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
     }

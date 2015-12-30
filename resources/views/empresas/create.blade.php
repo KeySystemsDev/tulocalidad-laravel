@@ -86,30 +86,37 @@
 										</div>											
 									</div>
 								</div>
-
+		                        <div class="form-group">
+		                            <label class="col-md-4 control-label">Rif</label>
+		                            <div class="col-md-5">
+		                            	<input type="text" class="form-control" ng-model="empresa.rif_empresa" name="rif_empresa" @if($empresa) disabled @endif>
+		                            	
+		                            </div>
+		                        </div>
+								
 								<div class="form-group">
-		                            <label class="col-md-4 control-label">Nombre Empresa</label>
+		                            <label class="col-md-4 control-label">Nombre de empresa</label>
 		                            <div class="col-md-5">
 		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa">
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Correo Empresa</label>
+		                            <label class="col-md-4 control-label">Correo electronico</label>
 		                            <div class="col-md-5">
 		                            	<input type="text" class="form-control" ng-model="empresa.correo_empresa" name="correo_empresa">
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Descripción Empresa</label>
+		                            <label class="col-md-4 control-label">Descripción</label>
 		                            <div class="col-md-5">
 		                            	<input type="text" class="form-control" ng-model="empresa.descripcion_empresa" name="descripcion_empresa">
 		                            </div>
 		                        </div>
 
 		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Pag Web Empresa</label>
+		                            <label class="col-md-4 control-label">Pag web</label>
 		                            <div class="col-md-5">
 		                            	<input type="text" class="form-control" ng-model="empresa.web_empresa" name="web_empresa">
 		                            </div>
@@ -129,47 +136,11 @@
 		                        </div>
 
 		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Municipio</label>
+		                            <label class="col-md-4 control-label">Dirección fiscal</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.municipio_direccion" name="municipio_direccion">
+		                            	<input type="text" class="form-control" ng-model="empresa.direccion_empresa" name="direccion_empresa">
 		                            </div>
 		                        </div>
-
-		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Parroquia</label>
-		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.parroquia_direccion" name="parroquia_direccion">
-		                            </div>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">Urbanizacion</label>
-		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.urbanizacion_direccion" name="urbanizacion_direccion">
-		                            </div>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">calle/avenida</label>
-		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.calle_avenida_direccion" name="calle_avenida_direccion">
-		                            </div>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">casa / apto</label>
-		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.casa_apto_direccion" name="casa_apto_direccion">
-		                            </div>
-		                        </div>
-
-		                        <div class="form-group">
-		                            <label class="col-md-4 control-label">piso</label>
-		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.piso_direccion" name="piso_direccion">
-		                            </div>
-		                        </div>
-	                        </div>
 
 	                        <div class="well">
 

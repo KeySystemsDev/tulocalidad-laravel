@@ -72,9 +72,8 @@ class ServiciosController extends Controller
     }
 
     public function update(Request $request, $id_empresa, $id){
-
         $servicio = Servicio::find($id);//->update($request->all());
-        if ($servicio->url_imagen != $request->namefile){
+        if ($servicio->url_imagen_servicio != $request->namefile){
 
             $imgController  = new ImgController();
             $nombre_carpeta = 'servicios';

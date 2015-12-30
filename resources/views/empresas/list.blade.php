@@ -23,7 +23,12 @@
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
 
-        <h1 class="page-header"><i class="fa fa-laptop"></i> Lista de Empresas </h1>
+		<ol class="breadcrumb navegacion-admin pull-left">
+            <li><i class="fa fa fa-list"></i> Lista Empresas</li>
+        </ol>
+
+        <h1 class="page-header page-header-new">.</h1>
+        
         <div ng-init="url='{{url()}}/'" ></div>
         <section  ng-init="array={{ $empresas}}">
         	<div class="row">

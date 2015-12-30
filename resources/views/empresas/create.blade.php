@@ -15,7 +15,14 @@
 	<div id="content" class="content ng-scope">
         
         @if($empresa)
-        <h1 class="page-header"><i class="fa fa-briefcase"></i> Editar Empresa</h1>
+        
+		<ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa fa-list"></i> Lista Empresas</a></li>
+            <li><i class="fa fa-pencil-square-o"></i> Crear Empresa</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
+
         <div ng-init="empresa={{ $empresa }}"></div>
 		<div ng-init="incializar_telefonos({{ $telefonos }})"></div>
 		<div ng-init="incializar_redes({{ $redes_empresa }})"></div>
@@ -23,7 +30,14 @@
 		<form class="form-horizontal" action="{{ url('empresas/'.$empresa->id_empresa) }}" method="POST" enctype="multipart/form-data">
 		<input type="hidden" name="_method" value="PUT">
         @else
-        <h1 class="page-header"><i class="fa fa-briefcase"></i> Crear Empresa</h1>
+        
+        <ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa fa-list"></i> Lista Empresas</a></li>
+            <li><i class="fa fa-pencil-square-o"></i> Editar Empresa</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
+		
 		<form class="form-horizontal" action="{{ url('empresas/') }}" method="POST" enctype="multipart/form-data" name="formulario" id="formulario" ng-submit="submit(formulario.$valid)" novalidate>		
 		@endif
 

@@ -188,6 +188,10 @@ a#scrollUp {
     color: #fff;
     background: #00acac!important;
 }
+.btn-danger-hover:hover{
+    color: #fff;
+    background: #cc4946!important;
+}
 
 .carousel-inner {
   margin-left: 6px;
@@ -198,4 +202,19 @@ a#scrollUp {
 }
 .btn-icon i{
   margin-top: 3px;
+}
+.navegacion-admin{
+  font-size: 16px;
+  color: #696763;
+  margin: 0 0 20px;
+  padding: 0;
+}
+.navegacion-admin i{
+  color: #969595;
+}
+.navegacion-admin a:hover{
+  color: #721520;
+}
+.page-header-new{
+  font-size: 1px;
 }

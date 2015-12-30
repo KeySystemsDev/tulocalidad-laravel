@@ -15,7 +15,14 @@
 	<div id="content" class="content ng-scope">
         
         @if($producto)
-        <h1 class="page-header"><i class="fa fa-shopping-cart"></i> Editar Producto </h1>
+        <ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
+        	<li><a href="{{ url('/empresas/'.$id_empresa.'/productos')}}"><i class="fa fa-list"></i> Lista de Productos</a></li>
+        	<li><i class="fa fa-pencil-square-o"></i> Editar Producto</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
 
         <div ng-init="model={{ $producto }}"></div>
         <div ng-init="url='{{ url() }}'"></div>
@@ -25,7 +32,14 @@
 		<input type="hidden" name="_method" value="PUT" >
 		
 		@else
-		<h1 class="page-header"><i class="fa fa-shopping-cart"></i> Crear Producto </h1>
+		<ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
+        	<li><a href="{{ url('/empresas/'.$id_empresa.'/productos')}}"><i class="fa fa-list"></i> Lista de Productos</a></li>
+        	<li><i class="fa fa-pencil-square-o"></i> Crear Producto</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
 
 		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/productos/') }}" enctype="multipart/form-data" method="POST"  ng-controller="CtrlImg">		
 		
@@ -134,7 +148,7 @@
 
 							<center>
 								@if($producto)
-								<button type="submit" class="btn btn-danger m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
+								<button type="submit" class="btn btn-success m-r-5 m-b-5">Actualizar <i class="fa fa-refresh"></i></button>
 								@else
 								<button type="submit" class="btn btn-success m-r-5 m-b-5">Registrar <i class="fa fa-pencil-square-o"></i></button>
 								@endif

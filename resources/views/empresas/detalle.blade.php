@@ -9,7 +9,7 @@
     @include('layouts/sidebar-admin')
 	
 	<div id="content" class="content ng-scope">
-        
+
         <ol class="breadcrumb pull-right">
             <div class="btn-toolbar">
                 <div class="btn-group">
@@ -24,9 +24,13 @@
                 </div>
             </div>
         </ol>
-        
 
-        <h1 class="page-header"><i class="fa fa fa-briefcase"></i> Detalle de Empresas </h1>
+        <ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><i class="fa fa-briefcase"></i> {{ $empresa->nombre_empresa }}</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
 
         @include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')

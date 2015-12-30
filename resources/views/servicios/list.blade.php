@@ -21,7 +21,13 @@
         </ol>
         
 
-        <h1 class="page-header"><i class="fa fa-coffee"></i> Lista de Servicios </h1>
+        <ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
+        	<li><i class="fa fa-list"></i> Lista de Servicios</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
         
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')

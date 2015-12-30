@@ -15,7 +15,14 @@
 	<div id="content" class="content ng-scope">
         
         @if($servicio)
-        <h1 class="page-header"><i class="fa fa-shopping-cart"></i> Editar Servicios </h1>
+        <ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
+        	<li><a href="{{ url('/empresas/'.$id_empresa.'/servicios')}}"><i class="fa fa-list"></i> Lista de Productos</a></li>
+        	<li><i class="fa fa-pencil-square-o"></i> Editar Servicios</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
 
         <div ng-init="model={{ $servicio }}"></div>
 		<div ng-init="img = '{{ url ('/uploads/servicios/low/') }}/'+model.url_imagen_servicio" ></div>			
@@ -23,7 +30,14 @@
 		<input type="hidden" name="_method" value="PUT">
 		
 		@else
-		<h1 class="page-header"><i class="fa fa-shopping-cart"></i> Crear Servicios </h1>
+		<ol class="breadcrumb navegacion-admin pull-left">
+            <li><a href="{{ url('empresas') }}"><i class="fa fa-list"></i> Lista Empresas</a></li>
+            <li><a href="{{ url('empresas/'.$id_empresa) }}"><i class="fa fa-briefcase"></i> {{$nombre_empresa}}</a></li>
+        	<li><a href="{{ url('/empresas/'.$id_empresa.'/servicios')}}"><i class="fa fa-list"></i> Lista de Productos</a></li>
+        	<li><i class="fa fa-pencil-square-o"></i> Crear Servicios</li>
+        </ol>
+        
+        <h1 class="page-header page-header-new">.</h1>
 
 		<form class="form-horizontal" action="{{ url('/empresas/'.$id_empresa.'/servicios/') }}" method="POST" ng-submit="submit(formulario.$valid)"  enctype="multipart/form-data">		
 		@endif

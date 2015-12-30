@@ -35,7 +35,11 @@ body{
     left: 0;
 }
 .error{
-	border: 1px red solid;
+	color: #FF9393;
+}
+.campo-requerido{
+  padding: 8px 0px 0px 0px;
+  float: left;
 }
 
 .center {
@@ -50,7 +54,7 @@ body{
 
 .cb-slideshow,
 .cb-slideshow:after { 
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 100%;
     top: 0px;

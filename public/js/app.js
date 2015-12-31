@@ -3,7 +3,7 @@
 
 // Application -----------------------------------------------------------------
 
-var coreApp = angular.module('base-name-app', ['ngResource','ngImgCrop', 'ngSanitize','uiGmapgoogle-maps']
+var coreApp = angular.module('base-name-app', ['ngResource','ngImgCrop', 'ngSanitize','uiGmapgoogle-maps','remoteValidation']
     , function($interpolateProvider){
 
         $interpolateProvider.startSymbol('[[');

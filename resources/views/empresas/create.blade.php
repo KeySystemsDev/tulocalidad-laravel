@@ -93,7 +93,7 @@
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Rif</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" placeholder="J-12345678-9" ng-pattern="/^([JGVEPjgvep][-][0-9]{7,8}[-][0-9]{1})$/" ng-required="true" class="form-control" ng-model="empresa.rif_empresa" name="rif_empresa" @if($empresa) disabled @endif>
+		                            	<input type="text" ng-remote-validate="{{url('/empresas/validrif')}}"  placeholder="J-12345678-9" ng-pattern="/^([JGVEPjgvep][-][0-9]{7,8}[-][0-9]{1})$/" ng-required="true" class="form-control" ng-model="empresa.rif_empresa" name="rif_empresa" @if($empresa) disabled @endif>
 		                            	<div class="error campo-requerido" ng-show="formulario.rif_empresa.$invalid && (formulario.rif_empresa.$touched || submitted)">
 		                                    <small class="error" ng-show="formulario.rif_empresa.$error.required">
 		                                        * Campo requerido.
@@ -101,6 +101,9 @@
 		                                    <small class="error" ng-show="formulario.rif_empresa.$error.pattern">
 		                                        * Formato de rif invalido. Ejemplo: J-12345678-9.
 		                                    </small>
+		                                    <small class="error" ng-show="formulario.rif_empresa.$error.ngRemoteValidate">
+		                                        * Rif en uso.
+		                                    </small>		                                    
 		                            	</div>
 		                            </div>
 		                        </div>

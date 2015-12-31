@@ -20,7 +20,7 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, $ht
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {
                 console.log(response);
-                //$window.location.href = $scope.urlRedirect;
+                $window.location.href = $scope.urlRedirect;
               }, function errorCallback(response) {
                 console.log("error");
                 //$window.location.href = $scope.urlRedirect;
@@ -28,7 +28,6 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, $ht
                 // or server returns response with an error status.
               });           
         };
-        console.log(false);
         return false;
 
     }

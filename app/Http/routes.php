@@ -45,6 +45,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::post('reset-password', 'LoginController@postResetPassword');
 
 	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
+	Route::post('empresas/validrif','EmpresasController@validRif');
 	Route::resource('empresas','EmpresasController');
 
 	Route::get('empresas/{empresas}/productos/{productos}/deshabilitar','ProductosController@deshabilitar');

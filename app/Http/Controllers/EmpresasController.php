@@ -17,7 +17,7 @@ class EmpresasController extends Controller
 {
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['show','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['show','store','update','edit','destroy']]);
     }
 
     public function find(Route $route){
@@ -68,20 +68,20 @@ class EmpresasController extends Controller
         $request['url_imagen_empresa'] = $result['data']['nombreArchivo'];
         $request['id_usuario'] = Auth::user()->id_usuario;
         $empresa = Empresa::create($request->all());
-        if ($request->telefonos){
-            foreach($request->telefonos as $value=>$telefono) {
-                Telefonos::create(['numero_telefono'=>$telefono,
-                                    'codigo_telefono'=> $request->codigos[$value],
-                                    'id_empresa'=>$empresa->id_empresa]);
+        if ($request->cantidad_telefonos>0){
+            for ($i=0 ; $i < $request->cantidad_telefonos ; $i++){
+                Telefonos::create(['numero_telefono'=>$request['telefonos'.$i],
+                                    //'codigo_telefono'=> $request->codigos[$value],
+                                    'id_empresa'=>$this->empresa->id_empresa]);
             }
         }
-        if ($request->identificador_red){
-            foreach($request->identificador_red as $value=>$identificador_red) {
-                MMRedes::create(['identificador_red'=>$identificador_red,
-                                    'id_red_social'=> $request->id_red_social[$value],
-                                    'id_empresa'=>$empresa->id_empresa]);
+        if ($request->cantidad_redes>0){
+            for ($i=0 ; $i<$request->cantidad_redes ; $i++) {
+                MMRedes::create(['identificador_red'=>$request['identificador_red'.$i],
+                                    'id_red_social'=> $request['id_red_social'.$i],
+                                    'id_empresa'=>$this->empresa->id_empresa]);
             }
-        }        
+        }       
         return redirect('/empresas');
     }
 
@@ -161,5 +161,19 @@ class EmpresasController extends Controller
         MMRedes::where('id_empresa',$id)->delete();
         $this->empresa->delete();
         return redirect('/empresas');
+    }
+
+    public function validRif(Request $request){
+        $json=[];
+        $value = $request->value;
+        $rifs = Empresa::where('rif_empresa', $request->value)->first();
+        if (!$rifs){
+            $json=['isValid'=>true,
+                   'value'=>$request->value];
+        }else{
+            $json=['isValid'=>false,
+                   'value'=>$request->value];
+        }
+        return json_encode($json);
     }
 }

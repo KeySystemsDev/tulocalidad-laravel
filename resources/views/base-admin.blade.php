@@ -128,6 +128,8 @@
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
 	<script src="{{ asset('/thema/admin/html/assets/plugins/bootstrap-wizard/js/bwizard.js') }}"></script>
 	<script src="{{ asset('/thema/admin/html/assets/js/form-wizards.demo.min.js') }}"></script>
+	<!-- remote-validation -->
+	<script src="{{ asset('/bower_components/ng-remote-validate/release/ngRemoteValidate.js') }}"></script>
 	<!-- select -->
 	<script src="{{ asset('/bower_components/jquery-placeholder/jquery.placeholder.min.js') }}"></script>
 	<script src="{{ asset('/bower_components/select2/dist/js/select2.min.js') }}"></script>

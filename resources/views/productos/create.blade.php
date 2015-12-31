@@ -109,6 +109,11 @@
 												{{$key->nombre_categoria_productos1}}</option>
 										@endforeach
 									</select>
+									<div class="error campo-requerido" ng-show="formulario.id_categoria.$invalid && (formulario.id_categoria.$touched || submitted)">
+	                                    <small class="error" ng-show="formulario.id_categoria.$error.required">
+	                                        * Campo requerido.
+	                                    </small>
+	                            	</div>									
 	                            </div>
 	                        </div>
 

@@ -50,8 +50,6 @@
 											<span class="btn btn-danger" ng-show='item.cantidad_producto==0'>
 		                                		AGOTADO
 		                                	</span>
-
-
 		                                </p>
 		                                <p class="btn btn-info" ng-show="item.habilitado_producto==1">Producto Activo</p>
 		                                <p class="btn btn-danger" ng-show="item.habilitado_producto==0">Producto Inactivo</p>

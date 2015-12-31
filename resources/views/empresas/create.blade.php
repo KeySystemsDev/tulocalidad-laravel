@@ -108,7 +108,7 @@
 								<div class="form-group">
 		                            <label class="col-md-4 control-label">Nombre de empresa</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa" ng-required="true">
+		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa" ng-required="true" ng-trim="true">
 		                            	<div class="error campo-requerido" ng-show="formulario.nombre_empresa.$invalid && (formulario.nombre_empresa.$touched || submitted)">
 		                                    <small class="error" ng-show="formulario.nombre_empresa.$error.required">
 		                                        * Campo requerido.

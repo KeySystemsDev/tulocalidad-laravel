@@ -68,7 +68,7 @@
 							
 							<div class="well">
 								<div class="form-group">
-									<label class="control-label col-md-4">Imagen de perfil</label>
+									<label class="control-label col-md-4">Logo de empresa</label>
 									<div class="col-md-5 iconic-input right">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<input type="hidden" name="namefile" id="namefile" ng-model="empresa.url_imagen_empresa" ng-value="empresa.url_imagen_empresa" ng-update-hidden required>
@@ -93,15 +93,22 @@
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Rif</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.rif_empresa" name="rif_empresa" @if($empresa) disabled @endif>
-		                            	
+		                            	<input type="text" placeholder="J-12345678-9" ng-pattern="/^([JGVEPjgvep][-][0-9]{7,8}[-][0-9]{1})$/" ng-required="true" class="form-control" ng-model="empresa.rif_empresa" name="rif_empresa" @if($empresa) disabled @endif>
+		                            	<div class="error campo-requerido" ng-show="formulario.rif_empresa.$invalid && (formulario.rif_empresa.$touched || submitted)">
+		                                    <small class="error" ng-show="formulario.rif_empresa.$error.required">
+		                                        * Campo requerido.
+		                                    </small>
+		                                    <small class="error" ng-show="formulario.rif_empresa.$error.pattern">
+		                                        * Formato de rif invalido. Ejemplo: J-12345678-9.
+		                                    </small>
+		                            	</div>
 		                            </div>
 		                        </div>
 								
 								<div class="form-group">
 		                            <label class="col-md-4 control-label">Nombre de empresa</label>
 		                            <div class="col-md-5">
-		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa" ng-required="true">
+		                            	<input type="text" class="form-control" ng-model="empresa.nombre_empresa" name="nombre_empresa" ng-required="true" ng-trim="true">
 		                            	<div class="error campo-requerido" ng-show="formulario.nombre_empresa.$invalid && (formulario.nombre_empresa.$touched || submitted)">
 		                                    <small class="error" ng-show="formulario.nombre_empresa.$error.required">
 		                                        * Campo requerido.
@@ -186,31 +193,25 @@
 
 								<center>
 									<button type="button" class="btn btn-info m-r-5 m-b-5" ng-click="addPhone()"><i class="fa fa-plus"></i> Agregar telefono <i class="fa fa-phone-square"></i></button>
+									<br>
+									<div class="error campo-requerido" ng-show="telefonos.length == 0 && submitted">
+	                                    <small class="error" >
+	                                        * Debe agregar por lo menos un telefono.
+	                                    </small>
+	                            	</div>									
 								</center>
 
 								<br>
-
 								<div class="row">
 									<div class="col-md-6" ng-repeat="telefono in telefonos track by $index">
-										<div class="well">
+										<div class="well" >
 											<center><p>Telefono [[$index+1]]</p></center>
-											<div class="form-group">
-					                            <label class="col-md-4 control-label">Codigo</label>
-					                            <div class="col-md-5">
-					                            	<input type="text" data-mask="(9999)" class="form-control" ng-model='telefono.codigo' name="codigos[]" ng-required="true">
-					                            	<div class="error campo-requerido" ng-show="formulario.codigo.$invalid && (formulario.codigo.$touched || submitted)">
-					                                    <small class="error" ng-show="formulario.codigo.$error.required">
-					                                        * Campo requerido.
-					                                    </small>
-					                            	</div>
-					                            </div>
-					                        </div>
 					                        <div class="form-group">
 					                            <label class="col-md-4 control-label">Numero</label>
 					                            <div class="col-md-5">
-					                            	<input type="text" data-mask="999-99-99" class="form-control" ng-model='telefono.numero' name="telefonos[]" ng-required="true">
-					                            	<div class="error campo-requerido" ng-show="formulario.numero.$invalid && (formulario.numero.$touched || submitted)">
-					                                    <small class="error" ng-show="formulario.numero.$error.required">
+					                            	<input type="text" data-mask="(9999)999-99-99" class="form-control" ng-model='telefono.numero' name="telefonos[[$index]]" ng-required="true">
+					                            	<div class="error campo-requerido" ng-show="formulario.telefonos[[$index]].$invalid && (formulario.telefonos[[$index]].$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.telefonos[[$index]].$error.required">
 					                                        * Campo requerido.
 					                                    </small>
 					                            	</div>
@@ -229,6 +230,12 @@
 
 								<center>
 									<button type="button" class="btn btn-info m-r-5 m-b-5" ng-click="addRed()"><i class="fa fa-plus"></i> Agregar Red Social</button>
+									<br>
+									<div class="error campo-requerido" ng-show="redes.length == 0 && submitted">
+	                                    <small class="error" >
+	                                        * Debe agregar por lo menos una red social.
+	                                    </small>
+	                            	</div>
 								</center>
 
 								<br>
@@ -240,14 +247,14 @@
 											<div class="form-group">
 					                            <label class="col-md-4 control-label">Red Social</label>
 					                            <div class="col-md-5">
-					                            	<select class="form-control" name="id_red_social[]" ng-model="red.id_red_social" ng-required="true">
+					                            	<select class="form-control" name="id_red_social[[$index]]" ng-model="red.id_red_social" ng-required="true">
 														@foreach($redes as $key)
 															<option class="option" value="{{$key->id_red_social}}">
 																{{$key->nombre_red_social}}</option>
 														@endforeach
 													</select>
-													<div class="error campo-requerido" ng-show="formulario.id_red_social.$invalid && (formulario.id_red_social.$touched || submitted)">
-					                                    <small class="error" ng-show="formulario.id_red_social.$error.required">
+													<div class="error campo-requerido" ng-show="formulario.id_red_social[[$index]].$invalid && (formulario.id_red_social[[$index]].$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.id_red_social[[$index]].$error.required">
 					                                        * Campo requerido.
 					                                    </small>
 					                            	</div>
@@ -256,9 +263,9 @@
 					                        <div class="form-group">
 					                            <label class="col-md-4 control-label">Identificador de su red social</label>
 					                            <div class="col-md-5">
-					                            	<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[]" ng-required="true">
-					                            	<div class="error campo-requerido" ng-show="formulario.identificador_red.$invalid && (formulario.identificador_red.$touched || submitted)">
-					                                    <small class="error" ng-show="formulario.identificador_red.$error.required">
+					                            	<input type="text" class="form-control" ng-model='red.identificador_red' name="identificador_red[[$index]]" ng-required="true">
+					                            	<div class="error campo-requerido" ng-show="formulario.identificador_red[[$index]].$invalid && (formulario.identificador_red[[$index]].$touched || submitted)">
+					                                    <small class="error" ng-show="formulario.identificador_red[[$index]].$error.required">
 					                                        * Campo requerido.
 					                                    </small>
 					                            	</div>

@@ -4,11 +4,14 @@
 coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, $http, registro_service) {
     console.log("submit Controller");
     $scope.submit= function(formValid) {
-        console.log(formValid);
+        
         $scope.submitted=true;
-        if (formValid==true){
+        if (formValid==true && $scope.telefonos.length>0 && $scope.redes.length>0 ){
+            console.log(true);
             var json = {};
             angular.element('#formulario').serializeArray().map(function(x){json[x.name] = x.value;});
+            json['cantidad_telefonos'] = $scope.telefonos.length;
+            json['cantidad_redes'] = $scope.redes.length;
 
             $http({
                 method: 'POST',
@@ -17,7 +20,7 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, $ht
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).then(function successCallback(response) {
                 console.log(response);
-                $window.location.href = $scope.urlRedirect;
+                //$window.location.href = $scope.urlRedirect;
               }, function errorCallback(response) {
                 console.log("error");
                 //$window.location.href = $scope.urlRedirect;
@@ -25,7 +28,9 @@ coreApp.controller('EmpresaContoller', function($scope, $log, ajax, $window, $ht
                 // or server returns response with an error status.
               });           
         };
+        console.log(false);
         return false;
+
     }
 
     console.log('EmpresaContoller');

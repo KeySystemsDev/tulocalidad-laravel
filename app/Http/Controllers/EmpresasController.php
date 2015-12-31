@@ -118,6 +118,7 @@ class EmpresasController extends Controller
 
     public function update(Request $request, $id)
     {
+        
         if ($this->empresa->url_imagen_empresa != $request->namefile){
 
             $imgController  = new ImgController();
@@ -131,17 +132,19 @@ class EmpresasController extends Controller
 
         Telefonos::where('id_empresa',$id)->delete();
 
-        if ($request->telefonos){
-            foreach ($request->telefonos as $value=>$telefono) {
-                Telefonos::create(['numero_telefono'=>$telefono,
-                                    'codigo_telefono'=> $request->codigos[$value],
+        if ($request->cantidad_telefonos>0){
+            for ($i=0 ; $i < $request->cantidad_telefonos ; $i++){
+                Telefonos::create(['numero_telefono'=>$request['telefonos'.$i],
+                                    //'codigo_telefono'=> $request->codigos[$value],
                                     'id_empresa'=>$this->empresa->id_empresa]);
             }
         }
-        if ($request->identificador_red){
-            foreach($request->identificador_red as $value=>$identificador_red) {
-                MMRedes::create(['identificador_red'=>$identificador_red,
-                                    'id_red_social'=> $request->id_red_social[$value],
+
+        MMRedes::where('id_empresa',$id)->delete();
+        if ($request->cantidad_redes>0){
+            for ($i=0 ; $i<$request->cantidad_redes ; $i++) {
+                MMRedes::create(['identificador_red'=>$request['identificador_red'.$i],
+                                    'id_red_social'=> $request['id_red_social'.$i],
                                     'id_empresa'=>$this->empresa->id_empresa]);
             }
         }

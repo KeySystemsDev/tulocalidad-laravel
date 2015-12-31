@@ -58,6 +58,7 @@
 	
 	@yield('content')
 
+
     <!-- jquery modules -->
     <script src="{{ asset('/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('/bower_components/jquery-migrate/jquery-migrate.min.js') }}"></script>
@@ -102,6 +103,9 @@
 
 	<!-- Thema Frontend JS -->
 	<script src="{{ asset('/thema/frontend/one-page-parallax/assets/js/apps.min.js') }}"></script>
+
+	<!-- remote-validation -->
+	<script src="{{ asset('/bower_components/ng-remote-validate/release/ngRemoteValidate.js') }}"></script>
 	
 	<!-- ===================== ANGULAR CONTROLLERS ==============================-->
 	@yield('controller')

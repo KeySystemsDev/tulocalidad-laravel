@@ -30,7 +30,7 @@
         
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
-		
+
 		<section  ng-init="array={{$productos}}">
         	<div class="row" ng-init = "url='{{url()}}'">
 		        <div class="col-sm-12 padding-right">
@@ -38,25 +38,12 @@
 		                <div class="col-sm-3" ng-repeat="item in array.data">
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
-		                            <div class="productinfo text-center">
+		                            <div class="productinfo text-center" id="productinfo">
 										
 		                                <img ng-src="[[ url + '/uploads/productos/high/'+ item.primera_imagen.nombre_imagen_producto]]" alt="">
 		                                <h2>[[item.precio_producto]] BsF</h2>
 		                                <p>[[item.nombre_producto]].</p>
-		                                <p >
-											<span ng-show='item.cantidad_producto>0'>
-		                                		[[item.cantidad_producto]] disponibles
-		                                	</span>
-											<span class="btn btn-danger" ng-show='item.cantidad_producto==0'>
-		                                		AGOTADO
-		                                	</span>
-
-
-		                                </p>
-		                                <p class="btn btn-info" ng-show="item.habilitado_producto==1">Producto Activo</p>
-		                                <p class="btn btn-danger" ng-show="item.habilitado_producto==0">Producto Inactivo</p>
-		                                <br>
-		                                <br>
+		                                
 		                                <div class="row">
 		                                	<div class="col-md-2 col-md-offset-2">
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto ]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
@@ -65,17 +52,27 @@
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/edit']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
 			                                <div class="col-md-2" ng-if="item.habilitado_producto==1">
-			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/deshabilitar']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Deshabilitar"><i class="fa fa-trash"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/deshabilitar']]" class="btn btn-default btn-deshabilitar-hover" data-toggle="tooltip" data-title="Deshabilitar"><i class="fa fa-thumbs-o-down"></i></a>
 			                            	</div>	
 			                                <div class="col-md-2" ng-if="item.habilitado_producto==0">
-			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/habilitar']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Habilitar"><i class="fa fa-trash"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/habilitar']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Habilitar"><i class="fa fa-thumbs-o-up"></i></a>
 			                            	</div>	
 			                                <div class="col-md-2">
-			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-remove"></i></a>
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-trash"></i></a>
 			                            	</div>				                            	
 			                            </div>
 		                            	<br>
 		                            </div>
+		                            <div id="btn-producto-action">
+	                            		<div class="acti-btn-box">
+	                            			<h4><span class="label label-info" ng-show="item.habilitado_producto==1"><i class="fa fa-thumbs-o-up"></i> Activo</span></h4>
+	                                		<h4><span class="label label-warning" ng-show="item.habilitado_producto==0"><i class="fa fa fa-thumbs-o-down"></i> Inactivo</span></h4>
+	                            		</div>
+	                            		<div class="acti-btn-box-2">
+	                            			<h4><span class="label label-white" ng-show='item.cantidad_producto>0'>[[item.cantidad_producto]]</span></h4>
+											<h4><span class="label label-danger" ng-show='item.cantidad_producto==0'>0</span></h4>
+	                            		</div>
+	                                </div>
 		                        </div>
 		                    </div>
 		                </div>

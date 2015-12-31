@@ -192,6 +192,10 @@ a#scrollUp {
     color: #fff;
     background: #cc4946!important;
 }
+.btn-deshabilitar-hover:hover{
+    color: #fff;
+    background: #f0ad4e!important;
+}
 
 .carousel-inner {
   margin-left: 6px;
@@ -217,4 +221,27 @@ a#scrollUp {
 }
 .page-header-new{
   font-size: 1px;
+}
+
+#productinfo:hover + #btn-producto-action {
+  display: block;
+}
+
+#btn-producto-action{
+  display: none;
+}
+.acti-btn-box{
+  position: absolute;
+  top:0px;
+  left: 10px;
+}
+.acti-btn-box-2{
+  position: absolute;
+  top:0px;
+  right: 10px;
+}
+.label-white {
+  background: #fff;
+  border-color: #e2e7eb;
+  color: #696763;
 }

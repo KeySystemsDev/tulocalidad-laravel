@@ -13,6 +13,7 @@ class Servicio extends Model {
 							'descripcion_servicio',
 							'precio_servicio',
 							'url_imagen_servicio',
+							'habilitado_servicio',
 							'id_servicios_tags'
 							];
 

@@ -41,9 +41,17 @@
 		                                <img src="{{ asset('/uploads/empresas/high/')}}/[[item.url_imagen_empresa]]" alt="">
 		                                <h5>[[item.nombre_empresa]].</h5>
 		                                <p>[[item.rif_empresa]].</p>
+										<div class="row">
+		                                	<div class="col-md-6">
+			                                	<a href="[[url+'empresas/'+item.id_empresa+'/servicios']]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Servicios"><i class="fa fa-bars"></i> Gestionar servicios</a>
+			                                </div>
+		                                	<div class="col-md-6">
+			                                	<a href="[[url+'empresas/'+item.id_empresa+'/productos']]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Productos"><i class="fa fa-bars"></i> Gestionar productos</a>
+			                                </div>
+			                            </div>		                                
+			                            <br>	
 		                                <div class="row">
-		                                	<div class="col-md-3"></div>
-		                                	<div class="col-md-2">
+		                                	<div class="col-md-2 col-md-offset-3">
 			                                	<a href="[[url+'empresas/'+item.id_empresa]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">

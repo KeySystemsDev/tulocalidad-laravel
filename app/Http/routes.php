@@ -48,10 +48,12 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::resource('empresas','EmpresasController');
 
 	Route::get('empresas/{empresas}/productos/{productos}/deshabilitar','ProductosController@deshabilitar');
+	Route::get('empresas/{empresas}/productos/{productos}/habilitar','ProductosController@habilitar');
 	Route::get('empresas/{empresas}/productos/{productos}/destroy','ProductosController@destroy');
 	Route::resource('empresas.productos','ProductosController');
 
 	Route::get('empresas/{empresas}/servicios/{servicios}/deshabilitar','ServiciosController@deshabilitar');
+	Route::get('empresas/{empresas}/servicios/{servicios}/habilitar','ServiciosController@habilitar');
 	Route::get('empresas/{empresas}/servicios/{servicios}/destroy','ServiciosController@destroy');
 	Route::resource('empresas.servicios','ServiciosController');
 

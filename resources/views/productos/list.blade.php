@@ -43,16 +43,35 @@
 		                                <img ng-src="[[ url + '/uploads/productos/high/'+ item.primera_imagen.nombre_imagen_producto]]" alt="">
 		                                <h2>[[item.precio_producto]] BsF</h2>
 		                                <p>[[item.nombre_producto]].</p>
+		                                <p >
+											<span ng-show='item.cantidad_producto>0'>
+		                                		[[item.cantidad_producto]] disponibles
+		                                	</span>
+											<span class="btn btn-danger" ng-show='item.cantidad_producto==0'>
+		                                		AGOTADO
+		                                	</span>
+
+
+		                                </p>
+		                                <p class="btn btn-info" ng-show="item.habilitado_producto==1">Producto Activo</p>
+		                                <p class="btn btn-danger" ng-show="item.habilitado_producto==0">Producto Inactivo</p>
+		                                <br>
+		                                <br>
 		                                <div class="row">
-		                                	<div class="col-md-3"></div>
-		                                	<div class="col-md-2">
+		                                	<div class="col-md-2 col-md-offset-2">
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto ]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/edit']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
-			                                <div class="col-md-2">
+			                                <div class="col-md-2" ng-if="item.habilitado_producto==1">
 			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/deshabilitar']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Deshabilitar"><i class="fa fa-trash"></i></a>
+			                            	</div>	
+			                                <div class="col-md-2" ng-if="item.habilitado_producto==0">
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/habilitar']]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Habilitar"><i class="fa fa-trash"></i></a>
+			                            	</div>	
+			                                <div class="col-md-2">
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/productos/' + item.id_producto + '/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-remove"></i></a>
 			                            	</div>				                            	
 			                            </div>
 		                            	<br>

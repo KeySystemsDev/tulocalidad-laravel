@@ -16,7 +16,7 @@ class ServiciosController extends Controller
 
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['index','create','show','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['index','create','show','update','edit','destroy','deshabilitar','habilitar']]);
     }
 
     public function find(Route $route){
@@ -97,18 +97,31 @@ class ServiciosController extends Controller
 
     public function deshabilitar($empresa,$id){
         
-        // $imagenes = Imagen::where('id_producto',$id);
-        // foreach ($imagenes->get() as $imagen) {
-        //     $prex               = "productos";
-        //     $imgController      = new ImgController();
-        //     $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
-        // };
-        // $imagenes->delete();
-        // return redirect('/empresas/'.$id.'/productos');
+         Servicio::find($id)->update([
+                                        'habilitado_servicio' =>0,
+                                            ]);
+        return redirect('/empresas/'.$empresa.'/servicios');
+    }
+
+    public function habilitar($empresa,$id){
+        
+        $servicio =Servicio::find($id)->update([
+                                        'habilitado_servicio' =>1,
+                                            ]);
+
+        return redirect('/empresas/'.$empresa.'/servicios');
     }
 
     public function destroy($empresa,$id){
-        dd("entro");
+        $servicio = Servicio::find($id);
+
+        $prex               = "servicios";
+        $imgController      = new ImgController();
+        $imgController->DeleteThumbnails($servicio->nombre_imagen_servicio, $prex);
+
+        $servicio->delete();
+         return redirect('/empresas/'.$empresa.'/servicios');
+
         // $imagenes = Imagen::where('id_producto',$id);
         // foreach ($imagenes->get() as $imagen) {
         //     $prex               = "productos";
@@ -116,6 +129,5 @@ class ServiciosController extends Controller
         //     $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
         // };
         // $imagenes->delete();
-        // return redirect('/empresas/'.$id.'/productos');
     }
 }

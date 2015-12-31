@@ -18,11 +18,18 @@ class ProductosController extends Controller
 
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['index','show','update', 'create' ,'edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['index',
+                                                 'show',
+                                                 'update', 
+                                                 'create' ,
+                                                 'edit',
+                                                 'destroy', 
+                                                 'deshabilitar', 
+                                                 'habilitar'
+                                                 ]]);
     }
 
     public function find(Route $route){
-        //$this->empresa = Empresas::find($route->getParameter('admin_empresas'));
         $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
                                 ->where('id_empresa',$route->getParameter('empresas'))
                                 ->first();
@@ -35,7 +42,7 @@ class ProductosController extends Controller
     public function index($id_empresa){
         $productos = json_encode(
                         Producto::where('id_empresa', $id_empresa)
-                                    ->where('habilitado_producto',1)
+                                  //  ->where('habilitado_producto',1)
                                     ->paginate(10)
                                     ->toArray()
                     );
@@ -148,18 +155,23 @@ class ProductosController extends Controller
 
     public function deshabilitar($empresa,$id){
         
-        $imagenes = Imagen::where('id_producto',$id);
-        foreach ($imagenes->get() as $imagen) {
-            $prex               = "productos";
-            $imgController      = new ImgController();
-            $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
-        };
-        $imagenes->delete();
-        return redirect('/empresas/'.$id.'/productos');
+        $producto = Producto::find($id)->update([
+                                        'habilitado_producto' =>0,
+                                            ]);
+
+        return redirect('/empresas/'.$empresa.'/productos');
+    }
+
+    public function habilitar($empresa,$id){
+        
+        $producto = Producto::find($id)->update([
+                                        'habilitado_producto' =>1,
+                                            ]);
+
+        return redirect('/empresas/'.$empresa.'/productos');
     }
 
     public function destroy($empresa,$id){
-        dd("entro");
         $imagenes = Imagen::where('id_producto',$id);
         foreach ($imagenes->get() as $imagen) {
             $prex               = "productos";
@@ -167,6 +179,7 @@ class ProductosController extends Controller
             $imgController->DeleteThumbnails($imagen->nombre_imagen_producto, $prex);
         };
         $imagenes->delete();
-        return redirect('/empresas/'.$id.'/productos');
+        Producto::find($id)->delete();
+        return redirect('/empresas/'.$empresa.'/productos');
     }
 }

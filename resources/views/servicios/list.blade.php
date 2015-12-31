@@ -32,7 +32,7 @@
 		@include('alerts.mensaje_success')
 		@include('alerts.mensaje_error')
 		
-		<div ng-init="url='{{url()}}/'"></div>
+		<div ng-init="url='{{url()}}'"></div>
 		<section>
         	<div class="row" ng-init="array={{$servicios}}">
 		        <div class="col-sm-12 padding-right">
@@ -41,22 +41,30 @@
 		                    <div class="product-image-wrapper">
 		                        <div class="single-products">
 		                            <div class="productinfo text-center">
-		                                <img ng-src="[[ url + 'uploads/servicios/high/'+ item.url_imagen_servicio]]" alt="">
+		                                <img ng-src="[[ url + '/uploads/servicios/high/'+ item.url_imagen_servicio]]" alt="">
 		                                <h2>[[item.precio_servicio]] BsF</h2>
 		                                <p>[[item.nombre_servicio]].</p>
+
+		                                <p class="btn btn-danger" ng-show="item.habilitado_servicio==0">Servicio Deshabilitado</p>
+		                                <p class="btn btn-success" ng-show="item.habilitado_servicio==1">Servicio Activo</p>
+		                              <br><br>
 		                                <div class="row">
-		                                	<div class="col-md-3"></div>
-		                                	<div class="col-md-2">
+		                                	<div class="col-md-2 col-md-offset-2">
 			                                	<a  href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio ]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
 			                                	<a  href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/edit' ]]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Editar"><i class="fa fa-pencil-square-o"></i></a>
 			                            	</div>
-			                                <div class="col-md-2">
-			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/deshabilitar' ]]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-trash-o"></i></a>
+			                                <div class="col-md-2" ng-if="item.habilitado_servicio==1">
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/deshabilitar' ]]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Deshabilitar"><i class="fa fa-trash-o"></i></a>
 			                            	</div>	
-			                            			                            	
-			                            </div>
+			                                <div class="col-md-2" ng-if="item.habilitado_servicio==0">
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/habilitar' ]]" class="btn btn-default btn-success-hover" data-toggle="tooltip" data-title="Habilitar"><i class="fa fa-trash"></i></a>
+			                            	</div>	
+			                                <div class="col-md-2">
+			                                	<a href="[[ url + '/empresas/' + item.id_empresa + '/servicios/' + item.id_servicio + '/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-remove"></i></a>
+			                            	</div>				                            	
+			                            </div>			                            
 		                            	<br>
 		                            </div>
 		                        </div>

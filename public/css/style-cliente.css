@@ -171,3 +171,6 @@ a#scrollUp {
 .text-muted {
   color: #721520;
 }
+.cart_delete a {
+  border-radius: 3px;
+}

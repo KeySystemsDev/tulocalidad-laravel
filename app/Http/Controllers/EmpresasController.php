@@ -81,8 +81,10 @@ class EmpresasController extends Controller
                                     'id_red_social'=> $request['id_red_social'.$i],
                                     'id_empresa'=>$this->empresa->id_empresa]);
             }
-        }       
-        return redirect('/empresas');
+        } 
+        $json = ["success"=>true,]
+        return json_encode()      
+        //return redirect('/empresas');
     }
 
     public function show($id_empresa){

@@ -17,7 +17,7 @@ class EmpresasController extends Controller
 {
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['show','store','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['show','update','edit','destroy']]);
     }
 
     public function find(Route $route){
@@ -61,7 +61,7 @@ class EmpresasController extends Controller
     }
 
     public function store(Request $request){
-        //dd($request->all());
+
         $imgController  = new ImgController();
         $nombre_carpeta = 'empresas';
         $result         = $imgController->create_thumbnails($request->namefile, $nombre_carpeta);
@@ -72,19 +72,20 @@ class EmpresasController extends Controller
             for ($i=0 ; $i < $request->cantidad_telefonos ; $i++){
                 Telefonos::create(['numero_telefono'=>$request['telefonos'.$i],
                                     //'codigo_telefono'=> $request->codigos[$value],
-                                    'id_empresa'=>$this->empresa->id_empresa]);
+                                    'id_empresa'=>$empresa->id_empresa]);
             }
         }
         if ($request->cantidad_redes>0){
             for ($i=0 ; $i<$request->cantidad_redes ; $i++) {
                 MMRedes::create(['identificador_red'=>$request['identificador_red'.$i],
                                     'id_red_social'=> $request['id_red_social'.$i],
-                                    'id_empresa'=>$this->empresa->id_empresa]);
+                                    'id_empresa'=>$empresa->id_empresa]);
             }
-        } 
-        $json = ["success"=>true,]
-        return json_encode()      
-        //return redirect('/empresas');
+        };
+        $json = [
+                'success'=>true,
+        ];
+        return json_encode($json);
     }
 
     public function show($id_empresa){
@@ -152,7 +153,10 @@ class EmpresasController extends Controller
         }
         
 
-        return redirect('/empresas');
+        $json = [
+                'success'=>true,
+        ];
+        return json_encode($json);
     }
 
     public function destroy($id){

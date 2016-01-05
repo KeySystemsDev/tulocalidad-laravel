@@ -27,15 +27,15 @@ class ClientController extends Controller {
 		return view('/clientes/index');
 	}
 
-	public function DetalleEmpresa(){
+	public function DetalleEmpresa($id_empresa){
 		return view('/clientes/detalle-empresa');
 	}
 
-	public function DetalleProducto(){
+	public function DetalleProducto($id_producto){
 		return view('/clientes/detalle-producto');
 	}
 
-	public function DetalleServicio(){
+	public function DetalleServicio($id_servicio){
 		return view('/clientes/detalle-servicio');
 	}
 
@@ -51,8 +51,13 @@ class ClientController extends Controller {
 	}
 
 	public function listarProductos(Request $request){
-		$model = Producto::where('habilitado_producto', 1)->get();
-		//dd($model);
+
+        $model = json_encode(
+                        Producto::where('habilitado_producto', 1)
+                            ->paginate(10)
+                            ->toArray()
+                        );
+        
 		return view('/clientes/list-productos',["productos"=>$model]);
 	}
 

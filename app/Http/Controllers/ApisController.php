@@ -42,7 +42,9 @@ class ApisController extends Controller {
 
 	public function getPerfilEmpresa($empresa){
 		$model = Empresa::find($empresa);
-
+		if (!$model){
+					return json_encode(["success" => false,]);
+		}
 		return json_encode([
 						"success" => true,
 						"data" => $model,
@@ -51,11 +53,57 @@ class ApisController extends Controller {
 
 	public function getDetalleProducto($producto){
 		$model = Producto::find($producto);
+		if (!$model){
+					return json_encode(["success" => false,]);
+		}
+		return json_encode([
+						"success" => true,
+						"data" => $model,
+						]);
+	}
+
+	public function getDetalleServicios($servicio){
+		$model = Servicio::find($servicio);
+		if (!$model){
+					return json_encode(["success" => false,]);
+		}
+		return json_encode([
+						"success" => true,
+						"data" => $model,
+						]);
+	}
+
+	public function listCarrito($id){
+		$model = Carrito::where('id_usuario', $id)->get()->toArray();
 
 		return json_encode([
 						"success" => true,
 						"data" => $model,
 						]);
+	}
+
+
+	public function agregarCarrito(Request $request){
+		Carrito::create([
+						"id_producto"=>$request->id_producto,
+						"id_usuario"=>$request->id_usuario,
+						"cantidad_producto_carrito"=>$request->cantidad_producto,
+						]);
+		
+		return json_encode([
+						"success" => true,
+						]);
+	}
+
+	public function eliminarCarrito(Request $request){
+		$producto_carrito = Carrito::find($request->id_producto_carrito);
+		if(!$producto_carrito){
+			return json_encode(["success" => false,]);
+		};
+		$producto = Producto::find($producto_carrito->id_producto);
+		
+		$producto_carrito->delete();
+		return json_encode(["success" => true,]);
 	}
 
 }

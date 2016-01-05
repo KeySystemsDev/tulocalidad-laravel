@@ -10,7 +10,7 @@
 				<div class="modal-body">
 	                <div class="row">
 	                	<div class="col-md-3">
-	                		<img ng-src="[[url + 'uploads/productos/low/' + producto.primera_imagen.nombre_imagen_producto]]">
+	                		<img class="img-cart-add" ng-src="[[url + 'uploads/productos/low/' + producto.primera_imagen.nombre_imagen_producto]]">
 	                	</div>
 	                	<div class="col-md-5">
 	                		<div class="media-body">

@@ -45,7 +45,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="{{ url('detalle-producto') }}">
+										<a href="[[url + 'detalle-producto/' + item.id_producto]]">
 											<img ng-src="[[url + 'uploads/productos/high/' + item.primera_imagen.nombre_imagen_producto]]" alt="">
 										</a>
 										<h2>[[item.precio_producto]] BsF</h2>

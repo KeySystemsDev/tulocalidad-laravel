@@ -59,7 +59,7 @@
 								<p class="cart_total_price">{{$producto['data_producto']['precio_producto']}} BsF</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="{{ url( '/eliminar-carrito/'.$producto['id_producto']) }}"><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="{{ url( '/eliminar-carrito/'.$producto['id_carrito']) }}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						@endforeach

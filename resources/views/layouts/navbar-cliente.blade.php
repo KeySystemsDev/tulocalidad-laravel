@@ -33,38 +33,21 @@
                 </a>
             </li>
             @endif
-            @if(Auth::check())
-            <li class="dropdown">
+            @if(Auth::check())    
+
+            <li class="dropdown" ng-init="usuario= {{Auth::user() }}">
                 <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
                     <i class="fa fa fa-shopping-cart"></i>
-                    <span class="label">3</span>
+                    <span class="label">[[usuario.numero_articulos]]</span>
                 </a>
                 <ul class="dropdown-menu media-list pull-right animated fadeInDown">
-                    <li class="dropdown-header">Total: 3000 Bs</li>
-                    <li class="media">
+                    <li class="dropdown-header">Total: [[usuario.costo_carrito]] Bs</li>
+                    <li class="media" ng-repeat="articulo in usuario.articulos">
                         <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
+                            <div class="media-left"><img src="{{ url('/uploads/productos/low') }}/[[articulo.data_producto.primera_imagen.nombre_imagen_producto]]" class="media-object" alt=""></div>
                             <div class="media-body">
-                                <h5 class="media-heading">Cosmetido de Bellza</h5>
-                                <div class="text-muted f-s-11">400 BsF</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="media">
-                        <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
-                            <div class="media-body">
-                                <h5 class="media-heading">Guitarra</h5>
-                                <div class="text-muted f-s-11">400 BsF</div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="media">
-                        <a href="javascript:;">
-                            <div class="media-left"><img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" class="media-object" alt=""></div>
-                            <div class="media-body">
-                                <h5 class="media-heading">Zapatos adiddas</h5>
-                                <div class="text-muted f-s-11">400 BsF</div>
+                                <h5 class="media-heading">[[articulo.data_producto.nombre_producto]]</h5>
+                                <div class="text-muted f-s-11">[[articulo.data_producto.precio_producto]] BsF</div>
                             </div>
                         </a>
                     </li>

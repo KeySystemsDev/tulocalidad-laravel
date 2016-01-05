@@ -5,12 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 class Carrito extends Model {
 
 	protected $table = 't_carrito';
-	protected $fillable = ['id_producto','id_usuario'];
+	protected $fillable = ['id_producto','id_usuario','cantidad_producto_carrito'];
 	protected $primaryKey = "id_carrito";
 
 
 	public $cast = ['data_producto' 			=> 'array',
 					'imagenes_producto' 		=> 'array',
+					'cantidad_producto_carrito' => 'integer',
 					];
 
 	protected $appends = ['data_producto','imagenes_producto'];
@@ -22,5 +23,4 @@ class Carrito extends Model {
 	public function getImagenesProductoAttribute(){
         return Imagen::where('id_producto',$this->id_producto)->get(['nombre_imagen_producto']);
     }
-
 }

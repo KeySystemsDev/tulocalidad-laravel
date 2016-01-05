@@ -56,23 +56,33 @@ class ClientController extends Controller {
 		return view('/clientes/list-productos',["productos"=>$model]);
 	}
 
-	public function agregarACarrito($id_producto){
+	public function agregarACarrito($id_producto,$cantidad_producto=1){
 		Carrito::create([
-					"id_producto"=>$id_producto,
-					"id_usuario"=>Auth::user()->id_usuario,
+						"id_producto"=>$id_producto,
+						"id_usuario"=>Auth::user()->id_usuario,
+						"cantidad_producto_carrito"=>2,
 						]);
-
+		$producto = Producto::find($id_producto);
+		//dd($producto->precio_producto);
+		//$user = Auth::user();
+		//$user->costo_carrito =$user->costo_carrito + $producto->precio_producto;
+		//$user->save();
 		return redirect('/lista-carrito');
 		//$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get();
 		//return view('/clientes/list-productos',["productos"=>$model]);
 	}
 
-	public function eliminarDeCarrito($id_producto){
-		Carrito::where([
-					"id_producto"=>$id_producto,
-					"id_usuario"=>Auth::user()->id_usuario,
-					])->delete();
-
+	public function eliminarDeCarrito($id_producto_carrito){
+		$producto_carrito = Carrito::find($id_producto_carrito);
+		if(!$producto_carrito){
+			return redirect('/lista-carrito');
+		};
+		$producto = Producto::find($producto_carrito->id_producto);
+		
+		//$user = Auth::user();
+		//$user->costo_carrito = $user->costo_carrito - $producto->precio_producto ;
+		//$user->save();	
+		$producto_carrito->delete();
 		return redirect('/lista-carrito');
 		//$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get();
 		//return view('/clientes/list-productos',["productos"=>$model]);

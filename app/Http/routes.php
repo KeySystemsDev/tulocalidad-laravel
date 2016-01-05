@@ -65,7 +65,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('/empresas/{empresas}/productos/{productos}/delete/{imagen}','ProductosController@destroyImagen');
 
 //	CARRITO DE COMPRA //
-	Route::get('/agregar-carrito/{id_producto}','ClientController@agregarACarrito');
+	Route::post('/agregar-carrito/','ClientController@agregarACarrito');
 	Route::get('/eliminar-carrito/{id_producto}','ClientController@eliminarDeCarrito');
 	Route::get('/lista-carrito/','ClientController@listarCarrito');
 	Route::get('/comprar/','ClientController@comprar');

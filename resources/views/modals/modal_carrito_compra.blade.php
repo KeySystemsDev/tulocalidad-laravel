@@ -6,6 +6,7 @@
 				<h4 class="modal-title"><i class="fa fa fa-shopping-cart"></i> Carrito</h4>
 			</div>
 			<form class="form-horizontal" name="formulario" id="formulario" action="{{ url('agregar-carrito') }}" method="POST">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="modal-body">
 	                <div class="row">
 	                	<div class="col-md-3">

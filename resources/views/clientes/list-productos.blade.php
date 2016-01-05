@@ -29,35 +29,59 @@
         </div>
     </div>
 	
-	<section>
+	<div ng-init="url='{{url()}}/'"></div>
+	<section ng-init="array={{ $productos}}">
 		<div class="container">
 			<div class="row">
 				@include('layouts/categorias-cliente')
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Lista de Productos</h2>
-
-						@foreach($productos as $producto)
-						<div class="col-sm-4">
+						<h2 class="title text-center">Lista de Productos</h2>						
+						<div class="col-sm-4" ng-repeat="item in array.data">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
 										<a href="{{ url('detalle-producto') }}">
-											<img src="{{ url('/uploads/productos/low/'.$producto->primera_imagen['nombre_imagen_producto']) }}" alt="">
+											<img ng-src="[[url + 'uploads/productos/high/' + item.primera_imagen.nombre_imagen_producto]]" alt="">
 										</a>
-										<h2>{{$producto->precio_producto}} BsF</h2>
-										<p>{{$producto->nombre_producto}}n</p>
-										<a href="{{ url( '/agregar-carrito/'.$producto->id_producto) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										<h2>[[item.precio_producto]] BsF</h2>
+										<p>[[item.nombre_producto]]</p>
+										<a href="[[url + 'agregar-carrito/' + item.id_producto]]" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						@endforeach
+						
 					</div><!--features_items-->
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<center>
+		<ul class="pagination" ng-if="array.total">
+			<li ng-if="array.current_page-2 >= 1">
+				<a href="[[array.prev_page_url]]"><</a>
+			</li>
+
+			<li ng-if="array.prev_page_url">
+				<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
+			</li>
+
+			<li class="active">
+				<a href="">[[array.current_page]]</a>
+			</li>
+
+			<li ng-if="array.next_page_url">
+				<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
+			</li>
+
+			<li ng-if="array.current_page+2 <= array.last_page ">
+				<a href="[[array.next_page_url]]">></a>
+			</li>
+		</ul>
+	</center>
+
 
 	@include('layouts/footer-cliente')
 

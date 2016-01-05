@@ -174,3 +174,7 @@ a#scrollUp {
 .cart_delete a {
   border-radius: 3px;
 }
+.pagination li a:hover {
+  background: #721520;
+  color: #fff;
+}

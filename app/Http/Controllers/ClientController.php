@@ -54,7 +54,7 @@ class ClientController extends Controller {
 
         $model = json_encode(
                         Producto::where('habilitado_producto', 1)
-                            ->paginate(10)
+                            ->paginate(12)
                             ->toArray()
                         );
         

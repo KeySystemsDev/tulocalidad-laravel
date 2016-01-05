@@ -39,17 +39,17 @@ class ClientController extends Controller {
 	}
 
 	public function DetalleEmpresa($id){
-		$model = Empresa::find($id);
+		$model = Empresa::find($id)->toArray();
 		return view('/clientes/detalle-empresa', ["empresa"=>$model]);
 	}
 
 	public function DetalleProducto($id){
-		$model = Producto::find($id);
+		$model = Producto::find($id)->toArray();
 		return view('/clientes/detalle-producto',["producto"=>$model]);
 	}
 
 	public function DetalleServicio($id){
-		$model = Servicio::find($id);
+		$model = Servicio::find($id)->toArray();
 		return view('/clientes/detalle-servicio',["servicio"=>$model]);
 	}
 

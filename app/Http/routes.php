@@ -31,9 +31,9 @@ Route::get('/lista-empresas','ClientController@listarEmpresas');
 Route::get('/lista-productos','ClientController@listarProductos');
 Route::get('/lista-servicios','ClientController@listarServicios');
 
-Route::get('/detalle-empresa','ClientController@DetalleEmpresa');
-Route::get('/detalle-producto','ClientController@DetalleProducto');
-Route::get('/detalle-servicio','ClientController@DetalleServicio');
+Route::get('/detalle-empresa/{id}','ClientController@DetalleEmpresa');
+Route::get('/detalle-producto/{id}','ClientController@DetalleProducto');
+Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
 
 
 

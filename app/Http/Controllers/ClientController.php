@@ -21,31 +21,53 @@ class ClientController extends Controller {
 
 	public function index(){
 		$productos = Producto::where('habilitado_producto',1)
-							->orderBy('id_producto','desc')
-							->get();
+							->get()
+							->random(6);
+		
+		$servicios = Servicio::where('habilitado_servicio',1)
+							->get()
+							->random(4);
 
-		return view('/clientes/index');
+		$empresas = Empresa::where('habilitado_empresa',1)
+							->get()
+							->random(6);
+
+		return view('/clientes/index',["productos"=>$productos,
+										"servicios"=>$servicios,
+										"empresas"=>$empresas,
+										]);
 	}
 
-	public function DetalleEmpresa($id_empresa){
-		return view('/clientes/detalle-empresa');
+	public function DetalleEmpresa($id){
+		$model = Empresa::find($id);
+		return view('/clientes/detalle-empresa', ["empresa"=>$model]);
 	}
 
-	public function DetalleProducto($id_producto){
-		return view('/clientes/detalle-producto');
+	public function DetalleProducto($id){
+		$model = Producto::find($id);
+		return view('/clientes/detalle-producto',["producto"=>$model]);
 	}
 
-	public function DetalleServicio($id_servicio){
-		return view('/clientes/detalle-servicio');
+	public function DetalleServicio($id){
+		$model = Servicio::find($id);
+		return view('/clientes/detalle-servicio',["servicio"=>$model]);
 	}
 
 	public function listarServicios(){
-		return view('/clientes/list-servicios');
+        $model = json_encode(
+						Servicio::where('habilitado_servicio', 1)->get()
+                            ->paginate(12)
+                            ->toArray()
+                        );
+		return view('/clientes/list-servicios',["servicios"=>$model]);
 	}	
 
 	public function listarEmpresas(Request $request){
-		$model = Empresa::where('habilitado_empresa', 1)->get();
-
+        $model = json_encode(
+                        Empresa::where('habilitado_empresa', 1)->get()
+                            ->paginate(12)
+                            ->toArray()
+                        );
 		return view('/clientes/list-empresas',["empresas"=>$model]);
 		//return json_encode(["success" => true,"data" => $model,]);
 	}

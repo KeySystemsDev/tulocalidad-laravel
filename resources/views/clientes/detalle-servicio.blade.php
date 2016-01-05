@@ -29,30 +29,29 @@
 			<div class="row">
 
 				@include('layouts/categorias-cliente')
+
+				<div ng-init="servicio = {{$servicio}}"></div>
+				<div ng-init="url='{{url()}}/'"></div>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="{{ asset('/img/no-imagen.jpg') }}" alt="">
+								<img ng-src="[[ url + 'uploads/servicios/high/' + servicio.url_imagen_servicio ]]" alt="">
 							</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<!--<img src="images/product-details/new.jpg" class="newarrival" alt="">-->
-								<h2>Nombre Del Servicio</h2>
-								<p>Web ID: 1089772</p>
-								<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">
-								<br>
+								<h2>[[servicio.nombre_servicio]]</h2>
+								<p>Web ID: [[servicio.id_servicio]]</p>
+								<!--<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">-->
 								<span>
-									<span>59 BsF</span>
-									<button type="button" class="btn btn-info cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
+									<span>[[servicio.precio_servicio]] BsF</span>
 								</span>
-								<p><b>Servicio:</b> Disponible</p>
-								<p><b>Vendidos:</b> 2</p>
+								<p><b>Creado:</b> [[servicio.created_at]]</p>
+								<p><b>Categoría:</b> [[servicio.nombre_categoria]]</p> 
+								<!--<p><b>Vendidos:</b> 2</p>-->
 								<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>
 							</div><!--/product-information-->
 						</div>
@@ -61,20 +60,19 @@
 					<div class="category-tab shop-details-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#details" data-toggle="tab">Details</a></li>
+								<li class="active"><a href="#details" data-toggle="tab">Detalle</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="reviews">
 								<div class="col-sm-12">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><b>Write Your Review</b></p>
+									<p>[[servicio.descripcion_servicio]]</p>
 								</div>
 							</div>				
 						</div>
 					</div><!--/category-tab-->
 					
-					<div class="recommended_items"><!--recommended_items-->
+					<!--<div class="recommended_items">
 						<h2 class="title text-center">Servicios relacionados</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -163,7 +161,7 @@
 								<i class="fa fa-angle-right"></i>
 							  </a>			
 						</div>
-					</div><!--/recommended_items-->
+					</div>-->
 					
 				</div>
 			</div>

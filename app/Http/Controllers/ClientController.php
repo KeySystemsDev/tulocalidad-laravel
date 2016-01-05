@@ -39,21 +39,21 @@ class ClientController extends Controller {
 	}
 
 	public function DetalleEmpresa($id){
-		$model = Empresa::find($id)->toArray();
-		$model_ser = Sevicio::where('id_empresa',$id)->toArray();
-		$model_prod = Producto::where('id_empresa',$id)->toArray();
+		$model = (string) Empresa::find($id);
+		$model_ser = (string) Sevicio::where('id_empresa',$id);
+		$model_prod = (string) Producto::where('id_empresa',$id);
 		return view('/clientes/detalle-empresa', ["empresa"=>$model,
 												  "servicios"=>$model_ser,
 												  "productos"=>$model_prod,]);
 	}
 
 	public function DetalleProducto($id){
-		$model = Producto::find($id)->toArray();
+		$model = (string) Producto::find($id);
 		return view('/clientes/detalle-producto',["producto"=>$model]);
 	}
 
 	public function DetalleServicio($id){
-		$model = Servicio::find($id)->toArray();
+		$model = (string) Servicio::find($id);
 		return view('/clientes/detalle-servicio',["servicio"=>$model]);
 	}
 

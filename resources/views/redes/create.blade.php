@@ -42,8 +42,13 @@
 				<br>
 
 				<div class="from-group">
-					<label for="">incono</label>
+					<label for="">Icono web</label>
 					<input type="text" class="form-control" ng-model="model.icon_red_social" name="icon_red_social">
+				</div>
+
+				<div class="from-group">
+					<label for="">Icono movil</label>
+					<input type="text" class="form-control" ng-model="model.icon_red_social_movil" name="icon_red_social_movil">
 				</div>
 				<br>
 	            		

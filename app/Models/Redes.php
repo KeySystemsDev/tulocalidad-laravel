@@ -6,6 +6,7 @@ class Redes extends Model {
 	protected $table = 't_redes_sociales';
 	protected $fillable = ['nombre_red_social',
 							'icon_red_social',
+							'icon_red_social_movil',
 							'url_red_social',
 							'share_url_red_social',
 							'habilitado_red_social'];
@@ -16,6 +17,7 @@ class Redes extends Model {
 
 	public $cast = ['nombre_red_social' 			=> 'string',
 					'icon_red_social' 				=> 'string',
+					'icon_red_social_movil' 		=> 'string',
 					'url_red_social' 				=> 'string',
 					'share_url_red_social'			=> 'string',
 					'habilitado_red_social'			=> 'integer',

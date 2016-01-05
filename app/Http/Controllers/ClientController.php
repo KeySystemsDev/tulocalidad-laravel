@@ -59,7 +59,7 @@ class ClientController extends Controller {
 
 	public function listarServicios(){
         $model = json_encode(
-						Servicio::where('habilitado_servicio', 1)->get()
+						Servicio::where('habilitado_servicio', 1)
                             ->paginate(12)
                             ->toArray()
                         );
@@ -68,7 +68,7 @@ class ClientController extends Controller {
 
 	public function listarEmpresas(Request $request){
         $model = json_encode(
-                        Empresa::where('habilitado_empresa', 1)->get()
+                        Empresa::where('habilitado_empresa', 1)
                             ->paginate(12)
                             ->toArray()
                         );

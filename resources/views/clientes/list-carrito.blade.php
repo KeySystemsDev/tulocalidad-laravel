@@ -28,7 +28,8 @@
             </div>
         </div>
     </div>
-
+	
+	@if($productos)
 	<section id="cart_items">
 		<div class="container">
 			<div class="cart_info">
@@ -95,6 +96,20 @@
 			</div>
 		</div>
 	</section>
+	
+	@else
+	<section id="do_action">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 cart-none">
+					<i class="fa fa fa-shopping-cart"></i>
+					<h1> No tiene Productos en su Carrito.</h1>
+				</div>
+			</div>
+		</div>
+	</section>
+	@endif
+
 
 	@include('layouts/footer-cliente')
 	

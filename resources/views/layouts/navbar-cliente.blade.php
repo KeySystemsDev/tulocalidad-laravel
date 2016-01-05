@@ -38,7 +38,7 @@
             <li class="dropdown" ng-init="usuario= {{Auth::user() }}">
                 <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
                     <i class="fa fa fa-shopping-cart"></i>
-                    <span class="label">[[usuario.numero_articulos]]</span>
+                    <span class="label" ng-if="usuario.numero_articulos != 0">[[usuario.numero_articulos]]</span>
                 </a>
                 <ul class="dropdown-menu media-list pull-right animated fadeInDown">
                     <li class="dropdown-header">Total: [[usuario.costo_carrito]] Bs</li>

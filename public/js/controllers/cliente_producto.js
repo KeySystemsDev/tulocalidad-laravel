@@ -8,5 +8,5 @@ coreApp.controller('ClienteProducto', function($scope, $log, ajax, $window, $htt
         $scope.producto = item;
     }
 
-    $scope.letterLimit = 18;
+    $scope.letterLimit = 10;
 });

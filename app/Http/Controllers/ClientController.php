@@ -40,7 +40,7 @@ class ClientController extends Controller {
 
 	public function DetalleEmpresa($id){
 		$model = (string) Empresa::find($id);
-		$model_ser = (string) Sevicio::where('id_empresa',$id);
+		$model_ser = (string) Servicio::where('id_empresa',$id);
 		$model_prod = (string) Producto::where('id_empresa',$id);
 		return view('/clientes/detalle-empresa', ["empresa"=>$model,
 												  "servicios"=>$model_ser,

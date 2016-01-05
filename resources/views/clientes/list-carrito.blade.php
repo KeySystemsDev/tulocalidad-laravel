@@ -37,8 +37,9 @@
 						<tr class="cart_menu">
 							<td class="image">Carrito</td>
 							<td class="description"></td>
+							<td class="price">Cantidad</td>
 							<td class="price">Precio</td>
-							<td class="total">Total</td>
+							<td class="total">Sub Total</td>
 							<td></td>
 						</tr>
 					</thead>
@@ -53,10 +54,13 @@
 								<p>Web ID: 1089772</p>
 							</td>
 							<td class="cart_price">
+								<p>{{$producto['cantidad_producto_carrito']}}</p>
+							</td>
+							<td class="cart_price">
 								<p>{{$producto['data_producto']['precio_producto']}} BsF</p>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">{{$producto['data_producto']['precio_producto']}} BsF</p>
+								<p class="cart_total_price">{{$producto['sub_total']}} BsF</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href="{{ url( '/eliminar-carrito/'.$producto['id_carrito']) }}"><i class="fa fa-times"></i></a>

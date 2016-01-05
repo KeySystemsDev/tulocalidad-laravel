@@ -1,8 +1,12 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/cliente_producto.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ClienteProducto">
 	
 	@include('layouts/navbar-cliente')
 	
@@ -46,7 +50,8 @@
 										</a>
 										<h2>[[item.precio_producto]] BsF</h2>
 										<p>[[item.nombre_producto]]</p>
-										<a href="[[url + 'agregar-carrito/' + item.id_producto]]" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										<a ng-click="modalInfo(item)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+			                            @include('modals/modal_carrito_compra')
 									</div>
 								</div>
 							</div>

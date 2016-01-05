@@ -178,3 +178,17 @@ a#scrollUp {
   background: #721520;
   color: #fff;
 }
+.btn-sm-carrito{
+ padding: 5px 10px;
+}
+.nombre-carrito-detalle-modal{
+  float: left;
+  margin-top: 8px!important;
+}
+.price-carrito-detalle-modal{
+  position: absolute;
+  margin-top: 32px!important;
+}
+.select-cantidad-producto{
+  margin-top: 10px;
+}

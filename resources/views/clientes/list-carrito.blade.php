@@ -52,7 +52,7 @@
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{$producto['data_producto']['nombre_producto']}}</a></h4>
-								<p>Web ID: 1089772</p>
+								<p>Web ID: {{$producto['data_producto']['id_producto']}}</p>
 							</td>
 							<td class="cart_price">
 								<p>{{$producto['cantidad_producto_carrito']}}</p>

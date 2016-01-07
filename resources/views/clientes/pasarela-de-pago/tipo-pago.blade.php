@@ -6,7 +6,7 @@
 	
 	@include('layouts/navbar-admin')
 
-    @include('layouts/sidebar-admin')
+    
 	
 	<div id="content" class="content ng-scope">
         

@@ -1,8 +1,12 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/compra.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ComprarController">
 	
 	@include('layouts/navbar-cliente')
 
@@ -49,7 +53,7 @@
 						<tbody>
 							@foreach($articulos as $producto)
 							<tr>
-								<td class="cart_product">
+								<td class="cart_product" >
 									<a href=""><img src="{{ url('/uploads/productos/low/'.$producto['data_producto']['primera_imagen']['nombre_imagen_producto']) }}" alt=""></a>
 								</td>
 								<td class="cart_description">
@@ -78,21 +82,20 @@
 
 		<section id="do_action">
 			<div class="container">
-				<div class="heading">
+				<!--<div class="heading">
 					<h3>Seguro que desea comprar los productos?</h3>
 					<p>Todos los productos seran borrados de su carrito de compra una vez efectue la operación.</p>
-				</div>
+				</div>-->
 				<div class="row">
 					
 					<div class="col-sm-6">
 						<div class="total_area">
 							<ul>
-								<li>Cart Sub Total <span>$59</span></li>
-								<li>Eco Tax <span>$2</span></li>
+								<li>Empresa <span>{{$empresa}}</span></li>
 								<li>Shipping Cost <span>Free</span></li>
 								<li>Total <span>$61</span></li>
 							</ul>
-								<a class="btn btn-info update" href="{{ url( '/comprar/metodo-pago' ) }}">Comprar <i class="fa fa fa-shopping-cart"></i></a>
+								<a class="btn btn-info update" ng-click="pagoInfo({{$articulos[0]['data_producto']['id_empresa']}})" href="#modal_compra" data-toggle="modal">Comprar <i class="fa fa fa-shopping-cart"></i></a>
 						</div>
 					</div>
 				</div>
@@ -113,8 +116,8 @@
 	</section>
 	@endif
 
-
-	@include('layouts/footer-cliente')
 	
+	@include('layouts/footer-cliente')
+	@include('modals/modal-comprar')
 </div>
 @endsection

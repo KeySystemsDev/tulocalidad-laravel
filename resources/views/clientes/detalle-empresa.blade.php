@@ -30,26 +30,29 @@
 
 				@include('layouts/categorias-cliente')
 				
+				<div ng-init="empresa = {{$empresa}}"></div>
+				<div ng-init="url='{{url()}}/'"></div>
+				
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
 							<div class="view-product">
-								<img src="{{ asset('/img/no-imagen.jpg') }}" alt="">
+								<img ng-src="[[url + 'uploads/empresas/high/' + empresa.url_imagen_empresa]]" alt="">
 							</div>
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<!--<img src="images/product-details/new.jpg" class="newarrival" alt="">-->
-								<h2>Nombre de Empresa</h2>
-								<p>RIF: 108977-2</p>
-								<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">
-								<br>
-								<span>
-									<span>04127058454</span>
+								<h2>[[empresa.nombre_empresa]]</h2>
+								<p>RIF: [[empresa.rif_empresa]]</p>
+								<p>Web ID: [[empresa.id_empresa]]</p>
+								<!--<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">-->
+								<span ng-repeat="telefono in empresa.telefonos">
+									<span>[[telefono.numero_telefono]]</span>
 								</span>
-								<p><b>Servicio:</b> Asesoría Informática</p>
-								<p><b>Correo:</b> example@gmail.com</p>
-								<p><b>Web:</b> <a href="#"> http://example@gmail.com </a></p>
+								<p><b>Estado:</b> [[empresa.nombre_estado]]</p>
+								<p><b>Correo:</b> [[empresa.correo_empresa]]</p>
+								<p><b>Web:</b> <a ng-href="[[empresa.web_empresa]]"> [[empresa.web_empresa]] </a></p>
 								<br>
 								<div class="row">
 									<div class="col-md-1 icon-redes-sociales">
@@ -77,16 +80,15 @@
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="details">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p><b>Write Your Review</b></p>
+								<p>[[empresa.descripcion_empresa]]</p>
 							</div>
 							
 							<div class="tab-pane fade" id="mapa">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p><b>Write Your Review</b></p>
-								<div ng-init="mapa = {id : 0, coords : { latitude: '10.322782133441358', longitude: '-67.0001533203125'} }"></div>
-		                    	<div ng-init="mapa_posicion = { zoom: 7, center : { latitude: '10.322782133441358', longitude: '-67.0001533203125'} }"></div>
+								<p>[[empresa.direccion_empresa]]</p>
+								<p><b>[[empresa.nombre_estado]]</b></p>
+								<div ng-init="mapa = {id : 0, coords : { latitude: [[empresa.latitud_empresa]], longitude: [[empresa.longitud_empresa]] } }"></div>
+		                    	<div ng-init="mapa_posicion = { zoom: 9, center : { latitude: [[empresa.latitud_empresa]], longitude: [[empresa.longitud_empresa]]} }"></div>
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-xs-12 col-maps">
 				                        <section class="panel panel-map">
@@ -214,7 +216,7 @@
 						</div>
 					</div>
 					
-					<div class="recommended_items"><!--recommended_items-->
+					<!--<div class="recommended_items">
 						<h2 class="title text-center">Empresas relacionados</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
@@ -303,7 +305,7 @@
 								<i class="fa fa-angle-right"></i>
 							  </a>			
 						</div>
-					</div><!--/recommended_items-->
+					</div>-->
 					
 				</div>
 			</div>

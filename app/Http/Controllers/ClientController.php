@@ -158,8 +158,19 @@ class ClientController extends Controller {
 	}
 		//Colo
 	public function postMercadopago1(){
-		//$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get()->toArray();
-		//dd($model);
+		$preference_data = array (
+		    "items" => array (
+		        array (
+		            "title" => "Test",
+		            "quantity" => 1,
+		            "currency_id" => "USD",
+		            "unit_price" => 10.4
+		        )
+		    )
+		);
+
+		$preference = $mp->create_preference($preference_data);
+
 		return view('/clientes/pasarela-de-pago/mercadopago1');
 	}
 

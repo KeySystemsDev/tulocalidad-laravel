@@ -29,7 +29,9 @@
         </div>
     </div>
 	
-	<section>
+	<div ng-init="url='{{url()}}/'"></div>
+	<section ng-init="array={{ $servicios}}">
+
 		<div class="container">
 			<div class="row">
 				
@@ -38,195 +40,51 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Lista de Servicios</h2>
-						<div class="col-sm-4">
+						
+						<div class="col-sm-4" ng-repeat="item in array.data">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="{{ url('detalle-servicio') }}">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product12.jpg') }}" alt="">
+										<a ng-href="[[ url + 'detalle-servicio/' + item.id_servicio]]">
+											<img ng-src="[[url + 'uploads/servicios/high/' + item.url_imagen_servicio]]" alt="">
 										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product11.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product10.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product9.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<img src="{{ asset('/cart/Eshopper/images/home/new.png') }}" class="new" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product8.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<img src="{{ asset('/cart/Eshopper/images/home/sale.png') }}" class="new" alt="">
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/shop/product7.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										<h2>[[item.precio_servicio]] BsF</h2>
+										<p>[[item.nombre_servicio]]</p>
+										
 									</div>
 								</div>
 							</div>
 						</div>
 						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<a href="#">
-											<img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="">
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">»</a></li>
-						</ul>
 					</div><!--features_items-->
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<center>
+		<ul class="pagination" ng-if="array.total">
+			<li ng-if="array.current_page-2 >= 1">
+				<a href="[[array.prev_page_url]]"><</a>
+			</li>
+
+			<li ng-if="array.prev_page_url">
+				<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
+			</li>
+
+			<li class="active">
+				<a href="">[[array.current_page]]</a>
+			</li>
+
+			<li ng-if="array.next_page_url">
+				<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
+			</li>
+
+			<li ng-if="array.current_page+2 <= array.last_page ">
+				<a href="[[array.next_page_url]]">></a>
+			</li>
+		</ul>
+	</center>
 
 
 	@include('layouts/footer-cliente')

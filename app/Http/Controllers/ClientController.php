@@ -22,19 +22,24 @@ class ClientController extends Controller {
 	public function index(){
 		$productos = Producto::where('habilitado_producto',1)
 							->get()
-							->random(6);
+							->random(12);
 		
 		$servicios = Servicio::where('habilitado_servicio',1)
 							->get()
 							->random(4);
 
-		$empresas = Empresa::where('habilitado_empresa',1)
+		$empresas_1 = Empresa::where('habilitado_empresa',1)
 							->get()
-							->random(6);
+							->random(3);
+
+		$empresas_2 = Empresa::where('habilitado_empresa',1)
+							->get()
+							->random(3);
 
 		return view('/clientes/index',["productos"=>$productos,
 										"servicios"=>$servicios,
-										"empresas"=>$empresas,
+										"empresas_1"=>$empresas_1,
+										"empresas_2"=>$empresas_2,
 										]);
 	}
 

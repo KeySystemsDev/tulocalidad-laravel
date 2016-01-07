@@ -1,10 +1,20 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/cliente_producto.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ClienteProducto">
 	
 	@include('layouts/navbar-cliente')
+	
+	<div ng-init="empresa_1={{$empresas_1}}"></div>
+	<div ng-init="empresa_2={{$empresas_2}}"></div>
+	<div ng-init="servicios={{$servicios}}"></div>
+	<div ng-init="productos={{$productos}}"></div>
+	<div ng-init="url='{{url()}}/'"></div>
 	
 	<section id="slider"><!--slider-->
 		<div class="container">
@@ -70,249 +80,47 @@
 			</div>
 		</div>
 	</section><!--/slider-->
-
+	
 	<section>
 		<div class="container">
 			<div class="row">
-			
+				
 				@include('layouts/categorias-cliente')
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center"> RECOMENDADOS </h2>
-						<div class="col-sm-4">
+						<h2 class="title text-center">Recomendados</h2>
+						<div class="col-sm-4" ng-repeat="producto in productos">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="{{ url('detalle-producto') }}">
-											<img src="{{ asset('/cart/Eshopper/images/home/product1.jpg') }}" alt="" />
-										</a>
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										<img ng-src="[[ url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="" />
+										<h2>[[producto.precio_producto]] BsF</h2>
+										<p>[[producto.nombre_producto]]</p>
+										<a ng-click="modalInfo(producto)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product2.jpg') }}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product3.jpg') }}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product4.jpg') }}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="{{ asset('/cart/Eshopper/images/home/new.png') }}" class="new" alt="" />
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product5.jpg') }}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img src="{{ asset('/cart/Eshopper/images/home/sale.png') }}" class="new" alt="" />
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="{{ asset('/cart/Eshopper/images/home/product6.jpg') }}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
 					</div><!--features_items-->
-
-					<h2 class="title text-center">Servicios Recomendados</h2>
 					
 					<div class="category-tab"><!--category-tab-->
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#tshirt" data-toggle="tab">T-Shirt</a></li>
-								<li><a href="#blazers" data-toggle="tab">Blazers</a></li>
+								<li class="active"><a href="#tshirt" data-toggle="tab">Servicio</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="tshirt" >
-								<div class="col-sm-3">
+								<div class="col-sm-3" ng-repeat="servicio in servicios">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<a href="{{ url('detalle-servicio') }}">
-													<img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" alt="" />
-												</a>
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
+												<img  ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="" />
+												<h2>[[servicio.precio_servicio]] BsF</h2>
+												<p>[[servicio.nombre_servicio]]</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery2.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery3.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery4.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<div class="tab-pane fade" id="blazers" >
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<a href="{{ url('detalle-servicio') }}">
-													<img src="{{ asset('/cart/Eshopper/images/home/gallery4.jpg') }}" alt="" />
-												</a>
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery3.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery2.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" alt="" />
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-											</div>
-											
 										</div>
 									</div>
 								</div>
@@ -321,45 +129,19 @@
 					</div><!--/category-tab-->
 					
 					<div class="recommended_items"><!--recommended_items-->
-						<h2 class="title text-center">Empresas Recomendadas</h2>
+						<h2 class="title text-center">recommended items</h2>
 						
 						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
 							<div class="carousel-inner">
 								<div class="item active">	
-									<div class="col-sm-4">
+									<div class="col-sm-4" ng-repeat="empresa in empresa_1">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend1.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="{{ url('detalle-empresa') }}" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend2.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend3.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
+													<img ng-src="[[ url + 'uploads/empresas/high/' + empresa.url_imagen_empresa]]" alt="">
+													<h2>[[empresa.nombre_empresa]]</h2>
+													<p>[[empresa.rif_empresa]]</p>
+													<a ng-href="[[ url + 'detalle-empresa/' + empresa.id_empresa]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
 												
 											</div>
@@ -367,40 +149,14 @@
 									</div>
 								</div>
 								<div class="item">	
-									<div class="col-sm-4">
+									<div class="col-sm-4" ng-repeat="empresa in empresa_2">
 										<div class="product-image-wrapper">
 											<div class="single-products">
 												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend1.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend2.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="{{ asset('/cart/Eshopper/images/home/recommend3.jpg') }}" alt="" />
-													<h5>Nombre Empresa</h5>
-													<p>Easy Polo Black Edition</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
+													<img src="[[ url + 'uploads/empresas/high/' + empresa.url_imagen_empresa]]" alt="" />
+													<h2>[[empresa.nombre_empresa]]</h2>
+													<p>[[empresa.rif_empresa]]</p>
+													<a ng-href="[[ url + 'detalle-empresa/' + empresa.id_empresa]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
 												
 											</div>
@@ -424,5 +180,8 @@
 	
 	@include('layouts/footer-cliente')
 
+	@include('modals/modal_carrito_compra')
+	
 </div>
+
 @endsection

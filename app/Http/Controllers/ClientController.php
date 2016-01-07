@@ -94,13 +94,18 @@ class ClientController extends Controller {
 
 	public function agregarACarrito(Request $request){
 
+		$producto_carrito = Producto::find($request->id_producto);
+		if (!$producto_carrito){
+			return json_encode(['false'=>$producto_carrito]);
+		}
 		Carrito::create([
 						"id_producto"=>$request->id_producto,
+						"id_empresa"=>$producto_carrito->id_empresa,
 						"id_usuario"=>Auth::user()->id_usuario,
 						"cantidad_producto_carrito"=>$request->cantidad_producto,
 						]);
 		
-		return redirect('/lista-carrito');
+		return redirect()->back();
 	}
 
 	public function eliminarDeCarrito($id_producto_carrito){
@@ -115,9 +120,22 @@ class ClientController extends Controller {
 		}
 
 	public function listarCarrito(){
-		$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get()->toArray();
-		//dd($model);
-		return view('/clientes/list-carrito',["productos"=>$model]);
+		$model = Carrito::where('id_usuario', Auth::user()->id_usuario)
+											->orderBy('id_empresa')
+											->get()
+											->toArray();
+		$response = [];
+		foreach ($model as $producto) {
+			if (!array_key_exists ($producto['nombre_empresa'], $response )){
+				$response[$producto['nombre_empresa']] = [$producto];
+			}else{
+
+			array_push($response[$producto['nombre_empresa']], $producto);
+			}
+		}
+
+
+		return view('/clientes/list-carrito',["productos"=>$response]);
 	}
 
 	public function comprar(){

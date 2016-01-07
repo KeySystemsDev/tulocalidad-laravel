@@ -51,4 +51,5 @@ class Producto extends Model {
 		}
 		return "sin categorizar";
     }
+
 }

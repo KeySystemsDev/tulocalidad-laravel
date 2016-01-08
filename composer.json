@@ -6,7 +6,8 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.1.*",
-		"mercadopago/sdk": "0.5.2"
+		"livepixel/mercado-pago": "^1.0"
+		
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

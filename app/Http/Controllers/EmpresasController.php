@@ -12,6 +12,7 @@ use App\Models\Redes;
 use App\Models\MMRedes;
 use Auth;
 use Session;
+use MP;
 
 class EmpresasController extends Controller
 {
@@ -181,5 +182,33 @@ class EmpresasController extends Controller
                    'value'=>$request->value];
         }
         return json_encode($json);
+    }
+
+    public function configuracionMP(Request $request){
+     // -d 'client_id=CLIENT_ID' \
+     // -d 'client_secret=CLIENT_SECRET' \
+     // -d 'grant_type=authorization_code' \
+     // -d 'code=AUTHORIZATION_CODE' \
+     // -d 'redirect_uri=REDIRECT_URI'
+        $elements =[];
+        $postData = [   'client_id'     => env('MP_APP_ID', ''),
+                        'client_secret' => env('MP_APP_SECRET', ''),
+                        'grant_type'    => 'authorization_code',
+                        'code'          => $request->code,
+                        'redirect_uri'  => "https://www.mercadopago.com/",
+                        ];
+        foreach ($postData as $name=>$value) {  
+            $elements[] = "{$name}=".urlencode($value);  
+        } 
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadopago.com/oauth/token');
+        curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
+        curl_setopt($curl, CURLOPT_POST , true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS , $elements);
+        $response = curl_exec ($curl); 
+        curl_close($curl);  
+
+        Empresa::find($request->id_empresa)->update(['data_prueba'=>(string) $response]);
+        return redirect(url('/empresas/'.$request->id_empresa));
     }
 }

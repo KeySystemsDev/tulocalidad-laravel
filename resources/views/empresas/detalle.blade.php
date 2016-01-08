@@ -83,10 +83,14 @@
                                     <i class="fa fa-instagram"></i>
                                 </div>
                             </div>
+                            <br><br><br>
+                            <a class="btn btn-info" href="{{ 'https://auth.mercadopago.com.ar/authorization?'.env('MP_APP_ID').'=APP_ID&response_type=code&platform_id=mp&redirect_uri='.url('/empresas/configuracionMP').'?id_empresa='.$empresa->id_empresa}}">Permisos MercadoPago</a>
                         </div><!--/product-information-->
                     </div>
                 </div><!--/product-details-->
-                
+
+                 
+
                 <div class="category-tab shop-details-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">

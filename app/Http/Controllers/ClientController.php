@@ -7,6 +7,7 @@ use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
 use Auth;
+use MP;
 
 class ClientController extends Controller {
 
@@ -152,24 +153,26 @@ class ClientController extends Controller {
 
 	//Colo
 	public function mercadopago1(){
-		//$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get()->toArray();
-		//dd($model);
+
+		MP::sandbox_mode('TRUE');
+		$preference_data = array (
+		    "items" => array (
+		        array (
+		            "title" => "Producto",
+		            "quantity" => 2,
+		            "currency_id" => "VEF",
+		            "unit_price" => 340.4
+		        )
+		    )
+		);
+		$preference = MP::create_preference($preference_data);
+		//$preference = $mp->create_preference($preference_data);
+
+		dd($preference);
 		return view('/clientes/pasarela-de-pago/mercadopago1');
 	}
 		//Colo
 	public function postMercadopago1(){
-		$preference_data = array (
-		    "items" => array (
-		        array (
-		            "title" => "Test",
-		            "quantity" => 1,
-		            "currency_id" => "USD",
-		            "unit_price" => 10.4
-		        )
-		    )
-		);
-
-		$preference = $mp->create_preference($preference_data);
 
 		return view('/clientes/pasarela-de-pago/mercadopago1');
 	}

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be57429bc85ab5d014f4f3b087b9d96a",
-    "content-hash": "7af6ca50896c20ce77c9a7bc3db3dd41",
+    "hash": "ff9d3d7498b047f27a98c804f38a0a1c",
+    "content-hash": "d22b8762bf760f1addda13cd6623644f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -574,6 +574,46 @@
                 "storage"
             ],
             "time": "2015-09-30 22:26:59"
+        },
+        {
+            "name": "livepixel/mercado-pago",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livepixel/mercado-pago.git",
+                "reference": "d0be19295beec4a8fb48eff9f21d7fa8da9bc115"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livepixel/mercado-pago/zipball/d0be19295beec4a8fb48eff9f21d7fa8da9bc115",
+                "reference": "d0be19295beec4a8fb48eff9f21d7fa8da9bc115",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LivePixel\\MercadoPago\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Maia",
+                    "email": "rodurma@gmail.com"
+                }
+            ],
+            "description": "Mercado Pago API SDK for Laravel",
+            "keywords": [
+                "mercadopago",
+                "sdk"
+            ],
+            "time": "2015-06-24 00:49:19"
         },
         {
             "name": "monolog/monolog",
@@ -1778,6 +1818,43 @@
                 "instantiate"
             ],
             "time": "2015-06-14 21:17:01"
+        },
+        {
+            "name": "mercadopago/sdk",
+            "version": "v0.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mercadopago/sdk-php.git",
+                "reference": "88fd10a084f750c3e48b417a53c26260c11c2bb9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mercadopago/sdk-php/zipball/88fd10a084f750c3e48b417a53c26260c11c2bb9",
+                "reference": "88fd10a084f750c3e48b417a53c26260c11c2bb9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/mercadopago.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Horacio Casatti",
+                    "email": "horacio.casatti@mercadolibre.com"
+                }
+            ],
+            "description": "MercadoPago SDK module for Payments integration.",
+            "keywords": [
+                "mercadopago",
+                "sdk"
+            ],
+            "time": "2015-10-14 13:49:16"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

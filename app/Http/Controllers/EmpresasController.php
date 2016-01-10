@@ -192,7 +192,7 @@ class EmpresasController extends Controller
             'client_secret' => urlencode(env('MP_APP_SECRET', '')),
             'grant_type' => urlencode('authorization_code'),
             'code' => urlencode($request->code),
-            'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa=".$request->id_empresa'),
+            'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa),
         );
         $fields_string="";
         //url-ify the data for the POST

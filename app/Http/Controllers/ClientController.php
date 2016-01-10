@@ -25,9 +25,14 @@ class ClientController extends Controller {
 							->get()
 							->random(12);
 		
-		$servicios = Servicio::where('habilitado_servicio',1)
-							->get()
-							->random(4);
+		$conteo = Servicio::where('habilitado_servicio',1)
+							->get();
+
+		if ($conteo->count()<4){
+			$servicios = $conteo;
+		}else{
+			$servicio = $conteo->random(4);
+		};
 
 		$empresas_1 = Empresa::where('habilitado_empresa',1)
 							->get()

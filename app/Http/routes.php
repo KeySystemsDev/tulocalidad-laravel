@@ -37,6 +37,7 @@ Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
 
 
 
+Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
 
 
 $router->group(['middleware' => 'auth'], function() {
@@ -46,7 +47,6 @@ $router->group(['middleware' => 'auth'], function() {
 
 	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
 	Route::post('empresas/validrif','EmpresasController@validRif');
-	Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
 	Route::resource('empresas','EmpresasController');
 
 	Route::get('empresas/{empresas}/productos/{productos}/deshabilitar','ProductosController@deshabilitar');

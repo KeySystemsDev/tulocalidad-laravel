@@ -194,7 +194,7 @@ class EmpresasController extends Controller
                         '&redirect_uri=https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa;
         
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadopago.com/oauth/token');
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
         curl_setopt($curl, CURLOPT_POST , true);
         curl_setopt($curl, CURLOPT_POSTFIELDS , $postData);

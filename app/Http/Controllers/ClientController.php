@@ -201,7 +201,7 @@ class ClientController extends Controller {
 			];
 			array_push($preference_data['items'],$articulo_data);
 		};
-		dd($preference_data);
+		//dd($preference_data);
 		// $preference_data = array (
 		//     "items" => array (
 		//         array (

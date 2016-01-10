@@ -209,7 +209,7 @@ class EmpresasController extends Controller
         Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                                         'access_token_mercadopago'=>$response->access_token,
                                                         'user_id_mercadopago'=>$response->user_id,
-                                                        'habilitado_mercadopago'=>0,
+                                                        'habilitado_mercadopago'=>1,
                                                     ]);
         
         return redirect(url('/empresas/'.$request->id_empresa));

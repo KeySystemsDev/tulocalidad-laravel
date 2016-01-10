@@ -47,7 +47,7 @@ class ClientController extends Controller {
 			$empresas_1 = $cantidad_empresas_1->random(3);
 		}
 
-		$empresas_2 = Empresa::where('habilitado_empresa',1)
+		$cantidad_empresas_2 = Empresa::where('habilitado_empresa',1)
 							->get();
 		if 	($cantidad_empresas_2->count()<3){
 			$empresas_2 = $cantidad_empresas_2;

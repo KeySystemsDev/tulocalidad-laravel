@@ -85,6 +85,7 @@
                             </div>
                             <br><br><br>
                             <a class="btn btn-info" href="{{ 'https://auth.mercadopago.com.ve/authorization?client_id='.env('MP_APP_ID').'&response_type=code&platform_id=mp&redirect_uri='.url('/empresas/configuracionMP').'?id_empresa='.$empresa->id_empresa}}">Configurar MercadoPago</a>
+                            <!-- <a class="btn btn-info" href="{{ 'https://auth.mercadopago.com.ve/authorization?client_id='.env('MP_APP_ID').'&response_type=code&platform_id=mp&redirect_uri=https://test-tulocalidad.com.ve/'}}">Configurar MercadoPago</a> -->
                         </div><!--/product-information-->
                     </div>
                 </div><!--/product-details-->

@@ -185,20 +185,16 @@ class EmpresasController extends Controller
     }
 
     public function configuracionMP(Request $request){
-     // -d 'client_id=CLIENT_ID' \
-     // -d 'client_secret=CLIENT_SECRET' \
-     // -d 'grant_type=authorization_code' \
-     // -d 'code=AUTHORIZATION_CODE' \
-     // -d 'redirect_uri=REDIRECT_URI'
+        //return redirect(url('/empresas/'.$request->code));
 
         $postData =   'client_id='.env('MP_APP_ID', '').
-                        'client_secret='.env('MP_APP_SECRET', '').
-                        'grant_type=authorization_code'.
-                        'code='.$request->code.
-                        'redirect_uri=https://www.mercadopago.com/';
+                        '&client_secret='.env('MP_APP_SECRET', '').
+                        '&grant_type=authorization_code'.
+                        '&code='.$request->code.
+                        '&redirect_uri=https://test-tulocalidad.com.ve/empresas/'.$request->id_empresa;
  
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadopago.com/oauth/token');
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
         curl_setopt($curl, CURLOPT_POST , true);
         curl_setopt($curl, CURLOPT_POSTFIELDS , $postData);

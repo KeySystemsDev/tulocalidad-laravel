@@ -205,7 +205,7 @@ class EmpresasController extends Controller
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response = curl_exec($curl); 
         curl_close($curl);  
-        dd('response:'.$response."         ".$response['refresh_token']);
+        dd('response:'.$response."         ");
 
 
 

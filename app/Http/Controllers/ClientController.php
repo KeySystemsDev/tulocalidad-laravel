@@ -195,7 +195,7 @@ class ClientController extends Controller {
 					'title' => $articulo['nombre_empresa'],
 					'quantity' =>(int) $articulo->cantidad_producto_carrito,
 					'description' =>'asd',
-					'picture_url' =>'https://test-tulocalidad/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
+					'picture_url' =>'https://test-tulocalidad/uploads/empresas/high/'.$articulo['url_imagen_empresa'],
 					'currency_id'=> 'VEF',
 					'unit_price'=>(float) $articulo['data_producto']->precio_producto
 			];

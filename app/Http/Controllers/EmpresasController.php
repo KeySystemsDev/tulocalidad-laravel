@@ -191,7 +191,7 @@ class EmpresasController extends Controller
                         '&client_secret='.env('MP_APP_SECRET', '').
                         '&grant_type=authorization_code'.
                         '&code='.$request->code.
-                        '&redirect_uri=https://test-tulocalidad.com.ve/empresas/'.$request->id_empresa;
+                        '&redirect_uri=https://test-tulocalidad.com.ve';
  
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');

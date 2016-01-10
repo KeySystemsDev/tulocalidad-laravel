@@ -21,9 +21,14 @@ class ClientController extends Controller {
 	}
 
 	public function index(){
-		$productos = Producto::where('habilitado_producto',1)
-							->get()
-							->random(12);
+		$cantidad_productos = Producto::where('habilitado_producto',1)
+							->get();
+		if 	($cantidad_productos->count()<12){
+			$productos = $cantidad_productos;
+		}else{
+			$productos = $cantidad_productos->random(12);
+		}
+							
 		
 		$conteo = Servicio::where('habilitado_servicio',1)
 							->get();
@@ -34,13 +39,21 @@ class ClientController extends Controller {
 			$servicios = $conteo->random(4);
 		};
 
-		$empresas_1 = Empresa::where('habilitado_empresa',1)
-							->get()
-							->random(3);
+		$cantidad_empresas_1 = Empresa::where('habilitado_empresa',1)
+							->get();
+		if 	($cantidad_empresas_1->count()<3){
+			$empresas_1 = $cantidad_empresas_1;
+		}else{
+			$empresas_1 = $cantidad_empresas_1->random(3);
+		}
 
 		$empresas_2 = Empresa::where('habilitado_empresa',1)
-							->get()
-							->random(3);
+							->get();
+		if 	($cantidad_empresas_2->count()<3){
+			$empresas_2 = $cantidad_empresas_2;
+		}else{
+			$empresas_2 = $cantidad_empresas_2->random(3);
+		}							
 
 		return view('/clientes/index',["productos"=>$productos,
 										"servicios"=>$servicios,
@@ -178,6 +191,8 @@ class ClientController extends Controller {
 	}
 		//Colo
 	public function postMercadopago1(Request $request){
+
+		$mp = MP();
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();

@@ -144,7 +144,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-		'LivePixel\MercadoPago\Providers\MercadoPagoServiceProvider',
+		//'LivePixel\MercadoPago\Providers\MercadoPagoServiceProvider',
 
 	],
 
@@ -193,7 +193,7 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-		'MP' => 'LivePixel\MercadoPago\Facades\MP',
+		//'MP' => 'LivePixel\MercadoPago\Facades\MP',
 
 	],
 

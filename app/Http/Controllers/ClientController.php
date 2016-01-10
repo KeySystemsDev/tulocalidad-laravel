@@ -169,34 +169,15 @@ class ClientController extends Controller {
 		return view('/clientes/pasarela-de-pago/tipo-pago');
 	}
 
-	//Colo
-	public function mercadopago1(Request $request){
-		dd($request->all());
-		MP::sandbox_mode('TRUE');
-		$preference_data = array (
-		    "items" => array (
-		        array (
-		            "title" => "Producto",
-		            "quantity" => 2,
-		            "currency_id" => "VEF",
-		            "unit_price" => 350.4
-		        )
-		    )
-		);
-		$preference = MP::create_preference($preference_data);
-		//$preference = $mp->create_preference($preference_data);
 
-		dd($preference);
-		return view('/clientes/pasarela-de-pago/mercadopago1');
-	}
 		//Colo
 	public function postMercadopago1(Request $request){
-
-		$mp = MP();
+		$empresa = Empresa::find($request->id_empresa);
+		$mp = new MP($empresa->access_token_mercadopago);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
-		//dd($articulos);
+		
 		$preference_data=['items'=>[],
 							'back_urls'=>[
 								'success'=>url('compras/mercadopago/success'),
@@ -227,8 +208,8 @@ class ClientController extends Controller {
 		//         )
 		//     )
 		// );
-		MP::sandbox_mode('TRUE');
-		$preference = MP::create_preference($preference_data);
+		$mp->sandbox_mode('TRUE');
+		$preference = $mp->create_preference($preference_data);
 		//$preference = $mp->create_preference($preference_data);
 
 		//dd($preference);

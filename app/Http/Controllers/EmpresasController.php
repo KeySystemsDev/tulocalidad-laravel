@@ -190,21 +190,18 @@ class EmpresasController extends Controller
      // -d 'grant_type=authorization_code' \
      // -d 'code=AUTHORIZATION_CODE' \
      // -d 'redirect_uri=REDIRECT_URI'
-        $elements =[];
-        $postData = [   'client_id'     => env('MP_APP_ID', ''),
-                        'client_secret' => env('MP_APP_SECRET', ''),
-                        'grant_type'    => 'authorization_code',
-                        'code'          => $request->code,
-                        'redirect_uri'  => "https://www.mercadopago.com/",
-                        ];
-        foreach ($postData as $name=>$value) {  
-            $elements[] = "{$name}=".urlencode($value);  
-        } 
+
+        $postData =   'client_id='.env('MP_APP_ID', '').
+                        'client_secret='.env('MP_APP_SECRET', '').
+                        'grant_type=authorization_code'.
+                        'code='.$request->code.
+                        'redirect_uri=https://www.mercadopago.com/';
+ 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.mercadopago.com/oauth/token');
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
         curl_setopt($curl, CURLOPT_POST , true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS , $elements);
+        curl_setopt($curl, CURLOPT_POSTFIELDS , $postData);
         $response = curl_exec ($curl); 
         curl_close($curl);  
 

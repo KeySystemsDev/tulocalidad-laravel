@@ -192,7 +192,6 @@ class EmpresasController extends Controller
                         '&grant_type=authorization_code'.
                         '&code='.$request->code.
                         '&redirect_uri=https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa;
-        dd($response, $postData);
         
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
@@ -201,6 +200,7 @@ class EmpresasController extends Controller
         curl_setopt($curl, CURLOPT_POSTFIELDS , $postData);
         $response = curl_exec ($curl); 
         curl_close($curl);  
+        dd($response, $postData);
 
         Empresa::find($request->id_empresa)->update(['data_prueba'=>(string) $response]);
        // return redirect(url('/empresas/'.$request->id_empresa));

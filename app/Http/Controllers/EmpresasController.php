@@ -198,7 +198,7 @@ class EmpresasController extends Controller
         rtrim($fields_string, '&');
 
         $curl = curl_init();
-        curl_setopt($curl_setopt, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
         curl_setopt($curl, CURLOPT_POST , true);

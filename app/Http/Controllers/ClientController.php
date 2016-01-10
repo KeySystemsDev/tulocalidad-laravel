@@ -173,7 +173,7 @@ class ClientController extends Controller {
 		//Colo
 	public function postMercadopago1(Request $request){
 		$empresa = Empresa::find($request->id_empresa);
-		dd($empresa->access_token_mercadopago);
+		//dd($empresa->access_token_mercadopago);
 		$mp = new MP($empresa->access_token_mercadopago);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)

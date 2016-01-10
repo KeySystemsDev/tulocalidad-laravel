@@ -206,6 +206,8 @@ class EmpresasController extends Controller
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);  
 
+        dd($response);
+
         Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                                         'access_token_mercadopago'=>$response->access_token,
                                                         'user_id_mercadopago'=>$response->user_id,

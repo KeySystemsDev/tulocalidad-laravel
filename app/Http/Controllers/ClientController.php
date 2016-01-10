@@ -158,7 +158,7 @@ class ClientController extends Controller {
 
 	//Colo
 	public function mercadopago1(){
-
+		//dd("prueba");
 		MP::sandbox_mode('TRUE');
 		$preference_data = array (
 		    "items" => array (
@@ -166,7 +166,7 @@ class ClientController extends Controller {
 		            "title" => "Producto",
 		            "quantity" => 2,
 		            "currency_id" => "VEF",
-		            "unit_price" => 340.4
+		            "unit_price" => 350.4
 		        )
 		    )
 		);

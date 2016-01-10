@@ -31,7 +31,7 @@ class ClientController extends Controller {
 		if ($conteo->count()<4){
 			$servicios = $conteo;
 		}else{
-			$servicio = $conteo->random(4);
+			$servicios = $conteo->random(4);
 		};
 
 		$empresas_1 = Empresa::where('habilitado_empresa',1)

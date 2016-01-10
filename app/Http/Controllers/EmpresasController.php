@@ -204,7 +204,7 @@ class EmpresasController extends Controller
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response = curl_exec ($curl); 
         curl_close($curl);  
-        //dd($response, $fields_string);
+        dd('response:'.$response);
 
 
 

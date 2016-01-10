@@ -19,7 +19,6 @@ class Empresa extends Model {
 							'url_imagen_empresa',
 							'direccion_empresa',
 							'habilitado_empresa',
-
 							'refresh_token_mercadopago',
 							'access_token_mercadopago',
                             'user_id_mercadopago',

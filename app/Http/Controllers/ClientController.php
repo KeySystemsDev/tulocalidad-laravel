@@ -194,7 +194,7 @@ class ClientController extends Controller {
 					'description' =>'asd',
 					//'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
 					'currency_id'=> 'VEF',
-					'unit_price'=> float($articulo['data_producto']->precio_producto)
+					'unit_price'=> (float)$articulo['data_producto']->precio_producto
 			];
 			array_push($preference_data['items'],$articulo_data);
 		};

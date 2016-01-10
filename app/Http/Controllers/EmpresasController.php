@@ -185,7 +185,6 @@ class EmpresasController extends Controller
     }
 
     public function configuracionMP(Request $request){
-        //return redirect(url('/empresas/'.$request->code));
 
         $fields = array(
             'client_id' => urlencode(env('MP_APP_ID', '')),
@@ -195,16 +194,9 @@ class EmpresasController extends Controller
             'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa),
         );
         $fields_string="";
-        //url-ify the data for the POST
         foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
         rtrim($fields_string, '&');
 
-        // $postData =   "client_id=".env('MP_APP_ID', '').
-        //                 "&client_secret=".env('MP_APP_SECRET', '').
-        //                 "&grant_type=authorization_code".
-        //                 "&code=".$request->code.
-        //                 "&redirect_uri='https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa=".$request->id_empresa."'";
-        
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
@@ -212,9 +204,16 @@ class EmpresasController extends Controller
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response = curl_exec ($curl); 
         curl_close($curl);  
-        dd($response, $fields_string);
+        //dd($response, $fields_string);
 
-        Empresa::find($request->id_empresa)->update(['data_prueba'=>(string) $response]);
-       // return redirect(url('/empresas/'.$request->id_empresa));
+
+
+        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                                                        'access_token_mercadopago'=>$response->access_token,
+                                                        'user_id_mercadopago'=>$response->user_id,
+                                                        'habilitado_mercadopago'=>0,
+                                                    ]);
+        
+        return redirect(url('/empresas/'.$request->id_empresa));
     }
 }

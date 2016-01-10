@@ -157,8 +157,8 @@ class ClientController extends Controller {
 	}
 
 	//Colo
-	public function mercadopago1(){
-		//dd("prueba");
+	public function mercadopago1(Request $request){
+		dd($request->all());
 		MP::sandbox_mode('TRUE');
 		$preference_data = array (
 		    "items" => array (
@@ -177,9 +177,47 @@ class ClientController extends Controller {
 		return view('/clientes/pasarela-de-pago/mercadopago1');
 	}
 		//Colo
-	public function postMercadopago1(){
+	public function postMercadopago1(Request $request){
+		$articulos = Carrito::where('id_empresa',$request->id_empresa)
+							->where('id_usuario', Auth::user()->id_usuario)
+							->get();
+		//dd($articulos);
+		$preference_data=['items'=>[],
+							'back_urls'=>[
+								'success'=>url('compras/mercadopago/success'),
+								'pending'=>url('compras/mercadopago/pending'),
+								'failure'=>url('compras/mercadopago/failure'),
+							]
+						];					
+		foreach ($articulos as $articulo) {
+			
+			$articulo_data = [
+					'title' => $articulo['nombre_empresa'],
+					'quantity' =>(int) $articulo->cantidad_producto_carrito,
+					'description' =>'asd',
+					'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
+					'currency_id'=> 'VEF',
+					'unit_price'=>(float) $articulo['data_producto']->precio_producto
+			];
+			array_push($preference_data['items'],$articulo_data);
+		};
+		//dd($preference_data);
+		// $preference_data = array (
+		//     "items" => array (
+		//         array (
+		//             "title" => "Producto",
+		//             "quantity" => 2,
+		//             "currency_id" => "VEF",
+		//             "unit_price" => 350.4
+		//         )
+		//     )
+		// );
+		MP::sandbox_mode('TRUE');
+		$preference = MP::create_preference($preference_data);
+		//$preference = $mp->create_preference($preference_data);
 
-		return view('/clientes/pasarela-de-pago/mercadopago1');
+		//dd($preference);
+		return redirect($preference['response']['sandbox_init_point']);
 	}
 
 }

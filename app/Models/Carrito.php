@@ -17,7 +17,7 @@ class Carrito extends Model {
 					'nombre_empresa'			=> 'integer',
 					];
 
-	protected $appends = ['data_producto','imagenes_producto', 'sub_total', 'nombre_empresa'];
+	protected $appends = ['data_producto','imagenes_producto', 'sub_total', 'nombre_empresa', 'url_imagen_empresa'];
 
 	public function getDataProductoAttribute(){
         return Producto::find($this->id_producto);
@@ -38,6 +38,15 @@ class Carrito extends Model {
 		$empresa = Empresa::find($this->id_empresa);
 		if ($empresa){
         	return $empresa->nombre_empresa;
+		}
+		return "sin nombre";
+    }
+
+	public function getUrlImagenEmpresaAttribute(){
+		//return ['yes'];
+		$empresa = Empresa::find($this->id_empresa);
+		if ($empresa){
+        	return $empresa->url_imagen_empresa;
 		}
 		return "sin nombre";
     }

@@ -209,9 +209,9 @@ class EmpresasController extends Controller
 
 
 
-        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response['refresh_token'],
-                                                        'access_token_mercadopago'=>$response['access_token'],
-                                                        'user_id_mercadopago'=>$response['user_id'],
+        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                                                        'access_token_mercadopago'=>$response->access_token,
+                                                        'user_id_mercadopago'=>$response->user_id,
                                                         'habilitado_mercadopago'=>0,
                                                     ]);
         

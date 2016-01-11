@@ -175,9 +175,9 @@ class ClientController extends Controller {
 
 		$empresa = Empresa::find($request->id_empresa);
 		$fields = array(
-            'client_id' => urlencode(env('MP_APP_ID', '')),
-            'client_secret' => urlencode(env('MP_APP_SECRET', '')),
-            'grant_type' => urlencode('refresh_token'),
+            'client_id' => env('MP_APP_ID', ''),
+            'client_secret' => env('MP_APP_SECRET', ''),
+            'grant_type' => 'refresh_token',
             'refresh_token' => $empresa->refresh_token_mercadopago,
         );
         $fields_string="";
@@ -192,7 +192,7 @@ class ClientController extends Controller {
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);
-        dd($response);
+        //dd($response);
         $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                 'access_token_mercadopago'=>$response->access_token,
                                 'user_id_mercadopago'=>$response->user_id,

@@ -103,6 +103,7 @@ class ApisController extends Controller {
 						"id_producto"=>$request->id_producto,
 						"id_usuario"=>$request->id_usuario,
 						"cantidad_producto_carrito"=>$request->cantidad_producto,
+						"id_empresa"=>$request->id_empresa,
 						]);
 		
 		return json_encode([

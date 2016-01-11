@@ -192,12 +192,12 @@ class ClientController extends Controller {
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);
-        //dd($response);
+        dd($response);
         $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
-                                                        'access_token_mercadopago'=>$response->access_token,
-                                                        'user_id_mercadopago'=>$response->user_id,
-                                                        'fecha_vencimiento_mercadopago'=>$response->expires_in,
-                                                    ]);
+                                'access_token_mercadopago'=>$response->access_token,
+                                'user_id_mercadopago'=>$response->user_id,
+                                'fecha_vencimiento_mercadopago'=>$response->expires_in,
+                                ]);
         $empresa->save();
 
 		$mp = new MP($response->access_token);

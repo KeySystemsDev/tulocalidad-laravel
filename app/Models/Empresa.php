@@ -23,6 +23,7 @@ class Empresa extends Model {
 							'access_token_mercadopago',
                             'user_id_mercadopago',
                             'habilitado_mercadopago',
+                            'fecha_vencimiento_mercadopago',
 
 							];
 

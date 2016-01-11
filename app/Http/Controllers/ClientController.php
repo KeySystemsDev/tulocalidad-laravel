@@ -196,6 +196,7 @@ class ClientController extends Controller {
         $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                                         'access_token_mercadopago'=>$response->access_token,
                                                         'user_id_mercadopago'=>$response->user_id,
+                                                        'fecha_vencimiento_mercadopago'=>$response->expires_in,
                                                     ]);
         $empresa->save();
 

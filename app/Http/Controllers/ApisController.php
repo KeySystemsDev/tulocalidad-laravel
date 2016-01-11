@@ -74,8 +74,11 @@ class ApisController extends Controller {
 						]);
 	}
 
-	public function listCarrito($id){
-		$model = Carrito::where('id_usuario', $id)->get()->toArray();
+	public function listCarrito(Request $request){
+		$model = Carrito::where('id_usuario', $request->id_usuario)
+							->where('id_empresa',$request->id_empresa)
+							->get()
+							->toArray();
 
 		return json_encode([
 						"success" => true,

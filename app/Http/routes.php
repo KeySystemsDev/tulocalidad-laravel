@@ -89,7 +89,7 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/detalle-producto/{producto}', 'ApisController@getDetalleProducto');
 	Route::get('/detalle-servicio/{servicio}', 'ApisController@getDetalleServicio');
 
-	Route::get('/lista-carrito/{id}', 'ApisController@listCarrito' );
+	Route::get('/lista-carrito/', 'ApisController@listCarrito' );
 	Route::get('/agregar-carrito/', 'ApisController@agregarCarrito' );
 	Route::get('/eliminar-carrito/', 'ApisController@eliminaCarrito' );
  

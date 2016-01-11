@@ -76,18 +76,24 @@ class ApisController extends Controller {
 	}
 
 	public function listCarrito(Request $request){
-		$model = Carrito::where('id_usuario', $request->id_usuario)
+		$articulos = Carrito::where('id_usuario', $request->id_usuario)
 							->where('id_empresa',$request->id_empresa)
-							->get()
-							->toArray();
-		$user = (string) User::find($request->id_usuario);
+							->get();
 
+		$model = $articulos->toArray();
+		$cantidad_articulos = $articulos->count();
+		$total = 0;
+		foreach ($model as $articulo) {
+			//dd($articulo['cantidad_producto_carrito']);
+			$total = (float)$articulo['sub_total'] + (float) $total;
+		}
 
 		return json_encode([
 						"success" => true,
 						"data" => [ 
 									"articulos"=>$model,
-									"user_data"=>$user,
+									"total"=>$total,
+									"cantidad"=>$cantidad_articulos,
 									],
 						]);
 	}

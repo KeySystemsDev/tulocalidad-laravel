@@ -84,7 +84,6 @@ class ApisController extends Controller {
 		$cantidad_articulos = $articulos->count();
 		$total = 0;
 		foreach ($model as $articulo) {
-			//dd($articulo['cantidad_producto_carrito']);
 			$total = (float)$articulo['sub_total'] + (float) $total;
 		}
 
@@ -112,14 +111,14 @@ class ApisController extends Controller {
 	}
 
 	public function eliminarCarrito(Request $request){
-		$producto_carrito = Carrito::find($request->id_producto_carrito);
+		$producto_carrito = Carrito::find($request->id_producto_carrito)->delete();
+		return json_encode(["success" => true,]);
 		if(!$producto_carrito){
 			return json_encode(["success" => false,]);
 		};
 		$producto = Producto::find($producto_carrito->id_producto);
 		
 		$producto_carrito->delete();
-		return json_encode(["success" => true,]);
 	}
 
 }

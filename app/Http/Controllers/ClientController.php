@@ -173,7 +173,6 @@ class ClientController extends Controller {
 		//Colo
 	public function postMercadopago1(Request $request){
 		$empresa = Empresa::find($request->id_empresa);
-		//dd($empresa->access_token_mercadopago);
 		$mp = new MP($empresa->access_token_mercadopago);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
@@ -203,22 +202,7 @@ class ClientController extends Controller {
 			];
 			array_push($preference_data['items'],$articulo_data);
 		};
-		//dd($preference_data);
-		// $preference_data = array (
-		//     "items" => array (
-		//         array (
-		//             "title" => "Producto",
-		//             "quantity" => 2,
-		//             "currency_id" => "VEF",
-		//             "unit_price" => 350.4
-		//         )
-		//     )
-		// );
-		//$mp->sandbox_mode('TRUE');
 		$preference = $mp->create_preference($preference_data);
-		//$preference = $mp->create_preference($preference_data);
-
-		//dd($preference);
 		return redirect($preference['response']['sandbox_init_point']);
 	}
 

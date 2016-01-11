@@ -62,7 +62,7 @@ class ApisController extends Controller {
 						]);
 	}
 
-	public function getDetalleServicios($servicio){
+	public function getDetalleServicio($servicio){
 		$model = Servicio::find($servicio);
 		if (!$model){
 					return json_encode(["success" => false,]);

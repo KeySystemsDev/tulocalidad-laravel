@@ -214,7 +214,7 @@ class ClientController extends Controller {
 		//         )
 		//     )
 		// );
-		$mp->sandbox_mode('TRUE');
+		//$mp->sandbox_mode('TRUE');
 		$preference = $mp->create_preference($preference_data);
 		//$preference = $mp->create_preference($preference_data);
 

@@ -172,8 +172,33 @@ class ClientController extends Controller {
 
 		//Colo
 	public function postMercadopago1(Request $request){
-		$empresa = Empresa::find($request->id_empresa);
-		$mp = new MP($empresa->access_token_mercadopago);
+
+
+		$fields = array(
+            'client_id' => urlencode(env('MP_APP_ID', '')),
+            'client_secret' => urlencode(env('MP_APP_SECRET', '')),
+            'grant_type' => urlencode('refresh_token'),
+            'refresh_token' => $empresa->access_token_mercadopago,
+        );
+        $fields_string="";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+        rtrim($fields_string, '&');
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
+        curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
+        curl_setopt($curl, CURLOPT_POST , true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
+        $response =  json_decode(curl_exec($curl)); 
+        curl_close($curl);
+
+        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                                                        'access_token_mercadopago'=>$response->access_token,
+                                                        'user_id_mercadopago'=>$response->user_id,
+                                                    ]);
+
+		$mp = new MP($response->access_token);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();

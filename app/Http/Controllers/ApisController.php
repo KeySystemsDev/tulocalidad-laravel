@@ -112,14 +112,14 @@ class ApisController extends Controller {
 	}
 
 	public function eliminarCarrito(Request $request){
-		$producto_carrito = Carrito::find($request->id_producto_carrito)->delete();
-		return json_encode(["success" => true,]);
+		$producto_carrito = Carrito::where('id_carrito',$request->id_producto_carrito)->first();
 		if(!$producto_carrito){
 			return json_encode(["success" => false,]);
 		};
 		$producto = Producto::find($producto_carrito->id_producto);
 		
 		$producto_carrito->delete();
+		return json_encode(["success" => true,]);
 	}
 
 }

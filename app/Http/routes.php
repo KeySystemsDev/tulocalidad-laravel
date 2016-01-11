@@ -91,6 +91,6 @@ Route::group( [ 'prefix' => 'API' ], function ()
 
 	Route::get('/lista-carrito/', 'ApisController@listCarrito' );
 	Route::get('/agregar-carrito/', 'ApisController@agregarCarrito' );
-	Route::get('/eliminar-carrito/', 'ApisController@eliminaCarrito' );
+	Route::get('/eliminar-carrito/', 'ApisController@eliminarCarrito' );
  
 } );

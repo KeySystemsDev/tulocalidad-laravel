@@ -179,11 +179,16 @@ class ClientController extends Controller {
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
 		
-		$preference_data=['items'=>[],
+		$preference_data=[	
+							'items'=>[],
 							'back_urls'=>[
 								'success'=>url('compras/mercadopago/success'),
 								'pending'=>url('compras/mercadopago/pending'),
 								'failure'=>url('compras/mercadopago/failure'),
+							],
+							'payer'=>[
+								'email'=>Auth::user()->correo_usuario,
+
 							]
 						];					
 		foreach ($articulos as $articulo) {
@@ -192,7 +197,7 @@ class ClientController extends Controller {
 					'title' => $articulo['nombre_empresa'],
 					'quantity' =>intval($articulo->cantidad_producto_carrito),
 					'description' =>'asd',
-					//'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
+					'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
 					'currency_id'=> 'VEF',
 					'unit_price'=> (float)$articulo['data_producto']->precio_producto
 			];

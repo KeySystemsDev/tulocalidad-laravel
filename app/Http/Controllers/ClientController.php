@@ -173,7 +173,7 @@ class ClientController extends Controller {
 		//Colo
 	public function postMercadopago1(Request $request){
 
-
+		$empresa = Empresa::find($request->id_empresa);
 		$fields = array(
             'client_id' => urlencode(env('MP_APP_ID', '')),
             'client_secret' => urlencode(env('MP_APP_SECRET', '')),
@@ -193,10 +193,11 @@ class ClientController extends Controller {
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);
 
-        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
+        $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                                         'access_token_mercadopago'=>$response->access_token,
                                                         'user_id_mercadopago'=>$response->user_id,
                                                     ]);
+        $empresa->save();
 
 		$mp = new MP($response->access_token);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)

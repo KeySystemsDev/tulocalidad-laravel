@@ -79,10 +79,15 @@ class ApisController extends Controller {
 							->where('id_empresa',$request->id_empresa)
 							->get()
 							->toArray();
+		$user = (string) User::find($request->id_usuario);
+
 
 		return json_encode([
 						"success" => true,
-						"data" => $model,
+						"data" => [ 
+									"articulos"=>$model,
+									"user_data"=>$user,
+									],
 						]);
 	}
 

@@ -178,7 +178,7 @@ class ClientController extends Controller {
             'client_id' => urlencode(env('MP_APP_ID', '')),
             'client_secret' => urlencode(env('MP_APP_SECRET', '')),
             'grant_type' => urlencode('refresh_token'),
-            'refresh_token' => $empresa->access_token_mercadopago,
+            'refresh_token' => $empresa->refresh_token_mercadopago,
         );
         $fields_string="";
         foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }

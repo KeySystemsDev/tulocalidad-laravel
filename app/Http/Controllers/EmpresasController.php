@@ -28,7 +28,7 @@ class EmpresasController extends Controller
                             ->where('id_empresa',$route->getParameter('empresas'))
                             ->first();
         if (!$this->empresa){
-            Session::flash("mensaje-error","No existe ese registro.");
+            //Session::flash("mensaje-error","No existe ese registro.");
             return redirect('/empresas');
         }
 

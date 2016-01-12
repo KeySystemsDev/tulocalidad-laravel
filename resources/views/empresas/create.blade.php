@@ -150,7 +150,7 @@
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Pag web</label>
 		                            <div class="col-md-5">
-		                            	<input type="url" class="form-control" ng-model="empresa.web_empresa" name="web_empresa" ng-required="true">
+		                            	<input type="url" class="form-control" ng-model="empresa.web_empresa" name="web_empresa">
 		                            	<div class="error campo-requerido" ng-show="formulario.web_empresa.$invalid && (formulario.web_empresa.$touched || submitted)">
 		                                    <small class="error" ng-show="formulario.web_empresa.$error.required">
 		                                        * Campo requerido.

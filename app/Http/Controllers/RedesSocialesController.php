@@ -21,7 +21,7 @@ class RedesSocialesController extends Controller
         //dd($route->getParameter('redes_sociales'));
         $this->red = Redes::find($route->getParameter('redes_sociales'));
         if (!$this->red){
-            Session::flash("mensaje-error","No existe ese registro.");
+            //Session::flash("mensaje-error","No existe ese registro.");
             return redirect('/redes_sociales');
         }
 

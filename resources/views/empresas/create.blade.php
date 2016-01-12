@@ -250,7 +250,7 @@
 											<div class="form-group">
 					                            <label class="col-md-4 control-label">Red Social</label>
 					                            <div class="col-md-5">
-					                            	<select class="form-control" name="id_red_social[[$index]]" ng-model="red.id_red_social" ng-required="true">
+					                            	<select class="form-control" name="id_red_social[[$index]]" ng-required="true">
 														<option class="option" value="">Seleccione una red Social</option>
 														@foreach($redes as $key)
 															<option class="option" selected ng-if="red.id_red_social=={{$key->id_red_social}}" value="{{$key->id_red_social}}">{{$key->nombre_red_social}}</option>

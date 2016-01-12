@@ -93,5 +93,6 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/agregar-carrito/', 'ApisController@agregarCarrito' );
 	Route::get('/eliminar-carrito/', 'ApisController@eliminarCarrito' );
 	Route::get('/login/', 'ApisController@login' );
+	Route::get('/registrar/', 'ApisController@registrar' );
  
 } );

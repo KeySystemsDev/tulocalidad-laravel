@@ -44,20 +44,21 @@ class LoginController extends Controller {
 	}
 
 	public function postRegistro(Request $request){
-		if (!$request->has('password') || !$request->has('re-password')){
+		dd($request->has('password'));
+		if (!$request->has('password') || !$request->has('re_password')){
             Session::flash("mensaje-error",'rellene el password');
             return redirect("/registro");
         };
 
-		if ($request->has('password') != $request->has('re-password')){
-            Session::flash("mensaje-error",'las contraseñas no coinciden');
-            return redirect("/registro");
+		if ($request->password != $request->re_password){
+            Session::flash("mensaje-error",'las contraseña no coinciden');
+            return redirect("/registrar");
         };        
 
         $verificacion = User::where('correo_usuario', $request->correo_usuario)->first();
         if ($verificacion){
             Session::flash("mensaje-error","usuario existente");
-            return redirect("/registro");
+            return redirect("/registrar");
         };
 
         $request['password'] = \Hash::make($request['password']);

@@ -125,8 +125,8 @@ class ApisController extends Controller {
 
 	public function login(Request $request){
 		$user = array(
-	        'correo_usuario' => \Input::get('correo_usuario'),
-	        'password' => \Input::get('clave_usuario')
+	        'correo_usuario' => $request->correo_usuario,
+	        'password' => $request->clave_usuario
 	    );
 
 		if (Auth::attempt($user)){
@@ -143,6 +143,36 @@ class ApisController extends Controller {
 			];
 		return json_encode($json);
 		//return $request->correo_usuario;
+	}
+
+	public function registrar(Request $request){
+		$json =[
+			'success'=>false,
+			'mensaje'=>''
+		];
+
+		if (!$request->has('password') || !$request->has('re_password')){
+			$json['mensaje'] = 'Debe ingresar ambos campos de password';
+            return json_encode($json);
+        };
+
+		if ($request->password != $request->re_password){
+			$json['mensaje'] = 'El password no coincide';
+            return json_encode($json);
+        };        
+
+        $verificacion = User::where('correo_usuario', $request->correo_usuario)->first();
+        if ($verificacion){
+			$json['mensaje'] = "Correo ya registrado";
+            return json_encode($json);
+        };
+
+        $request['password'] = \Hash::make($request['password']);
+        $user = User::create($request->all());
+
+        $json['success']=true;
+        $json['mensaje']='Registro exitoso';
+        return json_encode($json);
 	}
 
 }

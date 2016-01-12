@@ -53,10 +53,10 @@
 					</div>
 
 					<div class="form-group m-b-15">
-						<input type="text" class="form-control" name="password" placeholder="Contraseña">
+						<input type="password" class="form-control" name="password" placeholder="Contraseña">
 					</div>
 					<div class="form-group m-b-15">
-						<input type="text" class="form-control" name="re-password" placeholder="Repetir Contraseña">
+						<input type="password" class="form-control" name="re_password" placeholder="Repetir Contraseña">
 					</div>						
 			
 					<br>
@@ -73,7 +73,7 @@
                     </p>
 
                     <p class="text-center text-inverse">
-                       Nunca fue tan fácil encontrar algo...
+                       Nunca fue tan fácil encontrar lo que buscas...
                     </p>
 
 				</form>

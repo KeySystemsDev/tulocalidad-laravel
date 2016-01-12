@@ -102,11 +102,11 @@
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Categoría</label>
 	                            <div class="col-md-5">
-	                            	<select class="form-control" name="id_categoria" ng-model="empresa.id_categoria" required>
+	                            	<select class="form-control" name="id_categoria" required>
 										<option class="option" value="">Seleccione una categoría</option>
 										@foreach($categorias as $key)
-											<option class="option" value="{{$key->id_categoria_productos1}}">
-												{{$key->nombre_categoria_productos1}}</option>
+											<option class="option" selected value="{{$key->id_categoria_productos1}}" ng-if="empresa.id_categoria=={{$key->id_categoria_productos1}}">{{$key->nombre_categoria_productos1}}</option>
+											<option class="option" value="{{$key->id_categoria_productos1}}" ng-if="empresa.id_categoria!={{$key->id_categoria_productos1}}">{{$key->nombre_categoria_productos1}}</option>
 										@endforeach
 									</select>
 									<div class="error campo-requerido" ng-show="formulario.id_categoria.$invalid && (formulario.id_categoria.$touched || submitted)">

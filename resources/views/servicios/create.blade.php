@@ -106,7 +106,7 @@
 	                        </div>
 
 	                        <div class="form-group">
-	                            <label class="col-md-4 control-label">Descripcion del servicio</label>
+	                            <label class="col-md-4 control-label">Descripción del servicio</label>
 	                            <div class="col-md-5">
 	                            	<input type="text" class="form-control" ng-model="model.descripcion_servicio" name="descripcion_servicio" ng-required="true">
 	                            	<div class="error campo-requerido" ng-show="formulario.descripcion_servicio.$invalid && (formulario.descripcion_servicio.$touched || submitted)">
@@ -120,11 +120,11 @@
 	                        <div class="form-group">
 	                            <label class="col-md-4 control-label">Categoría</label>
 	                            <div class="col-md-5">
-	                            	<select class="form-control" name="id_categoria" ng-model="model.id_categoria" required>
+	                            	<select class="form-control" name="id_categoria" required>
 										<option class="option" value="">Seleccione una categoría</option>
 										@foreach($categorias as $key)
-											<option class="option" value="{{$key->id_categoria_servicios1}}">
-												{{$key->nombre_categoria_servicios1}}</option>
+											<option class="option" selected value="{{$key->id_categoria_servicios1}}" ng-if="empresa.id_categoria=={{$key->id_categoria_servicios1}}">{{$key->nombre_categoria_servicios1}}</option>
+											<option class="option" value="{{$key->id_categoria_servicios1}}" ng-if="empresa.id_categoria!={{$key->id_categoria_servicios1}}">{{$key->nombre_categoria_servicios1}}</option>												
 										@endforeach
 									</select>
 									<div class="error campo-requerido" ng-show="formulario.id_categoria.$invalid && (formulario.id_categoria.$touched || submitted)">

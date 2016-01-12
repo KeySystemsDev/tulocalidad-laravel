@@ -168,7 +168,7 @@
 		                            	<select class="form-control" name="id_estado" ng-model="empresa.id_estado" ng-required="true">
 											<option class="option" value="">Seleccione un estado</option>
 											@foreach($estados as $key)
-												<option class="option" value="{{$key->id_estado}}">
+												<option class="option" value="{{$key->id_estado}}"@if($empresa && $empresa->id_estado == $key->id_estado)selected @endif>
 													{{$key->nombre_estado}}</option>
 											@endforeach
 										</select>
@@ -251,9 +251,10 @@
 					                            <label class="col-md-4 control-label">Red Social</label>
 					                            <div class="col-md-5">
 					                            	<select class="form-control" name="id_red_social[[$index]]" ng-model="red.id_red_social" ng-required="true">
+														<option class="option" value="">Seleccione una red Social</option>
 														@foreach($redes as $key)
-															<option class="option" value="{{$key->id_red_social}}">
-																{{$key->nombre_red_social}}</option>
+															<option class="option" selected ng-if="red.id_red_social=={{$key->id_red_social}}" value="{{$key->id_red_social}}">{{$key->nombre_red_social}}</option>
+															<option class="option" ng-if="red.id_red_social!={{$key->id_red_social}}" value="{{$key->id_red_social}}">{{$key->nombre_red_social}}</option>
 														@endforeach
 													</select>
 													<div class="error campo-requerido" ng-show="formulario.id_red_social[[$index]].$invalid && (formulario.id_red_social[[$index]].$touched || submitted)">

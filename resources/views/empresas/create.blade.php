@@ -165,11 +165,11 @@
 		                        <div class="form-group">
 		                            <label class="col-md-4 control-label">Estado</label>
 		                            <div class="col-md-5">
-		                            	<select class="form-control" name="id_estado" ng-model="empresa.id_estado" ng-required="true">
+		                            	<select class="form-control" name="id_estado"  ng-required="true">
 											<option class="option" value="">Seleccione un estado</option>
 											@foreach($estados as $key)
-												<option class="option" value="{{$key->id_estado}}"@if($empresa && $empresa->id_estado == $key->id_estado)selected @endif>
-													{{$key->nombre_estado}}</option>
+												<option class="option" value="{{$key->id_estado}}" selected ng-if='empresa.id_estado=={{$key->id_estado}}'>{{$key->nombre_estado}}</option>
+												<option class="option" value="{{$key->id_estado}}" selected ng-if='empresa.id_estado!={{$key->id_estado}}'>{{$key->nombre_estado}}</option>
 											@endforeach
 										</select>
 										<div class="error campo-requerido" ng-show="formulario.id_estado.$invalid && (formulario.id_estado.$touched || submitted)">

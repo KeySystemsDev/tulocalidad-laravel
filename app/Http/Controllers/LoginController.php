@@ -44,7 +44,7 @@ class LoginController extends Controller {
 	}
 
 	public function postRegistro(Request $request){
-		dd($request->has('password'));
+		//dd($request->has('password'));
 		if (!$request->has('password') || !$request->has('re_password')){
             Session::flash("mensaje-error",'rellene el password');
             return redirect("/registro");

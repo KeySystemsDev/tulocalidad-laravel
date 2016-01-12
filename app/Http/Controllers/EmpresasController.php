@@ -207,13 +207,14 @@ class EmpresasController extends Controller
         curl_close($curl);  
 
         //dd($response);
-
-        Empresa::find($request->id_empresa)->update(['refresh_token_mercadopago'=>$response->refresh_token,
-                                                        'access_token_mercadopago'=>$response->access_token,
-                                                        'user_id_mercadopago'=>$response->user_id,
-                                                        'habilitado_mercadopago'=>1,
-                                                    ]);
-        
+        $empresa = Empresa::find($request->id_empresa);
+        $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                            'access_token_mercadopago'=>$response->access_token,
+                            'user_id_mercadopago'=>$response->user_id,
+                            'habilitado_mercadopago'=>1,
+                        ]);
+        $empresa->save();
+        Session::flash("mensaje","Mercadopago se ha configurado correctamente para esta empresa.");
         return redirect(url('/empresas/'.$request->id_empresa));
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
 use App\User;
+use Auth;
 
 class ApisController extends Controller {
 
@@ -120,6 +121,28 @@ class ApisController extends Controller {
 		
 		$producto_carrito->delete();
 		return json_encode(["success" => true,]);
+	}
+
+	public function login(Request $request){
+		$user = array(
+	        'correo_usuario' => \Input::get('correo_usuario'),
+	        'password' => \Input::get('clave_usuario')
+	    );
+
+		if (Auth::attempt($user)){
+			$json = [
+					"success"=>true,
+					"data"=>Auth::user(),
+				];
+			return json_encode($json);
+			//return redirect()->back();
+		}
+		$json = [
+				"success"=> false,
+				"data"=>"",
+			];
+		return json_encode($json);
+		//return $request->correo_usuario;
 	}
 
 }

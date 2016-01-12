@@ -37,6 +37,9 @@ class ProductosController extends Controller
             //Session::flash("mensaje-error","No existe ese registro.");
             return redirect('/empresas');
         }
+        if (!$this->empresa->habilitado_mercadopago){
+            return redirect('/empresas/'.$route->getParameter('empresas'));
+        }
     }
 
     public function index($id_empresa){

@@ -60,7 +60,7 @@
 			                                	<a href="[[url+'empresas/'+item.id_empresa+'/destroy']]" class="btn btn-default btn-danger-hover" data-toggle="tooltip" data-title="Eliminar"><i class="fa fa-trash-o"></i></a>
 			                            	</div>
 			                   				<div class="col-md-2" ng-if="!item.habilitado_mercadopago">
-			                                	<a href="[[url+'empresas/'+item.id_empresa+'/destroy']]" class="btn btn-danger" data-toggle="tooltip" data-title="No ha configurado un metodo de pago."><i class="fa fa-exclamation-triangle"></i></a>
+			                                	<a href="[[url+'empresas/'+item.id_empresa]]" class="btn btn-danger" data-toggle="tooltip" data-title="No ha configurado un metodo de pago."><i class="fa fa-exclamation-triangle"></i></a>
 			                            	</div>			                            	
 			                            </div>
 		                            	<br>

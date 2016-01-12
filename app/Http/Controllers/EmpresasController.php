@@ -90,6 +90,9 @@ class EmpresasController extends Controller
     }
 
     public function show($id_empresa){
+        if (!$this->empresa->habilitado_mercadopago){
+            Session::flash("mensaje-error","No ha agregado una forma de pago, favor configure una antes de continuar.");
+        }
         $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
 
 
@@ -214,7 +217,7 @@ class EmpresasController extends Controller
                             'habilitado_mercadopago'=>1,
                         ]);
         $empresa->save();
-        Session::flash("mensaje","Mercadopago se ha configurado correctamente para esta empresa.");
+        Session::flash("mensaje","Mercadopago se ha configurado correctamente para esta empresa, ahora puede gestionar sus productos y servicios");
         return redirect(url('/empresas/'.$request->id_empresa));
     }
 }

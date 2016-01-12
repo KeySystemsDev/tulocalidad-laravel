@@ -33,9 +33,11 @@
 			        <i class="fa fa-briefcase"></i> 
 			        <span>{{ $nombre_empresa }}</span>
 			    </a>
+			    
 			    <ul class="sub-menu">
+
 			        <li class="has-sub">
-			            <a href="{{ url('/empresas/'.$id_empresa.'/productos')}}">
+			            <a  href="{{ url('/empresas/'.$id_empresa.'/productos')}}">
 			                Productos
 			            </a>
 			        </li>

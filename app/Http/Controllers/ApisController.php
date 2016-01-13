@@ -224,8 +224,8 @@ class ApisController extends Controller {
 			$json['mensaje'] = 'Introduzca un correo';
 			return json_encode($json);
 		};
-		$json['success'] => true;
-		$json['mensaje'] => 'password enviado a su correo';
+		$json['success'] = true;
+		$json['mensaje'] = 'password enviado a su correo';
 		return json_encode($json);
 	}
 

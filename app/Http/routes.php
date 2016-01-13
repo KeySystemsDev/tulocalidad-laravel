@@ -22,8 +22,8 @@ Route::get('logout', 'LoginController@Logout');
 Route::get('registrar', 'LoginController@registro');
 Route::post('registrar', 'LoginController@postRegistro');
 
-Route::get('reset-password', 'LoginController@forgetPassword');
-Route::post('reset-password', 'LoginController@postForgetPassword');
+Route::get('forget-password', 'LoginController@forgetPassword');
+Route::post('forget-password', 'LoginController@postForgetPassword');
 
 Route::get('/','ClientController@index');
 

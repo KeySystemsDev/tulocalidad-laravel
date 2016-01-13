@@ -196,7 +196,7 @@ class ApisController extends Controller {
 		$json=[
 			'success' => false,
 			'mensaje' => '',
-		]
+		];
 		if($request->correo){
 
 			$user = User::where('correo_usuario', $request->correo)->first();

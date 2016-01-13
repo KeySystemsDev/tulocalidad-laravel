@@ -192,4 +192,41 @@ class ApisController extends Controller {
         return json_encode($json);
 	}
 
+	public function forgetPassword(Request $request){
+		$json=[
+			'success' => false,
+			'mensaje' => '',
+		]
+		if($request->correo){
+
+			$user = User::where('correo_usuario', $request->correo)->first();
+			if(!$user){
+				$json['mensaje'] = 'correo no existente';
+				return json_encode($json);
+			}			
+			//$perfil = Perfil::where('id_usuario', $user->id_usuario)->first();
+			$password = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') , 0 , 10 );
+			
+			$asunto = "Reestablecer contraseña";
+			$plantilla = 'emails.forgot_password';
+			$parametros = [
+			//			'nombre' => $perfil->fullName(),
+						'nombre' => '',
+						'password' => $password,
+						'contacto_email' => env('CONTACT_EMAIL'),
+			];
+
+			HelperController::SendEmail($request->correo, $request->correo, $asunto, $plantilla, $parametros);
+
+			$user->password = \Hash::make($password);
+			$user->save();
+		}else{
+			$json['mensaje'] = 'Introduzca un correo';
+			return json_encode($json);
+		};
+		$json['success'] => true;
+		$json['mensaje'] => 'password enviado a su correo';
+		return json_encode($json);
+	}
+
 }

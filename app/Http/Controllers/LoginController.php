@@ -119,7 +119,7 @@ class LoginController extends Controller {
 						'contacto_email' => env('CONTACT_EMAIL'),
 			];
 
-			Helper::SendEmail($request->correo, $request->correo, $asunto, $plantilla, $parametros);
+			HelperController::SendEmail($request->correo, $request->correo, $asunto, $plantilla, $parametros);
 
 			$user->password = \Hash::make($password);
 			$user->save();

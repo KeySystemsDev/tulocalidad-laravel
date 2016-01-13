@@ -95,12 +95,32 @@ class LoginController extends Controller {
 
 		return redirect()->back();
 	}
-
+	
 	public function forgetPassword(){
 		return view('autenticacion.password');
 	}
 
-	public function postForgetPassword(){
-		return view('autenticacion.reset');
-	}	
+	public function postForgetPassword(Request $request){
+		if($request->correo){
+			$user = User::where('correo_usuario', $request->correo)->first();
+			//$perfil = Perfil::where('id_usuario', $user->id_usuario)->first();
+			$password = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') , 0 , 10 );
+			
+			$asunto = "Reestablecer contraseña";
+			$plantilla = 'emails.forgot_password';
+			$parametros = [
+			//			'nombre' => $perfil->fullName(),
+						'nombre' => '',
+						'password' => $password,
+						'contacto_email' => env('CONTACT_EMAIL'),
+			];
+
+			Helper::SendEmail($request->correo, $request->correo, $asunto, $plantilla, $parametros);
+
+			$user->password = \Hash::make($password);
+			$user->save();
+		};
+		Session::flash('mensaje','Su nueva contraseña a sido enviada a su correo.');
+		return redirect('/login');
+	}
 }

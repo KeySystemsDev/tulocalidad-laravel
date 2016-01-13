@@ -45,13 +45,13 @@
 				@include('alerts.mensaje_success-login')
 				@include('alerts.mensaje_error-login')
 
-				<form class="form-horizontal" role="form" method="POST" action="{{ url('/reset-password') }}">
+				<form class="form-horizontal" role="form" method="POST" action="{{ url('/forget-password') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					
 					<br>
 
 					<div class="form-group m-b-15">
-						<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Correo Electronico">
+						<input type="email" class="form-control" name="correo" value="{{ old('email') }}" placeholder="Correo Electronico">
 					</div>
 					
 					<br>

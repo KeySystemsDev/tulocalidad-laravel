@@ -17,7 +17,7 @@ class ApisController extends Controller {
 	}
 
 
-	public function filter(){
+	public function filter(Request $request){
 		    // header('Access-Control-Allow-Origin: *');
 		    // header('Access-Control-Allow-Methods: GET, POST');
 		    // header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');

@@ -105,7 +105,7 @@ class LoginController extends Controller {
 			$user = User::where('correo_usuario', $request->correo)->first();
 			if(!$user){
 				Session::flash('mensaje-error','Correo no existente.');
-				return redirect('/recuperar-contraseña');
+				return redirect('/forget-password');
 			}			
 			//$perfil = Perfil::where('id_usuario', $user->id_usuario)->first();
 			$password = substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789') , 0 , 10 );
@@ -125,7 +125,7 @@ class LoginController extends Controller {
 			$user->save();
 		}else{
 			Session::flash('mensaje-error','Introduzca un correo');
-			return redirect('/recuperar-contraseña');
+			return redirect('/forget-password');
 		};
 		Session::flash('mensaje','Su nueva contraseña a sido enviada a su correo.');
 		return redirect('/login');

@@ -57,7 +57,7 @@
 					</div>
 
 					<div class="form-group">
-                        <a class="btn btn-link btn-oldivar" href="{{ url('/forget-password') }}">Olvido contraseña?</a>
+                        <a class="btn btn-link btn-oldivar" href="{{ url('/reset-password') }}">Olvido contraseña?</a>
                     </div>
 
                     <div class="login-buttons">

@@ -102,7 +102,6 @@ class EmpresasController extends Controller
                             ->where('t_redes.id_empresa','=',$id_empresa)
                             ->join('t_redes_sociales','t_redes_sociales.id_red_social', '=', 't_redes.id_red_social')
                             ->get();
-                            dd($this->empresa);
         return view('empresas.detalle', ['empresa'=> $this->empresa,
                                          'id_empresa'=>$id_empresa,
                                          'nombre_empresa'=>$this->empresa->nombre_empresa,

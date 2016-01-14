@@ -45,7 +45,7 @@ class Empresa extends Model {
 
 					];
 
-	protected $appends = ['nombre_estado','telefonos', 'redes'];
+	protected $appends = ['nombre_estado','telefonos', 'redes', 'telefono_principal'];
 
 	public function getNombreEstadoAttribute(){
 		$estado = Estado::find($this->id_estado);
@@ -55,6 +55,10 @@ class Empresa extends Model {
 
    	public function getTelefonosAttribute(){
         return Telefonos::where('id_empresa',$this->id_empresa)->get();
+    }
+
+   	public function getTelefonoPrincipalAttribute(){
+        return Telefonos::where('id_empresa',$this->id_empresa)->get()->first();
     }
 
    	public function getRedesAttribute(){

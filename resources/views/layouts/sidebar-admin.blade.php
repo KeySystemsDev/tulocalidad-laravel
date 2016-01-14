@@ -46,6 +46,11 @@
 			                Servicios
 			            </a>
 			        </li>
+			        <li class="has-sub">
+			            <a href="{{ url('/empresas/'.$id_empresa.'/ventas')}}">
+			                Ventas
+			            </a>
+			        </li>
 			    </ul>
 			</li>	
 			@endif

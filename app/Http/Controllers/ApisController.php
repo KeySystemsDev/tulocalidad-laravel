@@ -169,12 +169,12 @@ class ApisController extends Controller {
 		];
 
 		if (!$request->has('password') || !$request->has('re_password')){
-			$json['mensaje'] = 'Debe ingresar ambos campos de password';
+			$json['mensaje'] = 'Debe ingresar ambos campos de contraseña';
             return json_encode($json);
         };
 
 		if ($request->password != $request->re_password){
-			$json['mensaje'] = 'El password no coincide';
+			$json['mensaje'] = 'Las contraseñas no coincide';
             return json_encode($json);
         };        
 
@@ -201,7 +201,7 @@ class ApisController extends Controller {
 
 			$user = User::where('correo_usuario', $request->correo)->first();
 			if(!$user){
-				$json['mensaje'] = 'correo no existente';
+				$json['mensaje'] = 'Correo no existente';
 				return json_encode($json);
 			}			
 			//$perfil = Perfil::where('id_usuario', $user->id_usuario)->first();
@@ -225,7 +225,7 @@ class ApisController extends Controller {
 			return json_encode($json);
 		};
 		$json['success'] = true;
-		$json['mensaje'] = 'password enviado a su correo';
+		$json['mensaje'] = 'Contraseña enviada a su correo';
 		return json_encode($json);
 	}
 

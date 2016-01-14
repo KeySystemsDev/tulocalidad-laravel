@@ -10,6 +10,7 @@ use App\Models\Estado;
 use App\Models\Telefonos;
 use App\Models\Redes;
 use App\Models\MMRedes;
+use App\Models\Compras;
 use Auth;
 use Session;
 use MP;
@@ -18,7 +19,7 @@ class EmpresasController extends Controller
 {
     public function __construct(){
         //$this->beforeFilter('@permisos');
-        $this->beforeFilter('@find', ['only' => ['show','update','edit','destroy']]);
+        $this->beforeFilter('@find', ['only' => ['show','update','edit','destroy','listaVentas']]);
     }
 
     public function find(Route $route){
@@ -219,5 +220,17 @@ class EmpresasController extends Controller
         $empresa->save();
         Session::flash("mensaje","Mercadopago se ha configurado correctamente para esta empresa, ahora puede gestionar sus productos y servicios");
         return redirect(url('/empresas/'.$request->id_empresa));
+    }
+
+    public function listaVentas($id_empresa){
+        $compras = Compras::where('habilitado_compra',1)
+                            ->where('id_empresa',$id_empresa)
+                            ->get();
+        return view('/clientes/list-compras',[
+                                            'compras'=>$compras,
+                                            'empresa'=> $this->empresa,
+                                            'id_empresa'=>$id_empresa,
+                                            'nombre_empresa'=>$this->empresa->nombre_empresa,
+                                            ]);
     }
 }

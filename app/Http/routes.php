@@ -37,6 +37,8 @@ Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
 
 
 
+Route::get('/compras/','ClientController@listaCompras');
+
 Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
 
 
@@ -47,7 +49,11 @@ $router->group(['middleware' => 'auth'], function() {
 
 	Route::get('empresas/{empresas}/destroy','EmpresasController@destroy');
 	Route::post('empresas/validrif','EmpresasController@validRif');
+
+
 	Route::resource('empresas','EmpresasController');
+
+	Route::get('/empresas/{empresas}/ventas/','EmpresasController@listaVentas');
 
 	Route::get('empresas/{empresas}/productos/{productos}/deshabilitar','ProductosController@deshabilitar');
 	Route::get('empresas/{empresas}/productos/{productos}/habilitar','ProductosController@habilitar');

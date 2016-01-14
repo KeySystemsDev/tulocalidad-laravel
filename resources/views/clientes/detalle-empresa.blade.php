@@ -23,13 +23,14 @@
             </div>
         </div>
     </div>
-
+	
 	<section>
 		<div class="container">
+
 			<div class="row">
 
 				@include('layouts/categorias-cliente')
-				
+
 				<div ng-init="empresa = {{$empresa}}"></div>
 				<div ng-init="url='{{url()}}/'"></div>
 				
@@ -54,17 +55,17 @@
 								<p><b>Correo:</b> [[empresa.correo_empresa]]</p>
 								<p><b>Web:</b> <a ng-href="[[empresa.web_empresa]]"> [[empresa.web_empresa]] </a></p>
 								<br>
-								<div class="row">
-									<div class="col-md-1 icon-redes-sociales">
-										<i class="fa fa-facebook-square"></i>
-									</div>
-									<div class="col-md-1 icon-redes-sociales">
-										<i class="fa fa-twitter-square"></i>
-									</div>
-									<div class="col-md-1 icon-redes-sociales">
-										<i class="fa fa-instagram"></i>
-									</div>
-								</div>
+
+	                            <div class="row">
+	                            	<div ng-repeat="red in empresa.redes">
+		                                <a ng-href="http://[[red.url_red_social]]/[[red.identificador_red]]" target="_blank">
+		                                    <div class="col-md-1 icon-redes-sociales">
+		                                        <i class="fa [[red.icon_red_social]]"></i>
+		                                    </div>
+		                                </a>
+	                                </div>
+	                            </div>
+
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->

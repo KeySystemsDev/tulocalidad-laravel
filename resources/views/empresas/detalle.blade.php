@@ -53,7 +53,7 @@
                             @if($telefonos)
                             <span>
                                 @foreach($telefonos as $telefono)
-                                    <span>({{$telefono->codigo_telefono}}) {{$telefono->numero_telefono}} </span>
+                                    <span>{{$telefono->numero_telefono}} </span>
                                 @endforeach
                             </span>
                             @endif
@@ -62,27 +62,16 @@
                             <p><b>Web:</b> <a href="{{ $empresa->web_empresa}}"> {{ $empresa->web_empresa}} </a></p>
                             <br>
                             @if($redes)
-                                @foreach($redes as $red)
-                                <tr>
-                                    <td>
-                                        <i class="fa fa-home"></i>
-                                    </td>
-                                    <td> {{$red->nombre_red_social}} - {{$red->identificador_red}} </td>
-                                    <td></td>
-                                </tr>
-                                @endforeach
-                            @endif
                             <div class="row">
-                                <div class="col-md-1 icon-redes-sociales">
-                                    <i class="fa fa-facebook-square"></i>
-                                </div>
-                                <div class="col-md-1 icon-redes-sociales">
-                                    <i class="fa fa-twitter-square"></i>
-                                </div>
-                                <div class="col-md-1 icon-redes-sociales">
-                                    <i class="fa fa-instagram"></i>
-                                </div>
+                                @foreach($redes as $red)
+                                <a href="http://{{$red->url_red_social}}/{{$red->identificador_red}}" target="_blank">
+                                    <div class="col-md-1 icon-redes-sociales">
+                                        <i class="fa {{$red->icon_red_social}}"></i>
+                                    </div>
+                                </a>
+                                @endforeach
                             </div>
+                            @endif
                             <br><br><br>
                             <a class="btn btn-info" href="{{ 'https://auth.mercadopago.com.ve/authorization?client_id='.env('MP_APP_ID').'&response_type=code&platform_id=mp&redirect_uri='.url('/empresas/configuracionMP').'?id_empresa='.$empresa->id_empresa}}">Configurar MercadoPago</a>
                             <!-- <a class="btn btn-info" href="{{ 'https://auth.mercadopago.com.ve/authorization?client_id='.env('MP_APP_ID').'&response_type=code&platform_id=mp&redirect_uri=https://test-tulocalidad.com.ve/'}}">Configurar MercadoPago</a> -->

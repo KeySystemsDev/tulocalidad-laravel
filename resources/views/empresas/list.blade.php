@@ -50,7 +50,7 @@
 			                            </div>		                                
 			                            <br>	
 		                                <div class="row">
-		                                	<div class="col-md-2 col-md-offset-3">
+		                                	<div class="col-md-2 col-md-offset-2">
 			                                	<a href="[[url+'empresas/'+item.id_empresa]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">

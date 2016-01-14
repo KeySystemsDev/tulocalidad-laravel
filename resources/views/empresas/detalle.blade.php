@@ -53,7 +53,7 @@
                             @if($telefonos)
                             <span>
                                 @foreach($telefonos as $telefono)
-                                    <span>{{$telefono->numero_telefono}} </span>
+                                    <span>{{$telefono->numero_telefono}}</span>
                                 @endforeach
                             </span>
                             @endif

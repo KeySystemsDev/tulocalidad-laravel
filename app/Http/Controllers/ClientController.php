@@ -6,6 +6,7 @@ use App\Models\Servicio;
 use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
+use App\Models\Compras;
 use Auth;
 use MP;
 
@@ -231,6 +232,13 @@ class ClientController extends Controller {
 		};
 		$preference = $mp->create_preference($preference_data);
 		return redirect($preference['response']['sandbox_init_point']);
+	}
+
+	public function listaCompras(Request $request){
+		$compras = Compras::where('habilitado_compra',1)
+							->where('id_usuario',Auth::user()->id_usuario)
+							->get();
+		return view('/clientes/list-compras',compact('compras'));
 	}
 
 }

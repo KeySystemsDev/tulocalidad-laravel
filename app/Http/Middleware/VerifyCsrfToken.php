@@ -5,6 +5,10 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 
 class VerifyCsrfToken extends BaseVerifier {
 
+
+	protected $except=[
+			'mp/notification'
+		]; 
 	/**
 	 * Handle an incoming request.
 	 *
@@ -14,6 +18,7 @@ class VerifyCsrfToken extends BaseVerifier {
 	 */
 	public function handle($request, Closure $next)
 	{
+		
 		return parent::handle($request, $next);
 	}
 

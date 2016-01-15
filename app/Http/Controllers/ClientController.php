@@ -201,7 +201,7 @@ class ClientController extends Controller {
                                 ]);
         $empresa->save();
 		$mp = new MP($response->access_token);
-        $mp->sandbox_mode(TRUE);
+        $mp->sandbox_mode(true);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
@@ -283,7 +283,7 @@ class ClientController extends Controller {
 				echo "dont release your items";
 			}
 		}
-
+		return('okey',200);
 	}
 
 }

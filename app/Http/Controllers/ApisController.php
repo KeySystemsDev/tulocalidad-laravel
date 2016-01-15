@@ -62,6 +62,7 @@ class ApisController extends Controller {
 
 	public function getPerfilEmpresa($empresa){
 		$model = Empresa::find($empresa);
+		//dd($model);
 		if (!$model){
 					return json_encode(["success" => false,]);
 		}

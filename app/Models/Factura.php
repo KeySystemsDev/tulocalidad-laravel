@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Compras extends Model {
+class Factura extends Model {
 
 	protected $table = 't_facturas';
 	protected $fillable = [

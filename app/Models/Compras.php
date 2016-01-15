@@ -29,9 +29,13 @@ class Compras extends Model {
 					'habilitado_compra' 		=> 'integer',
 					];
 
-	protected $appends = ['productos_comprados',];
+	protected $appends = ['productos_comprados','factura'];
 
 	public function getProductosCompradosAttribute(){
         return ProductoComprado::where('id_compra',$this->id_compra)->get();
+    }
+
+	public function getFacturaAttribute(){
+        return Factura::where('id_compra',$this->id_compra)->get();
     }
 }

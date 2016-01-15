@@ -234,11 +234,55 @@ class ClientController extends Controller {
 		return redirect($preference['response']['sandbox_init_point']);
 	}
 
+
+
+
 	public function listaCompras(Request $request){
 		$compras = Compras::where('habilitado_compra',1)
 							->where('id_usuario',Auth::user()->id_usuario)
 							->get();
 		return view('/clientes/list-compras',compact('compras'));
+	}
+
+
+	public function IPNotificador(Request $request){
+		// Create an instance with your MercadoPago credentials (CLIENT_ID and CLIENT_SECRET): 
+		// Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones 
+		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
+		// Mexico: https://www.mercadopago.com/mlm/herramientas/aplicaciones 
+		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
+		HelperController::sendEmail("hsh28@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($request)]);
+		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
+
+		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
+		$params = ["access_token" => $mp->get_access_token()];
+		// Get the payment reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com
+		if($_GET["topic"] == 'payment'){
+			$payment_info = $mp->get("/collections/notifications/" . $_GET["id"], $params, false);
+			$merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"], $params, false);
+		// Get the merchant_order reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com	
+		}else if($_GET["topic"] == 'merchant_order'){
+			$merchant_order_info = $mp->get("/merchant_orders/" . $_GET["id"], $params, false);
+		}
+		//If the payment's transaction amount is equal (or bigger) than the merchant order's amount you can release your items 
+		if ($merchant_order_info["status"] == 200) {
+			$transaction_amount_payments= 0;
+			$transaction_amount_order = $merchant_order_info["response"]["total_amount"];
+		    $payments=$merchant_order_info["response"]["payments"];
+		    foreach ($payments as  $payment) {
+		    	if($payment['status'] == 'approved'){
+			    	$transaction_amount_payments += $payment['transaction_amount'];
+			    }	
+		    }
+		    if($transaction_amount_payments >= $transaction_amount_order){
+		    	echo "release your items";
+		    			HelperController::sendEmail("hsh28@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
+		    }
+		    else{
+				echo "dont release your items";
+			}
+		}
+
 	}
 
 }

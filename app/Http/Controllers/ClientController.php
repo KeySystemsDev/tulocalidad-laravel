@@ -251,10 +251,10 @@ class ClientController extends Controller {
 		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
 		// Mexico: https://www.mercadopago.com/mlm/herramientas/aplicaciones 
 		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request)]);
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request->all())]);
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
 		//return json_encode("true");
-/*
+
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		$params = ["access_token" => $mp->get_access_token()];
 		// Get the payment reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com
@@ -283,8 +283,8 @@ class ClientController extends Controller {
 				echo "dont release your items";
 			}
 		}
-		return(200);
-		*/
+		return('200');
+	
 	}
 
 }

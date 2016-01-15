@@ -44,7 +44,7 @@
 							@foreach($compra['productos_comprados'] as $articulo)
 							<tr>
 								<td class="cart_product">
-									<a href=""><img src="{{ url('/uploads/productos/low/'.$articulo['primera_imagen']['nombre_imagen_producto']) }}" alt=""></a>
+									<a href=""><img src="{{ url('/uploads/productos/low/'.$articulo['primera_imagen']) }}" alt=""></a>
 								</td>
 								<td class="cart_description">
 									<h4><a href="">{{$articulo['nombre_producto']}}</a></h4>

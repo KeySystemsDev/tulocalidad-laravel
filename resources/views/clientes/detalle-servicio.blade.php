@@ -52,7 +52,7 @@
 								<p><b>Creado:</b> [[servicio.created_at]]</p>
 								<p><b>Categoría:</b> [[servicio.nombre_categoria]]</p> 
 								<!--<p><b>Vendidos:</b> 2</p>-->
-								<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>
+								<!--<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>-->
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->

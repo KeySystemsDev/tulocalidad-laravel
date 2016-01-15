@@ -88,7 +88,7 @@
 								<p><b>Estatus:</b> [[producto.estatus_producto]]</p>
 								<p><b>Cantidad:</b> [[producto.cantidad_producto]]</p>
 								<!--<p><b>Vendidos:</b> 2</p>-->
-								<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>
+								<!--<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>-->
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
@@ -103,7 +103,6 @@
 							<div class="tab-pane fade active in" id="reviews">
 								<div class="col-sm-12">
 									<p>[[producto.descripcion_producto]]</p>
-									<p><b>Write Your Review</b></p>
 								</div>
 							</div>				
 						</div>

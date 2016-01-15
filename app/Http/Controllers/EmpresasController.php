@@ -230,6 +230,7 @@ class EmpresasController extends Controller
     public function listaVentas($id_empresa){
         $ventas = Compras::where('habilitado_compra',1)
                             ->where('id_empresa',$id_empresa)
+                            ->orderBy('id_compra','desc')
                             ->get()
                             ->toArray();
         return view('/empresas/list-ventas',[

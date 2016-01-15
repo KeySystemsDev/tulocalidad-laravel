@@ -230,4 +230,71 @@ class ApisController extends Controller {
 		return json_encode($json);
 	}
 
+
+		//Colo
+	public function mercadopago(Request $request){
+
+		$empresa = Empresa::find($request->id_empresa);
+		$fields = array(
+            'client_id' => env('MP_APP_ID', ''),
+            'client_secret' => env('MP_APP_SECRET', ''),
+            'grant_type' => 'refresh_token',
+            'refresh_token' => $empresa->refresh_token_mercadopago,
+        );
+        $fields_string="";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+        rtrim($fields_string, '&');
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
+        curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
+        curl_setopt($curl, CURLOPT_POST , true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
+        $response =  json_decode(curl_exec($curl)); 
+        curl_close($curl);
+        //dd($response);
+        $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                                'access_token_mercadopago'=>$response->access_token,
+                                'user_id_mercadopago'=>$response->user_id,
+                                'fecha_vencimiento_mercadopago'=>$response->expires_in,
+                                ]);
+        $empresa->save();
+		$mp = new MP($response->access_token);
+        $mp->sandbox_mode(true);
+		$articulos = Carrito::where('id_empresa',$request->id_empresa)
+							->where('id_usuario',$request->id_usuario)
+							->get();
+		
+		$preference_data=[	
+							'items'=>[],
+							'back_urls'=>[
+								'success'=>url('comprar/mercadopago/respuesta-movil/'),
+								'pending'=>url('comprar/mercadopago/respuesta-movil/'),
+								'failure'=>url('comprar/mercadopago/respuesta-movil/'),
+							],
+							'payer'=>[
+								'email'=>Auth::user()->correo_usuario,
+
+							],
+							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
+							'collector_id'=>intval($response->user_id),
+							'notification_url'=>url('/mp/notificaciones'),
+						];					
+		foreach ($articulos as $articulo) {
+			
+			$articulo_data = [
+					'title' => $articulo['nombre_empresa'],
+					'quantity' =>intval($articulo->cantidad_producto_carrito),
+					'description' =>'asd',
+					'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
+					'currency_id'=> 'VEF',
+					'unit_price'=> (float)$articulo['data_producto']->precio_producto
+			];
+			array_push($preference_data['items'],$articulo_data);
+		};
+		$preference = $mp->create_preference($preference_data);
+		return json_encode('success' = 'true','redirect'=$preference['response']['sandbox_init_point']);
+	}
+
 }

@@ -105,4 +105,5 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/registrar/', 'ApisController@registrar' );
 	Route::get('/forget-password/', 'ApisController@forgetPassword' );
  
+	Route::get('/comprar/mercadopago', 'ApisController@mercadopago' );
 } );

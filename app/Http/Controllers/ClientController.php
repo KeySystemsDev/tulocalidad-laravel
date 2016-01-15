@@ -9,6 +9,7 @@ use App\Models\Carrito;
 use App\Models\Compras;
 use App\Models\ProductoComprado;
 use Auth;
+use Session;
 use MP;
 
 class ClientController extends Controller {
@@ -271,12 +272,14 @@ class ClientController extends Controller {
 
 		$compra->fill(['precio_total_compra'=>$precio_total]);
 		$compra->save();
+		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado.');
 		};
 
 		if($request->collection_status=='pending'){
 			Session::flash('mensaje', 'Procesando su pago.');
+			$lista_compra->delete();
 		};
 
 		if($request->collection_status=='success'){
@@ -294,7 +297,7 @@ class ClientController extends Controller {
 		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
 		// Mexico: https://www.mercadopago.com/mlm/herramientas/aplicaciones 
 		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request->all())]);
+		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request->all())]);
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
 		//return json_encode("true");
 
@@ -320,11 +323,11 @@ class ClientController extends Controller {
 		    }
 		    if($transaction_amount_payments >= $transaction_amount_order){
 		    	echo "release your items";
-		    			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
+		    	//		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 		    }
 		    else{
 				echo "dont release your items";
-				HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
+				//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 			}
 		}
 		return('200');

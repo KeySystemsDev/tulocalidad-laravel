@@ -7,7 +7,7 @@ class VerifyCsrfToken extends BaseVerifier {
 
 
 	protected $except=[
-			'mp/notification'
+			'*'
 		]; 
 	/**
 	 * Handle an incoming request.

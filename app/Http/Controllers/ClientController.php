@@ -277,7 +277,7 @@ class ClientController extends Controller {
 		    }
 		    if($transaction_amount_payments >= $transaction_amount_order){
 		    	echo "release your items";
-		    			HelperController::sendEmail("hsh28@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
+		    			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 		    }
 		    else{
 				echo "dont release your items";

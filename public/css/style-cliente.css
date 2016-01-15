@@ -2,7 +2,7 @@ body{
 	background: #fff;
 }
 .fa-size i{
-	font-size: 22px;
+	font-size: 18px;
 }
 .dropdown-header {
   font-size: 14px;
@@ -202,6 +202,7 @@ a#scrollUp {
 }
 .cart-none h1{
   color: #CFCFCF;
+  margin-top: 15px;
 }
 .img-cart-add{
   width: 60px;

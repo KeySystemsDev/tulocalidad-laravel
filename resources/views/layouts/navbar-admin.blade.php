@@ -10,7 +10,42 @@
 		
 		<!-- begin header navigation right -->
 
-		<ul class="nav navbar-nav navbar-right">	
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+                <form class="navbar-form full-width">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </li>
+			<li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/compras')}}">
+                    <i class="fa fa-shopping-bag"></i>
+                </a>
+            </li>
+            <li class="dropdown" ng-init="usuario= {{Auth::user() }}">
+
+                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="label" ng-if="usuario.numero_articulos != 0">[[usuario.numero_articulos]]</span>
+                </a>
+                <ul class="dropdown-menu media-list pull-right animated fadeInDown">
+                    <li class="dropdown-header">Total: [[usuario.costo_carrito]] Bs</li>
+                    <li class="media" ng-repeat="articulo in usuario.articulos">
+                        <a href="javascript:;">
+                            <div class="media-left"><img src="{{ url('/uploads/productos/low') }}/[[articulo.data_producto.primera_imagen.nombre_imagen_producto]]" class="media-object" alt=""></div>
+                            <div class="media-body">
+                                <h5 class="media-heading">[[articulo.data_producto.nombre_producto]]</h5>
+                                <div class="text-muted f-s-11">[[articulo.data_producto.precio_producto]] BsF</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-footer text-center">
+                        <a href="{{ url('/lista-carrito') }}">Ver todos...</a>
+                    </li>
+                </ul>
+            </li>	
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 

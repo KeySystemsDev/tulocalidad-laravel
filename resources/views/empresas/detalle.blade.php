@@ -150,7 +150,6 @@
                                                 <img src="{{ url('/uploads/productos/high/'.$producto['primera_imagen']['nombre_imagen_producto']) }}" alt="">
                                                 <h2>{{$producto['precio_producto']}}</h2>
                                                 <p>{{$producto['nombre_producto']}}</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                             </div>
                                         </div>
                                     </div>

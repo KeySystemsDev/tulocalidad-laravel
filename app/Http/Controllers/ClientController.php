@@ -217,6 +217,7 @@ class ClientController extends Controller {
 													id_empresa:".$request->id_empresa.",
 													}",
 							'collection_id'=>$response->user_id,
+							'notification_url'=>url('/mp/notificaciones'),
 						];					
 		foreach ($articulos as $articulo) {
 			

@@ -213,10 +213,8 @@ class ClientController extends Controller {
 								'email'=>Auth::user()->correo_usuario,
 
 							],
-							'external_reference'=>"id_usuario:".Auth::user()->id_usuario.",
-													id_empresa:".$request->id_empresa.",
-													}",
-							'collection_id'=>$response->user_id,
+							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
+							'collector_id'=>intval($response->user_id),
 							'notification_url'=>url('/mp/notificaciones'),
 						];					
 		foreach ($articulos as $articulo) {
@@ -237,7 +235,7 @@ class ClientController extends Controller {
 
 
 	public function respuestaCompra(Request $request){
-
+		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
 		dd($request->all());
 		if($request->collection_status=='failure'){
 

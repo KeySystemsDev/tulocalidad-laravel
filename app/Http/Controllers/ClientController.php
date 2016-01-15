@@ -254,7 +254,7 @@ class ClientController extends Controller {
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request)]);
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
 		//return json_encode("true");
-
+/*
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		$params = ["access_token" => $mp->get_access_token()];
 		// Get the payment reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com
@@ -284,6 +284,7 @@ class ClientController extends Controller {
 			}
 		}
 		return(200);
+		*/
 	}
 
 }

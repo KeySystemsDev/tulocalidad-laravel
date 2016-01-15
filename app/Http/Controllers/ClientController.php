@@ -267,7 +267,7 @@ class ClientController extends Controller {
 			ProductoComprado::create([
 							'id_empresa'					=>$id_empresa,
 							'id_compra'						=>$compra->id_compra,
-							'primera_imagen' 				=>$producto['data_producto']['primera_imagen'],
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
 							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
 							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
 							'precio_total'					=>$producto['sub_total'],
@@ -327,7 +327,7 @@ class ClientController extends Controller {
 			ProductoComprado::create([
 							'id_empresa'					=>$id_empresa,
 							'id_compra'						=>$compra->id_compra,
-							'primera_imagen' 				=>$producto['data_producto']['primera_imagen'],							
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],							
 							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
 							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
 							'precio_total'					=>$producto['sub_total'],

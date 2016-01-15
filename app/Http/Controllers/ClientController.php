@@ -271,12 +271,12 @@ class ClientController extends Controller {
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		$params = ["access_token" => $mp->get_access_token()];
 		// Get the payment reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com
-		if($_GET["topic"] == 'payment'){
-			$payment_info = $mp->get("/collections/notifications/" . $_GET["id"], $params, false);
+		if($request->topic == 'payment'){
+			$payment_info = $mp->get("/collections/notifications/" . $request->id, $params, false);
 			$merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"], $params, false);
 		// Get the merchant_order reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com	
-		}else if($_GET["topic"] == 'merchant_order'){
-			$merchant_order_info = $mp->get("/merchant_orders/" . $_GET["id"], $params, false);
+		}else if($request->topic == 'merchant_order'){
+			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id, $params, false);
 		}
 		//If the payment's transaction amount is equal (or bigger) than the merchant order's amount you can release your items 
 		if ($merchant_order_info["status"] == 200) {

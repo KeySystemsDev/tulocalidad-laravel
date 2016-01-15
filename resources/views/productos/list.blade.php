@@ -102,6 +102,15 @@
 				<a href="[[array.next_page_url]]">></a>
 			</li>
 		</ul>
+
+		<section id="do_action" ng-if="array.data.length == 0">
+			<div class="row">
+				<div class="col-md-12 cart-none">
+					<i class="fa fa-thumbs-o-down"></i>
+					<h1> No tiene Productos Registrados.</h1>
+				</div>
+			</div>
+		</section>
 		
     </div><!-- content -->
 	

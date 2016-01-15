@@ -231,7 +231,7 @@ class EmpresasController extends Controller
         $compras = Compras::where('habilitado_compra',1)
                             ->where('id_empresa',$id_empresa)
                             ->get();
-        return view('/clientes/list-compras',[
+        return view('/empresas/list-ventas',[
                                             'compras'=>$compras,
                                             'empresa'=> $this->empresa,
                                             'id_empresa'=>$id_empresa,

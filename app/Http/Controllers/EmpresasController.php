@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Routing\Route;
 use App\Models\Empresa;
 use App\Models\Servicio;
+use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Telefonos;
 use App\Models\Redes;

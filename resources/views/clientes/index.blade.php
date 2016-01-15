@@ -30,39 +30,41 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free E-Commerce Template</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Tu</span>Localidad</h1>
+									<h2>Todo lo que buscas a la mano</h2>
+									<p>Disfruta de todas las facilidades que ofrece nuestra aplicación móvil desde android. </p>
+									<a href="https://play.google.com/store/apps/details?id=com.ionicframework.tulocalidad511234" class="btn btn-default" target="_blank" >
+										<img width="150" src="img/movil/descarga-android.png">
+									</a>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{ asset('/cart/Eshopper/images/home/girl1.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}"  class="pricing" alt="" />
+									<img src="{{ asset('img/publicidad/1.png') }}" class="girl img-responsive" alt="" />
+									<!--<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}"  class="pricing" alt="" />-->
 								</div>
 							</div>
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>100% Responsive Design</h2>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<h1><span>Key</span> Systems</h1>
+									<h2>Diseños 100% Responsive</h2>
+									<p>Refleja tus ideas, ten a la mano de un click tu pag web. </p>
+									<a href="http://keygestion.com.ve" class="btn btn-default get" target="_blank">KeySystems</a>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{ asset('/cart/Eshopper/images/home/girl2.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}"  class="pricing" alt="" />
+									<img src="{{ asset('img/publicidad/3.png') }}" class="girl img-responsive" alt="" />
+									<!--<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}"  class="pricing" alt="" />-->
 								</div>
 							</div>
 							
 							<div class="item">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
-									<h2>Free Ecommerce Template</h2>
+									<h1><span>Sistema</span> de Gestion</h1>
+									<h2>Organiza tus ideas</h2>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-									<button type="button" class="btn btn-default get">Get it now</button>
+									<a href="http://keygestion.com.ve/" class="btn btn-default get" target="_blank">KG</a>
 								</div>
 								<div class="col-sm-6">
-									<img src="{{ asset('/cart/Eshopper/images/home/girl3.jpg') }}" class="girl img-responsive" alt="" />
-									<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}" class="pricing" alt="" />
+									<img src="{{ asset('img/publicidad/2.png') }}" class="girl img-responsive" alt="" />
+									<!--<img src="{{ asset('/cart/Eshopper/images/home/pricing.png') }}" class="pricing" alt="" />-->
 								</div>
 							</div>
 							
@@ -94,7 +96,9 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
+										<a ng-href="[[ url + 'detalle-producto/' + producto.id_producto]]">
 										<img ng-src="[[ url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="" />
+										</a>
 										<h2>[[producto.precio_producto]] BsF</h2>
 										<p>[[producto.nombre_producto]]</p>
 										<a ng-click="modalInfo(producto)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
@@ -119,7 +123,7 @@
 												<img  ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="" />
 												<h2>[[servicio.precio_servicio]] BsF</h2>
 												<p>[[servicio.nombre_servicio]]</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a ng-href="[[ url + 'detalle-servicio/' + servicio.id_servicio]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 											</div>
 										</div>
 									</div>

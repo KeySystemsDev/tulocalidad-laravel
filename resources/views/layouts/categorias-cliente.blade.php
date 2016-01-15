@@ -35,6 +35,12 @@
 		</div>-->
 		
 		<div class="shipping text-center"><!--shipping-->
+			<img src="{{ asset('img/publicidad/4.jpg') }}" alt="">
+		</div><!--/shipping-->
+		
+		<br><br>
+
+		<div class="shipping text-center"><!--shipping-->
 			<img src="{{ asset('/cart/Eshopper/images/home/shipping.jpg') }}" alt="">
 		</div><!--/shipping-->
 		

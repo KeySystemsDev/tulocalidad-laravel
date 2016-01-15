@@ -7,7 +7,7 @@
 	@include('layouts/navbar-cliente')
 
 	@include('alerts.mensaje_success')
-							@include('alerts.mensaje_error')
+	@include('alerts.mensaje_error')
 
 	<div class="header-bottom"><!--header-bottom-->
         <div class="container">
@@ -23,6 +23,9 @@
             </div>
         </div>
     </div>
+	
+	
+	@if(count($compras)!=0)
 
     <section id="cart_items">
 		<div class="container">
@@ -100,7 +103,7 @@
 			</div>
 		</div>
 	</section>
-	
+	@else
 	<section id="do_action">
 		<div class="container">
 			<div class="row">
@@ -111,7 +114,7 @@
 			</div>
 		</div>
 	</section>
-
+	@endif
 
 </div>
 

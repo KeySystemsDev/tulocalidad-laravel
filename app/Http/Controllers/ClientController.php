@@ -291,6 +291,61 @@ class ClientController extends Controller {
 	}
 
 
+
+	public function respuestaMercadopagoMovil(Request $request){
+		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+		
+		//dd($request->all());
+		$precio_total = 0;
+		$result = explode(",", $request->external_reference);
+		$id_usuario = $result[0];
+		$id_empresa = $result[1];
+		$lista_compra = Carrito::where('id_usuario',$id_usuario)
+								->where('id_empresa',$id_empresa)
+								->get();
+
+		$compra = Compras::create([
+								'tipo_pago_compra'=>'mercadopago',
+								'identificador_pago_compra'=>$request->preference_id,
+								'precio_total_compra',
+								'estatus_compra'=>$request->collection_status,
+								'id_usuario' => $id_usuario,
+								'id_empresa' => $id_empresa,
+								]
+			);
+		foreach ($lista_compra as $producto) {
+			ProductoComprado::create([
+							'id_empresa'					=>$id_empresa,
+							'id_compra'						=>$compra->id_compra,
+							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
+							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
+							'precio_total'					=>$producto['sub_total'],
+							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
+							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
+						]);
+			$precio_total +=  intval($producto['sub_total']);
+		};
+
+		$compra->fill(['precio_total_compra'=>$precio_total]);
+		$compra->save();
+		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
+		if($request->collection_status=='failure'){
+			Session::flash('mensaje', 'Pago rechazado.');
+		};
+
+		if($request->collection_status=='pending'){
+			Session::flash('mensaje', 'Procesando su pago.');
+			$lista_compra->delete();
+		};
+
+		if($request->collection_status=='success'){
+			Session::flash('mensaje', 'Pago Procesado exitosamente.');
+			$lista_compra->delete();
+		};
+		
+		return view('/clientes/volver');
+	}
+
 	public function IPNotificador(Request $request){
 		// Create an instance with your MercadoPago credentials (CLIENT_ID and CLIENT_SECRET): 
 		// Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones 

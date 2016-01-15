@@ -50,7 +50,7 @@
 			                            </div>		                                
 			                            <br>	
 		                                <div class="row">
-		                                	<div class="col-md-2 col-md-offset-2">
+		                                	<div class="col-md-2 col-md-offset-3">
 			                                	<a href="[[url+'empresas/'+item.id_empresa]]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Detalle"><i class="fa fa-bars"></i></a>
 			                                </div>
 			                                <div class="col-md-2">
@@ -93,7 +93,19 @@
 				<a href="[[array.next_page_url]]">></a>
 			</li>
 		</ul>	
+
+		 <section id="do_action" ng-if="array.data.length == 0">
+			<div class="row">
+				<div class="col-md-12 cart-none">
+					<i class="fa fa-briefcase"></i>
+					<h1> No tiene Empresas Registradas.</h1>
+				</div>
+			</div>
+		</section>
+
     </div><!-- content -->
+
+   
 	
 </div>
 @endsection

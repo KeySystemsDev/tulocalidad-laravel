@@ -78,28 +78,37 @@
 		    </div>
 		</section>
 
-			<ul class="pagination" ng-if="array.total" >
-				<li ng-if="array.current_page-2 >= 1">
-					<a href="[[array.prev_page_url]]"><</a>
-				</li>
+		<ul class="pagination" ng-if="array.total" >
+			<li ng-if="array.current_page-2 >= 1">
+				<a href="[[array.prev_page_url]]"><</a>
+			</li>
 
-				<li ng-if="array.prev_page_url">
-					<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
-				</li>
+			<li ng-if="array.prev_page_url">
+				<a href="[[array.prev_page_url]]">[[array.current_page-1]]</a>
+			</li>
 
-				<li ng-if="array.current_page" class="active">
-					<a href="">[[array.current_page]]</a>
-				</li>
+			<li ng-if="array.current_page" class="active">
+				<a href="">[[array.current_page]]</a>
+			</li>
 
-				<li ng-if="array.next_page_url">
-					<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
-				</li>
+			<li ng-if="array.next_page_url">
+				<a href="[[array.next_page_url]]">[[array.current_page+1]]</a>
+			</li>
 
-				<li ng-if="array.current_page+2 <= array.last_page ">
-					<a href="[[array.next_page_url]]">></a>
-				</li>
+			<li ng-if="array.current_page+2 <= array.last_page ">
+				<a href="[[array.next_page_url]]">></a>
+			</li>
 
-			</ul>	
+		</ul>	
+
+		<section id="do_action" ng-if="array.data.length == 0">
+			<div class="row">
+				<div class="col-md-12 cart-none">
+					<i class="fa fa-thumbs-o-down"></i>
+					<h1> No tiene Servicios Registrados.</h1>
+				</div>
+			</div>
+		</section>
     </div><!-- content -->
 	
 </div>

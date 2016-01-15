@@ -236,24 +236,53 @@ class ClientController extends Controller {
 
 	public function respuestaCompra(Request $request){
 		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
-		dd($request->all());
+		
+		//dd($request->all());
+		$precio_total = 0;
+		$result = explode(",", $request->external_reference);
+		$id_usuario = $result[0];
+		$id_empresa = $result[1];
+		$lista_compra = Carrito::where('id_usuario',$id_usuario)
+								->where('id_empresa',$id_empresa)
+								->get();
+
+		$compra = Compras::create([
+								'tipo_pago_compra'=>'mercadopago',
+								'identificador_pago_compra'=>$request->preference_id,
+								'precio_total_compra',
+								'estatus_compra'=>$request->collection_status,
+								'id_usuario' => $id_usuario,
+								'id_empresa' => $id_empresa,
+								]
+			);
+		foreach ($lista_compra as $producto) {
+			ProductoComprado::create([
+							'id_empresa'					=>$id_empresa,
+							'id_compra'						=>$compra->id_compra,
+							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
+							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
+							'precio_total'					=>$producto['sub_total'],
+							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
+							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
+						]);
+			$precio_total +=  intval($producto['sub_total']);
+		};
+
+		$compra->fill(['precio_total_compra'=>$precio_total]);
+		$compra->save();
 		if($request->collection_status=='failure'){
-
-
+			Session::flash('mensaje', 'Pago rechazado.');
 		};
 
 		if($request->collection_status=='pending'){
-
+			Session::flash('mensaje', 'Procesando su pago.');
 		};
 
 		if($request->collection_status=='success'){
-			/*preference_id
-			collection_id
-			merchant_order_id
-			payment_type
-			external_reference*/
+			Session::flash('mensaje', 'Pago Procesado exitosamente.');
+			$lista_compra->delete();
 		};
-		Session::flash('mensaje', 'Procesando su pago.');
+		
 		return redirect('/compras');
 	}
 
@@ -294,6 +323,7 @@ class ClientController extends Controller {
 		    }
 		    else{
 				echo "dont release your items";
+				HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 			}
 		}
 		return('200');

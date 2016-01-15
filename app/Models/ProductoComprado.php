@@ -14,6 +14,7 @@ class ProductoComprado extends Model {
 							'precio_total',
 							'nombre_producto',
 							'descripcion_producto',
+							'primera_imagen'
 						];
 
 	public $cast = ['id_producto'				=>'integer',
@@ -31,17 +32,7 @@ class ProductoComprado extends Model {
 					'id_compra'					=>'integer',
 					];
 
-	protected $appends = ['imagenes','primera_imagen','nombre_categoria'];
-
-	public function getImagenesAttribute(){
-		//return ['yes'];
-        return Imagen::where("id_producto", $this->id_producto)->get()->toArray();
-    }
-
-	public function getPrimeraImagenAttribute(){
-		//return ['yes'];
-        return Imagen::where("id_producto", $this->id_producto)->first();
-    }
+	protected $appends = ['nombre_categoria'];
     
 	public function getNombreCategoriaAttribute(){
 		//return ['yes'];

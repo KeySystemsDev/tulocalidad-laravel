@@ -158,16 +158,12 @@ class ClientController extends Controller {
 		return view('/clientes/list-carrito',["productos"=>$response]);
 	}
 
-	public function comprar(){
-		//$model = Carrito::where('id_usuario', Auth::user()->id_usuario)->get()->toArray();
-		//dd($model);
-		return view('/clientes/comprar');
-	}
 
-	//PASARELA DE PAGO
-	//PASO1: seleccionar tipo de pago
-	public function tipoDePago(){
-		return view('/clientes/pasarela-de-pago/tipo-pago');
+	public function listaCompras(Request $request){
+		$compras = Compras::where('habilitado_compra',1)
+							->where('id_usuario',Auth::user()->id_usuario)
+							->get();
+		return view('/clientes/list-compras',compact('compras'));
 	}
 
 
@@ -209,14 +205,18 @@ class ClientController extends Controller {
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
-								'success'=>url('compras/mercadopago/success'),
-								'pending'=>url('compras/mercadopago/pending'),
-								'failure'=>url('compras/mercadopago/failure'),
+								'success'=>url('compras/mercadopago/respuesta/'),
+								'pending'=>url('compras/mercadopago/respuesta/'),
+								'failure'=>url('compras/mercadopago/respuesta/'),
 							],
 							'payer'=>[
 								'email'=>Auth::user()->correo_usuario,
 
-							]
+							],
+							'external_reference'=>"{'id_usuario':'".Auth::user()->id_usuario."',
+													'id_empresa':'".$request->id_empresa."',
+													}",
+							'collection_id'=>$response->user_id,
 						];					
 		foreach ($articulos as $articulo) {
 			
@@ -235,13 +235,27 @@ class ClientController extends Controller {
 	}
 
 
+	public function respuestaCompra(Request $request){
+
+		dd($request->all());
+		if($request->collection_status=='failure'){
 
 
-	public function listaCompras(Request $request){
-		$compras = Compras::where('habilitado_compra',1)
-							->where('id_usuario',Auth::user()->id_usuario)
-							->get();
-		return view('/clientes/list-compras',compact('compras'));
+		};
+
+		if($request->collection_status=='pending'){
+
+		};
+
+		if($request->collection_status=='success'){
+			/*preference_id
+			collection_id
+			merchant_order_id
+			payment_type
+			external_reference*/
+		};
+		Session::flash('mensaje', 'Procesando su pago.');
+		return redirect('/compras');
 	}
 
 

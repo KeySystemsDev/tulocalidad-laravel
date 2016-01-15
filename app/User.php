@@ -30,7 +30,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 					'articulos'				=> 'array',
 					];
 
-	protected $appends = ['numero_articulos','articulos'];
+	protected $appends = ['numero_articulos','articulos', 'costo_carrito'];
 
 	public function getPerfil(){
 		$perfil = Perfil::where('id_usuario',$this->id_usuario)->first();

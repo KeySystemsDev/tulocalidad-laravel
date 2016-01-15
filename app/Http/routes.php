@@ -15,7 +15,6 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::any('/mp/notificaciones', 'ClientController@IPNotificador');
 
 
 Route::get( 'login', 'LoginController@login');
@@ -40,9 +39,11 @@ Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
 
 
 
-Route::get('/compras/','ClientController@listaCompras');
+
 
 Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
+Route::any('/mp/notificaciones', 'ClientController@IPNotificador');
+
 
 
 $router->group(['middleware' => 'auth'], function() {
@@ -78,12 +79,11 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::post('/agregar-carrito/','ClientController@agregarACarrito');
 	Route::get('/eliminar-carrito/{id_producto}','ClientController@eliminarDeCarrito');
 	Route::get('/lista-carrito/','ClientController@listarCarrito');
-	Route::get('/comprar/','ClientController@comprar');
-	Route::get('/comprar/metodo-pago','ClientController@tipoDePago');
-
+	Route::get('/compras/','ClientController@listaCompras');
 	//mercadopago
 	Route::get('/comprar/mercadopago','ClientController@mercadopago1');
 	Route::post('/comprar/mercadopago','ClientController@postMercadopago1');
+	Route::get('/comprar/mercadopago/respuesta', 'ClientController@respuestaCompra');
 
 });
 

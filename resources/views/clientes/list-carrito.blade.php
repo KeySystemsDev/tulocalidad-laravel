@@ -41,7 +41,7 @@
 					<table class="table table-condensed">
 						<thead>
 							<tr class="cart_menu">
-								<td class="image">Empresa</td>
+								<td class="image">{{$empresa}}</td>
 								<td class="description"></td>
 								<td class="price">Cantidad</td>
 								<td class="price">Precio</td>
@@ -50,7 +50,7 @@
 							</tr>
 						</thead>
 						<tbody>
-
+							<?php $total = 0?>
 							@foreach($articulos as $producto)
 							<tr>
 								<td class="cart_product" >
@@ -73,6 +73,7 @@
 									<a class="cart_quantity_delete" href="{{ url( '/eliminar-carrito/'.$producto['id_carrito']) }}"><i class="fa fa-times"></i></a>
 								</td>
 							</tr>
+							<?php $total = $total + $producto['sub_total']?>
 							@endforeach
 						</tbody>
 					</table>
@@ -93,7 +94,7 @@
 							<ul>
 								<li>Empresa <span>{{$empresa}}</span></li>
 								<li>Shipping Cost <span>Free</span></li>
-								<li>Total <span>$61</span></li>
+								<li>Total <span>${{$total}}</span></li>
 							</ul>
 								<a class="btn btn-info update" ng-click="pagoInfo({{$articulos[0]['data_producto']['id_empresa']}})" href="#modal_compra" data-toggle="modal">Comprar <i class="fa fa fa-shopping-cart"></i></a>
 						</div>

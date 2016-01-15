@@ -4,7 +4,7 @@
 
 <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
 	
-	@include('layouts/navbar-cliente')
+	@include('layouts/navbar-admin')
 
 	@include('layouts/sidebar-admin')
 

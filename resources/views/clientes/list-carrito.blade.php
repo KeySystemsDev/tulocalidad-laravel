@@ -10,6 +10,9 @@
 	
 	@include('layouts/navbar-cliente')
 
+	@include('alerts.mensaje_success')
+	@include('alerts.mensaje_error')
+
 	<br><br>
 
 	@include('layouts/publicidad-larga')

@@ -6,6 +6,9 @@
 	
 	@include('layouts/navbar-cliente')
 
+	@include('alerts.mensaje_success')
+							@include('alerts.mensaje_error')
+
 	<div class="header-bottom"><!--header-bottom-->
         <div class="container">
             <div class="row">

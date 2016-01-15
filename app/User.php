@@ -57,7 +57,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
 	public function getArticulosAttribute(){
 		//$cantidad_articulos = Carrito::where('id_usuario',$this->id_usuario)->count();
-		$articulos = Carrito::where('id_usuario',$this->id_usuario)->take(3)->get();
+		$articulos = Carrito::where('id_usuario',$this->id_usuario)->orderBy('id_carrito','desc')->take(3)->get();
 		return $articulos;
 	}
 

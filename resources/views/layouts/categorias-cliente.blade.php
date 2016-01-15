@@ -44,5 +44,7 @@
 			<img src="{{ asset('/cart/Eshopper/images/home/shipping.jpg') }}" alt="">
 		</div><!--/shipping-->
 		
+		<br>
+	
 	</div>
 </div>

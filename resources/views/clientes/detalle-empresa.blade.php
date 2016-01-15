@@ -1,10 +1,15 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/cliente_empresa.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ClienteEmpresa">
 	
 	@include('layouts/navbar-cliente')
+	@include('modals/modal_carrito_compra')
 	
 	<br><br>
 
@@ -23,7 +28,7 @@
             </div>
         </div>
     </div>
-	
+
 	<section>
 		<div class="container">
 
@@ -32,8 +37,10 @@
 				@include('layouts/categorias-cliente')
 
 				<div ng-init="empresa = {{$empresa}}"></div>
+				<div ng-init="productos = {{$productos}}"></div>
+				<div ng-init="servicios = {{$servicios}}"></div>
 				<div ng-init="url='{{url()}}/'"></div>
-				
+
 				<div class="col-sm-9 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -48,8 +55,8 @@
 								<p>RIF: [[empresa.rif_empresa]]</p>
 								<p>Web ID: [[empresa.id_empresa]]</p>
 								<!--<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">-->
-								<span ng-repeat="telefono in empresa.telefonos">
-									<span>[[telefono.numero_telefono]]</span>
+								<span>
+									<span>[[empresa.telefono_principal.numero_telefono]]</span>
 								</span>
 								<p><b>Estado:</b> [[empresa.nombre_estado]]</p>
 								<p><b>Correo:</b> [[empresa.correo_empresa]]</p>
@@ -58,9 +65,9 @@
 
 	                            <div class="row">
 	                            	<div ng-repeat="red in empresa.redes">
-		                                <a ng-href="http://[[red.url_red_social]]/[[red.identificador_red]]" target="_blank">
+		                                <a ng-href="http://[[red.red_data.url_red_social]]/[[red.identificador_red]]" target="_blank">
 		                                    <div class="col-md-1 icon-redes-sociales">
-		                                        <i class="fa [[red.icon_red_social]]"></i>
+		                                        <i class="fa [[red.red_data.icon_red_social]]"></i>
 		                                    </div>
 		                                </a>
 	                                </div>
@@ -81,6 +88,14 @@
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="details">
+								Telefonos
+                            	<br>
+								<span ng-repeat="telefono in empresa.telefonos">
+									<span>[[telefono.numero_telefono]]</span>
+									<br>
+								</span>
+								<br>
+								Descripción
 								<p>[[empresa.descripcion_empresa]]</p>
 							</div>
 							
@@ -113,50 +128,18 @@
 							</div>
 							
 							<div class="tab-pane fade" id="productos">
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery2.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery3.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery4.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+								<div class="row">
+									<div class="col-sm-3" ng-repeat="producto in productos">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="[[url + 'detalle-producto/' + producto.id_producto]]">
+														<img ng-src="[[url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="">
+													</a>
+													<h2>[[producto.precio_producto]] BsF</h2>
+													<p>[[producto.nombre_producto]]</p>
+													<a ng-click="modalInfo(producto)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -164,50 +147,17 @@
 							</div>
 							
 							<div class="tab-pane fade" id="servicios">
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery1.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery2.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery3.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-3">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="{{ asset('/cart/Eshopper/images/home/gallery4.jpg') }}" alt="">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
-												<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+								<div class="row">
+									<div class="col-sm-3" ng-repeat="servicio in servicios">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a ng-href="[[ url + 'detalle-servicio/' + servicio.id_servicio]]">
+														<img ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="">
+													</a>
+													<h2>[[servicio.precio_servicio]] BsF</h2>
+													<p>[[servicio.nombre_servicio]]</p>
+												</div>
 											</div>
 										</div>
 									</div>

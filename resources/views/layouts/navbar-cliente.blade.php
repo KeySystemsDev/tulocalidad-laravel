@@ -34,11 +34,15 @@
             </li>
             @endif
             @if(Auth::check())    
-            <li><a href="/compras"> compras </a></li>
+            <li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/compras')}}">
+                    <i class="fa fa-shopping-bag"></i>
+                </a>
+            </li>
             <li class="dropdown" ng-init="usuario= {{Auth::user() }}">
 
                 <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14 fa-size" aria-expanded="false">
-                    <i class="fa fa fa-shopping-cart"></i>
+                    <i class="fa fa-shopping-cart"></i>
                     <span class="label" ng-if="usuario.numero_articulos != 0">[[usuario.numero_articulos]]</span>
                 </a>
                 <ul class="dropdown-menu media-list pull-right animated fadeInDown">

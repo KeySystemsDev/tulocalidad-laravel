@@ -15,7 +15,7 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::any('/ipn', 'ClientController@IPNotificador');
+Route::any('/mp/notificaciones', 'ClientController@IPNotificador');
 
 
 Route::get( 'login', 'LoginController@login');

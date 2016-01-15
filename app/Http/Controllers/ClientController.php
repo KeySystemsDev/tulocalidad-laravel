@@ -8,7 +8,6 @@ use App\Models\Empresa;
 use App\Models\Carrito;
 use App\Models\Compras;
 use App\Models\ProductoComprado;
-use App\Models\Compras;
 use Auth;
 use MP;
 

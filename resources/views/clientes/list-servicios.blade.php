@@ -45,7 +45,7 @@
 											<img ng-src="[[url + 'uploads/servicios/high/' + item.url_imagen_servicio]]" alt="">
 										</a>
 										<h2>[[item.precio_servicio]] BsF</h2>
-										<p>[[item.nombre_servicio]]</p>
+										<p class="text-ellipsis">[[item.nombre_servicio]]</p>
 										
 									</div>
 								</div>

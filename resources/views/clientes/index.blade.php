@@ -100,7 +100,7 @@
 										<img ng-src="[[ url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="" />
 										</a>
 										<h2>[[producto.precio_producto]] BsF</h2>
-										<p>[[producto.nombre_producto]]</p>
+										<p class="text-ellipsis">[[producto.nombre_producto]]</p>
 										<a ng-click="modalInfo(producto)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									</div>
 								</div>
@@ -122,7 +122,7 @@
 											<div class="productinfo text-center">
 												<img  ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="" />
 												<h2>[[servicio.precio_servicio]] BsF</h2>
-												<p>[[servicio.nombre_servicio]]</p>
+												<p class="text-ellipsis">[[servicio.nombre_servicio]]</p>
 												<a ng-href="[[ url + 'detalle-servicio/' + servicio.id_servicio]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 											</div>
 										</div>
@@ -143,7 +143,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img ng-src="[[ url + 'uploads/empresas/high/' + empresa.url_imagen_empresa]]" alt="">
-													<h2>[[empresa.nombre_empresa]]</h2>
+													<h2 class="text-ellipsis">[[empresa.nombre_empresa]]</h2>
 													<p>[[empresa.rif_empresa]]</p>
 													<a ng-href="[[ url + 'detalle-empresa/' + empresa.id_empresa]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>
@@ -158,7 +158,7 @@
 											<div class="single-products">
 												<div class="productinfo text-center">
 													<img src="[[ url + 'uploads/empresas/high/' + empresa.url_imagen_empresa]]" alt="" />
-													<h2>[[empresa.nombre_empresa]]</h2>
+													<h2 class="text-ellipsis">[[empresa.nombre_empresa]]</h2>
 													<p>[[empresa.rif_empresa]]</p>
 													<a ng-href="[[ url + 'detalle-empresa/' + empresa.id_empresa]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
 												</div>

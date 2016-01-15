@@ -45,7 +45,7 @@
 											<img ng-src="[[url + 'uploads/productos/high/' + item.primera_imagen.nombre_imagen_producto]]" alt="">
 										</a>
 										<h2>[[item.precio_producto]] BsF</h2>
-										<p>[[item.nombre_producto]]</p>
+										<p class="text-ellipsis">[[item.nombre_producto]]</p>
 										<a ng-click="modalInfo(item)" href="#modal_carrito_compra" data-toggle="modal" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 			                            @include('modals/modal_carrito_compra')
 									</div>

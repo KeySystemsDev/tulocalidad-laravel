@@ -50,6 +50,7 @@
 							</tr>
 						</thead>
 						<tbody>
+
 							@foreach($articulos as $producto)
 							<tr>
 								<td class="cart_product" >

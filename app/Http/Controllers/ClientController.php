@@ -164,7 +164,8 @@ class ClientController extends Controller {
 	public function listaCompras(Request $request){
 		$compras = Compras::where('habilitado_compra',1)
 							->where('id_usuario',Auth::user()->id_usuario)
-							->get();
+							->get()
+							->toArray();
 		return view('/clientes/list-compras',compact('compras'));
 	}
 

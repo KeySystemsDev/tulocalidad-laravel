@@ -47,16 +47,13 @@
                         <div class="product-information"><!--/product-information-->
                             <!--<img src="images/product-details/new.jpg" class="newarrival" alt="">-->
                             <h2>{{ $empresa->nombre_empresa }}</h2>
-                            <p>RIF: 108977-2</p>
+                            <p>RIF: {{ $empresa->rif_empresa }}</p>
                             <img src="http://localhost:8000/cart/Eshopper/images/product-details/rating.png" alt="">
                             <br>
-                            @if($telefonos)
+                            <p>Web ID: {{ $empresa->id_empresa }}</p>
                             <span>
-                                @foreach($telefonos as $telefono)
-                                    <span>{{$telefono->numero_telefono}}</span>
-                                @endforeach
+                                <span>{{ $empresa->telefono_principal->numero_telefono }}</span>
                             </span>
-                            @endif
                             <p><b>Servicio:</b> Asesoría Informática</p>
                             <p><b>Correo:</b> {{ $empresa->correo_empresa }}</p>
                             <p><b>Web:</b> <a href="{{ $empresa->web_empresa}}"> {{ $empresa->web_empresa}} </a></p>
@@ -95,20 +92,27 @@
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="details">
+                            Telefonos
+                            <br>
+                            @if($telefonos)
+                            <span>
+                                @foreach($telefonos as $telefono)
+                                    <span>{{$telefono->numero_telefono}}</span>
+                                    <br>
+                                @endforeach
+                            </span>
+                            @endif
+                            <br>
+                            Descripción
                             <p>{{ $empresa->descripcion_empresa}}</p>
                         </div>
                         
                         <div class="tab-pane fade" id="mapa">
                             
                             <p> 
-                                {{ $empresa->municipio_direccion}} 
-                                / {{ $empresa->parroquia_direccion}} 
-                                / {{ $empresa->urbanizacion_direccion}} 
-                                / {{ $empresa->calle_avenida_direccion}} 
-                                / {{ $empresa->casa_apto_direccion}} 
-                                / {{ $empresa->piso_direccion}}
+                                {{ $empresa->direccion_empresa }}
                             </p>
-                            <p><b>{{ $empresa->municipio_direccion}}</b></p>
+                            <p><b>{{ $empresa->nombre_estado}}</b></p>
                             
                             <div ng-init="mapa = {id : 0, coords : { latitude: '{{ $empresa->latitud_empresa}}', longitude: '{{ $empresa->longitud_empresa}}'} }"></div>
                             <div ng-init="mapa_posicion = { zoom: 7, center : { latitude: '{{ $empresa->latitud_empresa}}', longitude: '{{ $empresa->longitud_empresa}}'} }"></div>
@@ -135,111 +139,42 @@
                             </div>
 
                         </div>
-                        
+
                         <div class="tab-pane fade" id="productos">
                             <div class="row">
+                                @foreach($productos as $producto)
                                 <div class="col-sm-3">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery1.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
+                                                <img src="{{ url('/uploads/productos/high/'.$producto['primera_imagen']['nombre_imagen_producto']) }}" alt="">
+                                                <h2>{{$producto['precio_producto']}}</h2>
+                                                <p>{{$producto['nombre_producto']}}</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery2.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery3.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery4.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         
                         <div class="tab-pane fade" id="servicios">
                             <div class="row">
+                            @foreach($servicios as $servicio)
                                 <div class="col-sm-3">
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery1.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                                <img src="{{ url('/uploads/servicios/high/'.$servicio['url_imagen_servicio']) }}" alt="">
+                                                <h2>{{($servicio['precio_servicio'])}}</h2>
+                                                <p>{{($servicio['nombre_servicio'])}}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery2.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery3.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="product-image-wrapper">
-                                        <div class="single-products">
-                                            <div class="productinfo text-center">
-                                                <img src="http://localhost:8000/cart/Eshopper/images/home/gallery4.jpg" alt="">
-                                                <h2>$56</h2>
-                                                <p>Easy Polo Black Edition</p>
-                                                <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            </div> 
                         </div>  
                     
                     </div>

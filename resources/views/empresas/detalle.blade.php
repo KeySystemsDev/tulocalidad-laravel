@@ -48,7 +48,7 @@
                             <!--<img src="images/product-details/new.jpg" class="newarrival" alt="">-->
                             <h2>{{ $empresa->nombre_empresa }}</h2>
                             <p>RIF: {{ $empresa->rif_empresa }}</p>
-                            <img src="http://localhost:8000/cart/Eshopper/images/product-details/rating.png" alt="">
+                            <!--<img src="http://localhost:8000/cart/Eshopper/images/product-details/rating.png" alt="">-->
                             <br>
                             <p>Web ID: {{ $empresa->id_empresa }}</p>
                             <span>

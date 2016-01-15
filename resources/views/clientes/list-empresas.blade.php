@@ -41,7 +41,7 @@
                                 <div class="single-products">
                                     <div class="productinfo text-center">
                                         <img ng-src="[[ url + 'uploads/empresas/high/' + item.url_imagen_empresa]]" alt="">
-                                        <h5>[[item.nombre_empresa]]</h5>
+                                        <h5 class="text-ellipsis">[[item.nombre_empresa]]</h5>
                                         <p>[[item.rif_empresa]]</p>
                                         <a href="[[ url + 'detalle-empresa/' + item.id_empresa]]" class="btn btn-default add-to-cart"><i class="fa fa-pencil-square-o"></i>Ver detalle</a>
                                     </div>

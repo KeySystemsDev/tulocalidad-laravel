@@ -294,7 +294,7 @@ class ApisController extends Controller {
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
-		return json_encode('success' = 'true','redirect'=$preference['response']['sandbox_init_point']);
+		return json_encode(['success' => 'true','redirect'=>$preference['response']['sandbox_init_point']]);
 	}
 
 }

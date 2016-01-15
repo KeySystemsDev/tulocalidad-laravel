@@ -271,9 +271,9 @@ class ApisController extends Controller {
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
-								'success'=>url('comprar/mercadopago/respuesta/'),
-								'pending'=>url('comprar/mercadopago/respuesta/'),
-								'failure'=>url('comprar/mercadopago/respuesta/'),
+								'success'=>url('comprar/mercadopago/respuesta-movil/'),
+								'pending'=>url('comprar/mercadopago/respuesta-movil/'),
+								'failure'=>url('comprar/mercadopago/respuesta-movil/'),
 							],
 							'external_reference'=>$request->id_usuario.",".$request->id_empresa,
 							'collector_id'=>intval($response->user_id),

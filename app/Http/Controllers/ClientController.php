@@ -207,9 +207,9 @@ class ClientController extends Controller {
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
-								'success'=>url('comprar/mercadopago/respuesta-movil/'),
-								'pending'=>url('comprar/mercadopago/respuesta-movil/'),
-								'failure'=>url('comprar/mercadopago/respuesta-movil/'),
+								'success'=>url('comprar/mercadopago/respuesta/'),
+								'pending'=>url('comprar/mercadopago/respuesta/'),
+								'failure'=>url('comprar/mercadopago/respuesta/'),
 							],
 							'payer'=>[
 								'email'=>Auth::user()->correo_usuario,

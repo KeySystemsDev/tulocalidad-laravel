@@ -298,7 +298,7 @@ class ApisController extends Controller {
 
 
 	public function listaCompras($id_usuario){
-		$compras = (string) Compras::where('habilitado_compra',1)
+		$compras =  Compras::where('habilitado_compra',1)
 							->where('id_usuario',$id_usuario)
 							->get();
 		return json_encode(['success'=>'true',

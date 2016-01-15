@@ -300,9 +300,12 @@ class ClientController extends Controller {
 		$result = explode(",", $request->external_reference);
 		$id_usuario = $result[0];
 		$id_empresa = $result[1];
-		$lista_compra = Carrito::where('id_usuario',$id_usuario)
-								->where('id_empresa',$id_empresa)
-								->get();
+		$carritos = Carrito::where('id_usuario',$id_usuario)
+							->where('id_empresa',$id_empresa);
+
+
+		$lista_compra = $carritos->get();
+		
 
 		$compra = Compras::create([
 								'tipo_pago_compra'=>'mercadopago',
@@ -335,12 +338,12 @@ class ClientController extends Controller {
 
 		if($request->collection_status=='pending'){
 			Session::flash('mensaje', 'Procesando su pago.');
-			$lista_compra->delete();
+			$carritos->delete();
 		};
 
 		if($request->collection_status=='success'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
-			$lista_compra->delete();
+			$carritos->delete();
 		};
 		
 		return view('/clientes/volver');

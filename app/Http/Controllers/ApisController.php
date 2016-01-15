@@ -273,7 +273,7 @@ class ApisController extends Controller {
 								'success'=>url('comprar/mercadopago/respuesta-movil/'),
 								'pending'=>url('comprar/mercadopago/respuesta-movil/'),
 								'failure'=>url('comprar/mercadopago/respuesta-movil/'),
-							]
+							],
 							'external_reference'=>$request->id_usuario.",".$request->id_empresa,
 							'collector_id'=>intval($response->user_id),
 							'notification_url'=>url('/mp/notificaciones'),

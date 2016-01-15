@@ -246,14 +246,14 @@ class ClientController extends Controller {
 
 
 	public function IPNotificador(Request $request){
-		return json_encode("true");
 		// Create an instance with your MercadoPago credentials (CLIENT_ID and CLIENT_SECRET): 
 		// Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones 
 		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
 		// Mexico: https://www.mercadopago.com/mlm/herramientas/aplicaciones 
 		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
-		HelperController::sendEmail("hsh28@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($request)]);
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($request)]);
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
+		return json_encode("true");
 
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		$params = ["access_token" => $mp->get_access_token()];

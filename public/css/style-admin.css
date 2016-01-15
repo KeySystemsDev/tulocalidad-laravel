@@ -249,3 +249,14 @@ a#scrollUp {
 .btn-gestionar{
   text-align: center;
 }
+.cart-none i{
+  font-size: 400px;
+  color: #F4F4F4;
+}
+.cart-none{
+  text-align: center;
+}
+.cart-none h1{
+  color: #CFCFCF;
+  margin-top: 15px;
+}

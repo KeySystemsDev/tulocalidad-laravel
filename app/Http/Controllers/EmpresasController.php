@@ -98,8 +98,8 @@ class EmpresasController extends Controller
         }
         $telefonos = Telefonos::where('id_empresa',$id_empresa)->get();
 
-        $model_ser =  (string) Servicio::where('id_empresa',$id_empresa)->get()->toArray();
-        $model_prod =  (string) Producto::where('id_empresa',$id_empresa)->get()->toArray();
+        $model_ser =  (string) Servicio::where('id_empresa',$id_empresa)->get();
+        $model_prod =  (string) Producto::where('id_empresa',$id_empresa)->get();
         //$redes = MMRedes::where('id_empresa',$id_empresa)->get();
 
         $redes = \DB::table('t_redes')

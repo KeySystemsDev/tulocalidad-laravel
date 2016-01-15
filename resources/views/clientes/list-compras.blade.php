@@ -26,7 +26,7 @@
 	
 	
 	@if(count($compras)!=0)
-
+{{dd($comprar)}}
     <section id="cart_items">
 		<div class="container">
 			<div class="table-responsive cart_info">

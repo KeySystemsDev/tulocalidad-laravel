@@ -253,7 +253,7 @@ class ClientController extends Controller {
 		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request)]);
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
-		return json_encode("true");
+		//return json_encode("true");
 
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		$params = ["access_token" => $mp->get_access_token()];

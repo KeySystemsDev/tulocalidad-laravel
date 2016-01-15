@@ -283,7 +283,7 @@ class ClientController extends Controller {
 				echo "dont release your items";
 			}
 		}
-		return('okey',200);
+		return(200);
 	}
 
 }

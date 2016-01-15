@@ -7,7 +7,7 @@ class VerifyCsrfToken extends BaseVerifier {
 
 
 	protected $except=[
-			'*'
+			'/ipn'
 		]; 
 	/**
 	 * Handle an incoming request.

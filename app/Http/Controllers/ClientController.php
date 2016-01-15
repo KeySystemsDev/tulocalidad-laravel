@@ -246,6 +246,7 @@ class ClientController extends Controller {
 
 
 	public function IPNotificador(Request $request){
+		return json_encode("true");
 		// Create an instance with your MercadoPago credentials (CLIENT_ID and CLIENT_SECRET): 
 		// Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones 
 		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes

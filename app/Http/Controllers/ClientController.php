@@ -200,7 +200,7 @@ class ClientController extends Controller {
                                 'fecha_vencimiento_mercadopago'=>$response->expires_in,
                                 ]);
         $empresa->save();
-
+        $mp->sandbox_mode(TRUE);
 		$mp = new MP($response->access_token);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)

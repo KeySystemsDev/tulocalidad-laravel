@@ -32,6 +32,7 @@ Route::get('/','ClientController@index');
 Route::get('/lista-empresas','ClientController@listarEmpresas');
 Route::get('/lista-productos','ClientController@listarProductos');
 Route::get('/lista-servicios','ClientController@listarServicios');
+Route::get('/comprar/mercadopago/respuesta-movil','ClientController@listarServicios');
 
 Route::get('/detalle-empresa/{id}','ClientController@DetalleEmpresa');
 Route::get('/detalle-producto/{id}','ClientController@DetalleProducto');

@@ -249,7 +249,11 @@ class ClientController extends Controller {
 							->where('id_empresa',$id_empresa);
 
 
+
 		$lista_compra = $carritos->get();
+
+
+
 		$compra = Compras::create([
 								'tipo_pago_compra'=>'mercadopago',
 								'identificador_pago_compra'=>$request->preference_id,
@@ -263,6 +267,7 @@ class ClientController extends Controller {
 			ProductoComprado::create([
 							'id_empresa'					=>$id_empresa,
 							'id_compra'						=>$compra->id_compra,
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen'],
 							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
 							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
 							'precio_total'					=>$producto['sub_total'],
@@ -322,6 +327,7 @@ class ClientController extends Controller {
 			ProductoComprado::create([
 							'id_empresa'					=>$id_empresa,
 							'id_compra'						=>$compra->id_compra,
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen'],							
 							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
 							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
 							'precio_total'					=>$producto['sub_total'],

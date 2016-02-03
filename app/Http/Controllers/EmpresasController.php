@@ -212,7 +212,7 @@ class EmpresasController extends Controller
         curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
         curl_setopt($curl, CURLOPT_POST , true);
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
-        curl_setopt($curl, CURLOPT_SSLVERSION , 3);
+        //curl_setopt($curl, CURLOPT_SSLVERSION , 3);
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);  
 

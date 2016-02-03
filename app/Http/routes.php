@@ -43,7 +43,7 @@ Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
 
 
 Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
-Route::any('/mp/notificaciones', 'ClientController@IPNotificador');
+Route::any('/mp', 'ClientController@IPNotificador');
 
 
 

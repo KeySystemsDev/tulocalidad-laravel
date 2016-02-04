@@ -201,7 +201,7 @@ class EmpresasController extends Controller
             'grant_type' => 'authorization_code',
             'code' => urlencode($request->code),
             //'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP'),
-            'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa),
+            'redirect_uri' => urlencode('https://test-tulocalidad.com.ve/empresas/configuracionMP?id_empresa='.$request->id_empresa.'&code='.$request->code),
         );
         $fields_string="";
         foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }

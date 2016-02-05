@@ -319,7 +319,7 @@ class ClientController extends Controller {
 	public function IPNotificador(Request $request){
 
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
-		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
+		//$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
 		$fichero_log = LOG_SITE.'/log.txt';
         // Añade una nueva persona al fichero

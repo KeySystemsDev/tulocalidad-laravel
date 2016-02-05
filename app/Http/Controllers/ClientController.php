@@ -219,7 +219,7 @@ class ClientController extends Controller {
 							],
 							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
 							'collector_id'=>intval($response->user_id),
-							'notification_url'=>url('/mp/notificaciones'),
+							//'notification_url'=>url('/mp'),
 						];					
 		foreach ($articulos as $articulo) {
 			

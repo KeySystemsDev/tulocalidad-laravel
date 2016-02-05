@@ -321,8 +321,8 @@ class ClientController extends Controller {
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
 
-		$fichero = LOG_SITE.'log_pagos.txt';
-		$fichero_ordenes = LOG_SITE.'log_ordenes.txt';
+		$fichero = LOG_SITE.'/log_pagos.txt';
+		$fichero_ordenes = LOG_SITE.'/log_ordenes.txt';
         // Añade una nueva persona al fichero
         $actual = print_r($request->all(), true);
 

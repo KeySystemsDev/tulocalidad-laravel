@@ -12,7 +12,7 @@ use Auth;
 use Session;
 use MP;
 
-define ('LOG_SITE', realpath("/"));
+define ('SITE', realpath(dirname("uploads")));
 
 class ClientController extends Controller {
 
@@ -321,10 +321,10 @@ class ClientController extends Controller {
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		//$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
-		$fichero_log = '/log.txt';
+		$fichero_log = SITE.'/log.txt';
         // Añade una nueva persona al fichero
         $actual = print_r($request->all(), true);
-
+		file_put_contents($fichero_log, $actual, FILE_APPEND);
         
 		// $json_event = file_get_contents('/input.txt', true);
 		// $event = json_decode($json_event);
@@ -347,7 +347,7 @@ class ClientController extends Controller {
 		//     }
 		// }
 
- 		file_put_contents($fichero_log, $actual, FILE_APPEND);
+ 		
 		
 
 		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));

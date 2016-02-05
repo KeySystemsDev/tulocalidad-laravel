@@ -322,11 +322,12 @@ class ClientController extends Controller {
 
 
 		$fichero = LOG_SITE.'/log_pagos.txt';
+		$fichero_log = LOG_SITE.'/log.txt';
 		$fichero_ordenes = LOG_SITE.'/log_ordenes.txt';
         // Añade una nueva persona al fichero
         $actual = print_r($request->all(), true);
 
-
+        file_put_contents($fichero_log, $actual, FILE_APPEND);
 		// $json_event = file_get_contents('/input.txt', true);
 		// $event = json_decode($json_event);
 
@@ -349,7 +350,7 @@ class ClientController extends Controller {
 		}
 
  		
-		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 
 		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		// $params = ["access_token" => $mp->get_access_token()];

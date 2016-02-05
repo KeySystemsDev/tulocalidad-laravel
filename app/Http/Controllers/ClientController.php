@@ -318,9 +318,9 @@ class ClientController extends Controller {
 
 	public function IPNotificador(Request $request){
 
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		$fichero = LOG_SITE.'/log_pagos.txt';
 		$fichero_log = LOG_SITE.'/log.txt';
 		$fichero_ordenes = LOG_SITE.'/log_ordenes.txt';

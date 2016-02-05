@@ -321,7 +321,7 @@ class ClientController extends Controller {
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		//$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
-		$fichero_log = LOG_SITE.'/log.txt';
+		$fichero_log = '/log.txt';
         // Añade una nueva persona al fichero
         $actual = print_r($request->all(), true);
 

@@ -201,7 +201,7 @@ class ClientController extends Controller {
                                 ]);
         $empresa->save();
 		$mp = new MP($response->access_token);
-        $mp->sandbox_mode(true);
+        //$mp->sandbox_mode(true);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
@@ -234,7 +234,7 @@ class ClientController extends Controller {
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
-		return redirect($preference['response']['sandbox_init_point']);
+		return redirect($preference['response']['init_point']);
 	}
 
 

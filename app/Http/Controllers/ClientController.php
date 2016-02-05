@@ -368,7 +368,7 @@ class ClientController extends Controller {
 		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
 		//return json_encode("true");
 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"prueba"]);
 
 		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		// $params = ["access_token" => $mp->get_access_token()];

@@ -321,35 +321,33 @@ class ClientController extends Controller {
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 
-		$fichero = LOG_SITE.'/log_pagos.txt';
 		$fichero_log = LOG_SITE.'/log.txt';
-		$fichero_ordenes = LOG_SITE.'/log_ordenes.txt';
         // Añade una nueva persona al fichero
         $actual = print_r($request->all(), true);
 
-        file_put_contents($fichero_log, $actual, FILE_APPEND);
+        
 		// $json_event = file_get_contents('/input.txt', true);
 		// $event = json_decode($json_event);
 
-		if ($request->type == 'payment'){
-		    $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+		// if ($request->type == 'payment'){
+		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
 
-		    if ($payment_info["status"] == 200) {
-		        //print_r($payment_info["response"]);
-		        file_put_contents($fichero, $actual, FILE_APPEND);
-		    }
-		}
+		//     if ($payment_info["status"] == 200) {
+		//         //print_r($payment_info["response"]);
+		//         //file_put_contents($fichero, $actual, FILE_APPEND);
+		//     }
+		// }
 
-		if ($request->type == 'merchant_order'){
-		    $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+		// if ($request->type == 'merchant_order'){
+		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
 
-		    if ($payment_info["status"] == 200) {
-		        //print_r($payment_info["response"]);
-		        file_put_contents($fichero_ordenes, $actual, FILE_APPEND);
-		    }
-		}
+		//     if ($payment_info["status"] == 200) {
+		//         //print_r($payment_info["response"]);
+		//         //file_put_contents($fichero_ordenes, $actual, FILE_APPEND);
+		//     }
+		// }
 
- 		
+ 		file_put_contents($fichero_log, $actual, FILE_APPEND);
 		
 
 		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));

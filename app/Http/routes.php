@@ -72,6 +72,7 @@ $router->group(['middleware' => 'auth'], function() {
 
 	//Route::
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/destroy','SolicitudController@destroy');
+	Route::get('empresas/{empresas}/solicitudes/','SolicitudController@index');
 	Route::post('empresas/{empresas}/solicitudes/','SolicitudController@crearSolicitud');
 	Route::post('empresas/{empresas}/solicitudes/{solicitudes}/responder-presupuesto','SolicitudController@responderSolicitud');
 	Route::post('empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto','SolicitudController@aceptarSolicitud');

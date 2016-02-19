@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProductoComprado extends Model {
 
 	protected $table = 't_productos_comprados';
-	protected $primaryKey = "id_producto";
+	protected $primaryKey = "id_producto_comprado";
 	protected $fillable = [
 							'id_empresa',
 							'id_compra',

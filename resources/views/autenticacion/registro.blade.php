@@ -47,6 +47,18 @@
 
 				<form class="form-horizontal" role="form" method="POST" action="{{ url('/registrar') }}">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    
+                    <div class="form-group m-b-15">
+                        <input type="text" class="form-control" name="nombre_perfil" placeholder="Nombre">
+                    </div>
+
+                    <div class="form-group m-b-15">
+                        <input type="text" class="form-control" name="apellido_perfil" placeholder="Apellido">
+                    </div>
+
+                    <div class="form-group m-b-15">
+                        <input type="text" class="form-control" name="telefono_perfil" placeholder="(9999)999-99-99" data-mask="(9999)999-99-99">
+                    </div>
 
 					<div class="form-group m-b-15">
 						<input type="email" class="form-control" name="correo_usuario" value="{{ old('email') }}" placeholder="Correo Electronico">

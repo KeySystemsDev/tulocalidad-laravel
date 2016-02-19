@@ -72,7 +72,12 @@ $router->group(['middleware' => 'auth'], function() {
 
 	//Route::
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/destroy','SolicitudController@destroy');
-	Route::resource('empresas.solicitudes','SolicitudController');
+	Route::post('empresas/{empresas}/solicitudes/','SolicitudController@crearSolicitud');
+	Route::post('empresas/{empresas}/solicitudes/{solicitudes}/responder-presupuesto','SolicitudController@responderSolicitud');
+	Route::post('empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto','SolicitudController@aceptarSolicitud');
+	Route::post('empresas/{empresas}/solicitudes/{solicitudes}/rechazar-presupuesto','SolicitudController@rechazarSolicitud');
+
+	//Route::resource('empresas.solicitudes','SolicitudController');
 
 	Route::get('redes_sociales/{redes_sociales}/destroy','RedesSocialesController@destroy');
 	Route::resource('redes_sociales','RedesSocialesController');

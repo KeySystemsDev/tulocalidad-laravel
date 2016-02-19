@@ -7,7 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use App\User;
-use App\Perfil;
+use App\Models\Perfils;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {
@@ -44,7 +44,7 @@ class LoginController extends Controller {
 	}
 
 	public function postRegistro(Request $request){
-		//dd($request->has('password'));
+		//dd($request->all());
 		if (!$request->has('password') || !$request->has('re_password')){
             Session::flash("mensaje-error",'rellene el password');
             return redirect("/registro");
@@ -64,6 +64,8 @@ class LoginController extends Controller {
         $request['password'] = \Hash::make($request['password']);
         $user = User::create($request->all());
 
+        $request['id_usuario'] = $user->id_usuario;
+        Perfil::create($request->all());
         Session::flash("mensaje","usuario registrado exitosamente");
         return redirect('/login');
 	}

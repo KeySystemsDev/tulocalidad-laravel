@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use App\Models\Carrito;
+use App\Models\Perfil;
 
 class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract {
 
@@ -28,26 +29,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 					'numero_articulos'		=> 'integer',
 					'costo_carrito'			=> 'float',
 					'articulos'				=> 'array',
+					'perfil'				=> 'array',
 					];
 
-	protected $appends = ['numero_articulos','articulos', 'costo_carrito'];
+	protected $appends = ['numero_articulos','articulos', 'costo_carrito','perfil'];
 
-	public function getPerfil(){
-		$perfil = Perfil::where('id_usuario',$this->id_usuario)->first();
-		return $perfil;
-	}
 
-	public function getFullName(){
-		return Perfil::where('id_usuario',$this->id_usuario)->first()->fullName();
-	}
-
-	public function isAdmin(){
-		$permisologia = Permisologia::find($this->id_permisologia);
-		if ($permisologia){
-			return $permisologia->identificador_permisologia == 'admin';
-		}
-		return false;
-	}
+	public function getPerfilAttribute(){
+		return Perfil::where('id_usuario',$this->id_usuario)->first();
+	}	
 
 	public function getNumeroArticulosAttribute(){
 		$cantidad_articulos = Carrito::where('id_usuario',$this->id_usuario)->count();

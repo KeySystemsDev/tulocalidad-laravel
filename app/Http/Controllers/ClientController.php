@@ -190,7 +190,7 @@ class ClientController extends Controller {
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_servicio' =>$request->id,
 										]);
-		}elif($request->tipo =='productos'){
+		}elseif($request->tipo =='productos'){
 			ProductoFavorito::create([
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_producto' =>$request->id,
@@ -202,7 +202,7 @@ class ClientController extends Controller {
 	public function eliminarFavorito(Request $request){
 		if($request->tipo =='servicios'){
 			ServicioFavorito::find($request->id)->delete();
-		}elif($request->tipo =='productos'){
+		}elseif($request->tipo =='productos'){
 			ProductoFavorito::find($request->id)->delete();
 		}
 		return json_encode('success'=true);

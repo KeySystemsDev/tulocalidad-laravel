@@ -21,8 +21,10 @@ class Solicitud extends Model {
 	protected $primaryKey = "id_solicitud";
 
 	public $cast = [
-					'id_vendedor' 					=> 'integer',
+					'id_empresa' 					=> 'integer',
 					'id_comprador' 					=> 'integer',
+					'id_servicio' 					=> 'integer',
+					'servicio' 						=> 'array',
 					'estatus_solicitud' 			=> 'integer',
 					'fecha_finalizado_solicitud'	=> 'date',
 					'monto_final_solicitud'			=> 'float',	
@@ -34,6 +36,23 @@ class Solicitud extends Model {
 
 	public $timestamps = false;
 
-	protected $appends = [];
+	protected $appends = ['servicio'];
 
+
+	public function getServicioAttribute(){
+		return Servicio::find($this->id_servicios);
+	};
+
+	public function getFechaCreacionSolicitudAttribute(){
+		$date = \Carbon\Carbon::parse($this->attributes['fecha_creacion_solicitud']); 
+	  return $date->format('d-m-Y');
+	}
+	public function getFechaFinalizadoSolicitudAttribute(){
+		$date = \Carbon\Carbon::parse($this->attributes['fecha_finalizado_solicitud']); 
+	  return $date->format('d-m-Y');
+	}
+	public function getFechaVencimientoSolicitudAttribute(){
+		$date = \Carbon\Carbon::parse($this->attributes['fecha_vencimiento_solicitud']); 
+	  return $date->format('d-m-Y');
+	}
 }

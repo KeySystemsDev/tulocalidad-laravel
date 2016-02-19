@@ -196,7 +196,16 @@ class ClientController extends Controller {
 									'id_producto' =>$request->id;
 										]);
 		}
-		return view('/clientes/list-favoritos',compact('productos','servicios'));
+		return json_encode('success'=true);
+	}
+
+	public function eliminarFavorito(Request $request){
+		if($request->tipo =='servicios'){
+			ServicioFavorito::find($request->id)->delete();
+		}elif($request->tipo =='productos'){
+			ProductoFavorito::find($request->id)->delete();
+		}
+		return json_encode('success'=true);
 	}
 
 

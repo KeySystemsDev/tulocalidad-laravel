@@ -174,7 +174,7 @@ class ClientController extends Controller {
 	}
 
 	public function listaContrato(){
-		$solicitudes = json_encode( Solicitud::all() );
+		$solicitudes =  Solicitud::all()->toArray();
 		return view('/clientes/list-contratos', compact('solicitudes'));
 	}
 

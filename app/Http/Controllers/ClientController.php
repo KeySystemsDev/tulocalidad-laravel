@@ -188,12 +188,12 @@ class ClientController extends Controller {
 		if($request->tipo =='servicios'){
 			ServicioFavorito::create([
 									'id_usuario'=>Auth::user()->id_usuario,
-									'id_servicio' =>$request->id;
+									'id_servicio' =>$request->id,
 										]);
 		}elif($request->tipo =='productos'){
 			ProductoFavorito::create([
 									'id_usuario'=>Auth::user()->id_usuario,
-									'id_producto' =>$request->id;
+									'id_producto' =>$request->id,
 										]);
 		}
 		return json_encode('success'=true);

@@ -179,8 +179,8 @@ class ClientController extends Controller {
 	}
 
 	public function listaFavorito(){
-		Producto::
-		return view('/clientes/list-favoritos', compact('servicios','productos'));
+//		Producto::
+		return view('/clientes/list-favoritos', []);
 	}
 
 		//Colo

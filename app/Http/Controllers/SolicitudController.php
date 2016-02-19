@@ -23,7 +23,8 @@ class SolicitudController extends Controller{
     }
 
     public function store(Request $request){
-        return json_encode();
+        Solicitud::create($request->all());
+        return json_encode(['success'=>true,]);
     }
 
     public function show($id_empresa, $id){

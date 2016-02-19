@@ -24,7 +24,7 @@ class SolicitudController extends Controller{
 
     public function crearSolicitud($id_empresa, Request $request){
         $request['id_empresa']=$id_empresa;
-        $request['estatus_solitud']=1;
+        $request['estatus_solicitud']=1;
         Solicitud::create($request->all());
         return json_encode(['success'=>true,]);
     }

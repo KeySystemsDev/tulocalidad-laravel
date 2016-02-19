@@ -33,21 +33,43 @@ class SolicitudController extends Controller{
         Solicitud::find($id_solicitud)->update([
                                         "texto_presupuesto_solicitud" => $request->texto_presupuesto_solicitud,
                                         "monto_presupuesto_solicitud" => $request->monto_presupuesto_solicitud,
-
+                                        "fecha_vencimiento_solicitud" => $request->fecha_vencimiento_solicitud,
+                                        'estatus_solitud'             => 2,
                                         ]);
 
         return json_encode(['success'=>true,]);
     }
 
     public function aceptarSolicitud($id_empresa, $id_solicitud, Request $request){
-        $request['id_empresa'] = $id_empresa;
-        Solicitud::create($request->all());
+        $solicitud = Solicitud::find($id_solicitud);
+        if (\Carbon\Carbon::now() > $solicitud->fecha_vencimiento_solicitud ){
+            $solicitud->update([
+                            'estatus_solitud'=>5,
+                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                            ]);
+        };
+
+        $solicitud->update([
+                        'estatus_solitud'               => 3,
+                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                        ]);
         return json_encode(['success'=>true,]);
     }
 
     public function rechazarSolicitud($id_empresa, $id_solicitud, Request $request){
-        $request['id_empresa'] = $id_empresa;
-        Solicitud::create($request->all());
+
+        $solicitud = Solicitud::find($id_solicitud);
+        if (\Carbon\Carbon::now() > $solicitud->fecha_vencimiento_solicitud ){
+            $solicitud->update([
+                            'estatus_solitud'=>5,
+                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                            ]);
+        };
+
+        $solicitud->update([
+                        'estatus_solitud'               => 4,
+                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                        ]);
         return json_encode(['success'=>true,]);
     }
 

@@ -8,4 +8,6 @@ coreApp.controller('ClienteServicioDetalle', function($scope, $log, ajax, $windo
     }
 
     $scope.letterLimit = 10;
+
+    $scope.servicio  = {};
 });

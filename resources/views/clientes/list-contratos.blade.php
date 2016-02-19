@@ -23,7 +23,8 @@
             </div>
         </div>
     </div>
-
+	<div ng-init="solicitudes={{$solicitudes}}"></div>
+	[[solicitudes]]
     <section id="cart_items">
 		<div class="container">
 			<div class="table-responsive cart_info">
@@ -32,13 +33,12 @@
 						<tr class="cart_menu">
 							<td class="image">Articulos</td>
 							<td class="description"></td>
-							<td class="price">Precio</td>
-							<td class="quantity">Cantidad</td>
-							<td class="total">Total</td>
+							<td class="quantity">Precio</td>
+							<td class="total">Estatus</td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
+						<tr ng-repeat="solitud in solicitudes">
 							<td class="cart_product">
 								<a href=""><img src="{{ url('img/no-imagen.jpg') }}" alt=""></a>
 							</td>
@@ -49,11 +49,11 @@
 							<td class="cart_price">
 								<p>150 BsF</p>
 							</td>
-							<td class="cart_quantity">
-								2
-							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">300 BsF</p>
+								<p class="cart_total_price">
+									<button>aceptar</button>
+									<button>cancelar</button>
+								</p>
 							</td>
 						</tr>
 					</tbody>

@@ -9,12 +9,13 @@
 			<div ng-init="urlAction='{{ url('empresas/[[producto.id_empresa]]/solicitudes/') }}'"></div>
 			<form class="form-horizontal" name="formulario" id="formulario" ng-action="{{ url('empresas/[[producto.id_empresa]]/solicitudes/') }}" method="POST">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+				<input type="hidden" name="id_servicio" ng-value="producto.id_servicio">
+				
 				<div class="modal-body" >
 					<div class="form-group">
 	                    <label class="col-md-4 control-label">Detalle de Solicitud</label>
 	                    <div class="col-md-5">
-	                    	<textarea rows="15" class="form-control" name="texto_solicitud" ng-required="true"></textarea>
+	                    	<textarea rows="15" class="form-control" name="texto_solicitud" ng-model="servicio.texto_solicitud" ng-required="true"></textarea>
 	                    	<div class="error campo-requerido" ng-show="formulario.texto_solicitud.$invalid && (formulario.texto_solicitud.$touched || submitted)">
 	                            <small class="error" ng-show="formulario.texto_solicitud.$error.required">
 	                                * Campo requerido.

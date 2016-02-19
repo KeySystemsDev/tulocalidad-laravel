@@ -27,10 +27,6 @@ class SolicitudController extends Controller{
         return json_encode(['success'=>true,]);
     }
 
-    public function show($id_empresa, $id){
-        return view('solicitudes.detalle', []);
-    }
-
     public function destroy($id_empresa, $id){
         
         return redirect('/');

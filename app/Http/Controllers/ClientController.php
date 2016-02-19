@@ -196,7 +196,7 @@ class ClientController extends Controller {
 									'id_producto' =>$request->id,
 										]);
 		}
-		return json_encode('success'=true);
+		return json_encode(['success'=>true]);
 	}
 
 	public function eliminarFavorito(Request $request){
@@ -205,7 +205,7 @@ class ClientController extends Controller {
 		}elseif($request->tipo =='productos'){
 			ProductoFavorito::find($request->id)->delete();
 		}
-		return json_encode('success'=true);
+		return json_encode(['success'=>true]);
 	}
 
 

@@ -16,4 +16,9 @@ class ProductoFavorito extends Model {
 					'id_usuario'				=> 'integer',
 					];
 
+	protected $appends =['producto'];
+
+	public function getProductoAttribute(){
+		return Producto::find($this->id_producto);
+	};
 }

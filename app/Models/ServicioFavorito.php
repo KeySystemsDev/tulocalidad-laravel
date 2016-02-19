@@ -16,4 +16,9 @@ class ServicioFavorito extends Model {
 					'id_usuario'				=> 'integer',
 					];
 
+	protected $appends =['servicio'];
+
+	public function getServicioAttribute(){
+		return Servicio::find($this->id_servicio);
+	};
 }

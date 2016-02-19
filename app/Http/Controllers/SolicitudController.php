@@ -17,9 +17,31 @@ use Session;
 
 class SolicitudController extends Controller{
 
+
+    public function __construct(){
+        //$this->beforeFilter('@permisos');
+        $this->beforeFilter('@find', ['only' => ['index',
+                                                 ]]);
+    }
+
+    public function find(Route $route){
+        $this->empresa = Empresa::where('id_usuario',Auth::user()->id_usuario)
+                                ->where('id_empresa',$route->getParameter('empresas'))
+                                ->first();
+        if (!$this->empresa){
+            //Session::flash("mensaje-error","No existe ese registro.");
+            return redirect('/empresas');
+        }
+        if (!$this->empresa->habilitado_mercadopago){
+            return redirect('/empresas/'.$route->getParameter('empresas'));
+        }
+    }
+
     public function index($id_empresa){
         $solicitudes = Solicitud::all();
-        return view('solicitudes.list',compact('solicitudes'));
+        return view('solicitudes.list', ['solicitudes'=>$solicitudes, 
+                                            'id_empresa'=>$this->id_empresa,
+                                            'nombre_empresa'=>$this->nombre_empresa]);
     }
 
     public function crearSolicitud($id_empresa, Request $request){

@@ -39,7 +39,7 @@ class SolicitudController extends Controller{
         return view('solicitudes.list', ['solicitudes'=>$solicitudes, 
                                             'id_empresa'=>$this->empresa->id_empresa,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
-    };
+    }
 
     public function crearSolicitud($id_empresa, Request $request){
         $request['id_empresa']=$id_empresa;

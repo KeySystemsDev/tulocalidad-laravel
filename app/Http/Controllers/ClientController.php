@@ -12,6 +12,8 @@ use Auth;
 use Session;
 use MP;
 
+define ('SITE', realpath(dirname("uploads")));
+
 class ClientController extends Controller {
 
 
@@ -170,6 +172,13 @@ class ClientController extends Controller {
 		return view('/clientes/list-compras',compact('compras'));
 	}
 
+	public function listaContrato(){
+		return view('/clientes/list-contratos');
+	}
+
+	public function listaFavorito(){
+		return view('/clientes/list-favoritos');
+	}
 
 		//Colo
 	public function postMercadopago1(Request $request){
@@ -193,7 +202,6 @@ class ClientController extends Controller {
         curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
         $response =  json_decode(curl_exec($curl)); 
         curl_close($curl);
-        //dd($response);
         $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
                                 'access_token_mercadopago'=>$response->access_token,
                                 'user_id_mercadopago'=>$response->user_id,
@@ -201,7 +209,6 @@ class ClientController extends Controller {
                                 ]);
         $empresa->save();
 		$mp = new MP($response->access_token);
-        $mp->sandbox_mode(true);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
@@ -219,67 +226,63 @@ class ClientController extends Controller {
 							],
 							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
 							'collector_id'=>intval($response->user_id),
-							'notification_url'=>url('/mp/notificaciones'),
+							'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 						];					
 		foreach ($articulos as $articulo) {
 			
 			$articulo_data = [
 					'title' => $articulo['nombre_empresa'],
 					'quantity' =>intval($articulo->cantidad_producto_carrito),
-					'description' =>'asd',
-					'picture_url' =>url('/uploads/empresas/high/'.$articulo['url_imagen_empresa']),
+					'description' =>'Lista de ariticulos de la tienda '.$articulo['nombre_empresa'],
+					'picture_url' =>url('/uploads/empresas/mid/'.$articulo['url_imagen_empresa']),
 					'currency_id'=> 'VEF',
 					'unit_price'=> (float)$articulo['data_producto']->precio_producto
 			];
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
-		return redirect($preference['response']['sandbox_init_point']);
+		return redirect($preference['response']['init_point']);
 	}
 
 
 	public function respuestaCompra(Request $request){
-		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+		// $mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
 		
-		//dd($request->all());
-		$precio_total = 0;
-		$result = explode(",", $request->external_reference);
-		$id_usuario = $result[0];
-		$id_empresa = $result[1];
-		$carritos = Carrito::where('id_usuario',$id_usuario)
-							->where('id_empresa',$id_empresa);
+		// //dd($request->all());
+		// $precio_total = 0;
+		// $result = explode(",", $request->external_reference);
+		// $id_usuario = $result[0];
+		// $id_empresa = $result[1];
+		// $carritos = Carrito::where('id_usuario',$id_usuario)
+		// 					->where('id_empresa',$id_empresa);
 
+		// $lista_compra = $carritos->get();
 
+		// $compra = Compras::create([
+		// 						'tipo_pago_compra'=>'mercadopago',
+		// 						'identificador_pago_compra'=>$request->preference_id,
+		// 						'precio_total_compra',
+		// 						'estatus_compra'=>$request->collection_status,
+		// 						'id_usuario' => $id_usuario,
+		// 						'id_empresa' => $id_empresa,
+		// 						]
+		// 	);
+		// foreach ($lista_compra as $producto) {
+		// 	ProductoComprado::create([
+		// 					'id_empresa'					=>$id_empresa,
+		// 					'id_compra'						=>$compra->id_compra,
+		// 					'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
+		// 					'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
+		// 					'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
+		// 					'precio_total'					=>$producto['sub_total'],
+		// 					'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
+		// 					'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
+		// 				]);
+		// 	$precio_total +=  intval($producto['sub_total']);
+		// };
 
-		$lista_compra = $carritos->get();
-
-
-
-		$compra = Compras::create([
-								'tipo_pago_compra'=>'mercadopago',
-								'identificador_pago_compra'=>$request->preference_id,
-								'precio_total_compra',
-								'estatus_compra'=>$request->collection_status,
-								'id_usuario' => $id_usuario,
-								'id_empresa' => $id_empresa,
-								]
-			);
-		foreach ($lista_compra as $producto) {
-			ProductoComprado::create([
-							'id_empresa'					=>$id_empresa,
-							'id_compra'						=>$compra->id_compra,
-							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
-							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
-							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
-							'precio_total'					=>$producto['sub_total'],
-							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
-							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
-						]);
-			$precio_total +=  intval($producto['sub_total']);
-		};
-
-		$compra->fill(['precio_total_compra'=>$precio_total]);
-		$compra->save();
+		// $compra->fill(['precio_total_compra'=>$precio_total]);
+		// $compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado.');
@@ -301,45 +304,7 @@ class ClientController extends Controller {
 
 
 	public function respuestaMercadopagoMovil(Request $request){
-		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
-		
-		//dd($request->all());
-		$precio_total = 0;
-		$result = explode(",", $request->external_reference);
-		$id_usuario = $result[0];
-		$id_empresa = $result[1];
-		$carritos = Carrito::where('id_usuario',$id_usuario)
-							->where('id_empresa',$id_empresa);
 
-
-		$lista_compra = $carritos->get();
-		
-
-		$compra = Compras::create([
-								'tipo_pago_compra'=>'mercadopago',
-								'identificador_pago_compra'=>$request->preference_id,
-								'precio_total_compra',
-								'estatus_compra'=>$request->collection_status,
-								'id_usuario' => $id_usuario,
-								'id_empresa' => $id_empresa,
-								]
-			);
-		foreach ($lista_compra as $producto) {
-			ProductoComprado::create([
-							'id_empresa'					=>$id_empresa,
-							'id_compra'						=>$compra->id_compra,
-							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],							
-							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
-							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
-							'precio_total'					=>$producto['sub_total'],
-							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
-							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
-						]);
-			$precio_total +=  intval($producto['sub_total']);
-		};
-
-		$compra->fill(['precio_total_compra'=>$precio_total]);
-		$compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado.');
@@ -359,16 +324,38 @@ class ClientController extends Controller {
 	}
 
 	public function IPNotificador(Request $request){
-		// Create an instance with your MercadoPago credentials (CLIENT_ID and CLIENT_SECRET): 
-		// Argentina: https://www.mercadopago.com/mla/herramientas/aplicaciones 
-		// Brasil: https://www.mercadopago.com/mlb/ferramentas/aplicacoes
-		// Mexico: https://www.mercadopago.com/mlm/herramientas/aplicaciones 
-		// Venezuela: https://www.mercadopago.com/mlv/herramientas/aplicaciones 
-		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>json_encode($request->all())]);
-		//($receptor, $nombreReceptor, $asunto, $plantilla, $parametros)
-		//return json_encode("true");
 
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+		//$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
+
+		$fichero_log = SITE.'/log.txt';
+        // Añade una nueva persona al fichero
+        $actual = print_r($request->all(), true);
+		file_put_contents($fichero_log, $actual, FILE_APPEND);
+        
+		// $json_event = file_get_contents('/input.txt', true);
+		// $event = json_decode($json_event);
+
+		// if ($request->type == 'payment'){
+		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+
+		//     if ($payment_info["status"] == 200) {
+		//         //print_r($payment_info["response"]);
+		//         //file_put_contents($fichero, $actual, FILE_APPEND);
+		//     }
+		// }
+
+		// if ($request->type == 'merchant_order'){
+		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+
+		//     if ($payment_info["status"] == 200) {
+		//         //print_r($payment_info["response"]);
+		//         //file_put_contents($fichero_ordenes, $actual, FILE_APPEND);
+		//     }
+		// }
+
+ 		
+		
 
 		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
 		// $params = ["access_token" => $mp->get_access_token()];

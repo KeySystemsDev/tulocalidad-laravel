@@ -19,7 +19,7 @@ class SolicitudController extends Controller{
 
     public function index($id_empresa){
         $solicitudes = Solicitud::all();
-        return view('contratos.list',compact('solicitudes'));
+        return view('solicitudes.list',compact('solicitudes'));
     }
 
     public function store(Request $request){
@@ -27,7 +27,7 @@ class SolicitudController extends Controller{
     }
 
     public function show($id_empresa, $id){
-        return view('contratos.detalle', []);
+        return view('solicitudes.detalle', []);
     }
 
     public function destroy($id_empresa, $id){

@@ -70,6 +70,9 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('empresas/{empresas}/servicios/{servicios}/destroy','ServiciosController@destroy');
 	Route::resource('empresas.servicios','ServiciosController');
 
+	//Route::
+	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/destroy','SolicitudController@destroy');
+	Route::resource('empresas.solicitudes','SolicitudController');
 
 	Route::get('redes_sociales/{redes_sociales}/destroy','RedesSocialesController@destroy');
 	Route::resource('redes_sociales','RedesSocialesController');

@@ -173,7 +173,8 @@ class ClientController extends Controller {
 	}
 
 	public function listaContrato(){
-		return view('/clientes/list-contratos');
+		$solicitudes = json_encode( Solicitud::all() );
+		return view('/clientes/list-contratos', compact('solicitudes'));
 	}
 
 	public function listaFavorito(){

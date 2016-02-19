@@ -174,7 +174,7 @@ class ClientController extends Controller {
 	}
 
 	public function listaContrato(){
-		$solicitudes =  Solicitud::all()->toArray();
+		$solicitudes = (string) Solicitud::all();
 		return view('/clientes/list-contratos', compact('solicitudes'));
 	}
 

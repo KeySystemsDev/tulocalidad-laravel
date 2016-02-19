@@ -41,7 +41,7 @@ class Solicitud extends Model {
 
 	public function getServicioAttribute(){
 		return Servicio::find($this->id_servicios);
-	};
+	}
 
 	public function getFechaCreacionSolicitudAttribute(){
 		$date = \Carbon\Carbon::parse($this->attributes['fecha_creacion_solicitud']); 

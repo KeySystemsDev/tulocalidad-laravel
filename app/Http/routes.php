@@ -81,6 +81,8 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('/eliminar-carrito/{id_producto}','ClientController@eliminarDeCarrito');
 	Route::get('/lista-carrito/','ClientController@listarCarrito');
 	Route::get('/compras/','ClientController@listaCompras');
+	Route::get('/contratos/','ClientController@listaContrato');
+	Route::get('/favoritos/','ClientController@listaFavorito');
 	//mercadopago
 	Route::get('/comprar/mercadopago','ClientController@mercadopago1');
 	Route::post('/comprar/mercadopago','ClientController@postMercadopago1');

@@ -43,9 +43,9 @@
 		                                <p>[[item.rif_empresa]].</p>
 										<div class="row">
 		                                	<div class="btn-gestionar">
-			                                	<a href="[[url+'empresas/'+item.id_empresa+'/servicios']]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Servicios"><i class="fa fa-coffee"></i> Servicios</a>
+			                                	<a href="[[url+'empresas/'+item.id_empresa+'/servicios']]" class="btn btn-default btn-info-hover"><i class="fa fa-coffee"></i> Servicios</a>
 			                               
-			                                	<a href="[[url+'empresas/'+item.id_empresa+'/productos']]" class="btn btn-default btn-info-hover" data-toggle="tooltip" data-title="Productos"><i class="fa fa-shopping-cart"></i> Productos</a>
+			                                	<a href="[[url+'empresas/'+item.id_empresa+'/productos']]" class="btn btn-default btn-info-hover"><i class="fa fa-shopping-cart"></i> Productos</a>
 			                                </div>
 			                            </div>		                                
 			                            <br>	

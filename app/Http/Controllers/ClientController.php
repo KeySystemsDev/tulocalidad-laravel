@@ -172,6 +172,13 @@ class ClientController extends Controller {
 		return view('/clientes/list-compras',compact('compras'));
 	}
 
+	public function listaContrato(){
+		return view('/clientes/list-contratos');
+	}
+
+	public function listaFavorito(){
+		return view('/clientes/list-favoritos');
+	}
 
 		//Colo
 	public function postMercadopago1(Request $request){

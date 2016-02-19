@@ -33,7 +33,17 @@
                 </a>
             </li>
             @endif
-            @if(Auth::check())    
+            @if(Auth::check())  
+            <!--<li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/contratos')}}">
+                    <i class="fa fa-file-text"></i>
+                </a>
+            </li>-->
+            <li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/favoritos')}}">
+                    <i class="fa fa-heart"></i>
+                </a>
+            </li>
             <li class="dropdown navbar-user">
                 <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/compras')}}">
                     <i class="fa fa-shopping-bag"></i>

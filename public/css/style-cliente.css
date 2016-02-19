@@ -219,3 +219,14 @@ a#scrollUp {
   padding-top: 0px;
   position: relative;
 }
+.button-favorito{
+  background: #fff;
+  border-radius: 50%;
+}
+.button-favorito i{
+  font-size: 25px;
+  color: #ccc;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}

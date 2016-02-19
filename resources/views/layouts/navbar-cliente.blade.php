@@ -34,11 +34,6 @@
             </li>
             @endif
             @if(Auth::check())  
-            <!--<li class="dropdown navbar-user">
-                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/contratos')}}">
-                    <i class="fa fa-file-text"></i>
-                </a>
-            </li>-->
             <li class="dropdown navbar-user">
                 <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/favoritos')}}">
                     <i class="fa fa-heart"></i>
@@ -70,6 +65,11 @@
                         <a href="{{ url('/lista-carrito') }}">Ver todos...</a>
                     </li>
                 </ul>
+            </li>
+            <li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/contratos')}}">
+                    <i class="fa fa-file-text"></i>
+                </a>
             </li>
             <li class="dropdown navbar-user">  
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">

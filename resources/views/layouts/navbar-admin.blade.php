@@ -51,6 +51,11 @@
                     </li>
                 </ul>
             </li>	
+            <li class="dropdown navbar-user">
+                <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/contratos')}}">
+                    <i class="fa fa-file-text"></i>
+                </a>
+            </li>
 			<li class="dropdown navbar-user">
 				<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ url('/thema/admin/html/assets/img/user-13.jpg') }}" alt="" /> 

@@ -96,6 +96,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
+										<a href="#" class="button-favorito"><i class="fa fa-heart"></i></a>
 										<a ng-href="[[ url + 'detalle-producto/' + producto.id_producto]]">
 										<img ng-src="[[ url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="" />
 										</a>

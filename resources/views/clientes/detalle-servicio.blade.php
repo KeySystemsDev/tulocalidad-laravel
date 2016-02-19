@@ -1,8 +1,13 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/cliente_servicio.js') }}"></script>
+	<script src="{{ asset('/js/helper.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ClienteServicioDetalle">
 	
 	@include('layouts/navbar-cliente')
 	
@@ -48,6 +53,11 @@
 								<!--<img src="{{ asset('/cart/Eshopper/images/product-details/rating.png') }}" alt="">-->
 								<span>
 									<span>[[servicio.precio_servicio]] BsF</span>
+									<a ng-click="modalInfo(servicio)" href="#solicitud_servicio" class="btn btn-info cart" data-toggle="modal">
+										<i class="fa fa-file-text"></i>
+										 Solicitar
+									</a>
+									@include('modals/solicitud_servicio')
 								</span>
 								<p><b>Creado:</b> [[servicio.created_at]]</p>
 								<p><b>Categoría:</b> [[servicio.nombre_categoria]]</p> 

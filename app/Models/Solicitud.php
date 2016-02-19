@@ -6,7 +6,7 @@ class Solicitud extends Model {
 
 	protected $table = 't_solicitudes';
 	protected $fillable = [
-						'id_vendedor',
+						'id_empresa',
 						'id_comprador',
 						'estatus_solicitud',
 						'fecha_finalizado_solicitud',
@@ -30,6 +30,8 @@ class Solicitud extends Model {
 					'texto_presupuesto_solicitud'	=> 'string',
 					'fecha_vencimiento_solicitud'	=> 'date',
 					];
+
+	public $timestamps = false;
 
 	protected $appends = [];
 

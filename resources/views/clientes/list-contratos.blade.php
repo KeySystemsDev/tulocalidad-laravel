@@ -64,27 +64,6 @@
 
 	<section id="do_action">
 		<div class="container">
-			<!--<div class="heading">
-				<h3>Seguro que desea comprar los productos?</h3>
-				<p>Todos los productos seran borrados de su carrito de compra una vez efectue la operación.</p>
-			</div>-->
-			<div class="row">
-				
-				<div class="col-sm-6">
-					<div class="total_area">
-						<ul>
-							<li>Tipo Pago <span>Mercado pago</span></li>
-							<li>Factura<span>202</span></li>
-							<li>Total <span>300 BsF</span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="do_action">
-		<div class="container">
 			<div class="row">
 				<div class="col-md-12 cart-none">
 					<i class="fa fa-file-text"></i>

@@ -24,7 +24,7 @@
         </div>
     </div>
 	<div ng-init="solicitudes={{$solicitudes}}"></div>
-	[[solicitudes]]
+	@if(!$solicitudes)
     <section id="cart_items">
 		<div class="container">
 			<div class="table-responsive cart_info">
@@ -61,7 +61,7 @@
 			</div>
 		</div>
 	</section>
-
+	@else
 	<section id="do_action">
 		<div class="container">
 			<div class="row">
@@ -72,6 +72,7 @@
 			</div>
 		</div>
 	</section>
+	@endif
 
 </div>
 @endsection

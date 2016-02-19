@@ -51,6 +51,11 @@
 			                Ventas
 			            </a>
 			        </li>
+			        <li class="has-sub">
+			            <a href="{{ url('/empresas/'.$id_empresa.'/solicitudes')}}">
+			                Contratos
+			            </a>
+			        </li>
 			    </ul>
 			</li>	
 			@endif

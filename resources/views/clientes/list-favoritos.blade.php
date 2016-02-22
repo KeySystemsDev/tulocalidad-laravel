@@ -23,7 +23,15 @@
             </div>
         </div>
     </div>
+	
+	<div ng-init="productos={{$productos}}"></div>
+	<div ng-init="sericios={{$servicios}}"></div>
+	
+	<p>[[productos]]</p>
+	<p>[[servicios]]</p>
 
+
+	{{dd($servicios)}}
     <section id="cart_items">
 		<div class="container">
 			<div class="cart_info">
@@ -62,7 +70,7 @@
 		</div>
 	</section> <!--/#cart_items-->
 
-	<section id="do_action">
+	<section id="do_action" ng-show="!productos">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 cart-none">

@@ -97,8 +97,8 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::post('/comprar/mercadopago','ClientController@postMercadopago1');
 	Route::get('/comprar/mercadopago/respuesta', 'ClientController@respuestaCompra');
 	//Favoritos
-	Route::post('/favoritos/eliminar','ClientController@agregarFavorito');
-	Route::post('/favoritos/agregar','ClientController@eliminarFavorito');
+	Route::post('/favoritos/agregar','ClientController@agregarFavorito');
+	Route::post('/favoritos/eliminar','ClientController@eliminarFavorito');
 	
 
 });

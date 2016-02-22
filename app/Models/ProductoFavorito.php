@@ -15,6 +15,7 @@ class ProductoFavorito extends Model {
 	public $cast = ['id_producto'				=> 'integer',
 					'id_usuario'				=> 'integer',
 					];
+	public $timestamps = false;
 
 	protected $appends =['producto'];
 

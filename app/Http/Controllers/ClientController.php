@@ -192,13 +192,15 @@ class ClientController extends Controller {
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_servicio' =>$request->id,
 										]);
+			return json_encode(['success'=>true]);
 		}elseif($request->tipo =='productos'){
 			ProductoFavorito::create([
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_producto' =>$request->id,
 										]);
+			return json_encode(['success'=>true,'request'=>$request->all()]);
 		}
-		return json_encode(['success'=>true]);
+		return json_encode(['success'=>false]);
 	}
 
 	public function eliminarFavorito(Request $request){

@@ -16,6 +16,7 @@ class ServicioFavorito extends Model {
 					'id_usuario'				=> 'integer',
 					];
 
+	public $timestamps = false;
 	protected $appends =['servicio'];
 
 	public function getServicioAttribute(){

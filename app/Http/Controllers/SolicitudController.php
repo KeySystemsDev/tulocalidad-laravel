@@ -35,7 +35,7 @@ class SolicitudController extends Controller{
     }
 
     public function index($id_empresa){
-        $solicitudes = Solicitud::all();
+        $solicitudes = Solicitud::all() ;
         return view('solicitudes.list', ['solicitudes'=>$solicitudes, 
                                             'id_empresa'=>$this->empresa->id_empresa,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);

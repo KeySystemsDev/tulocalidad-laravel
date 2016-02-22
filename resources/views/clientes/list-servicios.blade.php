@@ -41,6 +41,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
+										<a href="#" class="button-favorito"><i class="fa fa-heart"></i></a>
 										<a ng-href="[[ url + 'detalle-servicio/' + item.id_servicio]]">
 											<img ng-src="[[url + 'uploads/servicios/high/' + item.url_imagen_servicio]]" alt="">
 										</a>

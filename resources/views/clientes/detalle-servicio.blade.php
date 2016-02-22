@@ -63,6 +63,14 @@
 								<p><b>Categoría:</b> [[servicio.nombre_categoria]]</p> 
 								<!--<p><b>Vendidos:</b> 2</p>-->
 								<!--<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>-->
+								<br>
+								<div class="row">
+	                                <a ng-href="#" target="_blank">
+	                                    <div class="col-md-1 icon-redes-sociales">
+	                                        <i class="fa fa-heart"></i>
+	                                    </div>
+	                                </a>
+	                            </div>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->

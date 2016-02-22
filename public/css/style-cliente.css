@@ -219,14 +219,29 @@ a#scrollUp {
   padding-top: 0px;
   position: relative;
 }
-.button-favorito{
-  background: #fff;
+/*.button-favorito{
+  background: red;
   border-radius: 50%;
-}
+}*/
 .button-favorito i{
-  font-size: 25px;
+  font-size: 20px;
   color: #ccc;
   position: absolute;
-  right: 4px;
-  top: 4px;
+  right: 8px;
+  top: 8px;
+  background: #FFFFFF;
+  padding-left: 3px;
+  padding-bottom: 3px;
+  padding-right: 4px;
+  padding-top: 4px;
+  border-radius: 5px;
+  border: 1px solid #C0C0B6;
+}
+
+.button-favorito:hover i{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
 }

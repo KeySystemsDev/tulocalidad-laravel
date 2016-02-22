@@ -26,7 +26,7 @@ class Servicio extends Model {
 					'nombre_categoria' 		=>'string',
 					'precio_servicio' 		=>'integer',];
 
-	protected $appends = ['nombre_categoria'];
+	protected $appends = ['nombre_categoria','favorito'];
 
 	public function getNombreCategoriaAttribute(){
 
@@ -35,6 +35,17 @@ class Servicio extends Model {
         	return $categoria->nombre_categoria_servicios1;
 		}
 		return "sin categorizar";
+    }
+
+	public function getFavoritoAttribute(){
+		//return ['yes'];
+        if (ServicioFavorito::where('id_producto',$this->id_producto)
+        						->where('id_usuario',Auth::user()->id_usuario) ){
+        	return true;
+        }
+        else{
+        	return false
+        }
     }
 
 }

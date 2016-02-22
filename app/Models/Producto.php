@@ -1,6 +1,7 @@
 <?php namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Producto extends Model {
 
@@ -31,11 +32,22 @@ class Producto extends Model {
 					'nombre_categoria'			=> 'string',
 					];
 
-	protected $appends = ['imagenes','primera_imagen','nombre_categoria'];
+	protected $appends = ['imagenes','primera_imagen','nombre_categoria', 'favorito'];
 
 	public function getImagenesAttribute(){
 		//return ['yes'];
         return Imagen::where("id_producto", $this->id_producto)->get()->toArray();
+    }
+
+	public function getFavoritoAttribute(){
+		//return ['yes'];
+        if (ProductoFavorito::where('id_producto',$this->id_producto)
+        						->where('id_usuario',Auth::user()->id_usuario) ){
+        	return true;
+        }
+        else{
+        	return false
+        }
     }
 
 	public function getPrimeraImagenAttribute(){

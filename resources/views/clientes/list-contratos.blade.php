@@ -24,7 +24,9 @@
         </div>
     </div>
 	<div ng-init="solicitudes={{$solicitudes}}"></div>
-	@if(!$solicitudes)
+	[[solicitudes]]
+	
+	@if(count($solicitudes)!=0)
     <section id="cart_items">
 		<div class="container">
 			<div class="table-responsive cart_info">

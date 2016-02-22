@@ -174,7 +174,7 @@ class ClientController extends Controller {
 	}
 
 	public function listaContrato(){
-		$solicitudes = (string) Solicitud::all();
+		$solicitudes = Solicitud::all();
 		return view('/clientes/list-contratos', compact('solicitudes'));
 	}
 

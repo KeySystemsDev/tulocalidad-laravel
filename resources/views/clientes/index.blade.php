@@ -86,7 +86,7 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				
+
 				@include('layouts/categorias-cliente')
 				
 				<div class="col-sm-9 padding-right">
@@ -121,6 +121,7 @@
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
+												<a href="#" class="button-favorito"><i class="fa fa-heart"></i></a>
 												<img  ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="" />
 												<h2>[[servicio.precio_servicio]] BsF</h2>
 												<p class="text-ellipsis">[[servicio.nombre_servicio]]</p>

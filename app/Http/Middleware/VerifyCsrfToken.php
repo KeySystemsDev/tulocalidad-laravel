@@ -7,7 +7,9 @@ class VerifyCsrfToken extends BaseVerifier {
 
 
 	protected $except=[
-			'/mp'
+			'/mp',
+			'/favoritos/agregar',
+			'/favoritos/eliminar',
 		]; 
 	/**
 	 * Handle an incoming request.

@@ -42,11 +42,12 @@ class Producto extends Model {
 	public function getFavoritoAttribute(){
 		//return ['yes'];
         if (ProductoFavorito::where('id_producto',$this->id_producto)
-        						->where('id_usuario',Auth::user()->id_usuario) ){
+        						->where('id_usuario',Auth::user()->id_usuario)
+        						->first() ){
         	return true;
         }
         else{
-        	return false
+        	return false;
         }
     }
 

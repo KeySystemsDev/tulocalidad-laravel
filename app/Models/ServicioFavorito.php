@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServicioFavorito extends Model {
 
-	protected $table = 't_servicio_favorito';
+	protected $table = 't_servicios_favoritos';
 	protected $primaryKey = "id_servicio_favorito";
 	protected $fillable = [
 							'id_usuario',
@@ -20,5 +20,5 @@ class ServicioFavorito extends Model {
 
 	public function getServicioAttribute(){
 		return Servicio::find($this->id_servicio);
-	};
+	}
 }

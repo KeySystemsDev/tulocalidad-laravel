@@ -7,6 +7,8 @@ use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
 use App\Models\Compras;
+use App\Models\ProductoFavorito;
+use App\Models\ServicioFavorito;
 use App\Models\ProductoComprado;
 use App\Models\Solicitud;
 use Auth;

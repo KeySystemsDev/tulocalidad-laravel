@@ -188,13 +188,13 @@ class ClientController extends Controller {
 
 	public function agregarFavorito(Request $request){
 		if($request->tipo =='servicios'){
-			ServicioFavorito::create([
+			ServicioFavorito::createOrUpdate([
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_servicio' =>$request->id,
 										]);
 			return json_encode(['success'=>true]);
 		}elseif($request->tipo =='productos'){
-			ProductoFavorito::create([
+			ProductoFavorito::createOrUpdate([
 									'id_usuario'=>Auth::user()->id_usuario,
 									'id_producto' =>$request->id,
 										]);

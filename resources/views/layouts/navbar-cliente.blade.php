@@ -19,7 +19,7 @@
                     </div>
                 </form>
             </li>
-            @if(!Auth::check())
+            @if(!Auth::user())
             <li class="dropdown navbar-user">
                 <a class="auth-intro-button" href="{{ url('/login') }}">
                     <i class="fa fa-sign-in" data-original-title="" title=""></i>
@@ -33,7 +33,7 @@
                 </a>
             </li>
             @endif
-            @if(Auth::check())  
+            @if(Auth::user())  
             <li class="dropdown navbar-user">
                 <a class="dropdown-toggle f-s-14 fa-size" href="{{ url('/favoritos')}}">
                     <i class="fa fa-heart"></i>

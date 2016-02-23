@@ -40,7 +40,7 @@ class Solicitud extends Model {
 
 
 	public function getServicioAttribute(){
-		return Servicio::find($this->id_servicios);
+		return Servicio::find($this->id_servicio);
 	}
 
 	public function getFechaCreacionSolicitudAttribute(){

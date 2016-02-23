@@ -57,7 +57,7 @@
 										<i class="fa fa-file-text"></i>
 										 Solicitar
 									</a>
-									@include('modals/solicitud_servicio')
+									@include('modals/servicio/solicitud_servicio')
 								</span>
 								<p><b>Creado:</b> [[servicio.created_at]]</p>
 								<p><b>Categoría:</b> [[servicio.nombre_categoria]]</p> 

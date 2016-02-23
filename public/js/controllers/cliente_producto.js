@@ -9,6 +9,19 @@ coreApp.controller('ClienteProducto', function($scope, $log, ajax, $window, $htt
     }
 
     $scope.letterLimit = 10;
+
+    $scope.agregar_favorito = function(tipo_s,id_s){
+        $http({
+            method: 'POST',
+            url: '/favoritos/agregar',
+            params:{ 'tipo': tipo_s, 'id': id_s}
+        }).then(function successCallback(response) {
+            $window.location.href = "/favoritos";
+            
+        }, function errorCallback(response) {
+            alert("Error Conexión");
+        });
+    }
 })
 
 coreApp.controller('ClienteProductoDetalle', function($scope, $log, ajax, $window, $http) {
@@ -19,4 +32,17 @@ coreApp.controller('ClienteProductoDetalle', function($scope, $log, ajax, $windo
     }
 
     $scope.letterLimit = 10;
+
+    $scope.agregar_favorito = function(tipo_s,id_s){
+        $http({
+            method: 'POST',
+            url: '/favoritos/agregar',
+            params:{ 'tipo': tipo_s, 'id': id_s}
+        }).then(function successCallback(response) {
+            $window.location.href = "/favoritos";
+            
+        }, function errorCallback(response) {
+            alert("Error Conexión");
+        });
+    }
 });

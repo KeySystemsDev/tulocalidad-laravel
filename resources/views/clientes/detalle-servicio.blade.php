@@ -65,8 +65,8 @@
 								<!--<a href=""><img src="{{ asset('/cart/Eshopper/images/product-details/share.png') }}" class="share img-responsive" alt=""></a>-->
 								<br>
 								<div class="row">
-	                                <a ng-href="#" target="_blank">
-	                                    <div class="col-md-1 icon-redes-sociales">
+	                                <a href="" ng-click="agregar_favorito('servicios',servicio.id_servicio)">
+	                                    <div class="col-md-1 icon-redes-sociales" ng-class="{'icon-redes-sociales-active': [[servicio.favorito]]}">
 	                                        <i class="fa fa-heart"></i>
 	                                    </div>
 	                                </a>

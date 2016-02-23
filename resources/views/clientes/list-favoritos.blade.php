@@ -20,7 +20,7 @@
                     <div class="mainmenu pull-left">
                         <ul class="nav navbar-nav collapse navbar-collapse">
                             <li><a href="{{ url('/') }}">Incio <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="javascript:;">Contratos</a></li>
+                            <li><a href="javascript:;">Favoritos</a></li>
                         </ul>
                     </div>
                 </div>

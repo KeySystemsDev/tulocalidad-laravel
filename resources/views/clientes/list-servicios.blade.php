@@ -1,8 +1,12 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/cliente_servicio.js') }}"></script>
+@endsection
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ClienteServicioDetalle">
 	
 	@include('layouts/navbar-cliente')
 		
@@ -41,7 +45,7 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<a href="#" class="button-favorito"><i class="fa fa-heart"></i></a>
+										<a href="javascript:;" ng-click="agregar_favorito('servicios', item.id_servicio)" class="button-favorito" ng-class="{'button-favorito-red': [[item.favorito]]}"><i class="fa fa-heart"></i></a>
 										<a ng-href="[[ url + 'detalle-servicio/' + item.id_servicio]]">
 											<img ng-src="[[url + 'uploads/servicios/high/' + item.url_imagen_servicio]]" alt="">
 										</a>

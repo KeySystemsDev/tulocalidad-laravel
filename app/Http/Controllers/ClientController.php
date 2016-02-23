@@ -280,7 +280,7 @@ class ClientController extends Controller {
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
-		return redirect($preference['response']['init_point']);
+		return redirect($preference['response']['sandbox_init_point']);
 	}
 
 

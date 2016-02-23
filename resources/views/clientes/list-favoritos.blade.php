@@ -32,7 +32,7 @@
 	<div ng-init="servicios={{$servicios}}"></div>
 	<div ng-init="url='{{url()}}/'"></div>
 
-    <section id="cart_items">
+    <section id="cart_items" ng-show="productos.length > 0">
 		<div class="container">
 			<div class="cart_info">
 				<table class="table table-condensed">
@@ -70,7 +70,7 @@
 		</div>
 	</section> <!--/#cart_items-->
 
-	<section id="cart_items">
+	<section id="cart_items" ng-show="servicios.length > 0">
 		<div class="container">
 			<div class="cart_info">
 				<table class="table table-condensed">
@@ -95,7 +95,7 @@
 								<p>[[servicio.servicio.descripcion_servicio]]</p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href="#"><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="javascript:;" ng-click="eliminar_favorito( 'servicios',servicio.servicio.id_servicio)"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 					</tbody>
@@ -104,7 +104,7 @@
 		</div>
 	</section> <!--/#cart_items-->
 
-	<section id="do_action" ng-show="!productos">
+	<section id="do_action" ng-show="servicios.length == 0 && productos.length == 0">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 cart-none">

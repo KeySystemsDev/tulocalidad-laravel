@@ -9,7 +9,7 @@ coreApp.controller('FavoritosController', function($scope, $log, ajax, $window, 
             url: '/favoritos/eliminar',
             params:{ 'tipo': tipo_s, 'id': id_s}
         }).then(function successCallback(response) {
-            //$window.location.href = "/favoritos";
+            $window.location.href = "/favoritos";
             
         }, function errorCallback(response) {
             alert("Error Conexión");

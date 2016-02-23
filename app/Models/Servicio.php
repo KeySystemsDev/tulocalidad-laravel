@@ -40,7 +40,7 @@ class Servicio extends Model {
 
 	public function getFavoritoAttribute(){
 		//return ['yes'];
-        if (ServicioFavorito::where('id_producto',$this->id_producto)
+        if (ServicioFavorito::where('id_servicio',$this->id_servicio)
         						->where('id_usuario',Auth::user()->id_usuario)
         						->first() ){
         	return true;

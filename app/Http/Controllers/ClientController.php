@@ -181,8 +181,8 @@ class ClientController extends Controller {
 	}
 
 	public function listaFavorito(){
-		$productos = ProductoFavorito::where('id_usuario',Auth::user()->id_usuario)->get();
-		$servicios = ServicioFavorito::where('id_usuario',Auth::user()->id_usuario)->get();
+		$productos = json_encode(ProductoFavorito::where('id_usuario',Auth::user()->id_usuario)->get());
+		$servicios = json_encode(ServicioFavorito::where('id_usuario',Auth::user()->id_usuario)->get());
 		return view('/clientes/list-favoritos',compact('productos','servicios'));
 	}
 

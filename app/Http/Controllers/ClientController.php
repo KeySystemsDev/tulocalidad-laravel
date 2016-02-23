@@ -62,7 +62,7 @@ class ClientController extends Controller {
 		}else{
 			$empresas_2 = $cantidad_empresas_2->random(3);
 		}							
-		dd($empresas_1,$empresa_2);
+		dd($empresas_1,$empresas_2);
 		return view('/clientes/index',["productos"=>$productos,
 										"servicios"=>$servicios,
 										"empresas_1"=>$empresas_1,

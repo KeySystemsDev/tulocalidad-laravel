@@ -1,18 +1,12 @@
 'use stric'
 
-coreApp.controller('IndexController', function($scope, $log, ajax, $window, $http) {
-    console.log("IndexController");    
+coreApp.controller('FavoritosController', function($scope, $log, ajax, $window, $http) {
+    console.log("FavoritosController");    
 
-    $scope.modalInfo = function(item){
-        $scope.producto = item;
-    }
-
-    $scope.letterLimit = 10;
-
-    $scope.agregar_favorito = function(tipo_s,id_s){
+    $scope.eliminar_favorito = function(tipo_s,id_s){
         $http({
             method: 'POST',
-            url: '/favoritos/agregar',
+            url: '/favoritos/eliminar',
             params:{ 'tipo': tipo_s, 'id': id_s}
         }).then(function successCallback(response) {
             //$window.location.href = "/favoritos";

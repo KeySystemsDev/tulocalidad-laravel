@@ -238,6 +238,11 @@ a#scrollUp {
   border: 1px solid #C0C0B6;
 }
 
+.button-favorito-red i{
+  color: #721520;
+}
+
+
 .button-favorito:hover i{
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);

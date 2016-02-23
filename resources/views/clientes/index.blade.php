@@ -96,7 +96,9 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
+										@if(Auth::user())
 										<a href="javascript:;" ng-click="agregar_favorito('productos', producto.id_producto)" class="button-favorito" ng-class="{'button-favorito-red': [[producto.favorito]]}"><i class="fa fa-heart"></i></a>
+										@endif
 										<a ng-href="[[ url + 'detalle-producto/' + producto.id_producto]]">
 										<img ng-src="[[ url + 'uploads/productos/high/' + producto.primera_imagen.nombre_imagen_producto]]" alt="" />
 										</a>
@@ -121,7 +123,9 @@
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
+												@if(Auth::user())
 												<a href="javascript:;" ng-click="agregar_favorito('servicios',servicio.id_servicio)" class="button-favorito" ng-class="{'button-favorito-red': [[servicio.favorito]]}"><i class="fa fa-heart"></i></a>
+												@endif
 												<img  ng-src="[[url + 'uploads/servicios/high/' + servicio.url_imagen_servicio]]" alt="" />
 												<h2>[[servicio.precio_servicio]] BsF</h2>
 												<p class="text-ellipsis">[[servicio.nombre_servicio]]</p>

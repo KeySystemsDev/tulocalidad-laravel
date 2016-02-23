@@ -41,6 +41,9 @@ class Producto extends Model {
 
 	public function getFavoritoAttribute(){
 		//return ['yes'];
+		if(!Auth::user()){
+			return false;
+		}
         if (ProductoFavorito::where('id_producto',$this->id_producto)
         						->where('id_usuario',Auth::user()->id_usuario)
         						->first() ){

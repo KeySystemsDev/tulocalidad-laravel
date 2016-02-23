@@ -41,7 +41,9 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
+										@if(Auth::user())
 										<a href="javascript:;" ng-click="agregar_favorito('productos', item.id_producto)" class="button-favorito" ng-class="{'button-favorito-red': [[item.favorito]]}"><i class="fa fa-heart"></i></a>
+										@endif
 										<a href="[[url + 'detalle-producto/' + item.id_producto]]">
 											<img ng-src="[[url + 'uploads/productos/high/' + item.primera_imagen.nombre_imagen_producto]]" alt="">
 										</a>

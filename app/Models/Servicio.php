@@ -40,6 +40,9 @@ class Servicio extends Model {
 
 	public function getFavoritoAttribute(){
 		//return ['yes'];
+		if(!Auth::user()){
+			return false;
+		}
         if (ServicioFavorito::where('id_servicio',$this->id_servicio)
         						->where('id_usuario',Auth::user()->id_usuario)
         						->first() ){

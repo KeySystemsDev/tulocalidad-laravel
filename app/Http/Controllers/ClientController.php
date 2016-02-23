@@ -205,9 +205,13 @@ class ClientController extends Controller {
 
 	public function eliminarFavorito(Request $request){
 		if($request->tipo =='servicios'){
-			ServicioFavorito::find($request->id)->delete();
+			ServicioFavorito::where('id_producto'=>$request->id)
+			 					->where('id_usuario'=>Auth::user()->id_usuario)
+			 					->delete();
 		}elseif($request->tipo =='productos'){
-			ProductoFavorito::find($request->id)->delete();
+			ProductoFavorito::where('id_producto'=>$request->id)
+			 					->where('id_usuario'=>Auth::user()->id_usuario)
+			 					->delete();
 		}
 		return json_encode(['success'=>true]);
 	}

@@ -362,7 +362,7 @@ class ClientController extends Controller {
 
 		$mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
 		$payment_info= 0;
-
+		$mp->sandbox_mode(TRUE);
 		// Get the payment and the corresponding merchant_order reported by the IPN.
 		if($request->topic == 'payment'){
 			//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
@@ -382,7 +382,7 @@ class ClientController extends Controller {
 
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
 		$mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
-
+		$mp->sandbox_mode(TRUE);
 
 		// Get the payment and the corresponding merchant_order reported by the IPN.
 		if($request->topic == 'payment'){
@@ -404,13 +404,9 @@ class ClientController extends Controller {
 			}
 
 			if($paid_amount >= $merchant_order_info["response"]["total_amount"]){
-				if(count($merchant_order_info["response"]["shipments"]) > 0) { // The merchant_order has shipments
-					if($merchant_order_info["response"]["shipments"][0]["status"] == "ready_to_ship"){
-						print_r("Totally paid. Print the label and release your item.");
-					}
-				} else { // The merchant_order don't has any shipments
-					print_r("Totally paid. Release your item.");
-				}
+
+				print_r("Totally paid. Release your item.");
+
 			} else {
 				print_r("Not paid yet. Do not release your item.");
 			}

@@ -52,7 +52,7 @@ class SolicitudController extends Controller{
     public function responderSolicitud($id_empresa, $id_solicitud, Request $request){
         Solicitud::find($id_solicitud)->update([
                                         "texto_presupuesto_solicitud" => $request->texto_presupuesto_solicitud,
-                                        "monto_presupuesto_solicitud" => $request->monto_presupuesto_solicitud,
+                                        "monto_final_solicitud" => $request->monto_presupuesto_solicitud,
                                         "fecha_vencimiento_solicitud" => $request->fecha_vencimiento_solicitud,
                                         'estatus_solicitud'             => 2,
                                         ]);

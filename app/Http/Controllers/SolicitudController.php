@@ -54,7 +54,7 @@ class SolicitudController extends Controller{
                                         "texto_presupuesto_solicitud" => $request->texto_presupuesto_solicitud,
                                         "monto_presupuesto_solicitud" => $request->monto_presupuesto_solicitud,
                                         "fecha_vencimiento_solicitud" => $request->fecha_vencimiento_solicitud,
-                                        'estatus_solitud'             => 2,
+                                        'estatus_solicitud'             => 2,
                                         ]);
 
         return json_encode(['success'=>true,]);

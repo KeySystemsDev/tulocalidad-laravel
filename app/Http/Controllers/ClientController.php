@@ -386,14 +386,14 @@ class ClientController extends Controller {
 		// Get the payment and the corresponding merchant_order reported by the IPN.
 		if($request->topic == 'payment'){
 			$payment_info = $mp->get("/collections/notifications/".$request->id);
-			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
 			$merchant_order_info = $mp->get("/merchant_orders/".$payment_info["response"]["collection"]["merchant_order_id"]);
+			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
 		// Get the merchant_order reported by the IPN.
 		} else if($request->topic == 'merchant_order'){
 			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
 		}
 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$merchant_order_info]);
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		// if ($merchant_order_info["status"] == 200) {
 		// 	// If the payment's transaction amount is equal (or bigger) than the merchant_order's amount you can release your items 
 		// 	$paid_amount = 0;

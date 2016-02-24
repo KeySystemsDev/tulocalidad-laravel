@@ -365,11 +365,11 @@ class ClientController extends Controller {
 
 
 		// Get the payment and the corresponding merchant_order reported by the IPN.
-		if($_GET["topic"] == 'payment'){
+		if($request->topic == 'payment'){
 			$payment_info = $mp->get("/collections/notifications/" . $request->id);
 			$merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"]);
 		// Get the merchant_order reported by the IPN.
-		} else if($_GET["topic"] == 'merchant_order'){
+		} else if($request->topic == 'merchant_order'){
 			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
 		}
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$merchant_order_info]);

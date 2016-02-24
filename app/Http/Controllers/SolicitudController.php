@@ -43,6 +43,7 @@ class SolicitudController extends Controller{
 
     public function crearSolicitud($id_empresa, Request $request){
         $request['id_empresa']=$id_empresa;
+        $request['id_comprador']=Auth::user()->id_usuario;
         $request['estatus_solicitud']=1;
         Solicitud::create($request->all());
         return json_encode(['success'=>true,]);

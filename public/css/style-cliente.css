@@ -253,3 +253,7 @@ a#scrollUp {
     -o-transform: scale(1.2);
     transform: scale(1.2);
 }
+
+.btn-solitud{
+  padding: 10px;
+}

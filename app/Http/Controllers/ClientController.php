@@ -387,9 +387,7 @@ class ClientController extends Controller {
 		if($request->topic == 'payment'){
 			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
 			$payment_info = $mp->get("/collections/notifications/".$request->id);
-			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"Payment info ".$payment_info]);
 			$merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"]);
-			HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"Mercarnt Order ".$merchant_order_info]);
 		// Get the merchant_order reported by the IPN.
 		} else if($request->topic == 'merchant_order'){
 			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
@@ -479,7 +477,7 @@ class ClientController extends Controller {
 		// 		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 		// 	}
 		// }
-		//return('200');
+		return('200');
 	
 	}
 

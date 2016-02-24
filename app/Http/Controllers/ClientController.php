@@ -375,7 +375,7 @@ class ClientController extends Controller {
 			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
 		}
 
-		dd( $request , $merchant_order_info, $$payment_info);
+		dd( $request , $merchant_order_info, $payment_info);
 	}
 
 	public function IPNotificador(Request $request){

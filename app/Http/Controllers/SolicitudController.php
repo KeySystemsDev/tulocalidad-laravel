@@ -66,6 +66,7 @@ class SolicitudController extends Controller{
                             'estatus_solitud'=>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                             ]);
+            return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
         };
 
         $solicitud->update([
@@ -83,6 +84,7 @@ class SolicitudController extends Controller{
                             'estatus_solitud'=>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                             ]);
+            return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
         };
 
         $solicitud->update([

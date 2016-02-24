@@ -424,7 +424,7 @@ class ClientController extends Controller {
 		// 		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
 		// 	}
 		// }
-		return('200');
+		//return('200');
 	
 	}
 

@@ -361,7 +361,7 @@ class ClientController extends Controller {
 	public function IPNotificadorGet(Request $request){
 
 		$mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
-
+		$payment_info= 0;
 
 		// Get the payment and the corresponding merchant_order reported by the IPN.
 		if($request->topic == 'payment'){
@@ -375,7 +375,7 @@ class ClientController extends Controller {
 			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
 		}
 
-		dd($request);
+		dd( $request , $merchant_order_info, $$payment_info);
 	}
 
 	public function IPNotificador(Request $request){

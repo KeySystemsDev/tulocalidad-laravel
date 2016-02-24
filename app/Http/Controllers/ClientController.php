@@ -382,37 +382,44 @@ class ClientController extends Controller {
 	public function IPNotificador(Request $request){
 
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
-		$mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
-		$mp->sandbox_mode(TRUE);
+		// $mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
+		// $mp->sandbox_mode(TRUE);
 
-		// Get the payment and the corresponding merchant_order reported by the IPN.
-		if($request->topic == 'payment'){
-			$payment_info = $mp->get("/collections/notifications/".$request->id);
-			$merchant_order_info = $mp->get("/merchant_orders/".$payment_info["response"]["collection"]["merchant_order_id"]);
-		// Get the merchant_order reported by the IPN.
-		} else if($request->topic == 'merchant_order'){
-			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
+		// // Get the payment and the corresponding merchant_order reported by the IPN.
+		// if($request->topic == 'payment'){
+		// 	$payment_info = $mp->get("/collections/notifications/".$request->id);
+		// 	$merchant_order_info = $mp->get("/merchant_orders/".$payment_info["response"]["collection"]["merchant_order_id"]);
+		// // Get the merchant_order reported by the IPN.
+		// } else if($request->topic == 'merchant_order'){
+		// 	$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
+		// }
+
+		// if ($merchant_order_info["status"] == 200) {
+		// 	// If the payment's transaction amount is equal (or bigger) than the merchant_order's amount you can release your items 
+		// 	$paid_amount = 0;
+
+		// 	foreach ($merchant_order_info["response"]["payments"] as  $payment) {
+		// 		if ($payment['status'] == 'approved'){
+		// 			$paid_amount += $payment['transaction_amount'];
+		// 		}	
+		// 	}
+
+		// 	if($paid_amount >= $merchant_order_info["response"]["total_amount"]){
+
+		// 		print_r("Totally paid. Release your item.");
+
+		// 	} else {
+		// 		print_r("Not paid yet. Do not release your item.");
+		// 	}
+		// }
+
+		if ($request->type == 'payment'){
+		    $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+
+		    if ($payment_info["status"] == 200) {
+		        print_r($payment_info["response"]);
+		    }
 		}
-
-		if ($merchant_order_info["status"] == 200) {
-			// If the payment's transaction amount is equal (or bigger) than the merchant_order's amount you can release your items 
-			$paid_amount = 0;
-
-			foreach ($merchant_order_info["response"]["payments"] as  $payment) {
-				if ($payment['status'] == 'approved'){
-					$paid_amount += $payment['transaction_amount'];
-				}	
-			}
-
-			if($paid_amount >= $merchant_order_info["response"]["total_amount"]){
-
-				print_r("Totally paid. Release your item.");
-
-			} else {
-				print_r("Not paid yet. Do not release your item.");
-			}
-		}
-
 
 		// return('200');
 	

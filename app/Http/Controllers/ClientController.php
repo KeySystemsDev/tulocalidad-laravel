@@ -285,54 +285,57 @@ class ClientController extends Controller {
 
 
 	public function respuestaCompra(Request $request){
-		// $mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
 		
-		// //dd($request->all());
-		// $precio_total = 0;
-		// $result = explode(",", $request->external_reference);
-		// $id_usuario = $result[0];
-		// $id_empresa = $result[1];
-		// $carritos = Carrito::where('id_usuario',$id_usuario)
-		// 					->where('id_empresa',$id_empresa);
+		//dd($request->all());
+		$precio_total = 0;
+		$result = explode(",", $request->external_reference);
+		$id_usuario = $result[0];
+		$id_empresa = $result[1];
+		$carritos = Carrito::where('id_usuario',$id_usuario)
+							->where('id_empresa',$id_empresa);
 
-		// $lista_compra = $carritos->get();
+		$lista_compra = $carritos->get();
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+		$compra = Compras::create([
+								'tipo_pago_compra'=>'mercadopago',
+								'identificador_pago_compra'=>$request->preference_id,
+								'precio_total_compra',
+								'estatus_compra'=>$request->collection_status,
+								'id_usuario' => $id_usuario,
+								'id_empresa' => $id_empresa,
+								]
+			);
+		foreach ($lista_compra as $producto) {
+			ProductoComprado::create([
+							'id_empresa'					=>$id_empresa,
+							'id_compra'						=>$compra->id_compra,
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
+							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
+							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
+							'precio_total'					=>$producto['sub_total'],
+							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
+							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
+						]);
+			$precio_total +=  intval($producto['sub_total']);
+		};
 
-		// $compra = Compras::create([
-		// 						'tipo_pago_compra'=>'mercadopago',
-		// 						'identificador_pago_compra'=>$request->preference_id,
-		// 						'precio_total_compra',
-		// 						'estatus_compra'=>$request->collection_status,
-		// 						'id_usuario' => $id_usuario,
-		// 						'id_empresa' => $id_empresa,
-		// 						]
-		// 	);
-		// foreach ($lista_compra as $producto) {
-		// 	ProductoComprado::create([
-		// 					'id_empresa'					=>$id_empresa,
-		// 					'id_compra'						=>$compra->id_compra,
-		// 					'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
-		// 					'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
-		// 					'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
-		// 					'precio_total'					=>$producto['sub_total'],
-		// 					'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
-		// 					'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
-		// 				]);
-		// 	$precio_total +=  intval($producto['sub_total']);
-		// };
-
-		// $compra->fill(['precio_total_compra'=>$precio_total]);
-		// $compra->save();
+		$compra->fill(['precio_total_compra'=>$precio_total]);
+		$compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado.');
+			$carritos->delete();
 		};
 
 		if($request->collection_status=='pending'){
 			Session::flash('mensaje', 'Procesando su pago.');
+			$carritos->delete();
 		};
 
 		if($request->collection_status=='success'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
+			$carritos->delete();
 		};
 		
 		return redirect('/compras');
@@ -349,40 +352,20 @@ class ClientController extends Controller {
 
 		if($request->collection_status=='pending'){
 			Session::flash('mensaje', 'Procesando su pago.');
-			$carritos->delete();
+			//$carritos->delete();
 		};
 
 		if($request->collection_status=='success'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
-			$carritos->delete();
+			//$carritos->delete();
 		};
 		
 		return view('/clientes/volver');
 	}
-	public function IPNotificadorGet(Request $request){
-
-		$mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
-		$payment_info= 0;
-		$merchant_order_info = 0;
-		$mp->sandbox_mode(TRUE);
-		// Get the payment and the corresponding merchant_order reported by the IPN.
-		if($request->topic == 'payment'){
-			//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
-			$payment_info = $mp->get_payment($request->id);
-			//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"Payment info ".$payment_info]);
-			//$merchant_order_info = $mp->get("/sandbox/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"]);
-			//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"Mercarnt Order ".$merchant_order_info]);
-		// Get the merchant_order reported by the IPN.
-		} else if($request->topic == 'merchant_order'){
-			$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
-		}
-
-		dd( $request , $merchant_order_info, $payment_info);
-	}
 
 	public function IPNotificador(Request $request){
 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
+		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
 		// $mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
 		// $mp->sandbox_mode(TRUE);
 
@@ -414,13 +397,15 @@ class ClientController extends Controller {
 		// 	}
 		// }
 
-		if ($request->type == 'payment'){
-		    $payment_info = $mp->get('/v1/payments/'.$request->data->id);
 
-		    if ($payment_info["status"] == 200) {
-		        print_r($payment_info["response"]);
-		    }
-		}
+//________________________________________________________________________
+		// if ($request->type == 'payment'){
+		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
+
+		//     if ($payment_info["status"] == 200) {
+		//         print_r($payment_info["response"]);
+		//     }
+		// }
 
 		// return('200');
 	

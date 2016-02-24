@@ -2,7 +2,6 @@
 
 @section('controller')
 	<script src="{{ asset('/js/controllers/cliente_servicio.js') }}"></script>
-	<script src="{{ asset('/js/helper.js') }}"></script>
 @endsection
 
 @section('content')

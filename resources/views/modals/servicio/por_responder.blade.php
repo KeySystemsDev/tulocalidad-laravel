@@ -12,7 +12,7 @@
 				<input type="hidden" name="id_servicio" ng-value="producto.id_servicio">
 
 				<div class="modal-body">
-
+[[urlRedirect]] / [[urlAction]]
 					<div class="form-group">
 	                    <label class="col-md-4 control-label">Monto presupuesto</label>
 	                    <div class="col-md-5">

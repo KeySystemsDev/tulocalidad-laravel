@@ -29,9 +29,10 @@
 		<div ng-init="url='{{url()}}/'"></div>
 		
 		@if(count($solicitudes)!=0)
-
+		
 		<ul class="result-list">
 			<li ng-repeat="solicitud in solicitudes">
+			[[solicitud]]
 	            <div class="result-image">
 	                <a href="javascript:;"><img src="[[ url + 'uploads/servicios/low/' + solicitud.servicio.url_imagen_servicio]]" alt=""></a>
 	            </div>

@@ -789,6 +789,20 @@ figure.effect-zoe figcaption {
   z-index: 9999;
 }
 
+.result-list .result-image {
+  width: 240px;
+  padding: 0;
+  overflow: hidden;
+  background: #F5F5F5;
+  vertical-align: middle;
+}
+
+.btn.btn-tulocalidad {
+  color: #fff;
+  background: #721520;
+  border-color: #611D25;
+}
+
 
 @media all and (max-width: 550px)  {
     #store-list img {

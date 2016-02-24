@@ -1,7 +1,6 @@
 @extends('base-admin')
 
 @section('controller')
-	<script src="{{ asset('/js/helper.js') }}"></script>
 	<script src="{{ asset('/js/controllers/solicitudes_vendedor.js') }}"></script>
 @endsection
 
@@ -39,13 +38,17 @@
 	            <div class="result-info">
 	                <h4 class="title"><a href="javascript:;">[[solicitud.servicio.nombre_servicio]]</a></h4>
 	                <p class="location">Web ID: [[solicitud.servicio.id_servicio]]</p>
-	                <p class="desc">
+	                <p class="">
 	                    [[solicitud.texto_solicitud]]
 	                </p>
 	            </div>
 	            <div class="result-price">
 	                <small>[[solicitud.fecha_creacion_solicitud]]</small> Estatus 
-	                <a ng-click="pagoInfo(solicitud)" href="#por_responder" class="btn btn-success btn-block" data-toggle="modal">Por Responder</a>
+	                <a ng-if="solicitud.estatus_solicitud == 1" ng-click="pagoInfo(solicitud)" href="#por_responder" class="btn btn-success btn-block" data-toggle="modal">Por Responder</a>
+	                <a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-warning btn-block">Esperando Respuesta</a>
+	                <a ng-if="solicitud.estatus_solicitud == 3" href="javascript:;" class="btn btn-tulocalidad btn-block">Contratado</a>
+	                <a ng-if="solicitud.estatus_solicitud == 4" href="javascript:;" class="btn btn-danger btn-block">Rechazado</a>
+	                <a ng-if="solicitud.estatus_solicitud == 5" href="javascript:;" class="btn btn-danger btn-block">Vencido</a>
 	                
 	            </div>
 	        </li>

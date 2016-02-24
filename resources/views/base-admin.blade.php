@@ -163,6 +163,15 @@
 			App.init();
 			/*DashboardV2.init(); quitar cuando no se usan elmentos de esta vista*/
 		});
+
+		$(function() {
+    		$('input[id="daterangepicker"]').daterangepicker({
+        		singleDatePicker: true,
+        		showDropdowns: true,
+        		format: 'YYYY-MM-DD'
+
+    		});
+		});
 	</script>
 	
 </body>

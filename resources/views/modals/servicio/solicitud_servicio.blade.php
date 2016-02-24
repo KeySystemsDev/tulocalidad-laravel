@@ -1,15 +1,15 @@
-<div class="modal fade bs-example-modal-lg" id="solicitud_servicio" labelledby="myLargeModalLabel" ng-controller="SubmitController">
+<div class="modal fade bs-example-modal-lg" id="solicitud_servicio" labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 				<h4 class="modal-title">Solitud de Servicio</h4>
 			</div>
+			<div ng-init="url='{{url()}}/'"></div>
 			<div ng-init="urlRedirect='{{ url('/contratos')}}'"></div>
-			<div ng-init="urlAction='{{ url('empresas/[[producto.id_empresa]]/solicitudes/') }}'"></div>
-			<form class="form-horizontal" name="formulario" id="formulario" ng-action="{{ url('empresas/[[producto.id_empresa]]/solicitudes/') }}" method="POST">
+			<form class="form-horizontal" name="formulario" id="formulario" ng-action="[[urlAction]]" method="POST">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="hidden" name="id_servicio" ng-value="producto.id_servicio">
+				<input type="hidden" name="id_servicio" ng-value="servicio.id_servicio">
 				
 				<div class="modal-body" >
 					<div class="form-group">

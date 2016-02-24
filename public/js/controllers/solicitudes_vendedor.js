@@ -4,8 +4,9 @@ coreApp.controller('SolicitudesController', function($scope, $log, ajax, $window
     console.log("SolicitudesController");    
     
     $scope.pagoInfo = function(item){
-        $rootScope.urlAction = $scope.url + 'empresas/' + item.id_empresa + '/solicitudes/' + item.id_solicitud + '/responder-presupuesto';
-        $rootScope.urlRedirect = $scope.url + 'empresas/' + item.id_empresa + '/solicitudes/';
+    	console.log(item);
+        $rootScope.urlAction = $scope.url + 'empresas/' + item.servicio.id_empresa + '/solicitudes/' + item.id_solicitud + '/responder-presupuesto';
+        $rootScope.urlRedirect = $scope.url + 'empresas/' + item.servicio.id_empresa + '/solicitudes';
     }
 
     $scope.servicio = {};
@@ -24,7 +25,7 @@ coreApp.controller('SolicitudesController', function($scope, $log, ajax, $window
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
 				console.log(response);
-			    $window.location.href = $rootScope.urlRedirect;
+			    //$window.location.href = $rootScope.urlRedirect;
 			  }, function errorCallback(response) {
 			  	console.log("error");
 			  	//$window.location.href = $scope.urlRedirect;

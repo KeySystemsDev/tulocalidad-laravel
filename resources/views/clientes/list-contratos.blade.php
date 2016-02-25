@@ -57,6 +57,9 @@
 								<a ng-if="solicitud.estatus_solicitud == 1" href="javascript:;" class="btn btn-warning btn-solitud">Esperando Respuesta</a>
 								<a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-danger btn-solitud">Rechazar</a>
 								<a ng-if="solicitud.estatus_solicitud == 2" ng-click="aceptar_presupuesto(solicitud)" href="#aceptar_servicio" data-toggle="modal" class="btn btn-success btn-solitud">Aceptar</a>
+								<a ng-if="solicitud.estatus_solicitud == 3" href="javascript:;" class="btn btn-tulocalidad btn-solitud">Contratado</a>
+								<a ng-if="solicitud.estatus_solicitud == 4" href="javascript:;" class="btn btn-danger btn-solitud">Rechazado</a>
+								<a ng-if="solicitud.estatus_solicitud == 5" href="javascript:;" class="btn btn-info btn-solitud">Vencido</a>
 							</td>
 						</tr>
 

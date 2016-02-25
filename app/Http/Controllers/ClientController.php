@@ -247,6 +247,7 @@ class ClientController extends Controller {
                                 ]);
         $empresa->save();
 		$mp = new MP($response->access_token);
+		$mp->sandbox_mode(TRUE);
 		$articulos = Carrito::where('id_empresa',$request->id_empresa)
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
@@ -264,7 +265,7 @@ class ClientController extends Controller {
 							],
 							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
 							'collector_id'=>intval($response->user_id),
-							'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
+					//		'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 						];					
 		foreach ($articulos as $articulo) {
 			
@@ -284,46 +285,47 @@ class ClientController extends Controller {
 
 
 	public function respuestaCompra(Request $request){
-		// $mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+		$mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
 		
-		// //dd($request->all());
-		// $precio_total = 0;
-		// $result = explode(",", $request->external_reference);
-		// $id_usuario = $result[0];
-		// $id_empresa = $result[1];
-		// $carritos = Carrito::where('id_usuario',$id_usuario)
-		// 					->where('id_empresa',$id_empresa);
+		//dd($request->all());
+		$precio_total = 0;
+		$result = explode(",", $request->external_reference);
+		$id_usuario = $result[0];
+		$id_empresa = $result[1];
+		$carritos = Carrito::where('id_usuario',$id_usuario)
+							->where('id_empresa',$id_empresa);
 
-		// $lista_compra = $carritos->get();
+		$lista_compra = $carritos->get();
+		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+		$compra = Compras::create([
+								'tipo_pago_compra'=>'mercadopago',
+								'identificador_pago_compra'=>$request->preference_id,
+								'precio_total_compra',
+								'estatus_compra'=>$request->collection_status,
+								'id_usuario' => $id_usuario,
+								'id_empresa' => $id_empresa,
+								]
+			);
+		foreach ($lista_compra as $producto) {
+			ProductoComprado::create([
+							'id_empresa'					=>$id_empresa,
+							'id_compra'						=>$compra->id_compra,
+							'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
+							'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
+							'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
+							'precio_total'					=>$producto['sub_total'],
+							'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
+							'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
+						]);
+			$precio_total +=  intval($producto['sub_total']);
+		};
 
-		// $compra = Compras::create([
-		// 						'tipo_pago_compra'=>'mercadopago',
-		// 						'identificador_pago_compra'=>$request->preference_id,
-		// 						'precio_total_compra',
-		// 						'estatus_compra'=>$request->collection_status,
-		// 						'id_usuario' => $id_usuario,
-		// 						'id_empresa' => $id_empresa,
-		// 						]
-		// 	);
-		// foreach ($lista_compra as $producto) {
-		// 	ProductoComprado::create([
-		// 					'id_empresa'					=>$id_empresa,
-		// 					'id_compra'						=>$compra->id_compra,
-		// 					'primera_imagen' 				=>$producto['data_producto']['primera_imagen']['nombre_imagen_producto'],
-		// 					'cantidad_producto_comprados'	=>$producto->cantidad_producto_carrito,
-		// 					'precio_unidad'   				=>$producto['data_producto']['precio_producto'],
-		// 					'precio_total'					=>$producto['sub_total'],
-		// 					'nombre_producto'				=>$producto['data_producto']['nombre_producto'],
-		// 					'descripcion_producto'			=>$producto['data_producto']['descripcion_producto'],
-		// 				]);
-		// 	$precio_total +=  intval($producto['sub_total']);
-		// };
-
-		// $compra->fill(['precio_total_compra'=>$precio_total]);
-		// $compra->save();
+		$compra->fill(['precio_total_compra'=>$precio_total]);
+		$compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado.');
+			$carritos->delete();
 		};
 
 		if($request->collection_status=='pending'){
@@ -350,12 +352,12 @@ class ClientController extends Controller {
 
 		if($request->collection_status=='pending'){
 			Session::flash('mensaje', 'Procesando su pago.');
-			$carritos->delete();
+			//$carritos->delete();
 		};
 
 		if($request->collection_status=='success'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
-			$carritos->delete();
+			//$carritos->delete();
 		};
 		
 		return view('/clientes/volver');
@@ -363,68 +365,49 @@ class ClientController extends Controller {
 
 	public function IPNotificador(Request $request){
 
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
-		//$mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
+		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>"request ".$request]);
+		// $mp = new MP(env('MP_APP_ID',''), env('MP_APP_SECRET', ''));
+		// $mp->sandbox_mode(TRUE);
 
-		$fichero_log = SITE.'/log.txt';
-        // Añade una nueva persona al fichero
-        $actual = print_r($request->all(), true);
-		file_put_contents($fichero_log, $actual, FILE_APPEND);
-        
-		// $json_event = file_get_contents('/input.txt', true);
-		// $event = json_decode($json_event);
+		// // Get the payment and the corresponding merchant_order reported by the IPN.
+		// if($request->topic == 'payment'){
+		// 	$payment_info = $mp->get_payment($request->id);
+		// 	$merchant_order_info = $mp->get("/merchant_orders/".$payment_info["response"]["collection"]["merchant_order_id"]);
+		// // Get the merchant_order reported by the IPN.
+		// } else if($request->topic == 'merchant_order'){
+		// 	$merchant_order_info = $mp->get("/merchant_orders/" . $request->id);
+		// }
 
+		// if ($merchant_order_info["status"] == 200) {
+		// 	// If the payment's transaction amount is equal (or bigger) than the merchant_order's amount you can release your items 
+		// 	$paid_amount = 0;
+
+		// 	foreach ($merchant_order_info["response"]["payments"] as  $payment) {
+		// 		if ($payment['status'] == 'approved'){
+		// 			$paid_amount += $payment['transaction_amount'];
+		// 		}	
+		// 	}
+
+		// 	if($paid_amount >= $merchant_order_info["response"]["total_amount"]){
+
+		// 		print_r("Totally paid. Release your item.");
+
+		// 	} else {
+		// 		print_r("Not paid yet. Do not release your item.");
+		// 	}
+		// }
+
+
+//________________________________________________________________________
 		// if ($request->type == 'payment'){
 		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
 
 		//     if ($payment_info["status"] == 200) {
-		//         //print_r($payment_info["response"]);
-		//         //file_put_contents($fichero, $actual, FILE_APPEND);
+		//         print_r($payment_info["response"]);
 		//     }
 		// }
 
-		// if ($request->type == 'merchant_order'){
-		//     $payment_info = $mp->get('/v1/payments/'.$request->data->id);
-
-		//     if ($payment_info["status"] == 200) {
-		//         //print_r($payment_info["response"]);
-		//         //file_put_contents($fichero_ordenes, $actual, FILE_APPEND);
-		//     }
-		// }
-
- 		
-		
-
-		// $mp = new MP(env('MP_APP_ID'), env("MP_APP_SECRET"));
-		// $params = ["access_token" => $mp->get_access_token()];
-		// // Get the payment reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com
-		// if($request->topic == 'payment'){
-		// 	$payment_info = $mp->get("/collections/notifications/" . $request->id, $params, false);
-		// 	$merchant_order_info = $mp->get("/merchant_orders/" . $payment_info["response"]["collection"]["merchant_order_id"], $params, false);
-		// // Get the merchant_order reported by the IPN. Glossary of attributes response in https://developers.mercadopago.com	
-		// }else if($request->topic == 'merchant_order'){
-		// 	$merchant_order_info = $mp->get("/merchant_orders/" . $request->id, $params, false);
-		// }
-		// //If the payment's transaction amount is equal (or bigger) than the merchant order's amount you can release your items 
-		// if ($merchant_order_info["status"] == 200) {
-		// 	$transaction_amount_payments= 0;
-		// 	$transaction_amount_order = $merchant_order_info["response"]["total_amount"];
-		//     $payments=$merchant_order_info["response"]["payments"];
-		//     foreach ($payments as  $payment) {
-		//     	if($payment['status'] == 'approved'){
-		// 	    	$transaction_amount_payments += $payment['transaction_amount'];
-		// 	    }	
-		//     }
-		//     if($transaction_amount_payments >= $transaction_amount_order){
-		//     	echo "release your items";
-		//     	//		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
-		//     }
-		//     else{
-		// 		echo "dont release your items";
-		// 		//HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'prueba', ['response'=>json_encode($payment_info)]);
-		// 	}
-		// }
-		//return('200');
+		// return('200');
 	
 	}
 

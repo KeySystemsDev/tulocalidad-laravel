@@ -6,6 +6,7 @@ use App\Models\Servicio;
 use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
+use App\Models\Factura;
 use App\Models\Compras;
 use App\Models\ProductoFavorito;
 use App\Models\ServicioFavorito;
@@ -298,12 +299,11 @@ class ClientController extends Controller {
 		$lista_compra = $carritos->get();
 		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 		$compra = Compras::create([
-								'tipo_pago_compra'=>'mercadopago',
-								'identificador_pago_compra'=>$request->preference_id,
-								'precio_total_compra',
-								'estatus_compra'=>$request->collection_status,
-								'id_usuario' => $id_usuario,
-								'id_empresa' => $id_empresa,
+								'tipo_pago_compra'			=> 'mercadopago',
+								'identificador_pago_compra'	=> $request->preference_id,
+								'estatus_compra'			=> $request->collection_status,
+								'id_usuario' 				=> $id_usuario,
+								'id_empresa' 				=> $id_empresa,
 								]
 			);
 		foreach ($lista_compra as $producto) {
@@ -321,11 +321,9 @@ class ClientController extends Controller {
 		};
 
 		$compra->fill(['precio_total_compra'=>$precio_total]);
-		$compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
-			Session::flash('mensaje', 'Pago rechazado.');
-			$carritos->delete();
+			Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
 		};
 
 		if($request->collection_status=='pending'){
@@ -336,8 +334,16 @@ class ClientController extends Controller {
 		if($request->collection_status=='success'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 			$carritos->delete();
+/*
+			$factura = Factura::create([
+									"identificador_factura","0000001",
+
+									]);
+			$compra->fill(['id_factura'=>$factura->id_factura]);
+*/			
 		};
-		
+		$compra->save();
+
 		return redirect('/compras');
 	}
 

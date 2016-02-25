@@ -85,7 +85,7 @@
 							<td>
 								<div>
 									<p>Fecha limite: [[solicitud.fecha_vencimiento_solicitud]]</p>
-									<p style="font-size: 18px;">Precio: [[solicitud.monto_presupuesto_solicitud]] BsF</p>
+									<p style="font-size: 18px;">Precio: [[solicitud.monto_final_solicitud]] BsF</p>
 								</div>
 							</td>
 						</tr>

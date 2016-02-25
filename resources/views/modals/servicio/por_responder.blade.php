@@ -16,9 +16,9 @@
 					<div class="form-group">
 	                    <label class="col-md-4 control-label">Monto presupuesto</label>
 	                    <div class="col-md-5">
-	                    	<input  numbers-only class="form-control" name="monto_presupuesto_solicitud" ng-model="servicio.monto_presupuesto_solicitud" ng-required="true">
-	                    	<div class="error campo-requerido" ng-show="formulario.monto_presupuesto_solicitud.$invalid && (formulario.monto_presupuesto_solicitud.$touched || submitted)">
-	                            <small class="error" ng-show="formulario.monto_presupuesto_solicitud.$error.required">
+	                    	<input  numbers-only class="form-control" name="monto_final_solicitud" ng-model="servicio.monto_final_solicitud" ng-required="true">
+	                    	<div class="error campo-requerido" ng-show="formulario.monto_final_solicitud.$invalid && (formulario.monto_final_solicitud.$touched || submitted)">
+	                            <small class="error" ng-show="formulario.monto_final_solicitud.$error.required">
 	                                * Campo requerido.
 	                            </small>
 	                    	</div>

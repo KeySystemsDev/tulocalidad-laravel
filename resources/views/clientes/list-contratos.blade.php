@@ -1,8 +1,13 @@
 @extends('base-cliente')
 
+@section('controller')
+	<script src="{{ asset('/js/controllers/contrato_cliente.js') }}"></script>
+@endsection
+
+
 @section('content')
 
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+<div id="page-container" class="fade page-sidebar-fixed page-header-fixed" ng-controller="ContratoController">
 	
 	@include('layouts/navbar-cliente')
 
@@ -51,7 +56,7 @@
 							<td class="cart_total col-md-2">
 								<a ng-if="solicitud.estatus_solicitud == 1" href="javascript:;" class="btn btn-warning btn-solitud">Esperando Respuesta</a>
 								<a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-danger btn-solitud">Rechazar</a>
-								<a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-success btn-solitud">Aceptar</a>
+								<a ng-if="solicitud.estatus_solicitud == 2" ng-click="aceptar_presupuesto(solicitud)" href="#aceptar_servicio" data-toggle="modal" class="btn btn-success btn-solitud">Aceptar</a>
 							</td>
 						</tr>
 
@@ -99,6 +104,6 @@
 		</div>
 	</section>
 	@endif
-
+	@include('modals/servicio/aceptar_servicio')
 </div>
 @endsection

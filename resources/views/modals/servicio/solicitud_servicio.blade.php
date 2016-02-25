@@ -11,7 +11,7 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="hidden" name="id_servicio" ng-value="servicio.id_servicio">
 				
-				<div class="modal-body" >
+				<div class="modal-body">
 					<div class="form-group">
 	                    <label class="col-md-4 control-label">Detalle de Solicitud</label>
 	                    <div class="col-md-5">

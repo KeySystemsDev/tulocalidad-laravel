@@ -5,8 +5,13 @@ coreApp.controller('ContratoController', function($scope, $log, ajax, $window, $
     
     $scope.aceptar_presupuesto = function(item){
     	console.log(item);
-    	//'empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto'
         $rootScope.urlAction = $scope.url + 'empresas/' + item.id_empresa + '/solicitudes/' + item.id_solicitud + '/aceptar-presupuesto';
+        $rootScope.urlRedirect = $scope.url + 'contratos';
+    }
+
+    $scope.retrazar_presupuesto = function(item){
+    	console.log(item);
+        $rootScope.urlAction = $scope.url + 'empresas/' + item.id_empresa + '/solicitudes/' + item.id_solicitud + '/rechazar-presupuesto';
         $rootScope.urlRedirect = $scope.url + 'contratos';
     }
 
@@ -37,6 +42,7 @@ coreApp.controller('ContratoController', function($scope, $log, ajax, $window, $
 		};
 		return false;
 	}
+
 })
 
 ;

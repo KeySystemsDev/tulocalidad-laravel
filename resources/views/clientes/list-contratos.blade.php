@@ -54,12 +54,12 @@
 								<p>Web ID: [[solicitud.servicio.id_servicio]]</p>
 							</td>
 							<td class="cart_total col-md-2">
-								<a ng-if="solicitud.estatus_solicitud == 1" href="javascript:;" class="btn btn-warning btn-solitud">Esperando Respuesta</a>
-								<a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-danger btn-solitud">Rechazar</a>
+								<h4><span  ng-if="solicitud.estatus_solicitud == 1" class="label label-warning">Esperando Respuesta</span></h4>
+								<a ng-if="solicitud.estatus_solicitud == 2" ng-click="retrazar_presupuesto(solicitud)" href="#rechazar_contrato" data-toggle="modal" class="btn btn-danger btn-solitud" >Rechazar</a>
 								<a ng-if="solicitud.estatus_solicitud == 2" ng-click="aceptar_presupuesto(solicitud)" href="#aceptar_servicio" data-toggle="modal" class="btn btn-success btn-solitud">Aceptar</a>
 								<a ng-if="solicitud.estatus_solicitud == 3" href="javascript:;" class="btn btn-tulocalidad btn-solitud">Contratado</a>
-								<a ng-if="solicitud.estatus_solicitud == 4" href="javascript:;" class="btn btn-danger btn-solitud">Rechazado</a>
-								<a ng-if="solicitud.estatus_solicitud == 5" href="javascript:;" class="btn btn-info btn-solitud">Vencido</a>
+								<h4><span ng-if="solicitud.estatus_solicitud == 4" class="label label-danger">Rechazado</span></h4>
+								<h4><span ng-if="solicitud.estatus_solicitud == 5" class="label label-info">Vencido</span></h4>
 							</td>
 						</tr>
 
@@ -75,7 +75,7 @@
 							</td>
 						</tr>
 				
-						<tr>
+						<tr ng-if="solicitud.estatus_solicitud == 2">
 							<td class="cart_product ceter">
 								Respuesta:
 							</td>
@@ -83,7 +83,7 @@
 								<p>[[solicitud.texto_presupuesto_solicitud]]</p>
 							</td>
 							<td>
-								<div ng-if="solicitud.estatus_solicitud == 2">
+								<div>
 									<p>Fecha limite: [[solicitud.fecha_vencimiento_solicitud]]</p>
 									<p style="font-size: 18px;">Precio: [[solicitud.monto_presupuesto_solicitud]] BsF</p>
 								</div>
@@ -108,5 +108,6 @@
 	</section>
 	@endif
 	@include('modals/servicio/aceptar_servicio')
+	@include('modals/servicio/rechazar_contrato')
 </div>
 @endsection

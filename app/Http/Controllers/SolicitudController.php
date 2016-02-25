@@ -64,14 +64,14 @@ class SolicitudController extends Controller{
         $solicitud = Solicitud::find($id_solicitud);
         if (\Carbon\Carbon::now() > $solicitud->fecha_vencimiento_solicitud ){
             $solicitud->update([
-                            'estatus_solitud'=>5,
+                            'estatus_solicitud'             =>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                             ]);
             return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
         };
 
         $solicitud->update([
-                        'estatus_solitud'               => 3,
+                        'estatus_solicitud'             => 3,
                         'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                         ]);
         return json_encode(['success'=>true,]);
@@ -89,7 +89,7 @@ class SolicitudController extends Controller{
         };
 
         $solicitud->update([
-                        'estatus_solicitud'               => 4,
+                        'estatus_solicitud'             => 4,
                         'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                         ]);
         return json_encode(['success'=>true,]);

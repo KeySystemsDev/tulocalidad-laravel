@@ -14,6 +14,7 @@ class Compras extends Model {
 							'id_usuario',
 							'id_empresa',
 							'habilitado_compra',
+							'id_factura',
 							];
 
 	protected $primaryKey = "id_compra";
@@ -27,6 +28,7 @@ class Compras extends Model {
 					'id_usuario' 				=> 'integer',
 					'id_empresa' 				=> 'integer',
 					'habilitado_compra' 		=> 'integer',
+					'id_factura'				=> 'integer',
 					];
 
 	protected $appends = ['productos_comprados','factura'];

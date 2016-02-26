@@ -22,7 +22,7 @@ Datos de factura:
 @if($solicitud['factura'])
 	<p>N° de Factura: {{$solicitud['factura']['identificador_factura']}}</p>
 	<p>A nombre de: {{$solicitud['factura']['a_nombre_de']}}</p>
-	<p>Correo electronico: {{$compra['factura']['correo_electronico']}}</p>
+	<p>Correo electronico: {{$solicitud['factura']['correo_electronico']}}</p>
 	<p>Rif / Cedula: {{$solicitud['factura']['cedula_rif']}}</p>
 	<p>Telefono: {{$solicitud['factura']['telefono']}}</p>
 	<p>Direccion Fiscal: {{$solicitud['factura']['telefono']}}</p>

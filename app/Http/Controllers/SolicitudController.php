@@ -184,13 +184,35 @@ class SolicitudController extends Controller{
 
         if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
+            $empresa = Empresa::find($this->id_empresa);
+            $solicitud = Solicitud::find($id_solicitud);
+            $vendedor = User::find($solicitud->servicio->id_usuario);
+            $solicitud->estatus_solicitud             =  3;
+            $solicitud->fecha_finalizado_solicitud    =  \Carbon\Carbon::now();
+            $solicitud->id_factura                    = $id_factura;
+            $solicitud->save();
+        
+            HelperController::sendEmail("hsh283@gmail.com",
+                                        "hsh283@gmail.com",
+                                        'Contratacion recibida', 
+                                        'emails.factura_servicios', 
+                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
+            
+            HelperController::sendEmail($vendedor->correo_usuario,
+                                        $vendedor->correo_usuario,
+                                        'Contratacion recibida', 
+                                        'emails.factura_servicios', 
+                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
 
-            Solicitud::find($id_solicitud)->update([
-                                            'estatus_solicitud'             =>  3,
-                                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                                            'id_factura'                    => $id_factura,
-                                                    ]);
+            HelperController::sendEmail($solicitud->factura->correo_electronico,
+                                        $solicitud->factura->correo_electronico,
+                                        'Contratacion realizada', 
+                                        'emails.factura_servicios', 
+                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
+
+
 /*
+
             $factura = Factura::create([
                                     "identificador_factura","0000001",
 

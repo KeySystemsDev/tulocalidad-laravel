@@ -365,12 +365,6 @@ class ClientController extends Controller {
 										'Compra Realizada', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);
-
-			HelperController::sendEmail("hsh283@gmail.com",
-										"homero Hernandez",
-										'prueba', 
-										'emails.factura_productos', 
-										['compra'=>$compra, 'empresa'=>$empresa]);	
 			$carritos->delete();
 		};
 

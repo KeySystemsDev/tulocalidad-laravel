@@ -72,7 +72,7 @@ class SolicitudController extends Controller{
         };
         */
 
-        $empresa = Empresa::find($request->id_empresa);
+        $empresa = Empresa::find($id_empresa);
         $solicitud = Solicitud::find($request->id_solicitud);
         $fields = array(
             'client_id' => env('MP_APP_ID', ''),

@@ -23,6 +23,7 @@
 
 
 Datos de factura:
+{{dd($compra['factura'])}}
 @if($compra['factura'])
 	<p>N° de Factura: {{$compra['factura']['identificador_factura']}}</p>
 	<p>A nombre de: {{$compra['factura']['a_nombre_de']}}</p>

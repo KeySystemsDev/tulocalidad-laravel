@@ -261,7 +261,7 @@ class ClientController extends Controller {
                         "correo_electronico" => $request->correo_usuario,
                         "cedula_rif" => $request->rif_usuario,
                         ]);
-        dd($factura, $request);
+        
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[

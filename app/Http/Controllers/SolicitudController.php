@@ -187,6 +187,7 @@ class SolicitudController extends Controller{
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
             $empresa = Empresa::find($id_empresa);
             $solicitud = Solicitud::find($id_solicitud);
+            dd($solicitud, $id_solicitud);
             $vendedor = User::find($solicitud->servicio->id_usuario);
             $solicitud->estatus_solicitud             =  3;
             $solicitud->fecha_finalizado_solicitud    =  \Carbon\Carbon::now();

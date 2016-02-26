@@ -419,7 +419,6 @@ class ApisController extends Controller {
         $preference = $mp->create_preference($preference_data);
         $factura->identificador_factura = $preference['response']['id'];
         $factura->save();
-        
 
         return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }

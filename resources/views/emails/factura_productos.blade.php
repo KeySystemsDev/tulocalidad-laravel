@@ -1,6 +1,6 @@
 <p>Ha realizado una compra:</p>
 
-	<p>Articulos:</p>
+	<p>Articulos adquiridos:</p>
 @foreach($compra['productos_comprados'] as $articulo)
 
 	<p> {{$articulo['nombre_producto']}}  -   {{$articulo['cantidad_producto_comprados']}} X {{$articulo['precio_unidad']}}   -   {{$articulo['precio_total']}}</p>

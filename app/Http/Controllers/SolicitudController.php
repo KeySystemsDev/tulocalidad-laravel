@@ -129,7 +129,7 @@ class SolicitudController extends Controller{
                                 'email'=>Auth::user()->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura.",".$id_empresa,
+                            'external_reference'=>$id_solicitud.",".$factura->id_factura.",".$id_empresa,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 

@@ -253,6 +253,14 @@ class ClientController extends Controller {
 							->where('id_usuario', Auth::user()->id_usuario)
 							->get();
 		
+        $factura = Factura::create([
+                        "a_nombre_de" =>$request->nombre_usuario,
+                        "direccion_fiscal" => $request->direccion_usuario,
+                        "telefono" => $request->telefono_usuario,
+                        "correo_electronico" => $request->correo_usuario,
+                        "cedula_rif" => $request->rif_usuario,
+                        ]);
+
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
@@ -264,7 +272,7 @@ class ClientController extends Controller {
 								'email'=>Auth::user()->correo_usuario,
 
 							],
-							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa,
+							'external_reference'=>Auth::user()->id_usuario.",".$request->id_empresa.",".$factura->id_factura,
 							'collector_id'=>intval($response->user_id),
 					//		'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 						];					
@@ -293,6 +301,7 @@ class ClientController extends Controller {
 		$result = explode(",", $request->external_reference);
 		$id_usuario = $result[0];
 		$id_empresa = $result[1];
+		$id_factura = $result[2];
 		$carritos = Carrito::where('id_usuario',$id_usuario)
 							->where('id_empresa',$id_empresa);
 
@@ -336,22 +345,21 @@ class ClientController extends Controller {
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 			$empresa = Empresa::find($id_empresa);
 			$vendedor = User::find($empresa->id_usuario);
-	        $factura = Factura::create([
-	        			"identificador_factura"=>$request->preference_id,
-                        "a_nombre_de" =>$request->nombre_usuario,
-                        "direccion_fiscal" => $request->direccion_usuario,
-                        "telefono" => $request->telefono_usuario,
-                        "correo_electronico" => $request->correo_usuario,
-                        "cedula_rif" => $request->rif_usuario,
-                        ]);
+			$comprador = User::find($compra->id_usuario);
 
-			$compra->fill(['id_factura'=>$factura->id_factura]);
+			$compra->fill(['id_factura'=>$id_factura]);
 		
 			$carritos->delete();
 			$compra->save();
 			HelperController::sendEmail($vendedor->correo_usuario,
-										$vendedor->full_name,
-										'prueba', 
+										$vendedor->correo_usuario,
+										'Venta Realizada', 
+										'emails.factura_productos', 
+										['compra'=>$compra, 'empresa'=>$empresa]);
+
+			HelperController::sendEmail($comprador->correo_usuario,
+										$Comprador->correo_usuario,
+										'Compra Realizada', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);
 

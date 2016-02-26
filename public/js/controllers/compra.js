@@ -7,6 +7,8 @@ coreApp.controller('ComprarController', function($scope, $log, ajax, $window, $h
     $scope.pagoInfo = function(item){
         $scope.id_empresa = item;
     }
+
+    $scope.check = 0;
 })
 
 ;

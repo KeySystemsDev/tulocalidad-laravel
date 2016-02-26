@@ -184,7 +184,7 @@ class SolicitudController extends Controller{
 
         if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
-            $empresa = Empresa::find($this->id_empresa);
+            $empresa = Empresa::find($id_empresa);
             $solicitud = Solicitud::find($id_solicitud);
             $vendedor = User::find($solicitud->servicio->id_usuario);
             $solicitud->estatus_solicitud             =  3;
@@ -197,7 +197,7 @@ class SolicitudController extends Controller{
                                         'Contratacion recibida', 
                                         'emails.factura_servicios', 
                                         ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
-            
+
             HelperController::sendEmail($vendedor->correo_usuario,
                                         $vendedor->correo_usuario,
                                         'Contratacion recibida', 

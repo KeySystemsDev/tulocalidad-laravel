@@ -261,7 +261,7 @@ class ClientController extends Controller {
                         "correo_electronico" => $request->correo_usuario,
                         "cedula_rif" => $request->rif_usuario,
                         ]);
-        
+
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
@@ -290,6 +290,9 @@ class ClientController extends Controller {
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
+        $factura->identificador_factura = $preference['response']['id'];
+        $factura->save();
+		
 		return redirect($preference['response']['sandbox_init_point']);
 	}
 

@@ -181,7 +181,7 @@ class SolicitudController extends Controller{
             Session::flash('mensaje', 'Procesando su pago.');
         };
 
-        if($request->collection_status=='success'){
+        if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
             Solicitud::find($id_solicitud)->update([
@@ -223,7 +223,7 @@ class SolicitudController extends Controller{
             Session::flash('mensaje', 'Procesando su pago.');
         };
 
-        if($request->collection_status=='success'){
+        if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
             Solicitud::find($id_solicitud)->update([

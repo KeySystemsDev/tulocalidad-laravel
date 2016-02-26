@@ -332,7 +332,7 @@ class ClientController extends Controller {
 			$carritos->delete();
 		};
 
-		if($request->collection_status=='success'){
+		if($request->collection_status=='approved'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
 	        $factura = Factura::create([
@@ -370,7 +370,7 @@ class ClientController extends Controller {
 			//$carritos->delete();
 		};
 
-		if($request->collection_status=='success'){
+		if($request->collection_status=='approved'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 			//$carritos->delete();
 		};

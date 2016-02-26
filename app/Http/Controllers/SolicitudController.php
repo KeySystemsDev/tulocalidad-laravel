@@ -173,9 +173,6 @@ class SolicitudController extends Controller{
         $id_factura = $result[1];
 
 
-
-        HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
-
         if($request->collection_status=='failure'){
             Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
         };
@@ -235,9 +232,7 @@ class SolicitudController extends Controller{
                                             'id_factura'                    => $id_factura,
                                                     
                                                 ]);
-
-            $compra->fill(['id_factura'=>$factura->id_factura]);
-
+            HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
         };
 
         return redirect('/contratos');

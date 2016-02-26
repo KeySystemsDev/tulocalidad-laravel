@@ -297,7 +297,7 @@ class ClientController extends Controller {
 							->where('id_empresa',$id_empresa);
 
 		$lista_compra = $carritos->get();
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+
 		$compra = Compras::create([
 								'tipo_pago_compra'			=> 'mercadopago',
 								'identificador_pago_compra'	=> $request->preference_id,

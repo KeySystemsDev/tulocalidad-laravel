@@ -292,7 +292,7 @@ class ClientController extends Controller {
 		$preference = $mp->create_preference($preference_data);
         $factura->identificador_factura = $preference['response']['id'];
         $factura->save();
-		
+
 		return redirect($preference['response']['sandbox_init_point']);
 	}
 
@@ -350,7 +350,6 @@ class ClientController extends Controller {
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 			$empresa = Empresa::find($id_empresa);
 			$vendedor = User::find($empresa->id_usuario);
-			$comprador = User::find($compra->id_usuario);
 
 			$compra->id_factura = $id_factura;
 		
@@ -361,8 +360,8 @@ class ClientController extends Controller {
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);
 
-			HelperController::sendEmail($comprador->correo_usuario,
-										$comprador->correo_usuario,
+			HelperController::sendEmail($compra->factura->correo_electronico,
+										$compra->factura->correo_electronico,
 										'Compra Realizada', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);

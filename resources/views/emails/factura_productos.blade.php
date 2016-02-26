@@ -26,6 +26,7 @@ Datos de factura:
 @if($compra['factura'])
 	<p>N° de Factura: {{$compra['factura']['identificador_factura']}}</p>
 	<p>A nombre de: {{$compra['factura']['a_nombre_de']}}</p>
+	<p>Correo electronico: {{$compra['factura']['correo_electronico']}}</p>
 	<p>Rif / Cedula: {{$compra['factura']['cedula_rif']}}</p>
 	<p>Telefono: {{$compra['factura']['telefono']}}</p>
 	<p>Direccion Fiscal: {{$compra['factura']['telefono']}}</p>

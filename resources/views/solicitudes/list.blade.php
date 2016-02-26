@@ -50,7 +50,7 @@
 								<p>Web ID: [[solicitud.servicio.id_servicio]]</p>
 							</td>
 							<td class="cart_total col-md-2">
-								<a ng-if="solicitud.estatus_solicitud == 1" ng-click="pagoInfo(solicitud)" href="#por_responder" class="btn btn-success btn-solitud" data-toggle="modal">Por Responder</a>
+								<a ng-if="solicitud.estatus_solicitud == 1" ng-click="pagoInfo(solicitud)" href="#por_responder" class="btn btn-success btn-solitud" data-toggle="modal">Responder</a>
 				                <a ng-if="solicitud.estatus_solicitud == 2" href="javascript:;" class="btn btn-warning btn-solitud">Esperando Respuesta</a>
 				                <a ng-if="solicitud.estatus_solicitud == 3" href="javascript:;" class="btn btn-tulocalidad btn-solitud">Contratado</a>
 				                <a ng-if="solicitud.estatus_solicitud == 4" href="javascript:;" class="btn btn-danger btn-solitud">Rechazado</a>
@@ -70,7 +70,7 @@
 							</td>
 						</tr>
 				
-						<tr>
+						<tr ng-if="solicitud.estatus_solicitud != 1">
 							<td class="cart_product ceter">
 								Respuesta:
 							</td>
@@ -78,7 +78,7 @@
 								<p>[[solicitud.texto_presupuesto_solicitud]]</p>
 							</td>
 							<td>
-								<div ng-if="solicitud.estatus_solicitud == 2">
+								<div>
 									<p>Fecha limite: [[solicitud.fecha_vencimiento_solicitud]]</p>
 									<p style="font-size: 18px;">Precio: [[solicitud.monto_final_solicitud]] BsF</p>
 								</div>

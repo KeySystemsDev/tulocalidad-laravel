@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use App\User;
+use App\Perfil;
 use App\Models\Perfils;
 use Illuminate\Http\Request;
 

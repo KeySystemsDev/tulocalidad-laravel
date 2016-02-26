@@ -38,6 +38,6 @@ class Compras extends Model {
     }
 
 	public function getFacturaAttribute(){
-        return Factura::where('id_compra',$this->id_compra)->get();
+        return Factura::where('id_compra',$this->factura)->get();
     }
 }

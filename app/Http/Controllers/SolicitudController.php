@@ -8,6 +8,7 @@ use Illuminate\Routing\Route;
 use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Imagen;
+use App\User;
 use App\Models\Empresa;
 use App\Models\CategoriaProductos1;
 use App\Models\Solicitud;

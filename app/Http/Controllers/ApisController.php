@@ -7,6 +7,7 @@ use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
 use App\Models\Compras;
+use App\Models\Solicitud;
 use App\User;
 use MP;
 use Auth;
@@ -320,6 +321,99 @@ class ApisController extends Controller {
         $request['estatus_solicitud']=1;
         Solicitud::create($request->all());
         return json_encode(['success'=>true,]);
+    }
+
+    public function responderSolicitud($id_empresa, $id_solicitud, Request $request){
+        Solicitud::find($id_solicitud)->update([
+                                        "texto_presupuesto_solicitud" => $request->texto_presupuesto_solicitud,
+                                        "monto_final_solicitud" => $request->monto_final_solicitud,
+                                        "fecha_vencimiento_solicitud" => $request->fecha_vencimiento_solicitud,
+                                        'estatus_solicitud'             => 2,
+                                        ]);
+
+        return json_encode(['success'=>true,]);
+    }    
+
+    public function aceptarSolicitud($id_empresa, $id_solicitud, Request $request){
+        $solicitud = Solicitud::find($id_solicitud);
+        /*
+        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
+            $solicitud->update([
+                            'estatus_solicitud'             =>5,
+                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                            ]);
+            return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
+        };
+        */
+
+        $empresa = Empresa::find($id_empresa);
+        $solicitud = Solicitud::find($id_solicitud);
+        $fields = array(
+            'client_id' => env('MP_APP_ID', ''),
+            'client_secret' => env('MP_APP_SECRET', ''),
+            'grant_type' => 'refresh_token',
+            'refresh_token' => $empresa->refresh_token_mercadopago,
+        );
+        $fields_string="";
+        foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+        rtrim($fields_string, '&');
+
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl, CURLOPT_URL, 'https://api.mercadolibre.com/oauth/token');
+        curl_setopt($curl, CURLOPT_HTTPHEADER , ['content-type: application/x-www-form-urlencoded', 'accept: application/json']);
+        curl_setopt($curl, CURLOPT_POST , true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS , $fields_string);
+        $response =  json_decode(curl_exec($curl)); 
+        curl_close($curl);
+        $empresa->update(['refresh_token_mercadopago'=>$response->refresh_token,
+                                'access_token_mercadopago'=>$response->access_token,
+                                'user_id_mercadopago'=>$response->user_id,
+                                'fecha_vencimiento_mercadopago'=>$response->expires_in,
+                                ]);
+        $empresa->save();
+        $mp = new MP($response->access_token);
+        $mp->sandbox_mode(TRUE);
+
+/*        $articulos = Carrito::where('id_empresa',$request->id_empresa)
+                            ->where('id_usuario', Auth::user()->id_usuario)
+                            ->get();
+  */      
+        $preference_data=[  
+                            'items'=>[
+                                [
+                                'title' => $solicitud->servicio->nombre_servicio,
+                                'quantity' =>1,
+                                'description' => $solicitud->servicio->descripcion_servicio,
+                                'picture_url' =>$solicitud->servicio->url_imagen_servicio,
+                                'currency_id'=> 'VEF',
+                                'unit_price'=> (float) $solicitud->monto_final_solicitud,
+                                ],
+                            ],
+                            'back_urls'=>[
+                                'success'=>url('contratar/mercadopago/respuesta-movil/'),
+                                'pending'=>url('contratar/mercadopago/respuesta-movil/'),
+                                'failure'=>url('contratar/mercadopago/respuesta-movil/'),
+                            ],
+                            'payer'=>[
+                                'email'=>$request->correo_usuario,
+
+                            ],
+                            'external_reference'=>$request->id_usuario.",".$request->id_solicitud,
+                            'collector_id'=>intval($response->user_id),
+                    //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
+
+                        ];                  
+
+        $preference = $mp->create_preference($preference_data);
+        
+
+        $solicitud->update([
+                        'estatus_solicitud'             => 3,
+                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                        ]);
+
+        return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }
 
 

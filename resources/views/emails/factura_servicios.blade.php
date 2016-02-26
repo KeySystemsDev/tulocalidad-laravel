@@ -19,9 +19,9 @@
 
 Datos de factura:
 @if($solicitud['factura'])
-	<p>N° de Factura: $solicitud['factura']['identificador_factura']</p>
-	<p>A nombre de: $solicitud['factura']['a_nombre_de']</p>
-	<p>Rif / Cedula: $solicitud['factura']['rif_usuario']</p>
-	<p>Telefono: $solicitud['factura']['telefono']</p>
-	<p>Direccion Fiscal: $solicitud['factura']['telefono']</p>
+	<p>N° de Factura: {{$solicitud['factura']['identificador_factura']}}</p>
+	<p>A nombre de: {{$solicitud['factura']['a_nombre_de']}}</p>
+	<p>Rif / Cedula: {{$solicitud['factura']['cedula_rif']}}</p>
+	<p>Telefono: {{$solicitud['factura']['telefono']}}</p>
+	<p>Direccion Fiscal: {{$solicitud['factura']['telefono']}}</p>
 @endif

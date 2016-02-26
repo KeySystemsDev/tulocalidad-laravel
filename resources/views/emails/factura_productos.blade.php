@@ -20,13 +20,13 @@
 	<p>Tipo Pago: <span>{{$compra['tipo_pago_compra']}}</span></p>
 	<p>Factura:<span>{{$compra['identificador_pago_compra']}}</span></p>
 	<p>Total: <span>{{$compra['precio_total_compra']}} BsF</span></p>
-
+<br><br>
 
 Datos de factura:
 @if($compra['factura'])
 	<p>N° de Factura: {{$compra['factura']['identificador_factura']}}</p>
 	<p>A nombre de: {{$compra['factura']['a_nombre_de']}}</p>
-	<p>Rif / Cedula: {{$compra['factura']['rif_usuario']}}</p>
+	<p>Rif / Cedula: {{$compra['factura']['cedula_rif']}}</p>
 	<p>Telefono: {{$compra['factura']['telefono']}}</p>
 	<p>Direccion Fiscal: {{$compra['factura']['telefono']}}</p>
 @endif

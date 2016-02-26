@@ -101,10 +101,14 @@ class SolicitudController extends Controller{
         $mp = new MP($response->access_token);
         $mp->sandbox_mode(TRUE);
 
-/*        $articulos = Carrito::where('id_empresa',$request->id_empresa)
-                            ->where('id_usuario', Auth::user()->id_usuario)
-                            ->get();
-  */      
+        $factura = Factura::create([
+                                "a_nombre_de" =>$request->nombre_usuario,
+                                "direccion_fiscal" => $request->direccion_usuario,
+                                "telefono" => $request->telefono_usuario,
+                                "correo_electronico" => $request->correo_usuario,
+                                "cedula_rif" => $request->rif_usuario,
+                                ]);
+
         $preference_data=[  
                             'items'=>[
                                 [
@@ -125,13 +129,16 @@ class SolicitudController extends Controller{
                                 'email'=>Auth::user()->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_solicitud,
+                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
+        $factura->identificador_factura = $preference->id,
+        $factura->save();
+
 
         return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }
@@ -161,8 +168,10 @@ class SolicitudController extends Controller{
         
         //dd($request->all());
         $precio_total = 0;
-    
-        $id_solicitud = $request->external_reference;
+        $result = explode(",", $request->external_reference);
+        $id_solicitud = $result[0];
+        $id_factura = $result[1];
+
 
 
         HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
@@ -181,6 +190,7 @@ class SolicitudController extends Controller{
             Solicitud::find($id_solicitud)->update([
                                             'estatus_solicitud'             =>  3,
                                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                                            'id_factura'                    => $id_factura,
                                                     ]);
 /*
             $factura = Factura::create([
@@ -201,7 +211,9 @@ class SolicitudController extends Controller{
         //dd($request->all());
         $precio_total = 0;
     
-        $id_solicitud = $request->external_reference;
+        $result = explode(",", $request->external_reference);
+        $id_solicitud = $result[0];
+        $id_factura = $result[1];
 
 
         HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
@@ -220,13 +232,10 @@ class SolicitudController extends Controller{
             Solicitud::find($id_solicitud)->update([
                                             'estatus_solicitud'             =>  3,
                                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                                            'id_factura'                    => $id_factura,
                                                     
                                                 ]);
 
-            $factura = Factura::create([
-                                    "identificador_factura","0000001",
-
-                                    ]);
             $compra->fill(['id_factura'=>$factura->id_factura]);
 
         };

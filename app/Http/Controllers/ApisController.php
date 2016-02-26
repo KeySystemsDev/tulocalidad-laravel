@@ -377,10 +377,16 @@ class ApisController extends Controller {
         $mp = new MP($response->access_token);
         $mp->sandbox_mode(TRUE);
 
-/*        $articulos = Carrito::where('id_empresa',$request->id_empresa)
-                            ->where('id_usuario', Auth::user()->id_usuario)
-                            ->get();
-  */      
+
+        $factura = Factura::create([
+                                "a_nombre_de" =>$request->nombre_usuario,
+                                "direccion_fiscal" => $request->direccion_usuario,
+                                "telefono" => $request->telefono_usuario,
+                                "correo_electronico" => $request->correo_usuario,
+                                "cedula_rif" => $request->rif_usuario,
+                                ]);
+
+
         $preference_data=[  
                             'items'=>[
                                 [
@@ -401,13 +407,15 @@ class ApisController extends Controller {
                                 'email'=>$request->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_usuario.",".$request->id_solicitud,
+                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
+        $factura->identificador_factura = $preference->id,
+        $factura->save();
         
 
         $solicitud->update([

@@ -232,7 +232,7 @@ class SolicitudController extends Controller{
                                             'id_factura'                    => $id_factura,
                                                     
                                                 ]);
-            HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+           // HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
         };
 
         return redirect('/contratos');

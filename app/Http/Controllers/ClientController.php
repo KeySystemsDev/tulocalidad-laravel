@@ -359,7 +359,7 @@ class ClientController extends Controller {
 										['compra'=>$compra, 'empresa'=>$empresa]);
 
 			HelperController::sendEmail($comprador->correo_usuario,
-										$csomprador->correo_usuario,
+										$comprador->correo_usuario,
 										'Compra Realizada', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);

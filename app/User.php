@@ -32,11 +32,19 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 					'perfil'				=> 'array',
 					];
 
-	protected $appends = ['numero_articulos','articulos', 'costo_carrito','perfil'];
+	protected $appends = ['numero_articulos','articulos', 'costo_carrito','perfil', 'full_name'];
 
 
 	public function getPerfilAttribute(){
 		return Perfil::where('id_usuario',$this->id_usuario)->first();
+	}	
+
+	public function getFullNameAttribute(){
+		$perfil = Perfil::where('id_usuario',$this->id_usuario)->first();
+		if ($perfil){
+			return $perfil->nombre_perfil + " " + $perfil->apellido_perfil;
+		}
+		return $this->correo_usuario;
 	}	
 
 	public function getNumeroArticulosAttribute(){

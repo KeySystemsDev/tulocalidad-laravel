@@ -136,7 +136,7 @@ class SolicitudController extends Controller{
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
-        $factura->identificador_factura = $preference->id;
+        $factura->identificador_factura = $preference['response']['id'];
         $factura->save();
 
 
@@ -173,9 +173,6 @@ class SolicitudController extends Controller{
         $id_factura = $result[1];
 
 
-
-        HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
-
         if($request->collection_status=='failure'){
             Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
         };
@@ -184,7 +181,7 @@ class SolicitudController extends Controller{
             Session::flash('mensaje', 'Procesando su pago.');
         };
 
-        if($request->collection_status=='success'){
+        if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
             Solicitud::find($id_solicitud)->update([
@@ -226,7 +223,7 @@ class SolicitudController extends Controller{
             Session::flash('mensaje', 'Procesando su pago.');
         };
 
-        if($request->collection_status=='success'){
+        if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
             Solicitud::find($id_solicitud)->update([
@@ -235,9 +232,7 @@ class SolicitudController extends Controller{
                                             'id_factura'                    => $id_factura,
                                                     
                                                 ]);
-
-            $compra->fill(['id_factura'=>$factura->id_factura]);
-
+           // HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
         };
 
         return redirect('/contratos');

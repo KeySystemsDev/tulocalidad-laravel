@@ -16,7 +16,7 @@ class Factura extends Model {
 							];
 
 	protected $primaryKey = "id_factura";
-
+	public $timestamps = false;
 	public $cast = [
 					'id_factura' 			=> 'integer',
 					'identificador_factura' => 'string',

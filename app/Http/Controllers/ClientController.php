@@ -297,7 +297,7 @@ class ClientController extends Controller {
 							->where('id_empresa',$id_empresa);
 
 		$lista_compra = $carritos->get();
-		HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+
 		$compra = Compras::create([
 								'tipo_pago_compra'			=> 'mercadopago',
 								'identificador_pago_compra'	=> $request->preference_id,
@@ -321,6 +321,7 @@ class ClientController extends Controller {
 		};
 
 		$compra->fill(['precio_total_compra'=>$precio_total]);
+		$compra->save();
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR
 		if($request->collection_status=='failure'){
 			Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
@@ -331,18 +332,35 @@ class ClientController extends Controller {
 			$carritos->delete();
 		};
 
-		if($request->collection_status=='success'){
+		if($request->collection_status=='approved'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
-			$carritos->delete();
-/*
-			$factura = Factura::create([
-									"identificador_factura","0000001",
+			$empresa = Empresa::find($id_empresa);
+			$vendedor = User::find($empresa->id_usuario);
+	        $factura = Factura::create([
+	        			"identificador_factura"=>$request->preference_id,
+                        "a_nombre_de" =>$request->nombre_usuario,
+                        "direccion_fiscal" => $request->direccion_usuario,
+                        "telefono" => $request->telefono_usuario,
+                        "correo_electronico" => $request->correo_usuario,
+                        "cedula_rif" => $request->rif_usuario,
+                        ]);
 
-									]);
 			$compra->fill(['id_factura'=>$factura->id_factura]);
-*/			
+		
+			$carritos->delete();
+			$compra->save();
+			HelperController::sendEmail($vendedor->correo_usuario,
+										$vendedor->full_name,
+										'prueba', 
+										'emails.factura_productos', 
+										['compra'=>$compra, 'empresa'=>$empresa]);
+
+			HelperController::sendEmail("hsh283@gmail.com",
+										"homero Hernandez",
+										'prueba', 
+										'emails.factura_productos', 
+										['compra'=>$compra, 'empresa'=>$empresa]);		
 		};
-		$compra->save();
 
 		return redirect('/compras');
 	}
@@ -359,7 +377,7 @@ class ClientController extends Controller {
 			//$carritos->delete();
 		};
 
-		if($request->collection_status=='success'){
+		if($request->collection_status=='approved'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
 			//$carritos->delete();
 		};

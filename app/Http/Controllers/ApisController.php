@@ -6,6 +6,7 @@ use App\Models\Servicio;
 use App\Models\Imagen;
 use App\Models\Empresa;
 use App\Models\Carrito;
+use App\Models\Factura;
 use App\Models\Compras;
 use App\Models\Solicitud;
 use App\User;
@@ -349,15 +350,6 @@ class ApisController extends Controller {
 
     public function aceptarSolicitud($id_empresa, $id_solicitud, Request $request){
         $solicitud = Solicitud::find($id_solicitud);
-        /*
-        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
-            $solicitud->update([
-                            'estatus_solicitud'             =>5,
-                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                            ]);
-            return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
-        };
-        */
 
         $empresa = Empresa::find($id_empresa);
         $solicitud = Solicitud::find($id_solicitud);
@@ -418,21 +410,15 @@ class ApisController extends Controller {
                                 'email'=>$request->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura,
+                            'external_reference'=>$id_solicitud.",".$factura->id_factura,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
-        $factura->identificador_factura = $preference->id;
+        $factura->identificador_factura = $preference['response']['id'];
         $factura->save();
-        
-
-        $solicitud->update([
-                        'estatus_solicitud'             => 3,
-                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                        ]);
 
         return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }

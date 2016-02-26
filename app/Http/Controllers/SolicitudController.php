@@ -112,7 +112,7 @@ class SolicitudController extends Controller{
                                 'description' => $solicitud->servicio->descripcion_servicio,
                                 'picture_url' =>$solicitud->servicio->url_imagen_servicio,
                                 'currency_id'=> 'VEF',
-                                'unit_price'=> (float) $solicitud->monto_final_solicitud,
+                                'unit_price'=> (float) 20,
                             ],
                             'back_urls'=>[
                                 'success'=>url('contratar/mercadopago/respuesta/'),

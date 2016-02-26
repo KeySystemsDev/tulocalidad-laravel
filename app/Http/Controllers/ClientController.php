@@ -334,7 +334,7 @@ class ClientController extends Controller {
 
 		if($request->collection_status=='approved'){
 			Session::flash('mensaje', 'Pago Procesado exitosamente.');
-			$empresa = Empresa::find($id_empresa)
+			$empresa = Empresa::find($id_empresa);
 			$vendedor = User::find($empresa->id_usuario);
 	        $factura = Factura::create([
 	        			"identificador_factura"=>$request->preference_id,
@@ -350,7 +350,7 @@ class ClientController extends Controller {
 			$carritos->delete();
 			$compra->save();
 			HelperController::sendEmail($vendedor->correo_usuario,
-										"homero Hernandez",
+										$vendedor->full_name,
 										'prueba', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);

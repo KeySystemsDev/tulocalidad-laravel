@@ -410,7 +410,7 @@ class ApisController extends Controller {
                                 'email'=>$request->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura,
+                            'external_reference'=>$id_solicitud.",".$factura->id_factura,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 

@@ -8,6 +8,7 @@ use App\Models\Empresa;
 use App\Models\Carrito;
 use App\Models\Factura;
 use App\Models\Compras;
+use App\User;
 use App\Models\ProductoFavorito;
 use App\Models\ServicioFavorito;
 use App\Models\ProductoComprado;

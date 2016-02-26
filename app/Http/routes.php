@@ -33,14 +33,11 @@ Route::get('/lista-empresas','ClientController@listarEmpresas');
 Route::get('/lista-productos','ClientController@listarProductos');
 Route::get('/lista-servicios','ClientController@listarServicios');
 Route::get('/comprar/mercadopago/respuesta-movil','ClientController@respuestaMercadopagoMovil');
-Route::get('/contratar/mercadopago/respuesta-movil','ClientController@respuestaMercadopagoMovil');
+Route::get('/contratar/mercadopago/respuesta-movil','ClientController@respuestaContratarMercadopagoMovil');
 
 Route::get('/detalle-empresa/{id}','ClientController@DetalleEmpresa');
 Route::get('/detalle-producto/{id}','ClientController@DetalleProducto');
 Route::get('/detalle-servicio/{id}','ClientController@DetalleServicio');
-
-
-
 
 
 Route::get('empresas/configuracionMP','EmpresasController@configuracionMP');
@@ -97,6 +94,7 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::get('/comprar/mercadopago','ClientController@mercadopago1');
 	Route::post('/comprar/mercadopago','ClientController@postMercadopago1');
 	Route::get('/comprar/mercadopago/respuesta', 'ClientController@respuestaCompra');
+	Route::get('/contratar/mercadopago/respuesta', 'SolicitudController@respuestaContrato');
 	//Favoritos
 	Route::post('/favoritos/agregar','ClientController@agregarFavorito');
 	Route::post('/favoritos/eliminar','ClientController@eliminarFavorito');
@@ -126,7 +124,7 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/comprar/mercadopago', 'ApisController@mercadopago' );
 
 
-	Route::get('solicitudes/{empresas}/','ApisController@index');
+	Route::get('solicitudes/{id_usuario}/','ApisController@index');
 	Route::get('empresas/{empresas}/solicitudes/','ApisController@crearSolicitud');
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto','ApisController@aceptarSolicitud');
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/rechazar-presupuesto','ApisController@rechazarSolicitud');

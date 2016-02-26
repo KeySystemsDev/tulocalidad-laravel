@@ -161,6 +161,42 @@ class SolicitudController extends Controller{
     }
 
 
+    
+    public function respuestaContrato(Request $request){
+        $mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+        
+        //dd($request->all());
+        $precio_total = 0;
+        $result = explode(",", $request->external_reference);
+        $id_usuario = $result[0];
+        $id_solicitud = $result[1];
+
+        HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+
+        if($request->collection_status=='failure'){
+            Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
+        };
+
+        if($request->collection_status=='pending'){
+            Session::flash('mensaje', 'Procesando su pago.');
+        };
+
+        if($request->collection_status=='success'){
+            Session::flash('mensaje', 'Pago Procesado exitosamente.');
+
+            //$id_solicitud
+/*
+            $factura = Factura::create([
+                                    "identificador_factura","0000001",
+
+                                    ]);
+            $compra->fill(['id_factura'=>$factura->id_factura]);
+*/          
+        };
+
+        return redirect('/compras');
+    }
+
 
     public function destroy($id_empresa, $id){
         return redirect('/');

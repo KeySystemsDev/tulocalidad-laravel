@@ -347,8 +347,6 @@ class ClientController extends Controller {
 		return redirect('/compras');
 	}
 
-
-
 	public function respuestaMercadopagoMovil(Request $request){
 
 		//ENVIAR CORREOS ELECTRONICOS AL VENDEDOR Y AL COMPRADOR

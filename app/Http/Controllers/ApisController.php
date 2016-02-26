@@ -308,8 +308,10 @@ class ApisController extends Controller {
 	}
 
 
-	public function listaContrato(){
-		$solicitudes = Solicitud::orderBy('id_solicitud', 'desc')->get();
+	public function listaContrato($id_usuario){
+		$solicitudes = Solicitud::where('id_comprador',$id_usuario)
+								->orderBy('id_solicitud', 'desc')
+								->get();
 		return json_encode(['success'=>'true',
 							'data'=>$solicitudes,
 						]);

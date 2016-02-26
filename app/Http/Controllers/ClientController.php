@@ -350,7 +350,7 @@ class ClientController extends Controller {
 
 			$compra->fill(['id_factura'=>$id_factura]);
 		
-			$carritos->delete();
+			
 			$compra->save();
 			HelperController::sendEmail($vendedor->correo_usuario,
 										$vendedor->correo_usuario,
@@ -359,7 +359,7 @@ class ClientController extends Controller {
 										['compra'=>$compra, 'empresa'=>$empresa]);
 
 			HelperController::sendEmail($comprador->correo_usuario,
-										$Comprador->correo_usuario,
+										$csomprador->correo_usuario,
 										'Compra Realizada', 
 										'emails.factura_productos', 
 										['compra'=>$compra, 'empresa'=>$empresa]);
@@ -368,7 +368,8 @@ class ClientController extends Controller {
 										"homero Hernandez",
 										'prueba', 
 										'emails.factura_productos', 
-										['compra'=>$compra, 'empresa'=>$empresa]);		
+										['compra'=>$compra, 'empresa'=>$empresa]);	
+			$carritos->delete();
 		};
 
 		return redirect('/compras');

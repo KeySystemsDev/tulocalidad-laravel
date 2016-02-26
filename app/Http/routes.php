@@ -124,7 +124,7 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/comprar/mercadopago', 'ApisController@mercadopago' );
 
 
-	Route::get('solicitudes/{id_usuario}/','ApisController@index');
+	Route::get('solicitudes/{id_usuario}/','ApisController@listaContrato');
 	Route::get('empresas/{empresas}/solicitudes/','ApisController@crearSolicitud');
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto','ApisController@aceptarSolicitud');
 	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/rechazar-presupuesto','ApisController@rechazarSolicitud');

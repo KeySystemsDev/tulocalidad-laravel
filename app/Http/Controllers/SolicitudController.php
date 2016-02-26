@@ -184,7 +184,7 @@ class SolicitudController extends Controller{
         if($request->collection_status=='success'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
-            //$id_solicitud
+            $id_solicitud
 /*
             $factura = Factura::create([
                                     "identificador_factura","0000001",

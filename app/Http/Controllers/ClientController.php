@@ -176,7 +176,7 @@ class ClientController extends Controller {
 	}
 
 	public function listaContrato(){
-		$solicitudes = Solicitud::all();
+		$solicitudes = Solicitud::all()->orderBy('id_solicitud', 'desc');
 		return view('/clientes/list-contratos', compact('solicitudes'));
 	}
 

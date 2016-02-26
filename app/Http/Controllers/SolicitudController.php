@@ -35,7 +35,7 @@ class SolicitudController extends Controller{
     }
 
     public function index($id_empresa){
-        $solicitudes = Solicitud::all() ;
+        $solicitudes = Solicitud::all()->orderBy('id_solicitud', 'desc') ;
         return view('solicitudes.list', ['solicitudes'=>$solicitudes, 
                                             'id_empresa'=>$this->empresa->id_empresa,
                                             'nombre_empresa'=>$this->empresa->nombre_empresa]);
@@ -113,7 +113,7 @@ class SolicitudController extends Controller{
                                 'description' => $solicitud->servicio->descripcion_servicio,
                                 'picture_url' =>$solicitud->servicio->url_imagen_servicio,
                                 'currency_id'=> 'VEF',
-                                'unit_price'=> (float) 20,
+                                'unit_price'=> (float) $solicitud->monto_final_solicitud,
                                 ],
                             ],
                             'back_urls'=>[

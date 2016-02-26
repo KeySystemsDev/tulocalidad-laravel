@@ -430,11 +430,6 @@ class ApisController extends Controller {
         $factura->save();
         
 
-        $solicitud->update([
-                        'estatus_solicitud'             => 3,
-                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                        ]);
-
         return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }
 

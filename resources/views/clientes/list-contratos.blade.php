@@ -30,7 +30,7 @@
     </div>
 	<div ng-init="solicitudes={{$solicitudes}}"></div>
 	<div ng-init="url='{{url()}}/'"></div>
-	[[solicitudes]]
+
 	
 	@if(count($solicitudes)!=0)
     <section id="cart_items">

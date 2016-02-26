@@ -29,7 +29,6 @@
 		<div ng-init="url='{{url()}}/'"></div>
 		
 		@if(count($solicitudes)!=0)
-[[solicitudes]]
         <section id="cart_items">
 			<div class="table-responsive cart_info">
 				<table class="table table-condensed" ng-repeat="solicitud in solicitudes">

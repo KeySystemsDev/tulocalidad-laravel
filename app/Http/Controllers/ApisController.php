@@ -307,4 +307,20 @@ class ApisController extends Controller {
 	}
 
 
+	public function listaContrato(){
+		$solicitudes = Solicitud::orderBy('id_solicitud', 'desc')->get();
+		return json_encode(['success'=>'true',
+							'data'=>$solicitudes,
+						]);
+	}
+
+    public function crearSolicitud($id_empresa, Request $request){
+        $request['id_empresa']=$id_empresa;
+        $request['id_comprador']= $request->id_usuario;
+        $request['estatus_solicitud']=1;
+        Solicitud::create($request->all());
+        return json_encode(['success'=>true,]);
+    }
+
+
 }

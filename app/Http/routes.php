@@ -123,4 +123,11 @@ Route::group( [ 'prefix' => 'API' ], function ()
 	Route::get('/forget-password/', 'ApisController@forgetPassword' );
  
 	Route::get('/comprar/mercadopago', 'ApisController@mercadopago' );
+
+
+	Route::get('solicitudes/{empresas}/','SolicitudController@index');
+	Route::get('empresas/{empresas}/solicitudes/','SolicitudController@crearSolicitud');
+	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/aceptar-presupuesto','SolicitudController@aceptarSolicitud');
+	Route::get('empresas/{empresas}/solicitudes/{solicitudes}/rechazar-presupuesto','SolicitudController@rechazarSolicitud');
+
 } );

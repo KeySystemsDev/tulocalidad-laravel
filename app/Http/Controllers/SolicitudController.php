@@ -13,7 +13,7 @@ use App\Models\CategoriaProductos1;
 use App\Models\Solicitud;
 use Auth;
 use Session;
-
+use MP;
 
 class SolicitudController extends Controller{
 
@@ -52,7 +52,7 @@ class SolicitudController extends Controller{
     public function responderSolicitud($id_empresa, $id_solicitud, Request $request){
         Solicitud::find($id_solicitud)->update([
                                         "texto_presupuesto_solicitud" => $request->texto_presupuesto_solicitud,
-                                        "monto_final_solicitud" => $request->monto_presupuesto_solicitud,
+                                        "monto_final_solicitud" => $request->monto_final_solicitud,
                                         "fecha_vencimiento_solicitud" => $request->fecha_vencimiento_solicitud,
                                         'estatus_solicitud'             => 2,
                                         ]);
@@ -62,17 +62,18 @@ class SolicitudController extends Controller{
 
     public function aceptarSolicitud($id_empresa, $id_solicitud, Request $request){
         $solicitud = Solicitud::find($id_solicitud);
-        if (\Carbon\Carbon::now() > $solicitud->fecha_vencimiento_solicitud ){
+        /*
+        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
             $solicitud->update([
                             'estatus_solicitud'             =>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                             ]);
             return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
         };
-        
+        */
 
-        $empresa = Empresa::find($request->id_empresa);
-        $solicitud = Solicitud::find($request->id_solicitud);
+        $empresa = Empresa::find($id_empresa);
+        $solicitud = Solicitud::find($id_solicitud);
         $fields = array(
             'client_id' => env('MP_APP_ID', ''),
             'client_secret' => env('MP_APP_SECRET', ''),
@@ -106,12 +107,14 @@ class SolicitudController extends Controller{
   */      
         $preference_data=[  
                             'items'=>[
+                                [
                                 'title' => $solicitud->servicio->nombre_servicio,
-                                'quantity' =>intval('1'),
+                                'quantity' =>1,
                                 'description' => $solicitud->servicio->descripcion_servicio,
                                 'picture_url' =>$solicitud->servicio->url_imagen_servicio,
                                 'currency_id'=> 'VEF',
-                                'unit_price'=> (float) $solicitud->monto_final_solicitud,
+                                'unit_price'=> (float) 20,
+                                ],
                             ],
                             'back_urls'=>[
                                 'success'=>url('contratar/mercadopago/respuesta/'),
@@ -142,7 +145,7 @@ class SolicitudController extends Controller{
     public function rechazarSolicitud($id_empresa, $id_solicitud, Request $request){
 
         $solicitud = Solicitud::find($id_solicitud);
-        if (\Carbon\Carbon::now() > $solicitud->fecha_vencimiento_solicitud ){
+        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
             $solicitud->update([
                             'estatus_solicitud'             =>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),

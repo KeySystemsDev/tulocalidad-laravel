@@ -1,7 +1,7 @@
 <p>Ha realizado una compra:</p>
 
 	<p>Articulos:</p>
-@foreach($compra['productos_comprados'] as $compra)
+@foreach($compra['productos_comprados'] as $articulo)
 
 	<p> {{$articulo['nombre_producto']}}  -   {{$articulo['cantidad_producto_comprados']}} X {{$articulo['precio_unidad']}}   -   {{$articulo['precio_total']}}</p>
 
@@ -16,10 +16,10 @@
 
 
 Datos de factura:
-@if($articulo['factura'])
-	<p>N° de Factura: $articulo['factura']['identificador_factura']</p>
-	<p>A nombre de: $articulo['factura']['a_nombre_de']</p>
-	<p>Rif / Cedula: $articulo['factura']['rif_usuario']</p>
-	<p>Telefono: $articulo['factura']['telefono']</p>
-	<p>Direccion Fiscal: $articulo['factura']['telefono']</p>
+@if($compra['factura'])
+	<p>N° de Factura: $compra['factura']['identificador_factura']</p>
+	<p>A nombre de: $compra['factura']['a_nombre_de']</p>
+	<p>Rif / Cedula: $compra['factura']['rif_usuario']</p>
+	<p>Telefono: $compra['factura']['telefono']</p>
+	<p>Direccion Fiscal: $compra['factura']['telefono']</p>
 @endif

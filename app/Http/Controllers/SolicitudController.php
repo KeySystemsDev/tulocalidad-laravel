@@ -136,7 +136,7 @@ class SolicitudController extends Controller{
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
-        $factura->identificador_factura = $preference['response']['id_preference'];
+        $factura->identificador_factura = $preference['response']['id'];
         $factura->save();
 
 

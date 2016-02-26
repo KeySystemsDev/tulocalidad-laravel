@@ -56,10 +56,10 @@ coreApp.controller('ContratoController', function($scope, $log, ajax, $window, $
 			    data: json,
 			    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 			}).then(function successCallback(response) {
-				console.log(response);
-
-			    	//$window.location.href = response.redirecto;
-			   
+				
+				if(response.data.success==true){
+					$window.location.href = response.data.redirecto;
+				}
 			  }, function errorCallback(response) {
 			  	console.log("error");
 			  	//$window.location.href = $scope.urlRedirect;

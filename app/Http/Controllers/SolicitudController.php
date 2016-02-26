@@ -125,19 +125,13 @@ class SolicitudController extends Controller{
                                 'email'=>Auth::user()->correo_usuario,
 
                             ],
-                            'external_reference'=>Auth::user()->id_usuario.",".$request->id_solicitud,
+                            'external_reference'=>$request->id_solicitud,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
-        
-
-        $solicitud->update([
-                        'estatus_solicitud'             => 3,
-                        'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                        ]);
 
         return json_encode(['success'=>true, "redirecto"=> $preference['response']['sandbox_init_point']]);
     }
@@ -167,9 +161,9 @@ class SolicitudController extends Controller{
         
         //dd($request->all());
         $precio_total = 0;
-        $result = explode(",", $request->external_reference);
-        $id_usuario = $result[0];
-        $id_solicitud = $result[1];
+    
+        $id_solicitud = $request->external_reference;
+
 
         HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
 
@@ -184,7 +178,10 @@ class SolicitudController extends Controller{
         if($request->collection_status=='success'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
 
-            $id_solicitud
+            Solicitud::find($id_solicitud)->update([
+                                            'estatus_solicitud'             =>  3,
+                                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                                                    ]);
 /*
             $factura = Factura::create([
                                     "identificador_factura","0000001",
@@ -194,7 +191,47 @@ class SolicitudController extends Controller{
 */          
         };
 
-        return redirect('/compras');
+        return redirect('/contratos');
+    }
+
+    
+    public function respuestaContratarMercadopagoMovil(Request $request){
+        $mp = new MP(env('MP_APP_ID'),env('MP_APP_SECRET'));
+        
+        //dd($request->all());
+        $precio_total = 0;
+    
+        $id_solicitud = $request->external_reference;
+
+
+        HelperController::sendEmail("hsh283@gmail.com","homero Hernandez",'prueba', 'emails.prueba', ['response'=>$request]);
+
+        if($request->collection_status=='failure'){
+            Session::flash('mensaje', 'Pago rechazado, vuelve a intentarlo.');
+        };
+
+        if($request->collection_status=='pending'){
+            Session::flash('mensaje', 'Procesando su pago.');
+        };
+
+        if($request->collection_status=='success'){
+            Session::flash('mensaje', 'Pago Procesado exitosamente.');
+
+            Solicitud::find($id_solicitud)->update([
+                                            'estatus_solicitud'             =>  3,
+                                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
+                                                    
+                                                ]);
+
+            $factura = Factura::create([
+                                    "identificador_factura","0000001",
+
+                                    ]);
+            $compra->fill(['id_factura'=>$factura->id_factura]);
+
+        };
+
+        return redirect('/contratos');
     }
 
 

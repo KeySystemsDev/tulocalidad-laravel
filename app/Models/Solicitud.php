@@ -15,7 +15,8 @@ class Solicitud extends Model {
 						'texto_solicitud',
 						'texto_presupuesto_solicitud',
 						'fecha_vencimiento_solicitud',
-						'id_servicio'
+						'id_servicio',
+						'id_factura',
 						];
 
 	protected $primaryKey = "id_solicitud";

@@ -33,7 +33,7 @@ Route::get('/lista-empresas','ClientController@listarEmpresas');
 Route::get('/lista-productos','ClientController@listarProductos');
 Route::get('/lista-servicios','ClientController@listarServicios');
 Route::get('/comprar/mercadopago/respuesta-movil','ClientController@respuestaMercadopagoMovil');
-Route::get('/contratar/mercadopago/respuesta-movil','ClientController@respuestaContratarMercadopagoMovil');
+Route::get('/contratar/mercadopago/respuesta-movil','SolicitudController@respuestaContratarMercadopagoMovil');
 
 Route::get('/detalle-empresa/{id}','ClientController@DetalleEmpresa');
 Route::get('/detalle-producto/{id}','ClientController@DetalleProducto');

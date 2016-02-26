@@ -75,7 +75,7 @@
 							</td>
 						</tr>
 				
-						<tr ng-if="solicitud.estatus_solicitud == 2">
+						<tr ng-if="solicitud.estatus_solicitud != 1">
 							<td class="cart_product ceter">
 								Respuesta:
 							</td>

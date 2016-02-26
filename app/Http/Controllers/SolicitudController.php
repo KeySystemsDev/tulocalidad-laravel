@@ -146,14 +146,14 @@ class SolicitudController extends Controller{
     public function rechazarSolicitud($id_empresa, $id_solicitud, Request $request){
 
         $solicitud = Solicitud::find($id_solicitud);
-        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
+/*        if (\Carbon\Carbon::now() < $solicitud->fecha_vencimiento_solicitud ){
             $solicitud->update([
                             'estatus_solicitud'             =>5,
                             'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
                             ]);
             return json_encode(['success'=>false, 'msj'=>'solicitud vencida']);
         };
-
+*/
         $solicitud->update([
                         'estatus_solicitud'                 => 4,
                         'fecha_finalizado_solicitud'        => \Carbon\Carbon::now(),

@@ -336,6 +336,17 @@ class ApisController extends Controller {
         return json_encode(['success'=>true,]);
     }    
 
+    public function rechazarSolicitud($id_empresa, $id_solicitud, Request $request){
+
+        $solicitud = Solicitud::find($id_solicitud);
+
+        $solicitud->update([
+                        'estatus_solicitud'                 => 4,
+                        'fecha_finalizado_solicitud'        => \Carbon\Carbon::now(),
+                        ]);
+        return json_encode(['success'=>true,]);
+    }
+
     public function aceptarSolicitud($id_empresa, $id_solicitud, Request $request){
         $solicitud = Solicitud::find($id_solicitud);
         /*

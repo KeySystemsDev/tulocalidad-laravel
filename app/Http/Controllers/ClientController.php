@@ -261,7 +261,7 @@ class ClientController extends Controller {
                         "correo_electronico" => $request->correo_usuario,
                         "cedula_rif" => $request->rif_usuario,
                         ]);
-
+        dd($factura, $request);
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
@@ -303,7 +303,7 @@ class ClientController extends Controller {
 		$id_usuario = $result[0];
 		$id_empresa = $result[1];
 		$id_factura = $result[2];
-		dd($request->external_reference);
+
 		$carritos = Carrito::where('id_usuario',$id_usuario)
 							->where('id_empresa',$id_empresa);
 

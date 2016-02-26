@@ -426,6 +426,7 @@ class ApisController extends Controller {
                         ];                  
 
         $preference = $mp->create_preference($preference_data);
+        dd($preference);
         $factura->identificador_factura = $preference->id_preference;
         $factura->save();
         

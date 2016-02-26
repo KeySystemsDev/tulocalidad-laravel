@@ -107,7 +107,7 @@
 				</div>
 				<div class="modal-footer">
 					<a href="javascript:;" class="btn btn-danger btn-sm-carrito" data-dismiss="modal">Cerrar</a>
-					<button type="button" ng-click="submit(formulario.$valid)" class="btn btn-success btn-sm-carrito">Aceptar</button>
+					<button type="button" ng-click="submit_aceptar_solicitud(formulario.$valid)" class="btn btn-success btn-sm-carrito">Aceptar</button>
 				</div>
 			</form>
 		</div>

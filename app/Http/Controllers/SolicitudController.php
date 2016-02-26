@@ -197,7 +197,7 @@ class SolicitudController extends Controller{
                                         'Contratacion recibida', 
                                         'emails.factura_servicios', 
                                         ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
-
+            dd($solicitud, $vendedor);
             HelperController::sendEmail($vendedor->correo_usuario,
                                         $vendedor->correo_usuario,
                                         'Contratacion recibida', 

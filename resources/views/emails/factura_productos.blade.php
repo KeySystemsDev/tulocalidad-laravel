@@ -1,11 +1,11 @@
 <p>Ha realizado una compra</p>
 
 <p>Información de Proveedor</p>	
-<p>	Proveedor: $empresa->nombre_empresa</p>
-<p>	Rif: $empresa->rif_empresa</p>
-<p>	Correo eletrónico: $empresa->correo_empresa</p>
-<p>	Sitio web: $empresa->web_empresa</p>
-<p>	Dirección: $empresa->direccion_empresa</p>
+<p>	Proveedor: {{$empresa->nombre_empresa}}</p>
+<p>	Rif: {{$empresa->rif_empresa}}</p>
+<p>	Correo eletrónico: {{$empresa->correo_empresa}}</p>
+<p>	Sitio web: {{$empresa->web_empresa}}</p>
+<p>	Dirección: {{$empresa->direccion_empresa}}</p>
 
 <br>
 	<p>Articulos adquiridos:</p>

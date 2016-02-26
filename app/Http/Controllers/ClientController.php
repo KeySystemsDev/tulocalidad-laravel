@@ -348,9 +348,8 @@ class ClientController extends Controller {
 			$vendedor = User::find($empresa->id_usuario);
 			$comprador = User::find($compra->id_usuario);
 
-			$compra->fill(['id_factura'=>$id_factura]);
+			$compra->id_factura = $id_factura;
 		
-			
 			$compra->save();
 			HelperController::sendEmail($vendedor->correo_usuario,
 										$vendedor->correo_usuario,

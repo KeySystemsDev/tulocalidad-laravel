@@ -64,8 +64,8 @@ class LoginController extends Controller {
         $request['password'] = \Hash::make($request['password']);
         $user = User::create($request->all());
 
-        //$request['id_usuario'] = $user->id_usuario;
-        //Perfil::create($request->all());
+        $request['id_usuario'] = $user->id_usuario;
+        Perfil::create($request->all());
         Session::flash("mensaje","usuario registrado exitosamente");
         return redirect('/login');
 	}

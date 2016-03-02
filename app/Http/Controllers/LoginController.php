@@ -7,8 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use App\User;
-use App\Perfil;
-use App\Models\Perfils;
+use App\Models\Perfil;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {
@@ -65,8 +64,8 @@ class LoginController extends Controller {
         $request['password'] = \Hash::make($request['password']);
         $user = User::create($request->all());
 
-        $request['id_usuario'] = $user->id_usuario;
-        Perfil::create($request->all());
+        //$request['id_usuario'] = $user->id_usuario;
+        //Perfil::create($request->all());
         Session::flash("mensaje","usuario registrado exitosamente");
         return redirect('/login');
 	}

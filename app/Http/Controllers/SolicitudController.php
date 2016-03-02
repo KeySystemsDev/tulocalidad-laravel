@@ -10,6 +10,7 @@ use App\Models\Estado;
 use App\Models\Imagen;
 use App\User;
 use App\Models\Empresa;
+use App\Models\Factura;
 use App\Models\CategoriaProductos1;
 use App\Models\Solicitud;
 use Auth;

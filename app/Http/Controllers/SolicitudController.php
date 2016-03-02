@@ -193,11 +193,6 @@ class SolicitudController extends Controller{
             $solicitud->id_factura                    = $id_factura;
             $solicitud->save();
         
-            HelperController::sendEmail("hsh283@gmail.com",
-                                        "hsh283@gmail.com",
-                                        'Contratacion recibida', 
-                                        'emails.factura_servicios', 
-                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
             HelperController::sendEmail($vendedor->correo_usuario,
                                         $vendedor->correo_usuario,
                                         'Contratacion recibida', 

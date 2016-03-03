@@ -8,7 +8,9 @@ use Illuminate\Routing\Route;
 use App\Models\Producto;
 use App\Models\Estado;
 use App\Models\Imagen;
+use App\User;
 use App\Models\Empresa;
+use App\Models\Factura;
 use App\Models\CategoriaProductos1;
 use App\Models\Solicitud;
 use Auth;
@@ -73,7 +75,6 @@ class SolicitudController extends Controller{
         */
 
         $empresa = Empresa::find($id_empresa);
-        $solicitud = Solicitud::find($id_solicitud);
         $fields = array(
             'client_id' => env('MP_APP_ID', ''),
             'client_secret' => env('MP_APP_SECRET', ''),
@@ -129,7 +130,7 @@ class SolicitudController extends Controller{
                                 'email'=>Auth::user()->correo_usuario,
 
                             ],
-                            'external_reference'=>$request->id_solicitud.",".$factura->id_factura,
+                            'external_reference'=>$id_solicitud.",".$factura->id_factura.",".$id_empresa,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 
@@ -171,6 +172,7 @@ class SolicitudController extends Controller{
         $result = explode(",", $request->external_reference);
         $id_solicitud = $result[0];
         $id_factura = $result[1];
+        $id_empresa = $result[2];
 
 
         if($request->collection_status=='failure'){
@@ -183,13 +185,29 @@ class SolicitudController extends Controller{
 
         if($request->collection_status=='approved'){
             Session::flash('mensaje', 'Pago Procesado exitosamente.');
+            $empresa = Empresa::find($id_empresa);
+            $solicitud = Solicitud::find($id_solicitud);
+            $vendedor = User::find($empresa->id_usuario);
+            $solicitud->estatus_solicitud             =  3;
+            $solicitud->fecha_finalizado_solicitud    =  \Carbon\Carbon::now();
+            $solicitud->id_factura                    = $id_factura;
+            $solicitud->save();
+        
+            HelperController::sendEmail($vendedor->correo_usuario,
+                                        $vendedor->correo_usuario,
+                                        'Contratacion recibida', 
+                                        'emails.factura_servicios', 
+                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
 
-            Solicitud::find($id_solicitud)->update([
-                                            'estatus_solicitud'             =>  3,
-                                            'fecha_finalizado_solicitud'    => \Carbon\Carbon::now(),
-                                            'id_factura'                    => $id_factura,
-                                                    ]);
+            HelperController::sendEmail($solicitud->factura->correo_electronico,
+                                        $solicitud->factura->correo_electronico,
+                                        'Contratacion realizada', 
+                                        'emails.factura_servicios', 
+                                        ['solicitud'=>$solicitud, 'empresa'=>$empresa]);
+
+
 /*
+
             $factura = Factura::create([
                                     "identificador_factura","0000001",
 

@@ -270,6 +270,15 @@ class ApisController extends Controller {
 							->where('id_usuario',$request->id_usuario)
 							->get();
 		
+        $factura = Factura::create([
+                        "a_nombre_de" =>$request->nombre_usuario,
+                        "direccion_fiscal" => $request->direccion_usuario,
+                        "telefono" => $request->telefono_usuario,
+                        "correo_electronico" => $request->correo_usuario,
+                        "cedula_rif" => $request->rif_usuario,
+                        ]);
+
+
 		$preference_data=[	
 							'items'=>[],
 							'back_urls'=>[
@@ -277,7 +286,7 @@ class ApisController extends Controller {
 								'pending'=>url('comprar/mercadopago/respuesta-movil/'),
 								'failure'=>url('comprar/mercadopago/respuesta-movil/'),
 							],
-							'external_reference'=>$request->id_usuario.",".$request->id_empresa,
+							'external_reference'=>$request->id_usuario.",".$request->id_empresa.",".$factura->id_factura,
 							'collector_id'=>intval($response->user_id),
 							'notification_url'=>url('/mp/notificaciones'),
 						];					
@@ -294,6 +303,9 @@ class ApisController extends Controller {
 			array_push($preference_data['items'],$articulo_data);
 		};
 		$preference = $mp->create_preference($preference_data);
+        $factura->identificador_factura = $preference['response']['id'];
+        $factura->save();
+		
 		return json_encode(['success' => 'true','redirect'=>$preference['response']['sandbox_init_point']]);
 	}
 
@@ -410,7 +422,7 @@ class ApisController extends Controller {
                                 'email'=>$request->correo_usuario,
 
                             ],
-                            'external_reference'=>$id_solicitud.",".$factura->id_factura,
+                            'external_reference'=>$id_solicitud.",".$factura->id_factura.",".$id_empresa,
                             'collector_id'=>intval($response->user_id),
                     //      'notification_url'=>'http://www.test-tulocalidad.com.ve/mp',
 

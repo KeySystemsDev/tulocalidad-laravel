@@ -7,8 +7,7 @@ use Auth;
 use Session;
 use Redirect;
 use App\User;
-use App\Perfil;
-use App\Models\Perfils;
+use App\Models\Perfil;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller {

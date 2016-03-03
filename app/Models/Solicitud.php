@@ -37,11 +37,15 @@ class Solicitud extends Model {
 
 	public $timestamps = false;
 
-	protected $appends = ['servicio'];
+	protected $appends = ['servicio','factura'];
 
 
 	public function getServicioAttribute(){
 		return Servicio::find($this->id_servicio);
+	}
+
+	public function getFacturaAttribute(){
+		return Factura::find($this->id_factura);
 	}
 
 	public function getFechaCreacionSolicitudAttribute(){

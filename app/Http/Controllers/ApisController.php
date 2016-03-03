@@ -314,7 +314,7 @@ class ApisController extends Controller {
 	public function listaCompras($id_usuario){
 		$compras =  Compras::where('habilitado_compra',1)
 							->where('id_usuario',$id_usuario)
-							->orderBy('id_compras', 'desc')
+							->orderBy('id_compra', 'desc')
 							->get();
 		return json_encode(['success'=>'true',
 							'data'=>$compras

@@ -362,7 +362,7 @@ class ClientController extends Controller {
 										['compra'=>$compra, 'empresa'=>$empresa]);		
 		};
 
-		return redirect('/compras');
+		return redirect('/');
 	}
 
 	public function respuestaMercadopagoMovil(Request $request){

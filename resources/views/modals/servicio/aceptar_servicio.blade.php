@@ -22,21 +22,7 @@
                         <input type="hidden" name="id_empresa" ng-value="id_empresa">
                     </div>
 
-					<div class="form-group">
-                        <label class="col-md-4 control-label">¿Con factura fiscal?</label>
-                        <div class="col-md-5">
-                            <label class="radio-inline">
-                                <input type="radio" name="check_con_factura" ng-model="check" value="1">
-                                si
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="check_sin_factura" ng-model="check" value="0" checked="checked">
-                                no
-                            </label>
-                        </div>
-                    </div>
-
-					<div ng-if="check==1">
+					<div>
 
 						<div class="form-group">
 		                    <label class="col-md-6 control-label">Datos de Facturación</label>

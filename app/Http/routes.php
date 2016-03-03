@@ -100,8 +100,10 @@ $router->group(['middleware' => 'auth'], function() {
 	Route::post('/favoritos/eliminar','ClientController@eliminarFavorito');
 	
 
-});
+	Route::get('/comprar/mercadopago/respuesta', 'ClientController@respuestaCompra');
+	Route::get('/contratar/mercadopago/respuesta', 'SolicitudController@respuestaContrato');
 
+});
 
 //APIS
 Route::group( [ 'prefix' => 'API' ], function ()

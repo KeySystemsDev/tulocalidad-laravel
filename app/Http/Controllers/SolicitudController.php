@@ -198,7 +198,7 @@ class SolicitudController extends Controller{
 */          
         };
 
-        return redirect('/contratos');
+        return redirect('/');
     }
 
     
